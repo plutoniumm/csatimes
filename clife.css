@@ -1,0 +1,18 @@
+@font-face {
+  font-family:'SF Compact Display';
+  font-style:normal;
+  font-weight:300;
+  src: url("../SFCompactDisplay.ttf") format("truetype");
+}
+
+*{
+  font-family: 'SF Compact Display';
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.main {
+  width:75vw;
+  margin:0 auto;
+  height: auto; /*Card Height */
+}
