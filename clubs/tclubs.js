@@ -200,7 +200,7 @@ PORs: [
       Phone: "+91 97659 32623",
       Email: "f20170572@goa.bits-pilani.ac.in"
       }]},
-      {Name: "SAE",
+      {Name: "Society of Automotive Engineers",
       Logo:"./tclubs/sae/logo.png",
       Founded:"2012 as Automobile Club, Reimagined: 2014",
       Description:"SAE (Society of Automotive Engineers) is a collegiate club of BITS Pilani - K.K. Birla Goa Campus. The club consists of two teams that participate in the events namely SAEINDIA SUPRA & Formula Bharat and SAEINDIA BAJA. SUPRA (SUPer RAcing)is held in Buddh International Circuit, Greater Noida in the month of June. Recently a new team has been established that will take partin SAE Aero events from the coming year. The teams manufacture a formula type car and an off road vehicle respectively. The club also designs its own t-shirts that is available for everyone on the campus. Due to frequent interactions in the corporate world, the club also organises for various guest lectures, workshops that help students to get an idea of the corporate world.",
