@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import DashboardCharts from './DashboardCharts'
 import DashboardInfoBlock from './DashboardInfoBlock'
 import DashboardTable from './DashboardTable'
 import DashboardTabs from './DashboardTabs'
@@ -27,7 +26,7 @@ import DashboardTabs from './DashboardTabs'
 export default {
   name: 'dashboard',
   components: {
-    DashboardCharts,
+
     DashboardInfoBlock,
     DashboardTable,
     DashboardTabs,
