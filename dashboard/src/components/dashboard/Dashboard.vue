@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style lang="scss">
+  body {
+    background-color: grey;
+  }
+
   .row-equal .flex {
     .va-card {
       height: 100%;
