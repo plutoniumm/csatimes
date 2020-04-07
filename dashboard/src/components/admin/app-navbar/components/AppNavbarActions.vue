@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import LanguageDropdown from './dropdowns/LanguageDropdown'
 import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
-import MessageDropdown from './dropdowns/MessageDropdown'
 import ColorDropdown from './dropdowns/ColorDropdown'
 import SettingsDropdown from './dropdowns/SettingsDropdown'
 import { ColorThemeMixin } from '../../../../services/vuestic-ui'
@@ -30,9 +28,7 @@ export default {
   components: {
     SettingsDropdown,
     ColorDropdown,
-    MessageDropdown,
     NotificationDropdown,
-    LanguageDropdown,
     ProfileDropdown,
   },
   props: {

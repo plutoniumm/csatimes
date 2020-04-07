@@ -73,8 +73,7 @@
     "verticalBarChart": "Vertical Bar Chart",
     "lineChart": "Line Chart",
     "pieChart": "Pie Chart",
-    "donutChart": "Donut Chart",
-    "bubbleChart": "Bubble Chart"
+    "donutChart": "Donut Chart"
   },
   "collapse": {
     "basic": "Basic Collapse",
@@ -274,11 +273,7 @@
     "poweredBy": "Powered by"
   },
   "language": {
-    "brazilian_portuguese": "Português",
-    "english": "English",
-    "spanish": "Spanish",
-    "simplified_chinese": "Simplified Chinese",
-    "persian": "Persian"
+    "english": "English"
   },
   "menu": {
     "auth": "Auth",
@@ -297,7 +292,6 @@
     "cards": "Cards",
     "spinners": "Spinners",
     "login": "Login",
-    "maps": "Maps",
     "pages": "Pages",
     "modals": "Modals",
     "notifications": "Notifications",
@@ -307,7 +301,6 @@
     "lists": "Lists",
     "tables": "Tables",
     "markupTables": "Markup Tables",
-    "dataTables": "Data Tables",
     "chips": "Chips",
     "tabs": "Tabs",
     "typography": "Typography",

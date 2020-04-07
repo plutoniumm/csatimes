@@ -56,7 +56,6 @@
 
 <script>
 import countriesList from '@/data/CountriesList'
-import { getLineMapData } from '../../../data/maps/LineMapData'
 
 export default {
   name: 'billing-address-tab',
@@ -93,9 +92,6 @@ export default {
     },
   },
   computed: {
-    citiesList () {
-      return getLineMapData(this.$themes).cities.map(({ title, country }) => ({ text: title, country }))
-    },
     countriesList () {
       return countriesList.filter(item => this.citiesList.filter(({ country }) => country === item).length)
     },

@@ -138,12 +138,6 @@ export default new Router({
               component: () => import('../components/markup-tables/MarkupTables.vue'),
               wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
             },
-            {
-              name: 'data',
-              path: 'data',
-              component: () => import('../components/data-tables/DataTables.vue'),
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Add docs
-            },
           ],
         },
         {
@@ -322,53 +316,6 @@ export default new Router({
               component: () => import('../components/lists/Lists.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
-              },
-            },
-          ],
-        },
-        {
-          name: 'maps',
-          path: 'maps',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: 'google-maps',
-              path: 'google-maps',
-              component: () => import('../components/maps/google-maps/GoogleMapsPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-              },
-            },
-            {
-              name: 'yandex-maps',
-              path: 'yandex-maps',
-              component: () => import('../components/maps/yandex-maps/YandexMapsPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-              },
-            },
-            {
-              name: 'leaflet-maps',
-              path: 'leaflet-maps',
-              component: () => import('../components/maps/leaflet-maps/LeafletMapsPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-              },
-            },
-            {
-              name: 'bubble-maps',
-              path: 'bubble-maps',
-              component: () => import('../components/maps/bubble-maps/BubbleMapsPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-              },
-            },
-            {
-              name: 'line-maps',
-              path: 'line-maps',
-              component: () => import('../components/maps/line-maps/LineMapsPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
             },
           ],
