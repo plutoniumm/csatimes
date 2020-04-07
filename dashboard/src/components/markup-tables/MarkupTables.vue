@@ -1,31 +1,5 @@
 <template>
   <div class="markup-tables">
-    <va-card :title="$t('tables.basic')" class="mb-2">
-      <table class="va-table">
-        <thead>
-          <tr>
-            <th>{{ $t('tables.headings.name') }}</th>
-            <th>{{ $t('tables.headings.email') }}</th>
-            <th>{{ $t('tables.headings.country') }}</th>
-            <th>{{ $t('tables.headings.status') }}</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr v-for="user in users" :key="user.id">
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.country }}</td>
-            <td>
-              <va-badge :color="getStatusColor(user.status)">
-                {{ user.status }}
-              </va-badge>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </va-card>
-
     <va-card :title="$t('tables.stripedHoverable')">
       <table class="va-table va-table--striped va-table--hoverable">
         <thead>

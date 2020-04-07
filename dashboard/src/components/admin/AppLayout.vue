@@ -10,7 +10,7 @@
       :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
-   <app-topbar
+    <app-topbar
       class="app-layout__topbar"
       v-if="isTopBar"
     />
@@ -31,7 +31,7 @@
         >
           <router-view/>
         </main>
-      </div> 
+      </div>
     </div>
   </app-page-layout>
 </template>

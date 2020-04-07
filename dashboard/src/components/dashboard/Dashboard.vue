@@ -23,7 +23,6 @@ import DashboardCharts from './DashboardCharts'
 import DashboardInfoBlock from './DashboardInfoBlock'
 import DashboardTable from './DashboardTable'
 import DashboardTabs from './DashboardTabs'
-import DashboardMap from './DashboardMap'
 
 export default {
   name: 'dashboard',
@@ -32,7 +31,6 @@ export default {
     DashboardInfoBlock,
     DashboardTable,
     DashboardTabs,
-    DashboardMap,
   },
   methods: {
     addAddressToMap ({ city, country }) {

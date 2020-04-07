@@ -48,22 +48,11 @@
         </va-card>
       </div>
     </div>
-    <div class="row">
-      <div class="flex md12 xs12">
-        <va-card
-          class="chart-widget"
-          :title="$t('charts.bubbleChart')"
-        >
-          <va-chart :data="bubbleChartData" type="bubble"/>
-        </va-card>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import { getLineChartData } from '../../../data/charts/LineChartData'
-import { getBubbleChartData } from '../../../data/charts/BubbleChartData'
 import { getPieChartData } from '../../../data/charts/PieChartData'
 import { getDonutChartData } from '../../../data/charts/DonutChartData'
 import { getVerticalBarChartData } from '../../../data/charts/VerticalBarChartData'
@@ -73,7 +62,6 @@ export default {
   name: 'charts',
   data () {
     return {
-      bubbleChartData: getBubbleChartData(this.$themes),
       lineChartData: getLineChartData(this.$themes),
       pieChartData: getPieChartData(this.$themes),
       donutChartData: getDonutChartData(this.$themes),
