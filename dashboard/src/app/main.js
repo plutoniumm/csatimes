@@ -11,7 +11,6 @@ import router from '../router/index'
 import VueMoment from 'vue-moment'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
-import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
 
 import '../metrics'
@@ -28,7 +27,6 @@ if (process.env.VUE_APP_BUILD_VERSION) {
 }
 
 Vue.use(VuesticPlugin)
-Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 Vue.use(VueMoment)
 

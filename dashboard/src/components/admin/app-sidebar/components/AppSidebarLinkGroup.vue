@@ -66,7 +66,7 @@ export default {
     children: Array,
     color: {
       type: String,
-      default: 'dimgrey',
+      default: '#303030',
     },
   },
   components: {

@@ -57,7 +57,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'dimgrey',
+      default: '#404040',
     },
   },
   data () {
@@ -73,7 +73,6 @@ export default {
     },
     computedStyle () {
       return {
-        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed,
       }
     },
   },

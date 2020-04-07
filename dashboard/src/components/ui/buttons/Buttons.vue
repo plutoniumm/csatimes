@@ -131,7 +131,7 @@
             <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button outline small color="danger" icon="maki maki-art-gallery"> First</va-button>
-                <va-button outline small color="danger"> Second</va-button>
+                <va-button outline small color=""> Second</va-button>
                 <va-button outline small color="danger"> Third</va-button>
               </va-button-group>
             </div>
