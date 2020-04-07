@@ -7,28 +7,25 @@
       <div class="app-navbar__menu-container">
         <va-icon-menu
           class="app-navbar__menu"
-          v-if="!minimized && !isTopBar"
+          v-if="!minimized"
           @click.native="$emit('update:minimized', !minimized)"
-          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
         />
 
         <va-icon-menu-collapsed
           class="app-navbar__menu"
-          v-if="minimized && !isTopBar"
+          v-if="minimized"
           @click.native="$emit('update:minimized', !minimized)"
-          :color="contextConfig.invertedColor ? $themes.gray : 'White'"
-        /><span :color="contextConfig.invertedColor ? 'Black' : 'White'">Council for Student Affairs</span>
+        /><span style="color: white;">Council for Student Affairs</span>
       </div>
       <div class="app-navbar__center lg5 md4">
         <span
           class="app-navbar__text"
-          :style="{color: contextConfig.invertedColor ? 'Black' : 'White'}"
+          :style="{color: 'White'}"
         >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
       </div>
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
         :user-name="userName"
-        :is-top-bar.sync="isTopBarProxy"
       />
     </div>
     <div
@@ -54,10 +51,6 @@ export default {
     AppNavbarActions,
   },
   props: {
-    isTopBar: {
-      type: Boolean,
-      required: true,
-    },
     minimized: {
       type: Boolean,
       required: true,
@@ -69,14 +62,6 @@ export default {
     }
   },
   computed: {
-    isTopBarProxy: {
-      get () {
-        return this.isTopBar
-      },
-      set (isTopBar) {
-        this.$emit('update:isTopBar', isTopBar)
-      },
-    },
     minimizedProxy: {
       get () {
         return this.minimized
@@ -95,10 +80,6 @@ export default {
           s: -13,
           l: 15,
         }).css
-      }
-
-      if (this.contextConfig.shadow === 'sm') {
-        style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
       }
       return style
     },
@@ -140,10 +121,6 @@ $nav-border-side-width: 3.1875rem;
     margin-left: 3rem;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__text {
-    color: $lighter-gray;
   }
 
   &__menu {
