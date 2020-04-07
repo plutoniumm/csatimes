@@ -57,7 +57,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'secondary',
+      default: 'dimgrey',
     },
   },
   data () {

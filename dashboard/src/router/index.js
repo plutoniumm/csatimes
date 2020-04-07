@@ -138,11 +138,6 @@ export default new Router({
           component: EmptyParentComponent,
           children: [
             {
-              name: 'typography',
-              path: 'typography',
-              component: () => import('../components/ui/typography/Typography.vue'),
-            },
-            {
               name: 'buttons',
               path: 'buttons',
               component: () => import('../components/ui/buttons/Buttons'),
@@ -156,14 +151,6 @@ export default new Router({
               component: () => import('../components/ui/rating/Rating'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
-              },
-            },
-            {
-              name: 'color-pickers',
-              path: 'color-pickers',
-              component: () => import('../components/ui/color-pickers/ColorPickers'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers',
               },
             },
             {
@@ -240,14 +227,6 @@ export default new Router({
               },
             },
             {
-              name: 'chips',
-              path: 'chips',
-              component: () => import('../components/ui/chips/Chips'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
-              },
-            },
-            {
               name: 'tree-view',
               path: 'tree-view',
               component: () => import('../components/ui/tree-view/TreeView'),
@@ -264,34 +243,11 @@ export default new Router({
               component: () => import('../components/ui/collapse/Collapses'),
             },
             {
-              name: 'colors',
-              path: 'colors',
-              component: () => import('../components/ui/colors/Colors'),
-            },
-            {
-              name: 'spacing',
-              path: 'spacing',
-              component: () => import('../components/ui/spacing/Spacing'),
-            },
-            {
               name: 'sliders',
               path: 'sliders',
               component: () => import('../components/ui/sliders/Sliders'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
-              },
-            },
-            {
-              name: 'popovers',
-              path: 'popovers',
-              component: () => import('../components/ui/popovers/Popovers'),
-            },
-            {
-              name: 'chat',
-              path: 'chatPage',
-              component: () => import('../components/ui/chat/ChatPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
               },
             },
             {

@@ -77,24 +77,8 @@ export const navigationRoutes = {
           displayName: 'menu.cards',
         },
         {
-          name: 'chat',
-          displayName: 'menu.chat',
-        },
-        {
-          name: 'chips',
-          displayName: 'menu.chips',
-        },
-        {
           name: 'collapses',
           displayName: 'menu.collapses',
-        },
-        {
-          name: 'colors',
-          displayName: 'menu.colors',
-        },
-        {
-          name: 'color-pickers',
-          displayName: 'menu.colorPickers',
         },
         {
           name: 'file-upload',
@@ -127,20 +111,12 @@ export const navigationRoutes = {
           displayName: 'menu.notifications',
         },
         {
-          name: 'popovers',
-          displayName: 'menu.popovers',
-        },
-        {
           name: 'rating',
           displayName: 'menu.rating',
         },
         {
           name: 'sliders',
           displayName: 'menu.sliders',
-        },
-        {
-          name: 'spacing',
-          displayName: 'menu.spacing',
         },
         {
           name: 'spinners',
@@ -157,10 +133,6 @@ export const navigationRoutes = {
         {
           name: 'tree-view',
           displayName: 'menu.treeView',
-        },
-        {
-          name: 'typography',
-          displayName: 'menu.typography',
         },
       ],
     },

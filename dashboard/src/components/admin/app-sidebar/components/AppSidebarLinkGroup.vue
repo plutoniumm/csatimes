@@ -66,7 +66,7 @@ export default {
     children: Array,
     color: {
       type: String,
-      default: 'secondary',
+      default: 'dimgrey',
     },
   },
   components: {
@@ -118,7 +118,7 @@ export default {
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+          backgroundColor: colorShiftHsl(this.$themes.dimgrey, { s: -13, l: 15 }).css,
           borderColor: this.isActive ? this.$themes.primary : 'transparent',
         }
       }

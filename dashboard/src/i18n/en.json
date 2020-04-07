@@ -27,7 +27,7 @@
   },
   "typography": {
     "primary": "Primary text styles",
-    "secondary": "Secondary text styles"
+    "dimgrey": "dimgrey text styles"
   },
   "colorPickers": {
     "simple": "Simple",
@@ -493,7 +493,7 @@
       "review": "Review",
       "feedback": "Leave feedback",
       "readFull": "Read full article",
-      "secondaryAction": "Secondary action",
+      "dimgreyAction": "dimgrey action",
       "action1": "Action 1",
       "action2": "Action 2"
     }

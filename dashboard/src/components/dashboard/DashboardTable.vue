@@ -32,7 +32,7 @@
       hoverable
     >
       <template slot="icon">
-        <va-icon name="fa fa-user" color="secondary" />
+        <va-icon name="fa fa-user" color="dimgrey" />
       </template>
       <template v-slot:starred="props">
         <va-icon

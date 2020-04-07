@@ -8,7 +8,7 @@ export const AvailableColorThemes = [
     name: ColorThemes.DARK,
     themes: {
       primary: '#40e583',
-      secondary: '#000000',
+      dimgrey: '#000000',
       success: '#40e583',
       info: '#2c82e0',
       danger: '#e34b4a',

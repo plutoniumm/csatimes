@@ -76,7 +76,7 @@ export default {
       }
 
       if (this.contextConfig.gradient) {
-        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
+        style.backgroundColor = colorShiftHsl(this.$themes.dimgrey, {
           s: -13,
           l: 15,
         }).css
@@ -86,7 +86,7 @@ export default {
 
     shapeStyle () {
       return {
-        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.dimgrey, {
           h: -1,
           s: -11,
           l: 10,

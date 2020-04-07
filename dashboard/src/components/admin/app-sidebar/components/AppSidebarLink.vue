@@ -100,7 +100,7 @@ export default {
       }
 
       if (this.isHovered || this.isActive) {
-        style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+        style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.dimgrey, {
           s: -13,
           l: 15,
         }).css : this.$themes.primary
