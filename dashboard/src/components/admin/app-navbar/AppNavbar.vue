@@ -16,22 +16,14 @@
           class="app-navbar__menu"
           v-if="minimized && !isTopBar"
           @click.native="$emit('update:minimized', !minimized)"
-          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
-        />
-
-        <router-link
-          class="app-navbar__logo mr-3"
-          to="/"
-        >
-          <va-icon-vuestic />
-        </router-link>
+          :color="contextConfig.invertedColor ? $themes.gray : 'White'"
+        /><span :color="contextConfig.invertedColor ? 'Black' : 'White'">Council for Student Affairs</span>
       </div>
       <div class="app-navbar__center lg5 md4">
         <span
           class="app-navbar__text"
-          :style="{color: this.$themes.gray}"
-        >Council for Student Affairs
-        </span>
+          :style="{color: contextConfig.invertedColor ? 'Black' : 'White'}"
+        >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
       </div>
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
@@ -47,7 +39,6 @@
 </template>
 
 <script>
-import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import VaIconMenu from '../../../iconset/VaIconMenu'
 import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
@@ -58,7 +49,6 @@ export default {
   mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
-    VaIconVuestic,
     VaIconMenu,
     VaIconMenuCollapsed,
     AppNavbarActions,

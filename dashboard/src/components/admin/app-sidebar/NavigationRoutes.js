@@ -20,10 +20,6 @@ export const navigationRoutes = {
       disabled: true,
       children: [
         {
-          name: 'charts',
-          displayName: 'menu.charts',
-        },
-        {
           name: 'progress-bars',
           displayName: 'menu.progressBars',
         },

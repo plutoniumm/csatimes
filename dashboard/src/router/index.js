@@ -87,14 +87,6 @@ export default new Router({
           component: EmptyParentComponent,
           children: [
             {
-              name: 'charts',
-              path: 'charts',
-              component: () => import('../components/statistics/charts/Charts.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts',
-              },
-            },
-            {
               name: 'progress-bars',
               path: 'progress-bars',
               component: () => import('../components/statistics/progress-bars/ProgressBars.vue'),

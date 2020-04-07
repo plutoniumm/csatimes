@@ -17,8 +17,6 @@
 <script>
 import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
-import ColorDropdown from './dropdowns/ColorDropdown'
-import SettingsDropdown from './dropdowns/SettingsDropdown'
 import { ColorThemeMixin } from '../../../../services/vuestic-ui'
 
 export default {
@@ -26,8 +24,6 @@ export default {
   mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
-    SettingsDropdown,
-    ColorDropdown,
     NotificationDropdown,
     ProfileDropdown,
   },

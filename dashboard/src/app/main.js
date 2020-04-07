@@ -8,6 +8,7 @@ import App from './App'
 import { ColorThemePlugin } from '../services/vuestic-ui'
 import store from '../store/index'
 import router from '../router/index'
+import VueMoment from 'vue-moment'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
 import YmapPlugin from 'vue-yandex-maps'
@@ -29,6 +30,7 @@ if (process.env.VUE_APP_BUILD_VERSION) {
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
+Vue.use(VueMoment)
 
 Vue.use(ColorThemePlugin, {
   // override colors here.
