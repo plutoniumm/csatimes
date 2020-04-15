@@ -154,5 +154,19 @@ export const navigationRoutes = {
         },
       ],
     },
+    {
+      name: 'csa',
+      displayName: 'CSA',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'developers',
+      displayName: 'Developers',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
   ],
 }

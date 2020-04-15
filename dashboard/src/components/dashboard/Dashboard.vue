@@ -142,7 +142,6 @@ export default {
     },
   },
 
-  name: 'timelines',
   data () {
     return {
       // dateFirst: '',
@@ -177,7 +176,7 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: AuthStr },
+        headers: { token: 'AuthStr' },
       })
       .then(response => {
         (this.start1 = response.en.reverse()[0].start),

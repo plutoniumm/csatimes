@@ -280,6 +280,17 @@ export default new Router({
             },
           ],
         },
+        {
+          name: 'csa',
+          path: 'csa',
+          component: () => import('../components/csa/csa.vue'),
+        },
+        {
+          name: 'developers',
+          path: 'developers',
+          component: () => import('../components/developers/developers.vue'),
+          default: true,
+        },
       ],
     },
   ],
