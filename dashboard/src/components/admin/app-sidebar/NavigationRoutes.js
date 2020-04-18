@@ -155,6 +155,27 @@ export const navigationRoutes = {
       ],
     },
     {
+      name: 'pr',
+      displayName: 'PR',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'campus',
+      displayName: 'Campus Life',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'imp',
+      displayName: 'Important Links',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
       name: 'csa',
       displayName: 'CSA',
       meta: {

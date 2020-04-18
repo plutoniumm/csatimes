@@ -5,7 +5,7 @@
       <template>
         <va-card class="flex xs12">
           <span class="heading">Developers</span>
-          <div class="flex xs12 sm6 lg4 xl3 offset--md4">
+          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
             <va-card>
               <h1>Backend</h1>
               <p>Sarvesh</p>
@@ -13,7 +13,7 @@
               <p>Arpit</p>
             </va-card>
           </div>
-          <div class="flex xs12 sm6 lg4 xl3 offset--md4">
+          <div class="flex xs12 sm6 lg4 xl3 row" style="display: inline-block;">
             <va-card>
               <h2>CSA App Frontend</h2>
               <p>Nipun</p>
@@ -26,14 +26,14 @@
             </va-card>
           </div>
           <!-- <h2 style="display: flex; justify-content: center;">WEB</h2> -->
-          <div class="flex xs12 sm6 lg4 xl3 offset--md4">
+          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
             <va-card>
               <h2>WEB</h2>
               <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
               <h2>Manav Sekseria</h2>
             </va-card>
           </div>
-          <div class="flex xs12 sm6 lg4 xl3 offset--md4">
+          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
             <va-card>
               <h2>WEB</h2>
               <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
