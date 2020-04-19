@@ -20,15 +20,15 @@
                     <div
                       class="title text--center"
                       :style="{color: $themes.primary}"
-                    >{{ start1 }} Sample date</div>
+                    >{{ start1 }}</div>
                   </template>
                   <va-card slot="after" stripe="warning" class="mb-0">
                     <template slot="title">{{ start1 }}</template>
                     <va-accordion>
                       <va-collapse>
-                        <span slot="header">{{ name1 }} Sample name</span>
+                        <div><span slot="header">{{ name1 }}</span></div>
                         <div slot="body">
-                          <div>{{ summary1 }} Sample content</div>
+                          <div>{{ summary1 }}</div>
                         </div>
                       </va-collapse>
                     </va-accordion>
@@ -50,7 +50,7 @@
                     </va-accordion>
                   </va-card>
                 </va-timeline-item>
-                <va-timeline-item active>
+                <!-- <va-timeline-item active>
                   <template slot="before">
                     <div class="title text--center" :style="{color: $themes.primary}">{{ start3 }}</div>
                   </template>
@@ -97,7 +97,7 @@
                       </va-collapse>
                     </va-accordion>
                   </va-card>
-                </va-timeline-item>
+                </va-timeline-item> -->
               </va-timeline>
             </va-card>
           </div>
@@ -176,24 +176,28 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: 'AuthStr' },
+        headers: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0wMVQxMjo1ODozMy40NjFaIiwiaWF0IjoxNTg1NzQ2MjAxfQ.T4y7ZdgybRiKdDcIBUid0brrPEaMvhPbZVWmGzc9kWM' },
       })
       .then(response => {
-        (this.start1 = response.en.reverse()[0].start),
-        (this.summary1 = response.en.reverse()[0].summary),
-        (this.start2 = response.en.reverse()[1].start),
-        (this.summary2 = response.en.reverse()[1].summary),
-        (this.start3 = response.en.reverse()[2].start),
-        (this.summary3 = response.en.reverse()[2].summary),
-        (this.start4 = response.en.reverse()[3].start),
-        (this.summary4 = response.en.reverse()[3].summary),
-        (this.start5 = response.en.reverse()[4].start),
-        (this.summary5 = response.en.reverse()[4].summary),
-        (this.name1 = response.en.reverse()[0].name),
-        (this.name2 = response.en.reverse()[1].name),
-        (this.name3 = response.en.reverse()[2].name),
-        (this.name4 = response.en.reverse()[3].name),
-        (this.name5 = response.en.reverse()[4].name)
+        this.start1 = response.data.en[0].start
+        this.summary1 = response.data.en[0].summary
+        this.name1 = response.data.en[0].name
+        this.start2 = response.data.en[1].start
+        this.summary2 = response.data.en[1].summary
+        this.name2 = response.data.en[1].name
+        this.start3 = response.data.en[2].start
+        this.summary3 = response.data.en[2].summary
+        this.name3 = response.data.en[2].name
+        this.start4 = response.data.en[3].start
+        this.summary4 = response.data.en[3].summary
+        this.name4 = response.data.en[3].name
+        this.start5 = response.data.en[4].start
+        this.summary5 = response.data.en[4].summary
+        this.name5 = response.data.en[4].name
+        // (for(let i=0;i<5:i++)
+        //   {this.name[i]=response.data.en.reverse()[i].name),
+        //   this.start[i]=response.data.en.reverse()[i].start),
+        //   this.summary[i]=response.data.en.reverse()[i].summary)})
       })
   },
 }

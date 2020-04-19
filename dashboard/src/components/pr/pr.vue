@@ -4,18 +4,27 @@
       <div class="flex xs12">
         <va-card :title="$t('PR Drive')">
           <form>
-            <div class="row">
-              <div class="flex md4 sm6 xs12">
-                <va-input
-                  v-model="simple"
-                  placeholder=""
-                />
-              </div>
+            <div>
               <div class="flex md4 sm6 xs12">
                 <va-input
                   v-model="withDescription"
-                  placeholder="Text Input (with description)"
-                  :messages="messages"
+                  placeholder="Enter the scanned QR code here"
+                />
+                <br>
+                <va-checkbox
+                  :label="$t('Do you want a nick?')"
+                  v-model="checkbox"
+                />
+                <va-input
+                  v-model="withDescription"
+                  placeholder="Enter nick here"
+                />
+                <br>
+                <va-select
+                  :label="$t('Choose Size')"
+                  v-model="simpleSelectModel"
+                  textBy="description"
+                  :options="simpleOptions"
                 />
               </div>
             </div>
@@ -27,15 +36,13 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'form-elements',
   data () {
     return {
       withDescription: '',
-      messages: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
-        'incididunt ut labore et dolore magna aliqua.'],
       simpleOptions: [
         {
           id: 1,
@@ -50,14 +57,16 @@ export default {
           description: 'Third option',
         },
       ],
+      simpleSelectModel: '',
+      checkbox: false,
     }
   },
   methods: {
   },
-  mounted() {
-      axios
+  mounted () {
+    axios
       .get()
-  }
+  },
 }
 </script>
 
