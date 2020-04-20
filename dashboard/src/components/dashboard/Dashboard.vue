@@ -50,7 +50,7 @@
                     </va-accordion>
                   </va-card>
                 </va-timeline-item>
-                <!-- <va-timeline-item active>
+                <va-timeline-item active>
                   <template slot="before">
                     <div class="title text--center" :style="{color: $themes.primary}">{{ start3 }}</div>
                   </template>
@@ -66,7 +66,7 @@
                     </va-accordion>
                   </va-card>
                 </va-timeline-item>
-                <va-timeline-item active>
+                <!-- <va-timeline-item active>
                   <template slot="before">
                     <div class="title text--center" :style="{color: $themes.primary}">{{ start4 }}</div>
                   </template>
@@ -120,6 +120,48 @@
         </div>
       </div>
     </div>
+
+    <div class="form-elements">
+      <div class="row">
+        <div class="flex xs12">
+          <va-card :title="$t('PR Drive')">
+            <form>
+              <div>
+                <div class="flex md4 sm6 xs12">
+                  <img :src= "image" width="300px"/>
+                  <h2>{{name}}</h2>
+                  <br>
+                  <va-input
+                    v-model="withDescription"
+                    placeholder="Enter the scanned QR code here"
+                  />
+                  Price without nick {{price}}
+                  <br>
+                  Price with nick {{pricenick}}
+                  <br>
+                  <br>
+                  <va-checkbox
+                    :label="$t('Do you want a nick?')"
+                    v-model="checkbox"
+                  />
+                  <va-input
+                    v-model="nick"
+                    placeholder="Enter nick here"
+                  />
+                  <br>
+                  <va-select
+                    :label="$t('Choose Size')"
+                    v-model="simpleSelectModel"
+                    textBy="description"
+                    :options="simpleOptions"
+                  />
+                </div>
+              </div>
+            </form>
+          </va-card>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -141,6 +183,7 @@ export default {
       this.$refs.dashboardMap.addAddress({ city: city.text, country })
     },
   },
+  name: 'form-elements',
 
   data () {
     return {
@@ -171,6 +214,15 @@ export default {
       start5: null,
       summary5: null,
       name5: null,
+      withDescription: '',
+      nick: '',
+      name: '',
+      pricenick: '',
+      price: '',
+      image: [],
+      simpleOptions: [],
+      simpleSelectModel: '',
+      checkbox: false,
     }
   },
   mounted () {
@@ -199,6 +251,17 @@ export default {
         //   this.start[i]=response.data.en.reverse()[i].start),
         //   this.summary[i]=response.data.en.reverse()[i].summary)})
       })
+    axios
+      .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
+        headers: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0xMFQwNjo0NzozNy4wNjBaIiwiaWF0IjoxNTg2NTI0NDQ4fQ.GhVp4SFz6yCTXoKNb0NHqsTkZoKF8gQrT1-viLjGv14' },
+      })
+      .then(response => {
+        this.image = response.data.subEvents[0].images[0].image
+        this.name = response.data.subEvents[0].name
+        this.price = response.data.subEvents[0].price
+        this.pricenick = response.data.subEvents[0].price_nick
+        this.simpleOptions = response.data.subEvents[0].available_sizes
+      })
   },
 }
 </script>
@@ -218,5 +281,9 @@ body {
   .va-card {
     margin-bottom: 0 !important;
   }
+}
+
+.row.row-inside {
+  max-width: none;
 }
 </style>

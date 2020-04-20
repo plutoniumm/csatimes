@@ -117,18 +117,18 @@ export default {
       const profile = user.getBasicProfile()
       this.profile = profile
       function matchString () {
-        var string = user.getEmail()
+        var string = user.getBasicProfile()
         var result = string.match(/@goa.bits-pilani.ac.in/i)
         return result
       }
       var result1 = matchString()
       if (result1 !== '@goa.bits-pilani.ac.in') {
-        var auth2 = gapi.auth2.getAuthInstance()
+        var auth2 = window.gapi.auth2.getAuthInstance()
         auth2.signOut()
         alert('Please signin using BITSmail')
       }
-      gapi.load('auth2', function () {
-        gapi.auth2.authorize(
+      window.gapi.load('auth2', function () {
+        window.gapi.auth2.authorize(
           {
             client_id:
               '353185858988-h75k9v94ume7fu82mt952jo9l876n3n2.apps.googleusercontent.com',
@@ -151,11 +151,11 @@ export default {
       })
     },
     signOut () {
-      var auth2 = gapi.auth2.getAuthInstance()
+      var auth2 = window.gapi.auth2.getAuthInstance()
       auth2.signOut()
     },
     renderGoogleLoginButton () {
-      gapi.signin2.render('google-signin-btn', {
+      window.gapi.signin2.render('google-signin-btn', {
         onsuccess: this.onSignIn,
       })
     },
@@ -165,7 +165,7 @@ export default {
     var AuthStr = this.accessToken
     axios
       .post('http://csa.devsoc.club/api/v1/google/student/signin', {
-        headers: { idToken: this.accessToken },
+        headers: { idToken: AuthStr },
       })
       .then(response => AuthStr)
   },

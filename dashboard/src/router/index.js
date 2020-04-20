@@ -293,9 +293,9 @@ export default new Router({
           default: true,
         },
         {
-          name: 'campus',
-          path: 'campus',
-          component: () => import('../components/campus/campus.vue'),
+          name: 'stud',
+          path: 'stud',
+          component: () => import('../components/stud/stud.vue'),
           default: true,
         },
         {
@@ -305,9 +305,9 @@ export default new Router({
           default: true,
         },
         {
-          name: 'pr',
-          path: 'pr',
-          component: () => import('../components/pr/pr.vue'),
+          name: 'comp',
+          path: 'comp',
+          component: () => import('../components/comp/comp.vue'),
           default: true,
         },
       ],

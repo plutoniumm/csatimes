@@ -8,21 +8,16 @@
           <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
             <va-card>
               <h1>Backend</h1>
-              <p>Sarvesh</p>
-              <p>Samesh</p>
-              <p>Arpit</p>
+              <p>Sarvesh Shinde</p>
+              <p>Samesh Lakhotia</p>
             </va-card>
           </div>
           <div class="flex xs12 sm6 lg4 xl3 row" style="display: inline-block;">
             <va-card>
-              <h2>CSA App Frontend</h2>
-              <p>Nipun</p>
-              <p>Arjun</p>
-              <p>Anshuman</p>
-              <p>Yatik</p>
-              <p>Garima</p>
-              <p>Kartik</p>
-              <p>Prabhutva</p>
+              <h2>Coordinators</h2>
+              <p>Nipun Agrawal</p>
+              <p>Yash Jain</p>
+              <p>Priyesh Shrivastava</p>
             </va-card>
           </div>
           <!-- <h2 style="display: flex; justify-content: center;">WEB</h2> -->
