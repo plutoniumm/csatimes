@@ -16,7 +16,7 @@
             <img :src="require('../../assets/pics/aviral.jpeg')" width='170px' @click="showEventsModal = true"/>
           </div>
           <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
-            <img :src="require('../../assets/pics/aviral.jpeg')" width='170px' @click="showSportsModal = true"/>
+            <a href="admin/stud/hall.vue"><img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/></a>
           </div>
           <!-- <img :src="require('../../assets/pics/aviral.jpeg')" width='170px' @click="showDepartmentModal = true"/>
           <img :src="require('../../assets/pics/aviral.jpeg')" width='170px' @click="showEventsModal = true"/>
@@ -82,5 +82,8 @@ export default {
       showSportsModal: false,
     }
   },
+  // redirect () {
+  //   this.$router.push('C:/Users/vrlgo/Documents/GitHub/csatimes/dashboard/src/components/stud/hall.vue')
+  // },
 }
 </script>

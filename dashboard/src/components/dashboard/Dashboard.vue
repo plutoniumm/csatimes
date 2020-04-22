@@ -187,18 +187,6 @@ export default {
 
   data () {
     return {
-      // dateFirst: '',
-      // titleFirst: 'Make design',
-      // titleSecond: 'Develop an app',
-      // titleThird: 'Submit an app',
-      // horizontalSimpleContentFirst: 'Pre-sail rate: 50%',
-      // dateSecond: 'May 22 10:00',
-      // horizontalSimpleContentSecond: 'Pre-sail rate: 40%',
-      // dateThird: 'July 19 17:45',
-      // horizontalSimpleContentThird: 'Pre-sail rate: 20%',
-      // contentFirst: 'The unique stripes of zebras make them one of the animals most familiar to people.',
-      // contentSecond: 'They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.',
-      // contentThird: 'However, various anthropogenic factors have had a severe impact on zebra populations',
       start1: null,
       summary1: null,
       name1: null,

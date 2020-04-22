@@ -54,9 +54,8 @@ export default {
   },
   methods: {
     onsubmit () {
-      this.emailErrors = this.email ? [] : ['Email is required']
-      this.passwordErrors = this.password ? [] : ['Password is required']
-      this.agreedToTermsErrors = this.agreedToTerms ? [] : ['You must agree to the terms of use to continue']
+      this.emailErrors = this.email ? [] : ['BITSID is required']
+      this.passwordErrors = this.password ? [] : ['Hostel is required']
       if (!this.formReady) {
         return
       }

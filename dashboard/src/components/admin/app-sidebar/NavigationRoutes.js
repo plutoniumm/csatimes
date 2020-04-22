@@ -189,5 +189,26 @@ export const navigationRoutes = {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },
     },
+    {
+      name: 'hall',
+      displayName: 'Hall',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'humanities',
+      displayName: 'Humanities',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'startup',
+      displayName: 'Startup',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
   ],
 }
