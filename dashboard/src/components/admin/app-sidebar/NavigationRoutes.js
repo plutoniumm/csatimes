@@ -162,20 +162,6 @@ export const navigationRoutes = {
       },
     },
     {
-      name: 'imp',
-      displayName: 'Important Links',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'comp',
-      displayName: 'Complaints',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
       name: 'csa',
       displayName: 'CSA',
       meta: {

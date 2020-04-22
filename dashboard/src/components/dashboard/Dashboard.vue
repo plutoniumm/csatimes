@@ -3,17 +3,17 @@
     <div class="dashboard">
       <div class="timelines">
         <div class="row">
-          <div class="flex xs12">
+          <div class="flex xs6">
             <va-card
               no-padding-h
               style="overflow-x: auto;"
-              class="timelines__horizontal-long"
+              class="timelines__horizontal"
               :title="('Latest Updates')"
             >
               <va-timeline
                 align-top
                 style="min-width: 600px;"
-                class="timelines__horizontal-long__timeline"
+                class="timelines__horizontal__timeline"
               >
                 <va-timeline-item active>
                   <template slot="before">
@@ -66,38 +66,6 @@
                     </va-accordion>
                   </va-card>
                 </va-timeline-item>
-                <!-- <va-timeline-item active>
-                  <template slot="before">
-                    <div class="title text--center" :style="{color: $themes.primary}">{{ start4 }}</div>
-                  </template>
-                  <va-card slot="after" stripe="info" class="mb-0">
-                    <template slot="title">{{ start4 }}</template>
-                    <va-accordion>
-                      <va-collapse>
-                        <span slot="header">{{ name4 }}</span>
-                        <div slot="body">
-                          <div>{{ summary4 }}</div>
-                        </div>
-                      </va-collapse>
-                    </va-accordion>
-                  </va-card>
-                </va-timeline-item>
-                <va-timeline-item active>
-                  <template slot="before">
-                    <div class="title text--center" :style="{color: $themes.primary}">{{ start5 }}</div>
-                  </template>
-                  <va-card slot="after" stripe="info" class="mb-0">
-                    <template slot="title">{{ start5 }}</template>
-                    <va-accordion>
-                      <va-collapse>
-                        <span slot="header">{{ name5 }}</span>
-                        <div slot="body">
-                          <div>{{ summary5 }}</div>
-                        </div>
-                      </va-collapse>
-                    </va-accordion>
-                  </va-card>
-                </va-timeline-item> -->
               </va-timeline>
             </va-card>
           </div>
@@ -116,7 +84,7 @@
           <dashboard-tabs @submit="addAddressToMap" />
         </div>
         <div class="flex xs12 lg6">
-          <dashboard-map ref="dashboardMap" />
+
         </div>
       </div>
     </div>
@@ -166,22 +134,13 @@
 </template>
 
 <script>
-import DashboardInfoBlock from './DashboardInfoBlock'
 import DashboardTable from './DashboardTable'
-import DashboardTabs from './DashboardTabs'
 import axios from 'axios'
 
 export default {
   name: 'dashboard',
   components: {
-    DashboardInfoBlock,
     DashboardTable,
-    DashboardTabs,
-  },
-  methods: {
-    addAddressToMap ({ city, country }) {
-      this.$refs.dashboardMap.addAddress({ city: city.text, country })
-    },
   },
   name: 'form-elements',
 

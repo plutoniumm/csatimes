@@ -44,6 +44,9 @@ export default {
   },
   methods: {
   },
+  routes = [
+  { path: '/panda', component: Panda }
+];
 }
 </script>
 

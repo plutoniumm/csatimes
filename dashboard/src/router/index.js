@@ -299,18 +299,6 @@ export default new Router({
           default: true,
         },
         {
-          name: 'imp',
-          path: 'imp',
-          component: () => import('../components/imp/imp.vue'),
-          default: true,
-        },
-        {
-          name: 'comp',
-          path: 'comp',
-          component: () => import('../components/comp/comp.vue'),
-          default: true,
-        },
-        {
           name: 'hall',
           path: 'hall',
           component: () => import('../components/stud/hall.vue'),
