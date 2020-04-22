@@ -4,80 +4,84 @@
       <div class="cards-container row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
         <template>
-          <va-card class="flex xs12">
+          <va-card class="flex xs6">
             <span class="heading">Council of Student Affairs</span>
-            <div class="flex xs12 sm6 lg4 xl3 offset--md3" style= "display: inline-block;">
-              <va-card>
-                <img :src="require('../../assets/pics/dhruv.png')" width='170px'/>
-                <h2>Dhruv Kaluskar</h2>
-                CSA President
-                9665581729
-                prez@goa.bits-pilani.ac.in
-              </va-card>
-            </div>
-            <div class="flex xs12 sm6 lg4 xl3" style= "display: inline-block;">
-              <va-card>
-                <img :src="require('../../assets/pics/avi.png')" width='170px'/>
-                <h2>Avi Chauhan</h2>
-                CSA Vice President
-                9665581729
-                viceprez@goa.bits-pilani.ac.in
-              </va-card>
-            </div>
-            <div class="flex xs12 sm6 lg4 x13 offset--md3" style= "display: inline-block;">
-              <va-card>
-                <img :src="require('../../assets/pics/aanak.png')" width='170px'/>
-                <h2>Aanak Sengupta</h2>
-                Treasurer<div></div>
-                7030530377<div></div>
-                trez@goa.bits-pilani.ac.in
-              </va-card>
-            </div>
-            <div class="flex xs12 sm6 lg4 xl3" style= "display: inline-block;">
-              <va-card>
-                <img :src="require('../../assets/pics/aseem.png')" width='170px'/>
-                <h2>Aseem Juneja</h2>
-                General Secretary
-                7589201824
-                gensec@goa.bits-pilani.ac.in
-              </va-card>
-            </div>
+            <va-list fit class="mb-2">
+              <va-list-label>
+                People
+              </va-list-label>
+
+              <template v-for="(customer, i) in customers">
+                <va-item :key="'item' + customer.name">
+                  <va-item-section avatar>
+                    <va-avatar>
+                      <img :src="customer.picture" :alt="customer.name">
+                    </va-avatar>
+                  </va-item-section>
+
+                  <va-item-section>
+                    <va-item-label>
+                      {{ customer.name }} ({{customer.post}})
+                    </va-item-label>
+
+                    <va-item-label caption>
+                      {{ customer.address }}
+                    </va-item-label>
+                  </va-item-section>
+
+                  <va-item-section side>
+                    {{customer.phone}}
+                  </va-item-section>
+                </va-item>
+
+                <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
+              </template>
+            </va-list>
+          </va-card>
+          <va-card>
+            <form @submit.prevent="onsubmit()">
+              <div class="row">
+                <div class="flex xs12">
+                  <va-card :title="$t('Complaints')">
+                    <div class="flex">
+                      <va-input
+                        v-model="comptitle"
+                        placeholder="Enter your complaint title"
+                      />
+                    </div>
+                    <div class="flex">
+                      <va-input
+                        v-model="compdes"
+                        placeholder="Enter your complaint description"
+                      />
+                    </div>
+                    <div class="d-flex justify--center mt-3">
+                      <va-button type="submit" class="my-0">{{ $t('Submit') }}</va-button>
+                    </div>
+                  </va-card>
+                </div>
+              </div>
+            </form>
           </va-card>
         </template>
       </div>
-    </div>
-    <div>
-      <form @submit.prevent="onsubmit()">
-        <div class="row">
-          <div class="flex xs12">
-            <va-card :title="$t('Complaints')">
-              <div class="flex">
-                <va-input
-                  v-model="comptitle"
-                  placeholder="Enter your complaint title"
-                />
-              </div>
-              <div class="flex">
-                <va-input
-                  v-model="compdes"
-                  placeholder="Enter your complaint description"
-                />
-              </div>
-              <div class="d-flex justify--center mt-3">
-                <va-button type="submit" class="my-0">{{ $t('Submit') }}</va-button>
-              </div>
-            </va-card>
-          </div>
-        </div>
-      </form>
-    </div>
+    </div>>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
+import data from './data.json'
 export default {
   name: 'cards',
+  data () {
+    return {
+      customers: data.slice(0, 5),
+      appBanners: false,
+      banners: false,
+      notifications: true,
+    }
+  },
   methods: {
     onsubmit () {
       const payload = {

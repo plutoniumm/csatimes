@@ -34,11 +34,6 @@ export default new Router({
           component: () => import('../components/auth/signup/Signup.vue'),
         },
         {
-          name: 'recover-password',
-          path: 'recover-password',
-          component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
-        },
-        {
           path: '',
           redirect: { name: 'login' },
         },
@@ -80,21 +75,6 @@ export default new Router({
           path: 'dashboard',
           component: () => import('../components/dashboard/Dashboard.vue'),
           default: true,
-        },
-        {
-          name: 'statistics',
-          path: 'statistics',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: 'progress-bars',
-              path: 'progress-bars',
-              component: () => import('../components/statistics/progress-bars/ProgressBars.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars',
-              },
-            },
-          ],
         },
         {
           name: 'forms',
@@ -256,14 +236,6 @@ export default new Router({
               component: () => import('../components/ui/tabs/Tabs'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
-              },
-            },
-            {
-              name: 'lists',
-              path: 'lists',
-              component: () => import('../components/lists/Lists.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
               },
             },
           ],

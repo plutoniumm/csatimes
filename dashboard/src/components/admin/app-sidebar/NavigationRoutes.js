@@ -12,20 +12,6 @@ export const navigationRoutes = {
       },
     },
     {
-      name: 'statistics',
-      displayName: 'menu.statistics',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-statistics',
-      },
-      disabled: true,
-      children: [
-        {
-          name: 'progress-bars',
-          displayName: 'menu.progressBars',
-        },
-      ],
-    },
-    {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
@@ -97,10 +83,6 @@ export const navigationRoutes = {
               name: 'icon-set',
             },
           ],
-        },
-        {
-          name: 'lists',
-          displayName: 'menu.lists',
         },
         {
           name: 'modals',

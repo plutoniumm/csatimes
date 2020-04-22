@@ -1,0 +1,37 @@
+[
+  {
+    "picture": "../../assets/pics/dhruv.png",
+    "name": "Dhruv Kaluskar",
+    "post":"President",
+    "phone": "+91 96655 81729",
+    "address": "prez@goa.bits-pilani.ac.in "
+  },
+  {
+    "picture": "../../assets/pics/avi.png",
+    "name": "Avi Chauhan",
+    "post":"Vice President",
+    "phone": "+91 96655 81729",
+    "address": "viceprez@goa.bits-pilani.ac.in"
+  },
+  {
+    "picture": "./../assets/pics/aanak.png",
+    "name": "Aanak Sengupta",
+    "post":"Treasurer",
+    "phone": "+91 70305 30377",
+    "address": "trez@goa.bits-pilani.ac.in"
+  },
+  {
+    "picture": "../../assets/pics/aseem.png",
+    "name": "Aseem Juneja",
+    "post":"General Secretary",
+    "phone": "+91 75892 01824",
+    "address": "gensec@goa.bits-pilani.ac.in"
+  },
+  {
+    "picture": "https://randomuser.me/api/portraits/women/4.jpg",
+    "name": "Mindy Potts",
+    "post":"CSA President",
+    "phone": "+1 (835) 508-2695",
+    "address": "418 Broadway , Whitehaven, New York, 7690"
+  }
+]
