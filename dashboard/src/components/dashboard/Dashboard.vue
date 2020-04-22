@@ -7,13 +7,13 @@
             <va-card
               no-padding-h
               style="overflow-x: auto;"
-              class="timelines__horizontal"
+              class="timelines__horizontal-long"
               :title="('Latest Updates')"
             >
               <va-timeline
                 align-top
                 style="min-width: 600px;"
-                class="timelines__horizontal__timeline"
+                class="timelines__horizontal-long__timeline"
               >
                 <va-timeline-item active>
                   <template slot="before">
@@ -69,6 +69,43 @@
               </va-timeline>
             </va-card>
           </div>
+          <div class="flex xs6">
+            <va-card :title="$t('PR Drive')">
+              <form>
+                <div>
+                  <div class="flex md4 sm6 xs12">
+                    <img :src= "image" width="300px"/>
+                    <h2>{{name}}</h2>
+                    <br>
+                    <va-input
+                      v-model="withDescription"
+                      placeholder="Enter the scanned QR code here"
+                    />
+                    Price without nick {{price}}
+                    <br>
+                    Price with nick {{pricenick}}
+                    <br>
+                    <br>
+                    <va-checkbox
+                      :label="$t('Do you want a nick?')"
+                      v-model="checkbox"
+                    />
+                    <va-input
+                      v-model="nick"
+                      placeholder="Enter nick here"
+                    />
+                    <br>
+                    <va-select
+                      :label="$t('Choose Size')"
+                      v-model="simpleSelectModel"
+                      textBy="description"
+                      :options="simpleOptions"
+                    />
+                  </div>
+                </div>
+              </form>
+            </va-card>
+          </div>
         </div>
       </div>
 
@@ -84,50 +121,13 @@
           <dashboard-tabs @submit="addAddressToMap" />
         </div>
         <div class="flex xs12 lg6">
-
+          <dashboard-map ref="dashboardMap" />
         </div>
       </div>
     </div>
 
     <div class="form-elements">
       <div class="row">
-        <div class="flex xs12">
-          <va-card :title="$t('PR Drive')">
-            <form>
-              <div>
-                <div class="flex md4 sm6 xs12">
-                  <img :src= "image" width="300px"/>
-                  <h2>{{name}}</h2>
-                  <br>
-                  <va-input
-                    v-model="withDescription"
-                    placeholder="Enter the scanned QR code here"
-                  />
-                  Price without nick {{price}}
-                  <br>
-                  Price with nick {{pricenick}}
-                  <br>
-                  <br>
-                  <va-checkbox
-                    :label="$t('Do you want a nick?')"
-                    v-model="checkbox"
-                  />
-                  <va-input
-                    v-model="nick"
-                    placeholder="Enter nick here"
-                  />
-                  <br>
-                  <va-select
-                    :label="$t('Choose Size')"
-                    v-model="simpleSelectModel"
-                    textBy="description"
-                    :options="simpleOptions"
-                  />
-                </div>
-              </div>
-            </form>
-          </va-card>
-        </div>
       </div>
     </div>
   </div>
@@ -141,6 +141,11 @@ export default {
   name: 'dashboard',
   components: {
     DashboardTable,
+  },
+  methods: {
+    addAddressToMap ({ city, country }) {
+      this.$refs.dashboardMap.addAddress({ city: city.text, country })
+    },
   },
   name: 'form-elements',
 

@@ -57,7 +57,7 @@
       />
     </div>
     <div>
-      <router-link :to="{ path: '/hall'}" append><va-button> {{ $t('buttons.HallofFame') }}</va-button></router-link>
+      <router-link :to="{ path: '../hall'}" append><va-button> Hall of Fame</va-button></router-link>
     </div>
   </div>
 </template>

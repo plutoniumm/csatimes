@@ -16,74 +16,74 @@ export default new Router({
   routes: [
     ...demoRoutes,
     {
-      path: '*',
+      path: '/*',
       redirect: { name: 'dashboard' },
     },
     {
-      path: '/auth',
+      path: '//auth',
       component: AuthLayout,
       children: [
         {
           name: 'login',
-          path: 'login',
+          path: '/login',
           component: () => import('../components/auth/login/Login.vue'),
         },
         {
           name: 'signup',
-          path: 'signup',
+          path: '/signup',
           component: () => import('../components/auth/signup/Signup.vue'),
         },
         {
-          path: '',
+          path: '/',
           redirect: { name: 'login' },
         },
       ],
     },
     {
-      path: '/404',
+      path: '//404',
       component: EmptyParentComponent,
       children: [
         {
           name: 'not-found-advanced',
-          path: 'not-found-advanced',
+          path: '/not-found-advanced',
           component: () => import('../components/pages/404-pages/VaPageNotFoundSearch.vue'),
         },
         {
           name: 'not-found-simple',
-          path: 'not-found-simple',
+          path: '/not-found-simple',
           component: () => import('../components/pages/404-pages/VaPageNotFoundSimple.vue'),
         },
         {
           name: 'not-found-custom',
-          path: 'not-found-custom',
+          path: '/not-found-custom',
           component: () => import('../components/pages/404-pages/VaPageNotFoundCustom.vue'),
         },
         {
           name: 'not-found-large-text',
-          path: '/pages/not-found-large-text',
+          path: '//pages/not-found-large-text',
           component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),
         },
       ],
     },
     {
       name: 'Admin',
-      path: '/admin',
+      path: '//admin',
       component: AppLayout,
       children: [
         {
           name: 'dashboard',
-          path: 'dashboard',
+          path: '/dashboard',
           component: () => import('../components/dashboard/Dashboard.vue'),
           default: true,
         },
         {
           name: 'forms',
-          path: 'forms',
+          path: '/forms',
           component: EmptyParentComponent,
           children: [
             {
               name: 'form-elements',
-              path: 'form-elements',
+              path: '/form-elements',
               component: () => import('../components/forms/form-elements/FormElements.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/inputs',
@@ -91,7 +91,7 @@ export default new Router({
             },
             {
               name: 'medium-editor',
-              path: 'medium-editor',
+              path: '/medium-editor',
               component: () => import('../components/forms/medium-editor/MediumEditor.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor',
@@ -101,12 +101,12 @@ export default new Router({
         },
         {
           name: 'tables',
-          path: 'tables',
+          path: '/tables',
           component: EmptyParentComponent,
           children: [
             {
               name: 'markup',
-              path: 'markup',
+              path: '/markup',
               component: () => import('../components/markup-tables/MarkupTables.vue'),
               wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
             },
@@ -114,12 +114,12 @@ export default new Router({
         },
         {
           name: 'ui',
-          path: 'ui',
+          path: '/ui',
           component: EmptyParentComponent,
           children: [
             {
               name: 'buttons',
-              path: 'buttons',
+              path: '/buttons',
               component: () => import('../components/ui/buttons/Buttons'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons',
@@ -127,7 +127,7 @@ export default new Router({
             },
             {
               name: 'rating',
-              path: 'rating',
+              path: '/rating',
               component: () => import('../components/ui/rating/Rating'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
@@ -135,7 +135,7 @@ export default new Router({
             },
             {
               name: 'timelines',
-              path: 'timelines',
+              path: '/timelines',
               component: () => import('../components/ui/timelines/Timelines'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines',
@@ -143,19 +143,19 @@ export default new Router({
             },
             {
               name: 'notifications',
-              path: 'notifications',
+              path: '/notifications',
               component: () => import('../components/ui/notifications/Notifications'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Notifications',
               },
             },
             {
-              path: 'icons',
+              path: '/icons',
               component: () => import('../components/ui/icons/Icons'),
               children: [
                 {
                   name: 'icon-sets',
-                  path: '', // Default route
+                  path: '/', // Default route
                   component: () => import('../components/ui/icons/SetsList'),
                   meta: {
                     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
@@ -163,7 +163,7 @@ export default new Router({
                 },
                 {
                   name: 'icon-set',
-                  path: ':name',
+                  path: '/:name',
                   component: () => import('../components/ui/icons/IconSet'),
                   props: true,
                   meta: {
@@ -174,17 +174,17 @@ export default new Router({
             },
             {
               name: 'spinners',
-              path: 'spinners',
+              path: '/spinners',
               component: () => import('../components/ui/spinners/Spinners'),
             },
             {
               name: 'grid',
-              path: 'grid',
+              path: '/grid',
               component: () => import('../components/ui/grid/Grid'),
             },
             {
               name: 'modals',
-              path: 'modals',
+              path: '/modals',
               component: () => import('../components/ui/modals/Modals'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Modals',
@@ -192,7 +192,7 @@ export default new Router({
             },
             {
               name: 'cards',
-              path: 'cards',
+              path: '/cards',
               component: () => import('../components/ui/cards/Cards'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards',
@@ -200,7 +200,7 @@ export default new Router({
             },
             {
               name: 'file-upload',
-              path: 'file-upload',
+              path: '/file-upload',
               component: () => import('../components/ui/file-upload/FileUpload'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
@@ -208,7 +208,7 @@ export default new Router({
             },
             {
               name: 'tree-view',
-              path: 'tree-view',
+              path: '/tree-view',
               component: () => import('../components/ui/tree-view/TreeView'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view',
@@ -216,7 +216,7 @@ export default new Router({
             },
             {
               name: 'collapses',
-              path: 'collapses',
+              path: '/collapses',
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
               },
@@ -224,7 +224,7 @@ export default new Router({
             },
             {
               name: 'sliders',
-              path: 'sliders',
+              path: '/sliders',
               component: () => import('../components/ui/sliders/Sliders'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
@@ -232,7 +232,7 @@ export default new Router({
             },
             {
               name: 'tabs',
-              path: 'tabs',
+              path: '/tabs',
               component: () => import('../components/ui/tabs/Tabs'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
@@ -242,49 +242,49 @@ export default new Router({
         },
         {
           name: 'pages',
-          path: 'pages',
+          path: '/pages',
           component: EmptyParentComponent,
           children: [
             {
               name: '404-pages',
-              path: '404-pages',
+              path: '/404-pages',
               component: () => import('../components/pages/404-pages/404PagesPage'),
             },
           ],
         },
         {
           name: 'csa',
-          path: 'csa',
+          path: '/csa',
           component: () => import('../components/csa/csa.vue'),
           default: true,
         },
         {
           name: 'developers',
-          path: 'developers',
+          path: '/developers',
           component: () => import('../components/developers/developers.vue'),
           default: true,
         },
         {
           name: 'stud',
-          path: 'stud',
+          path: '/stud',
           component: () => import('../components/stud/stud.vue'),
           default: true,
         },
         {
           name: 'hall',
-          path: 'hall',
+          path: '/hall',
           component: () => import('../components/stud/hall.vue'),
           default: true,
         },
         {
           name: 'startup',
-          path: 'startup',
+          path: '/startup',
           component: () => import('../components/stud/startup.vue'),
           default: true,
         },
         {
           name: 'humanities',
-          path: 'humanities',
+          path: '/humanities',
           component: () => import('../components/stud/humanities.vue'),
           default: true,
         },
