@@ -66,7 +66,7 @@ export default {
     children: Array,
     color: {
       type: String,
-      default: '#303030',
+      default: '#46bee2',
     },
   },
   components: {

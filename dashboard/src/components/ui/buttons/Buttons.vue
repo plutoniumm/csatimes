@@ -130,17 +130,9 @@
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button outline small color="danger" icon="maki maki-art-gallery"> First</va-button>
-                <va-button outline small color=""> Second</va-button>
-                <va-button outline small color="danger"> Third</va-button>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group>
                 <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
                   First
                 </va-button>
-                <va-button flat color="gray" icon="entypo entypo-user"> Second</va-button>
                 <va-button flat color="gray" icon="ion ion-ios-alarm"> Third</va-button>
               </va-button-group>
             </div>
@@ -162,7 +154,6 @@
             <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
-                <va-button flat small color="warning" icon="entypo entypo-user"/>
                 <va-button flat small color="warning" icon-right="ion ion-ios-alarm"> Update</va-button>
               </va-button-group>
             </div>

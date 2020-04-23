@@ -7,14 +7,8 @@
 <script>
 const iconTypes = [
   'vuestic',
-  'brandico',
-  'entypo',
   'font-awesome',
-  'fontelico',
-  'glyphicons',
-  'iconic-stroke',
   'ionicons',
-  'maki',
   'openweb',
   'material-icons',
 ]
