@@ -44,21 +44,6 @@ export default new Router({
       component: EmptyParentComponent,
       children: [
         {
-          name: 'not-found-advanced',
-          path: '/not-found-advanced',
-          component: () => import('../components/pages/404-pages/VaPageNotFoundSearch.vue'),
-        },
-        {
-          name: 'not-found-simple',
-          path: '/not-found-simple',
-          component: () => import('../components/pages/404-pages/VaPageNotFoundSimple.vue'),
-        },
-        {
-          name: 'not-found-custom',
-          path: '/not-found-custom',
-          component: () => import('../components/pages/404-pages/VaPageNotFoundCustom.vue'),
-        },
-        {
           name: 'not-found-large-text',
           path: '//pages/not-found-large-text',
           component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),

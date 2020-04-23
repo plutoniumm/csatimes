@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import MadeByComponent from './MadeByComponent'
 import Wallpaper from './Wallpaper'
 import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
@@ -29,7 +28,6 @@ export default {
   mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
-    MadeByComponent,
     Wallpaper,
   },
   props: { withoutButton: Boolean },
