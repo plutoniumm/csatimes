@@ -56,7 +56,6 @@ export default new Router({
           name: 'home',
           path: 'home',
           component: () => import('../components/dashboard/Dashboard.vue'),
-          default: true,
         },
         {
           name: 'pages',
@@ -74,37 +73,33 @@ export default new Router({
           name: 'csa',
           path: 'csa',
           component: () => import('../components/csa/csa.vue'),
-          default: true,
         },
         {
           name: 'devs',
           path: 'devs',
           component: () => import('../components/developers/developers.vue'),
-          default: true,
         },
         {
           name: 'portal',
-          path: 'portal',
+          path: '/portal',
           component: () => import('../components/stud/stud.vue'),
-          default: true,
-        },
-        {
-          name: 'fame',
-          path: 'fame',
-          component: () => import('../components/stud/hall.vue'),
-          default: true,
-        },
-        {
-          name: 'startup',
-          path: 'startup',
-          component: () => import('../components/stud/startup.vue'),
-          default: true,
-        },
-        {
-          name: 'humanities',
-          path: 'humanities',
-          component: () => import('../components/stud/humanities.vue'),
-          default: true,
+          children: [
+            {
+              name: 'fame',
+              path: 'fame',
+              component: () => import('../components/stud/hall.vue'),
+            },
+            {
+              name: 'startup',
+              path: 'startup',
+              component: () => import('../components/stud/startup.vue'),
+            },
+            {
+              name: 'humanities',
+              path: 'humanities',
+              component: () => import('../components/stud/humanities.vue'),
+            },
+          ],
         },
       ],
     },
