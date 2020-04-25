@@ -5,8 +5,8 @@ export const navigationRoutes = {
   },
   routes: [
     {
-      name: 'dashboard',
-      displayName: 'menu.dashboard',
+      name: 'home',
+      displayName: 'Home',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },
@@ -30,7 +30,7 @@ export const navigationRoutes = {
       ],
     },
     {
-      name: 'stud',
+      name: 'portal',
       displayName: 'Student Portal',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
@@ -44,15 +44,15 @@ export const navigationRoutes = {
       },
     },
     {
-      name: 'developers',
+      name: 'devs',
       displayName: 'Developers',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },
     },
     {
-      name: 'hall',
-      displayName: 'Hall',
+      name: 'fame',
+      displayName: 'Hall of Fame',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },

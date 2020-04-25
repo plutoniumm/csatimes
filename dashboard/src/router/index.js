@@ -9,15 +9,12 @@ const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
 
-const demoRoutes = []
-
 export default new Router({
-  mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'history',
+  mode: 'history',
   routes: [
-    ...demoRoutes,
     {
       path: '/*',
-      redirect: { name: 'dashboard' },
+      redirect: { name: 'home' },
     },
     {
       path: '//auth',
@@ -34,7 +31,7 @@ export default new Router({
           component: () => import('../components/auth/signup/Signup.vue'),
         },
         {
-          path: '/',
+          path: '',
           redirect: { name: 'login' },
         },
       ],
@@ -45,67 +42,67 @@ export default new Router({
       children: [
         {
           name: 'not-found-large-text',
-          path: '//pages/not-found-large-text',
+          path: '/pages/not-found-large-text',
           component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),
         },
       ],
     },
     {
-      name: 'Admin',
-      path: '//admin',
+      name: 'Dashboard',
+      path: '/dashboard',
       component: AppLayout,
       children: [
         {
-          name: 'dashboard',
-          path: '/dashboard',
+          name: 'home',
+          path: 'home',
           component: () => import('../components/dashboard/Dashboard.vue'),
           default: true,
         },
         {
           name: 'pages',
-          path: '/pages',
+          path: 'pages',
           component: EmptyParentComponent,
           children: [
             {
               name: '404-pages',
-              path: '/404-pages',
+              path: '404-pages',
               component: () => import('../components/pages/404-pages/404PagesPage'),
             },
           ],
         },
         {
           name: 'csa',
-          path: '/csa',
+          path: 'csa',
           component: () => import('../components/csa/csa.vue'),
           default: true,
         },
         {
-          name: 'developers',
-          path: '/developers',
+          name: 'devs',
+          path: 'devs',
           component: () => import('../components/developers/developers.vue'),
           default: true,
         },
         {
-          name: 'stud',
-          path: '/stud',
+          name: 'portal',
+          path: 'portal',
           component: () => import('../components/stud/stud.vue'),
           default: true,
         },
         {
-          name: 'hall',
-          path: '/hall',
+          name: 'fame',
+          path: 'fame',
           component: () => import('../components/stud/hall.vue'),
           default: true,
         },
         {
           name: 'startup',
-          path: '/startup',
+          path: 'startup',
           component: () => import('../components/stud/startup.vue'),
           default: true,
         },
         {
           name: 'humanities',
-          path: '/humanities',
+          path: 'humanities',
           component: () => import('../components/stud/humanities.vue'),
           default: true,
         },
