@@ -3,36 +3,41 @@
     <div class="cards-container row d-flex wrap align--start">
       <!-- eslint-disable vue/valid-v-for -->
       <template>
-        <va-card class="flex xs12">
+        <va-card class="flex xs12" style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
           <span class="heading">Developers</span>
-          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
+          <div class="flex xs12">
             <va-card>
-              <h1>Backend</h1>
-              <p>Sarvesh Shinde</p>
-              <p>Samesh Lakhotia</p>
+              <h2>Devsoc Coordinators</h2>
+              <br>
+              <div style="display: inline-block; margin-right: 5%;">
+                <img :src="require('../../assets/pics/ishant.jpg')" width='170px'/>
+                <h2>Ishant Gupta</h2>
+                Coordinator
+              </div>
+              <div style="display: inline-block; margin-right: 5%;">
+                <img :src="require('../../assets/pics/samesh.jpg')" width='170px'/>
+                <h2>Samesh Lakhotia</h2>
+                Sub-Coordinator
+              </div>
+              <div style="display: inline-block;">
+                <img :src="require('../../assets/pics/sarvesh.jpeg')" width='170px'/>
+                <h2>Sarvesh Shinde</h2>
+                Operations Head
+              </div>
             </va-card>
           </div>
-          <div class="flex xs12 sm6 lg4 xl3 row" style="display: inline-block;">
-            <va-card>
-              <h2>Coordinators</h2>
-              <p>Nipun Agrawal</p>
-              <p>Yash Jain</p>
-              <p>Priyesh Shrivastava</p>
-            </va-card>
-          </div>
-          <!-- <h2 style="display: flex; justify-content: center;">WEB</h2> -->
-          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
+          <div class="flex xs12">
             <va-card>
               <h2>WEB</h2>
-              <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
-              <h2>Manav Sekseria</h2>
-            </va-card>
-          </div>
-          <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
-            <va-card>
-              <h2>WEB</h2>
-              <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
-              <h2>Aviral Kumar Goel</h2>
+              <br>
+              <div style="display: inline-block; margin-right: 5%;">
+                <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
+                <h2>Manav Sekseria</h2>
+              </div>
+              <div style="display: inline-block;">
+                <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
+                <h2>Aviral Kumar Goel</h2>
+              </div>
             </va-card>
           </div>
         </va-card>

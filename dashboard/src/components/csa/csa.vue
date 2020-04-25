@@ -4,46 +4,53 @@
       <div class="cards-container row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
         <template>
-          <va-card class="flex xs6">
-            <span class="heading">Council of Student Affairs</span>
-            <va-list fit class="mb-2">
-              <va-list-label>
-                People
-              </va-list-label>
+          <div class="flex xs12">
+            <va-card color="info">
+              <span class="heading">Council of Student Affairs</span>
+              <va-list fit class="mb-2">
+                <va-list-label>
+                  People
+                </va-list-label>
 
-              <template v-for="(customer, i) in customers">
-                <va-item :key="'item' + customer.name">
-                  <va-item-section avatar>
-                    <va-avatar>
-                      <img :src="customer.picture" :alt="customer.name">
-                    </va-avatar>
-                  </va-item-section>
+                <template v-for="(customer, i) in customers">
+                  <va-item :key="'item' + customer.name">
+                    <va-item-section avatar>
+                      <va-avatar>
+                        <va-item-label>
+                          <img :src="`'../../assets/pics/'+${customer.picture}`" :alt="customer.name">
+                        </va-item-label>
+                      </va-avatar>
+                    </va-item-section>
 
-                  <va-item-section>
-                    <va-item-label>
-                      {{ customer.name }} ({{customer.post}})
-                    </va-item-label>
+                    <va-item-section>
+                      <va-item-label>
+                        {{ customer.name }} ({{customer.post}})
+                      </va-item-label>
 
-                    <va-item-label caption>
-                      {{ customer.address }}
-                    </va-item-label>
-                  </va-item-section>
+                      <va-item-label caption>
+                        {{ customer.address }}
+                      </va-item-label>
+                    </va-item-section>
 
-                  <va-item-section side>
-                    {{customer.phone}}
-                  </va-item-section>
-                </va-item>
+                    <va-item-section side>
+                      <va-item-label>
+                        {{ customer.phone}}
+                      </va-item-label>
+                    </va-item-section>
+                  </va-item>
 
-                <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
-              </template>
-            </va-list>
-          </va-card>
-          <va-card>
+                  <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
+                </template>
+              </va-list>
+            </va-card>
+          </div>
+
+          <div class="flex xs12">
             <form @submit.prevent="onsubmit()">
               <div class="row">
                 <div class="flex xs12">
-                  <va-card :title="$t('Complaints')">
-                    <div class="flex">
+                  <va-card :title="$t('Complaints')" color="info">
+                    <div class="flex ">
                       <va-input
                         v-model="comptitle"
                         placeholder="Enter your complaint title"
@@ -62,10 +69,10 @@
                 </div>
               </div>
             </form>
-          </va-card>
+          </div>
         </template>
       </div>
-    </div>>
+    </div>
   </div>
 </template>
 
@@ -76,7 +83,7 @@ export default {
   name: 'cards',
   data () {
     return {
-      customers: data.slice(0, 5),
+      customers: data,
       appBanners: false,
       banners: false,
       notifications: true,

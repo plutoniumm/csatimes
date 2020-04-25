@@ -1,40 +1,38 @@
 <template>
   <form @submit.prevent="onsubmit()">
     <va-input
-      v-model="email"
-      type="email"
-      :label="$t('auth.email')"
-      :error="!!emailErrors.length"
-      :error-messages="emailErrors"
+      v-model="bitsid"
+      type="bitsid"
+      :label="$t('BITSID')"
+      :error="!!bitsidErrors.length"
+      :error-messages="bitsidErrors"
     />
 
     <va-input
-      v-model="password"
-      type="password"
-      :label="$t('auth.password')"
-      :error="!!passwordErrors.length"
-      :error-messages="passwordErrors"
+      v-model="hostel"
+      type="hostel"
+      :label="$t('HOSTEL ROOM NUMBER')"
+      :error="!!hostelErrors.length"
+      :error-messages="hostelErrors"
     />
 
-    <div class="auth-layout__options d-flex align--center justify--space-between">
-      <va-checkbox
-        v-model="agreedToTerms"
-        class="mb-0"
-        :error="!!agreedToTermsErrors.length"
-        :errorMessages="agreedToTermsErrors"
-      >
-        <template slot="label">
-          {{ $t('auth.agree') }}
-          <span class="link">{{ $t('auth.termsOfUse') }}</span>
-        </template>
-      </va-checkbox>
-      <router-link class="ml-1 link" :to="{name: 'recover-password'}">
-        {{$t('auth.recover_password')}}
-      </router-link>
-    </div>
+    <va-select
+      :label="$t('Select R or L or None')"
+      v-model="simpleSelectModel"
+      textBy="description"
+      :options="simpleOptions"
+    />
+
+    <va-input
+      v-model="mobile"
+      type="mobile"
+      :label="$t('MOBILE NUMBER')"
+      :error="!!mobileErrors.length"
+      :error-messages="mobileErrors"
+    />
 
     <div class="d-flex justify--center mt-3">
-      <va-button type="submit" class="my-0">{{ $t('auth.sign_up') }}</va-button>
+      <va-button type="submit" class="my-0">{{ $t('Confirm Details') }}</va-button>
     </div>
   </form>
 </template>
@@ -44,18 +42,40 @@ export default {
   name: 'signup',
   data () {
     return {
-      email: '',
-      password: '',
-      agreedToTerms: false,
-      emailErrors: [],
-      passwordErrors: [],
-      agreedToTermsErrors: [],
+      bitsid: [],
+      hostel: '',
+      mobile: '',
+      bitsidErrors: [],
+      hostelErrors: [],
+      mobileErrors: [],
+      simpleSelectModel: '',
+      simpleOptions: [
+        {
+          id: 1,
+          description: 'R',
+        },
+        {
+          id: 2,
+          description: 'L',
+        },
+        {
+          id: 3,
+          description: 'Not Applicable',
+        },
+      ],
     }
   },
   methods: {
     onsubmit () {
-      this.emailErrors = this.email ? [] : ['BITSID is required']
-      this.passwordErrors = this.password ? [] : ['Hostel is required']
+      if (this.bitsid < 1000000000 || this.mobile > 9999999999) this.bitsidErrors = ['Enter a valid BITSID']
+      else this.bitsidErrors = []
+
+      if (this.mobile < 1000000000 || this.mobile > 9999999999) this.mobileErrors = ['Enter a valid Mobile Number']
+      else this.mobileErrors = []
+
+      if (this.hostel < 0 || this.hostel > 600) this.hostelErrors = ['Enter a valid Hostel Number']
+      else this.hostelErrors = []
+
       if (!this.formReady) {
         return
       }
@@ -64,7 +84,7 @@ export default {
   },
   computed: {
     formReady () {
-      return !(this.emailErrors.length || this.passwordErrors.length || this.agreedToTermsErrors.length)
+      return !(this.bitsErrors.length || this.hostelErrors.length || this.mobileErrors.length)
     },
   },
 }

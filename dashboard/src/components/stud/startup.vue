@@ -1,46 +1,46 @@
 <template>
 
   <div class="cards">
-    <div style="font-size: 4rem; text-align: center;">BITS GOA STARTUPS</div>
-    <div class="cards-container row d-flex wrap align--start">
-      <!-- eslint-disable vue/valid-v-for -->
-      <template>
-        <div id="startupid">
+    <va-card style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
+      <div style="font-size: 4rem; text-align: center;">BITS GOA STARTUPS</div>
+      <div class="cards-container row d-flex wrap align--start">
+        <!-- eslint-disable vue/valid-v-for -->
 
-        <!-- <div class="flex xs12">
-            <va-card
-              color="success"
+        <template v-for="(startup, i) in startups">
+          <div class="flex xs12" :key="startup.name">
+            <va-card v-if="i%2==0"
             >
-              <va-card color="info">
+              <va-card color="success">
                 <div style="text-align: center;">
-                  <h2>Header</h2></div></va-card>
-              {{ $t('cards.contentTextLong') }}
+                  <h2>{{startup.Name1}}</h2></div></va-card>
+              {{ startup.content1 }}
+            </va-card>
+
+            <va-card
+              v-if="i%2!=0"
+            >
+              <va-card color="danger">
+                <div style="text-align: center;">
+                  <h2>{{startup.Name2}}</h2></div></va-card>
+              {{ startup.content2 }}
             </va-card>
           </div>
+        </template>
 
-          <div class="flex xs12">
-            <va-card
-              color="danger"
-            >
-              <va-card color="dark">
-                <div style="text-align: center;">
-                  <h2>Header</h2></div></va-card>
-              {{ $t('cards.contentTextLong') }}
-            </va-card>
-          </div> -->
-        </div>
-      </template>
-    </div>
+      </div>
+    </va-card>
 
   </div>
 </template>
 
-<script  src="startup.js"></script>
 <script>
+import data from './startup.json'
 export default {
   name: 'cards',
   data () {
-    return{}
+    return {
+      startups: data,
+    }
   },
   methods: {
   },

@@ -1,37 +1,37 @@
 [
   {
-    "picture": "../../assets/pics/dhruv.png",
+    "picture": "dhruv.png",
     "name": "Dhruv Kaluskar",
     "post":"President",
     "phone": "+91 96655 81729",
     "address": "prez@goa.bits-pilani.ac.in "
   },
   {
-    "picture": "../../assets/pics/avi.png",
+    "picture": "avi.png",
     "name": "Avi Chauhan",
     "post":"Vice President",
     "phone": "+91 96655 81729",
     "address": "viceprez@goa.bits-pilani.ac.in"
   },
   {
-    "picture": "./../assets/pics/aanak.png",
+    "picture": "aanak.png",
     "name": "Aanak Sengupta",
     "post":"Treasurer",
     "phone": "+91 70305 30377",
     "address": "trez@goa.bits-pilani.ac.in"
   },
   {
-    "picture": "../../assets/pics/aseem.png",
+    "picture": "aseem.png",
     "name": "Aseem Juneja",
     "post":"General Secretary",
     "phone": "+91 75892 01824",
     "address": "gensec@goa.bits-pilani.ac.in"
   },
   {
-    "picture": "https://randomuser.me/api/portraits/women/4.jpg",
+    "picture": "deva.png",
     "name": "Devashish Rane",
     "post":"Sports Secretary",
-    "phone": "+1 (835) 508-2695",
-    "address": "418 Broadway , Whitehaven, New York, 7690"
+    "phone": "+91 95526 74242",
+    "address": "sportssec@goa.bits-pilani.ac.in"
   }
 ]
