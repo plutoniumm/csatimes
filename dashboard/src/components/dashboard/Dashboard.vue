@@ -1,116 +1,118 @@
 <template>
-  <div class="dashboard">
-    <div class="timelines">
-      <div class="row">
-        <div class="flex xs12">
-          <va-card
-            no-padding-h
-            style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224)); overflow-x: auto;"
-            class="timelines__horizontal-long"
-          >
-            <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
-            <va-timeline
-              align-top
-              style="min-width: 600px;"
-              class="timelines__horizontal-long__timeline"
+  <div>
+    <div class="dashboard">
+      <div class="timelines">
+        <div class="row">
+          <div class="flex xs12">
+            <va-card
+              no-padding-h
+              style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224)); overflow-x: auto;"
+              class="timelines__horizontal-long"
             >
-              <template v-for="(notice, i) in start1">
-                <va-timeline-item active :key="'item' + notice.name">
-                  <template slot="before">
-                    <div class="title text--center" style="color: rgb(64, 229, 134); font-size: 1rem;">{{ notice.start }}</div>
-                  </template>
-                  <va-card slot="after" stripe="warning" class="mb-0">
-                    <template slot="title">{{ notice.start }}</template>
-                    <va-accordion>
-                      <va-collapse>
-                        <span slot="header"><h2>{{ notice.name }}</h2></span>
-                        <div slot="body">
-                          <div>{{ notice.summary }}
-                            <br>
-                            <h2>{{ notice.writer }}</h2>
+              <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
+              <va-timeline
+                align-top
+                style="min-width: 600px;"
+                class="timelines__horizontal-long__timeline"
+              >
+                <template v-for="(notice, i) in start1">
+                  <va-timeline-item active :key="'item' + notice.name">
+                    <template slot="before">
+                      <div class="title text--center" style="color: rgb(64, 229, 134); font-size: 1rem;">{{ notice.start }}</div>
+                    </template>
+                    <va-card slot="after" stripe="warning" class="mb-0">
+                      <template slot="title">{{ notice.start }}</template>
+                      <va-accordion>
+                        <va-collapse>
+                          <span slot="header"><h2>{{ notice.name }}</h2></span>
+                          <div slot="body">
+                            <div>{{ notice.summary }}
+                              <br>
+                              <h2>{{ notice.writer }}</h2>
+                            </div>
                           </div>
-                        </div>
-                      </va-collapse>
-                    </va-accordion>
-                  </va-card>
-                </va-timeline-item>
-              </template>
-            </va-timeline>
-          </va-card>
-        </div>
+                        </va-collapse>
+                      </va-accordion>
+                    </va-card>
+                  </va-timeline-item>
+                </template>
+              </va-timeline>
+            </va-card>
+          </div>
 
-        <div class="flex xs12">
-          <va-card no-padding-h style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
-            <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
-            <form>
-              <div>
-                <div class="flex md4 sm6 xs12">
-                  <template v-for="(prevent, j) in pr">
-                    <va-accordion :key="'item' + prevent.name">
-                      <va-collapse>
+          <div class="flex xs12">
+            <va-card no-padding-h style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
+              <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
+              <form>
+                <div>
+                  <div class="flex md4 sm6 xs12">
+                    <template v-for="(prevent, j) in pr">
+                      <va-accordion :key="'item' + prevent.name">
+                        <va-collapse>
 
-                        <span slot="header"><h2>{{ prevent.name }}</h2></span>
+                          <span slot="header"><h2>{{ prevent.name }}</h2></span>
 
-                        <div slot="body">
-                          <form @submit.prevent="onsubmit()">
-                            <template v-for="(imag, i) in prevent.images">
-                              <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
-                            </template>
-                            <br>
-                            <va-input
-                              v-model="withDescription"
-                              placeholder="Enter the scanned QR code here"
-                            />
-                            <div v-if="prevent.is_nick == true">
-                              <h2>Price without nick</h2> {{prevent.price}}
+                          <div slot="body">
+                            <form @submit.prevent="onsubmit()">
+                              <template v-for="(imag, i) in prevent.images">
+                                <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
+                              </template>
                               <br>
-                              <h2>Price with nick</h2> {{prevent.price_nick}}
-                              <br>
-                              <br>
-                              <va-checkbox
-                                :label="$t('Do you want a nick?')"
-                                v-model="checkbox"
+                              <va-input
+                                v-model="withDescription"
+                                placeholder="Enter the scanned QR code here"
                               />
-                              <va-input v-if="checkbox==true"
-                                v-model="nick"
-                                placeholder="Enter nick here"
+                              <div v-if="prevent.is_nick == true">
+                                <h2>Price without nick</h2> {{prevent.price}}
+                                <br>
+                                <h2>Price with nick</h2> {{prevent.price_nick}}
+                                <br>
+                                <br>
+                                <va-checkbox
+                                  :label="$t('Do you want a nick?')"
+                                  v-model="checkbox"
+                                />
+                                <va-input v-if="checkbox==true"
+                                  v-model="nick"
+                                  placeholder="Enter nick here"
+                                />
+                              </div>
+                              <div v-else>
+                                <h2>Price</h2> {{prevent.price}}
+                              </div>
+                              <br>
+                              <va-select
+                                :label="$t('Choose Size')"
+                                v-model="simpleSelectModel"
+                                textBy="description"
+                                :options="prevent.available_sizes"
                               />
-                            </div>
-                            <div v-else>
-                              <h2>Price</h2> {{prevent.price}}
-                            </div>
-                            <br>
-                            <va-select
-                              :label="$t('Choose Size')"
-                              v-model="simpleSelectModel"
-                              textBy="description"
-                              :options="prevent.available_sizes"
-                            />
-                            <h2>Select Quantity</h2>
-                            <br>
-                            <va-slider
-                              pins
-                              :min="1"
-                              :max="10"
-                              :step="1"
-                              color="warning"
-                              value-visible
-                              v-model="value"
-                              input
-                            />
-                            <va-button color="danger" type="submit"> Register </va-button>
-                            <br>
-                            <br>
-                            <br>
-                          </form>
-                        </div>
-                      </va-collapse>
-                    </va-accordion>
-                  </template>
+                              <h2>Select Quantity</h2>
+                              <br>
+                              <va-slider
+                                pins
+                                :min="1"
+                                :max="10"
+                                :step="1"
+                                color="warning"
+                                value-visible
+                                v-model="value"
+                                input
+                              />
+                              <va-button color="danger" type="submit"> Register </va-button>
+                              <br>
+                              <br>
+                              <br>
+                            </form>
+                          </div>
+                        </va-collapse>
+                      </va-accordion>
+                    </template>
+                  </div>
                 </div>
-              </div>
-            </form>
-          </va-card>
+              </form>
+            </va-card>
+          </div>
         </div>
       </div>
     </div>
