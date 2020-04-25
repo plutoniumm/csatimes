@@ -4,6 +4,10 @@
 $vue-purple: #6c7fee;
 $purple-box-shadow: 0 4px 9.6px 0.4px rgba($vue-purple, 0.5);
 
+* {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 body.va-inverted-color {
   ::selection {
     background-color: $vue-purple;

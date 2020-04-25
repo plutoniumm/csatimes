@@ -58,18 +58,6 @@ export default new Router({
           component: () => import('../components/dashboard/Dashboard.vue'),
         },
         {
-          name: 'pages',
-          path: 'pages',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: '404-pages',
-              path: '404-pages',
-              component: () => import('../components/pages/404-pages/404PagesPage'),
-            },
-          ],
-        },
-        {
           name: 'csa',
           path: 'csa',
           component: () => import('../components/csa/csa.vue'),

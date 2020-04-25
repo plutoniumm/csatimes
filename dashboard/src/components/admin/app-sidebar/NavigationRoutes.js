@@ -12,22 +12,11 @@ export const navigationRoutes = {
       },
     },
     {
-      name: 'pages',
-      displayName: 'menu.pages',
+      name: 'login',
+      displayName: 'Login/Signup',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-files',
       },
-      disabled: true,
-      children: [
-        {
-          name: 'login',
-          displayName: 'Login/Signup',
-        },
-        {
-          name: '404-pages',
-          displayName: '404 Pages',
-        },
-      ],
     },
     {
       name: 'portal',

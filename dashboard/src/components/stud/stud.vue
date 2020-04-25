@@ -6,7 +6,7 @@
           :title="$t('Campus Life')"
           color="info"
         >
-          <router-link :to="fame" append exact>
+          <router-link :to="{ path: '../hall'}" append exact>
             <va-button color="danger"> Hall of Fame</va-button>
           </router-link>
           <router-link :to="{ path: '../hall'}" append exact>
