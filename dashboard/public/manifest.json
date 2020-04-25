@@ -1,6 +1,6 @@
 {
-  "name": "CSATimes",
-  "short_name": "CSATimes",
+  "name": "vuestic-admin",
+  "short_name": "vuestic-admin",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

@@ -9,12 +9,9 @@ const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
 
-const demoRoutes = []
-
 export default new Router({
-  mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'history',
+  mode: 'history',
   routes: [
-    ...demoRoutes,
     {
       path: '/*',
       redirect: { name: 'dashboard' },
@@ -59,22 +56,6 @@ export default new Router({
           name: 'dashboard',
           path: '/dashboard',
           component: () => import('../components/dashboard/Dashboard.vue'),
-<<<<<<< HEAD
-=======
-          default: true,
-        },
-        {
-          name: 'pages',
-          path: '/pages',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: '404-pages',
-              path: '/404-pages',
-              component: () => import('../components/pages/404-pages/404PagesPage'),
-            },
-          ],
->>>>>>> parent of f820123... Upd
         },
         {
           name: 'csa',
@@ -85,11 +66,11 @@ export default new Router({
           name: 'developers',
           path: '/developers',
           component: () => import('../components/developers/developers.vue'),
+          default: true,
         },
         {
-<<<<<<< HEAD
           name: 'portal',
-          path: '/portal',
+          path: 'portal',
           component: () => import('../components/stud/stud.vue'),
           children: [
             {
@@ -108,30 +89,6 @@ export default new Router({
               component: () => import('../components/stud/humanities.vue'),
             },
           ],
-=======
-          name: 'stud',
-          path: '/stud',
-          component: () => import('../components/stud/stud.vue'),
-          default: true,
-        },
-        {
-          name: 'hall',
-          path: '/hall',
-          component: () => import('../components/stud/hall.vue'),
-          default: true,
-        },
-        {
-          name: 'startup',
-          path: '/startup',
-          component: () => import('../components/stud/startup.vue'),
-          default: true,
-        },
-        {
-          name: 'humanities',
-          path: '/humanities',
-          component: () => import('../components/stud/humanities.vue'),
-          default: true,
->>>>>>> parent of f820123... Upd
         },
       ],
     },
