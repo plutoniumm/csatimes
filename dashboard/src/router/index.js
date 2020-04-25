@@ -111,14 +111,6 @@ export default new Router({
               },
             },
             {
-              name: 'rating',
-              path: '/rating',
-              component: () => import('../components/ui/rating/Rating'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
-              },
-            },
-            {
               name: 'timelines',
               path: '/timelines',
               component: () => import('../components/ui/timelines/Timelines'),
@@ -161,11 +153,6 @@ export default new Router({
               name: 'spinners',
               path: '/spinners',
               component: () => import('../components/ui/spinners/Spinners'),
-            },
-            {
-              name: 'grid',
-              path: '/grid',
-              component: () => import('../components/ui/grid/Grid'),
             },
             {
               name: 'modals',
@@ -213,14 +200,6 @@ export default new Router({
               component: () => import('../components/ui/sliders/Sliders'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
-              },
-            },
-            {
-              name: 'tabs',
-              path: '/tabs',
-              component: () => import('../components/ui/tabs/Tabs'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
               },
             },
           ],

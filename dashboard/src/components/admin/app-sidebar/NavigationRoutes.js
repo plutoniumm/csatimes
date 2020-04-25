@@ -71,10 +71,6 @@ export const navigationRoutes = {
           displayName: 'menu.fileUpload',
         },
         {
-          name: 'grid',
-          displayName: 'menu.grid',
-        },
-        {
           name: 'icon-sets',
           displayName: 'menu.icons',
           children: [
@@ -93,20 +89,12 @@ export const navigationRoutes = {
           displayName: 'menu.notifications',
         },
         {
-          name: 'rating',
-          displayName: 'menu.rating',
-        },
-        {
           name: 'sliders',
           displayName: 'menu.sliders',
         },
         {
           name: 'spinners',
           displayName: 'menu.spinners',
-        },
-        {
-          name: 'tabs',
-          displayName: 'menu.tabs',
         },
         {
           name: 'timelines',
