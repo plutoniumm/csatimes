@@ -26,6 +26,27 @@ export const navigationRoutes = {
       },
     },
     {
+      name: 'hall',
+      displayName: 'Hall of Fame',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'humanities',
+      displayName: 'Humanities Electives',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
+      name: 'startup',
+      displayName: 'Bits Goa Startups',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+      },
+    },
+    {
       name: 'csa',
       displayName: 'CSA',
       meta: {
@@ -35,27 +56,6 @@ export const navigationRoutes = {
     {
       name: 'developers',
       displayName: 'Developers',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'hall',
-      displayName: 'Hall',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'humanities',
-      displayName: 'Humanities',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'startup',
-      displayName: 'Startup',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },

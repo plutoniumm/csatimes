@@ -17,7 +17,7 @@
                     <va-item-section avatar>
                       <va-avatar>
                         <va-item-label>
-                          <img :src="`'../../assets/pics/'+${customer.picture}`" :alt="customer.name">
+                          <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name">
                         </va-item-label>
                       </va-avatar>
                     </va-item-section>

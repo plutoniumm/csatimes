@@ -67,14 +67,14 @@ export default {
   },
   methods: {
     onsubmit () {
-      if (this.bitsid < 1000000000 || this.mobile > 9999999999) this.bitsidErrors = ['Enter a valid BITSID']
-      else this.bitsidErrors = []
+      if (this.bitsid) this.bitsidErrors = []
+      else this.bitsidErrors = ['Enter a valid BITSID']
 
-      if (this.mobile < 1000000000 || this.mobile > 9999999999) this.mobileErrors = ['Enter a valid Mobile Number']
-      else this.mobileErrors = []
+      if (this.mobile > 1000000000 && this.mobile < 9999999999) this.mobileErrors = []
+      else this.mobileErrors = ['Enter a valid Mobile Number']
 
-      if (this.hostel < 0 || this.hostel > 600) this.hostelErrors = ['Enter a valid Hostel Number']
-      else this.hostelErrors = []
+      if (this.hostel > 0 && this.hostel < 600) this.hostelErrors = []
+      else this.hostelErrors = ['Enter a valid Hostel Number']
 
       if (!this.formReady) {
         return

@@ -69,26 +69,24 @@ export default new Router({
           default: true,
         },
         {
-          name: 'portal',
-          path: 'portal',
+          name: 'stud',
+          path: '/stud',
           component: () => import('../components/stud/stud.vue'),
-          children: [
-            {
-              name: 'fame',
-              path: 'fame',
-              component: () => import('../components/stud/hall.vue'),
-            },
-            {
-              name: 'startup',
-              path: 'startup',
-              component: () => import('../components/stud/startup.vue'),
-            },
-            {
-              name: 'humanities',
-              path: 'humanities',
-              component: () => import('../components/stud/humanities.vue'),
-            },
-          ],
+        },
+        {
+          name: 'hall',
+          path: '/hall',
+          component: () => import('../components/hall/hall.vue'),
+        },
+        {
+          name: 'startup',
+          path: '/startup',
+          component: () => import('../components/startup/startup.vue'),
+        },
+        {
+          name: 'humanities',
+          path: '/humanities',
+          component: () => import('../components/humanities/humanities.vue'),
         },
       ],
     },
