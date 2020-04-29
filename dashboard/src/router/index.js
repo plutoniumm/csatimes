@@ -12,10 +12,10 @@ const EmptyParentComponent = {
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/*',
-      redirect: { name: 'dashboard' },
-    },
+    // {
+    //   path: '/*',
+    //   redirect: { name: 'dashboard' },
+    // },
     {
       path: '//auth',
       component: AuthLayout,

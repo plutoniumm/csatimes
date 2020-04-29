@@ -25,27 +25,27 @@ export const navigationRoutes = {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },
     },
-    {
-      name: 'hall',
-      displayName: 'Hall of Fame',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'humanities',
-      displayName: 'Humanities Electives',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
-    {
-      name: 'startup',
-      displayName: 'Bits Goa Startups',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
-      },
-    },
+    // {
+    //   name: 'hall',
+    //   displayName: 'Hall of Fame',
+    //   meta: {
+    //     iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+    //   },
+    // },
+    // {
+    //   name: 'humanities',
+    //   displayName: 'Humanities Electives',
+    //   meta: {
+    //     iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+    //   },
+    // },
+    // {
+    //   name: 'startup',
+    //   displayName: 'Bits Goa Startups',
+    //   meta: {
+    //     iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+    //   },
+    // },
     {
       name: 'csa',
       displayName: 'CSA',

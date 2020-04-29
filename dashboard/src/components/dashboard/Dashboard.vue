@@ -12,7 +12,7 @@
               <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
               <va-timeline
                 align-top
-                style="min-width: 600px;"
+                style="min-width: 900px;"
                 class="timelines__horizontal-long__timeline"
               >
                 <template v-for="(notice, i) in start1">
@@ -194,6 +194,7 @@ body {
 }
 
 .row.row-inside {
-  max-width: none;
+  max-width: 20px;
 }
+
 </style>

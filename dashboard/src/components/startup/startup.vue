@@ -2,7 +2,7 @@
 
   <div class="cards">
     <va-card style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
-      <div style="font-size: 4rem; text-align: center;">BITS GOA STARTUPS</div>
+      <div style="font-size: 2.5rem; text-align: center;">BITS GOA STARTUPS</div>
       <div class="cards-container row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
 

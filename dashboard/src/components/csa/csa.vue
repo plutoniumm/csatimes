@@ -7,7 +7,7 @@
           <div class="flex xs12">
             <va-card color="info">
               <span class="heading">Council of Student Affairs</span>
-              <va-list fit class="mb-2">
+              <va-list class="mb-2" style="min-width: 600px;">
                 <va-list-label>
                   People
                 </va-list-label>
@@ -15,11 +15,11 @@
                 <template v-for="(customer, i) in customers">
                   <va-item :key="'item' + customer.name">
                     <va-item-section avatar>
-                      <va-avatar>
-                        <va-item-label>
-                          <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name">
-                        </va-item-label>
-                      </va-avatar>
+
+                      <va-item-label>
+                        <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name" width='170px'>
+                      </va-item-label>
+
                     </va-item-section>
 
                     <va-item-section>
@@ -120,7 +120,7 @@ export default {
     height: 100%;
 
     .heading {
-      font-size: 4rem;
+      font-size: 2.5rem;
       justify-content: center;
       display: flex;
     }
@@ -131,5 +131,8 @@ export default {
       height: 100%;
     }
   }
+}
+body {
+  background-color: rgb(32, 61, 85);
 }
 </style>

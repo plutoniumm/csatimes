@@ -2,7 +2,7 @@
 
   <div class="cards">
     <va-card style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
-      <div style="font-size: 4rem; text-align: center;">HUMANITIES ELECTIVES</div>
+      <div style="font-size: 2.5rem; text-align: center;">HUMANITIES ELECTIVES</div>
       <div class="cards-container row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
 
@@ -55,4 +55,9 @@ export default {
     margin: 0;
   }
 }
+
+body {
+  background-color: rgb(32, 61, 85);
+}
+
 </style>
