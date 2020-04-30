@@ -67,8 +67,9 @@ export default {
   },
   methods: {
     onsubmit () {
-      if (this.bitsid) this.bitsidErrors = []
-      else this.bitsidErrors = ['Enter a valid BITSID']
+      if (this.bitsid.match(/G/i)) {
+        if (this.bitsid.substring(0, 4) > 2012 && this.bitsid.substring(0, 4) < 2021) { this.bitsidErrors = [] }
+      } else this.bitsidErrors = ['Enter a valid BITSID']
 
       if (this.mobile > 1000000000 && this.mobile < 9999999999) this.mobileErrors = []
       else this.mobileErrors = ['Enter a valid Mobile Number']
@@ -84,7 +85,7 @@ export default {
   },
   computed: {
     formReady () {
-      return !(this.bitsErrors.length || this.hostelErrors.length || this.mobileErrors.length)
+      return !(this.bitsidErrors.length || this.hostelErrors.length || this.mobileErrors.length)
     },
   },
 }

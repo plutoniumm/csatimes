@@ -18,10 +18,10 @@
                 <template v-for="(notice, i) in start1">
                   <va-timeline-item active :key="'item' + notice.name">
                     <template slot="before">
-                      <div class="title text--center" style="color: rgb(64, 229, 134); font-size: 1rem;">{{ notice.start }}</div>
+                      <div class="title text--center" style="color: rgb(64, 229, 134); font-size: 1rem;">{{ notice.updated_at.substring(0,10) }}</div>
                     </template>
                     <va-card slot="after" stripe="warning" class="mb-0">
-                      <template slot="title">{{ notice.start }}</template>
+                      <template slot="title">{{notice.updated_at}}</template>
                       <va-accordion>
                         <va-collapse>
                           <span slot="header"><h2>{{ notice.name }}</h2></span>

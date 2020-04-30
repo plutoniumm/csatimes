@@ -132,6 +132,7 @@ export default {
     }
   }
 }
+
 body {
   background-color: rgb(32, 61, 85);
 }
