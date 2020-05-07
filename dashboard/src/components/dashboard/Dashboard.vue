@@ -41,7 +41,7 @@
           </div>
 
           <div class="flex xs12">
-            <va-card no-padding-h style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
+            <va-card no-padding-h style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224)); overflow-x: auto;">
               <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
               <form>
                 <div>
@@ -134,7 +134,7 @@ export default {
       axios({
         url: 'http://csa.devsoc.club/api/v1/complaints/student/add',
         method: 'post',
-        headers: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0wMVQxMjo1ODozMy40NjFaIiwiaWF0IjoxNTg1NzQ2MjAxfQ.T4y7ZdgybRiKdDcIBUid0brrPEaMvhPbZVWmGzc9kWM' },
+        headers: { token: this.$AuthStr },
         data: payload,
       })
       if (!this.formReady) {

@@ -6,8 +6,8 @@
         <va-card class="flex xs12" style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
           <span class="heading">Developers</span>
           <div class="flex xs12">
-            <va-card>
-              <h2>Devsoc Coordinators</h2>
+            <va-card style="background: rgb(52, 181, 229);">
+              <h2>DEVSOC COORDINATORS</h2>
               <br>
               <div style="display: inline-block; margin-right: 5%;">
                 <img :src="require('../../assets/pics/ishant.jpg')" width='170px'/>
@@ -27,7 +27,7 @@
             </va-card>
           </div>
           <div class="flex xs12">
-            <va-card>
+            <va-card style="background: rgb(52, 181, 229);">
               <h2>WEB</h2>
               <br>
               <div style="display: inline-block; margin-right: 5%;">

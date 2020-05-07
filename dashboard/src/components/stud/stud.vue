@@ -6,15 +6,22 @@
           :title="$t('Campus Life')"
           color="info"
         >
-          <router-link :to="{ path: '../hall'}" append exact>
-            <va-button color="danger"> Hall of Fame</va-button>
-          </router-link>
-          <router-link :to="{ path: '../startup'}" append exact>
-            <va-button color="warning"> BITS Goa Startups</va-button>
-          </router-link>
-          <router-link :to="{ path: '../humanities'}" append exact>
-            <va-button color="success"> Humanities Electives</va-button>
-          </router-link>
+          <va-card>
+            <img :src="require('../../assets/pics/hof.jpg')" width='170px'>
+            <router-link :to="{ path: '../hall'}" append exact>
+              <va-button color="danger"> Hall of Fame</va-button>
+            </router-link>
+          </va-card>
+          <va-card>
+            <router-link :to="{ path: '../startup'}" append exact>
+              <va-button color="warning"> BITS Goa Startups</va-button>
+            </router-link>
+          </va-card>
+          <va-card>
+            <router-link :to="{ path: '../humanities'}" append exact>
+              <va-button color="success"> Humanities Electives</va-button>
+            </router-link>
+          </va-card>
         </va-card>
       </div>
     </div>

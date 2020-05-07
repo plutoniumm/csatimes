@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AuthLayout from '../components/auth/AuthLayout'
 import AppLayout from '../components/admin/AppLayout'
+import AuthLayout from '../components/auth/AuthLayout'
 
 Vue.use(Router)
 

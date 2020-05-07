@@ -42,7 +42,7 @@ export default {
       default: () => [
         {
           name: 'profile',
-          redirectTo: '',
+          redirectTo: 'signup',
         },
         {
           name: 'logout',

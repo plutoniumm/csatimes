@@ -58,7 +58,7 @@ export default {
   },
   data () {
     return {
-      userName: 'Vasili S',
+      userName: this.$username,
     }
   },
   computed: {

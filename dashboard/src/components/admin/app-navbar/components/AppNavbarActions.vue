@@ -2,7 +2,7 @@
   <div class="app-navbar-actions">
     <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
-    <notification-dropdown class="app-navbar-actions__item"/>
+    <!-- <notification-dropdown class="app-navbar-actions__item"/> -->
     <settings-dropdown
       :is-top-bar.sync="isTopBarProxy"
       class="app-navbar-actions__item"
@@ -16,7 +16,7 @@
 
 <script>
 import ProfileDropdown from './dropdowns/ProfileDropdown'
-import NotificationDropdown from './dropdowns/NotificationDropdown'
+// import NotificationDropdown from './dropdowns/NotificationDropdown'
 import { ColorThemeMixin } from '../../../../services/vuestic-ui'
 
 export default {
@@ -24,7 +24,7 @@ export default {
   mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
-    NotificationDropdown,
+    // NotificationDropdown,
     ProfileDropdown,
   },
   props: {
