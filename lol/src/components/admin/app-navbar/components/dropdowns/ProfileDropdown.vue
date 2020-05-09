@@ -15,14 +15,14 @@
         :name="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
       />
     </span>
-    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2" style="min-width: 150px;">
       <router-link
         v-for="option in options"
         :key="option.name"
         :to="{name: option.redirectTo}"
         class="profile-dropdown__item pt-1 pb-1 mt-2 mb-2"
       >
-        {{ $t(`user.${option.name}`) }}
+        {{ option.name }}
       </router-link>
     </div>
   </va-dropdown>
@@ -41,11 +41,11 @@ export default {
       type: Array,
       default: () => [
         {
-          name: 'profile',
+          name: 'Update Profile',
           redirectTo: 'signup',
         },
         {
-          name: 'logout',
+          name: 'Logout',
           redirectTo: 'login',
         },
       ],

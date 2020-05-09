@@ -160,14 +160,14 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0xMFQwNjo0NzozNy4wNjBaIiwiaWF0IjoxNTg2NTI0NDQ4fQ.GhVp4SFz6yCTXoKNb0NHqsTkZoKF8gQrT1-viLjGv14' },
+        headers: { token: this.$AuthStr },
       })
       .then(response => {
         this.start1 = response.data.en
       })
     axios
       .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
-        headers: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJjcmVhdGVkX2F0IjoiMjAyMC0wNC0xMFQwNjo0NzozNy4wNjBaIiwiaWF0IjoxNTg2NTI0NDQ4fQ.GhVp4SFz6yCTXoKNb0NHqsTkZoKF8gQrT1-viLjGv14' },
+        headers: { token: this.$AuthStr },
       })
       .then(response => {
         this.pr = response.data.subEvents

@@ -109,12 +109,14 @@ export default {
       }
 
       axios({
-        url: 'http://csa.devsoc.club/api/v1/complaints/student/add',
+        url: 'https://csa.devsoc.club/api/v1/complaints/student/add',
         method: 'post',
         headers: { token: this.$AuthStr },
         data: payload,
       })
-      alert('Complaint registered')
+        .then(function (response) {
+          alert('Complaint registered')
+        })
     },
   },
   computed: {

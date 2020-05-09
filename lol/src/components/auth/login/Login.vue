@@ -1,10 +1,18 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div class="auth-layout row align-content--center">
+    <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
-        <va-button @click="socialLogin" color="info">Sign in</va-button>
+        <va-card class="auth-layout__card">
+          <div id="app">
+            <div id="nav">
+              <div class="d-flex justify--center">
+                <va-button @click="socialLogin" color="info">Sign in</va-button>
+              </div>
+              <router-view />
+            </div>
+          </div>
+        </va-card>
       </div>
-      <router-view />
     </div>
   </div>
 </template>
@@ -54,6 +62,7 @@ export default {
       var token = result.credential.idToken;
       var email = result.user.email
       Vue.prototype.$username = result.user.displayName
+      Vue.prototype.$forexam = result.user.email.slice(1,9)
       var str = email.match(/@goa.bits-pilani.ac.in/i)
       if(str===null)
         {firebase.auth().signOut().then(function() {
@@ -66,11 +75,11 @@ export default {
             idToken: token
             })
             .then(function(response) {
-              Vue.prototype.$AuthStr = response.authToken
-              if(!response.newUser)
-                that.$router.push({ path: '/dashboard' })
+              Vue.prototype.$AuthStr = response.data.authToken
+              if(!response.data.newUser)
+                that.$router.push({ name: 'dashboard' })
               else
-                that.$router.push({name: 'signup'})
+                that.$router.push({ name: 'signup' })
             })
             .catch(function(error) {
               alert('Please try again later')
@@ -92,4 +101,19 @@ export default {
 </script>
 
 <style lang="scss">
+.auth-layout {
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #941f1f, #193c83);
+
+  &__card {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__options {
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+  }
+}
 </style>
