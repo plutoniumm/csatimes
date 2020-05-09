@@ -12,13 +12,6 @@ export const navigationRoutes = {
       },
     },
     {
-      name: 'login',
-      displayName: 'Login/Signup',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-files',
-      },
-    },
-    {
       name: 'stud',
       displayName: 'Student Portal',
       meta: {

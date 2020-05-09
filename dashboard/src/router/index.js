@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import AppLayout from '../components/admin/AppLayout'
-import AuthLayout from '../components/auth/AuthLayout'
 
 Vue.use(Router)
 
@@ -12,13 +11,9 @@ const EmptyParentComponent = {
 export default new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/*',
-    //   redirect: { name: 'dashboard' },
-    // },
     {
       path: '//auth',
-      component: AuthLayout,
+      component: EmptyParentComponent,
       children: [
         {
           name: 'login',
@@ -34,16 +29,10 @@ export default new Router({
           path: '/',
           redirect: { name: 'login' },
         },
-      ],
-    },
-    {
-      path: '//404',
-      component: EmptyParentComponent,
-      children: [
         {
-          name: 'not-found-large-text',
-          path: '//pages/not-found-large-text',
-          component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),
+          name: 'update',
+          path: '/update',
+          component: () => import('../components/auth/update/Update.vue'),
         },
       ],
     },

@@ -47,7 +47,7 @@
                 />
 
                 <div class="d-flex justify--center mt-3">
-                  <va-button type="submit" class="my-0">{{ $t('Confirm Details') }}</va-button>
+                  <va-button type="submit" class="my-0">{{ $t('Update Details') }}</va-button>
                 </div>
               </form>
             </div>
@@ -121,31 +121,34 @@ export default {
       var payload = null
       if (this.simpleSelectModel === 'None') {
         payload = {
-          bitsId: this.bitsid.toUpperCase(),
-          hostel: this.hostelname,
-          mobile: this.mobile,
-          roomNo: this.hostel,
+          update: {
+            bits_id: this.bitsid.toUpperCase(),
+            hostel: this.hostelname,
+            mobile: this.mobile,
+            room_no: this.hostel,
+          },
         }
       } else {
         payload = {
-          bitsId: this.bitsid.toUpperCase(),
-          hostel: this.hostelname,
-          mobile: this.mobile,
-          roomNo: this.hostel + this.simpleSelectModel,
+          update: {
+            bits_id: this.bitsid.toUpperCase(),
+            hostel: this.hostelname,
+            mobile: this.mobile,
+            room_no: this.hostel + this.simpleSelectModel,
+          },
         }
       }
       axios({
-        url: 'https://csa.devsoc.club/api/v1/profile/create',
+        url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
         headers: { token: this.$AuthStr },
         data: this.payload,
       })
         .then(function (response) {
-          alert(response.data.msg)
           this.$router.push({ name: 'dashboard' })
         })
         .catch(function (error) {
-          alert(error)
+          console.log(error)
         })
     },
   },
@@ -153,6 +156,9 @@ export default {
     formReady () {
       return !(this.bitsidErrors.length || this.hostelErrors.length || this.mobileErrors.length || this.hostelnameErrors.length)
     },
+  },
+  mounted: {
+    // axios.get
   },
 }
 </script>
