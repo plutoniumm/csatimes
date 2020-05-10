@@ -34,6 +34,16 @@ export default new Router({
           path: '/update',
           component: () => import('../components/auth/update/Update.vue'),
         },
+        {
+          name: 'login1',
+          path: '/login1',
+          component: () => import('../components/auth/login1/Login1.vue'),
+        },
+        {
+          name: 'init',
+          path: '/init',
+          component: () => import('../components/auth/init/init.vue'),
+        },
       ],
     },
     {

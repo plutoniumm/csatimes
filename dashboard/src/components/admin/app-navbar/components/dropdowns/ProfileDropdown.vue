@@ -42,11 +42,11 @@ export default {
       default: () => [
         {
           name: 'Update Profile',
-          redirectTo: 'signup',
+          redirectTo: 'update',
         },
         {
           name: 'Logout',
-          redirectTo: 'login',
+          redirectTo: 'init',
         },
       ],
     },
