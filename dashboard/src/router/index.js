@@ -29,11 +29,6 @@ export default new Router({
           path: '/',
           redirect: { name: 'login' },
         },
-        {
-          name: 'update',
-          path: '/update',
-          component: () => import('../components/auth/update/Update.vue'),
-        },
       ],
     },
     {

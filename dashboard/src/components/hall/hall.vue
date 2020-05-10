@@ -2,28 +2,25 @@
 
   <div class="cards">
     <va-card style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
-      <div style="font-size: 2.5rem; text-align: center;">HALL OF  FAME</div>
+      <div style="font-size: 2.5rem; text-align: center; color: white;">HALL OF  FAME</div>
       <div class="cards-container row d-flex wrap align--start">
+        <div style="text-align: center; color: white;">
+          This is ten percent luck, twenty percent skill<br>
+          Fifteen percent concentrated power of will<br>
+          Five percent pleasure, fifty percent pain<br>
+          And a hundred percent reason to remember the name!
+        </div>
         <!-- eslint-disable vue/valid-v-for -->
 
-        <template v-for="(hall, i) in halls">
+        <template v-for="hall in halls">
           <div class="flex xs12" :key="hall.name">
-            <va-card v-if="i%2==0"
-            >
+            <va-card>
               <va-card color="success">
                 <div style="text-align: center;">
-                  <h2>{{hall.Name1}}</h2></div></va-card>
-              {{ hall.content1 }}
+                  <h2>{{hall.Name}} ({{ hall.id }})</h2></div></va-card>
+              {{ hall.content }}
             </va-card>
 
-            <va-card
-              v-if="i%2!=0"
-            >
-              <va-card color="danger">
-                <div style="text-align: center;">
-                  <h2>{{hall.Name2}}</h2></div></va-card>
-              {{ hall.content2 }}
-            </va-card>
           </div>
         </template>
 
