@@ -37,7 +37,7 @@ firebase.initializeApp(firebaseConfig);
 export default {
   components: {},
   data () {
-    return {
+    return{
     }
   },
   methods: {
@@ -93,7 +93,15 @@ export default {
       var email = error.email;
       var credential = error.credential;
       });
-    },
+      // else
+      //   {if (!firebase.apps.length) firebase.initializeApp({});
+      //   firebase.analytics();
+      //   const provider = new firebase.auth.GoogleAuthProvider();
+      //   provider.setCustomParameters({
+      //     prompt: 'select_account'
+      //   });
+      //   firebase.auth().signInWithRedirect(provider);
+    }
   },
   mounted () {
   },
