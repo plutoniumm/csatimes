@@ -28,6 +28,7 @@
     "element-resize-detector": "^1.1.15",
     "epic-spinners": "^1.1.0",
     "extend": "3.0.2",
+    "firebase": "^7.14.3",
     "flag-icon-css": "^3.4.5",
     "font-awesome": "^4.7.0",
     "google-maps": "^3.3.0",

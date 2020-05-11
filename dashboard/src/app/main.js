@@ -12,7 +12,7 @@ import VueMoment from 'vue-moment'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
 import VueClipboard from 'vue-clipboard2'
-
+import * as firebase from 'firebase'
 import '../metrics'
 import '../registerServiceWorker'
 
@@ -49,4 +49,15 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  created () {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
+      authDomain: 'csatimesmini.firebaseapp.com',
+      databaseURL: 'https://csatimesmini.firebaseio.com',
+      projectId: 'csatimesmini',
+      storageBucket: 'csatimesmini.appspot.com',
+      messagingSenderId: '698625993551',
+      appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
+    })
+  },
 })
