@@ -30,15 +30,15 @@
         </div>
       </div>
 
-      <div class="row" style="justify-content: center;">
+      <!-- <div class="row" style="justify-content: center;">
         <div class="flex xs12  sm6 lg4">
           <va-card style="background: #000000; text-align: center;">
             <h2 style="color: #ffffff;">Council of Student Affairs</h2>
           </va-card>
         </div>
-      </div>
+      </div> -->
 
-      <template v-for="(customer, i) in customers">
+      <!-- <template v-for="(customer, i) in customers">
         <div :key="'item' + customer.name"  style="display: inline-block;" class="row">
           <div class="flex">
             <div class="card" style="margin: 1rem;">
@@ -52,15 +52,82 @@
             </div>
           </div>
         </div>
-      </template>
-
+      </template> -->
+      <div class="row" style="justify-content: center;">
+        <div class="flex xs12 sm6 lg4">
+          <va-card style="background: #000000; text-align: center;">
+            <h2 style="color: #ffffff;">Council of Student Affairs</h2>
+          </va-card>
+        </div>
+      </div>
+      <div class="row" style="justify-content: center;">
+        <div class="flex xs12">
+          <div class="card">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/dhruv.png')" width='170px'/>
+            </div>
+            <div class="details">
+              <h2>Dhruv Kaluskar<br><span>(President)</span></h2>
+              +91 96655 81729
+              prez@goa.bits-pilani.ac.in
+            </div>
+          </div>
+        </div>
+        <div class="flex xs12 sm6">
+          <div class="card">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/avi.png')" width='170px'/>
+            </div>
+            <div class="details">
+              <h2>Avi Chauhan<br><span>(Vice President)</span></h2>
+              +91 96655 81729
+              viceprez@goa.bits-pilani.ac.in
+            </div>
+          </div>
+        </div>
+        <div class="flex xs12 sm6">
+          <div class="card">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/aanak.png')" width='170px'/>
+            </div>
+            <div class="details">
+              <h2>Aanak Sengupta<br><span>(Treasurer)</span></h2>
+              +91 70305 30377
+              trez@goa.bits-pilani.ac.in
+            </div>
+          </div>
+        </div>
+        <div class="flex xs12 sm6">
+          <div class="card">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/aseem.png')" width='170px'/>
+            </div>
+            <div class="details">
+              <h2>Aseem Juneja<br><span>(General Secretary)</span></h2>
+              +91 75892 01824
+              gensec@goa.bits-pilani.ac.in
+            </div>
+          </div>
+        </div>
+        <div class="flex xs12 sm6">
+          <div class="card">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/deva.png')" width='170px'/>
+            </div>
+            <div class="details">
+              <h2>Devashish Rane<br><span>Sports Secretary</span></h2>
+              +91 95526 74242
+              sportssec@goa.bits-pilani.ac.in
+            </div>
+          </div>
+        </div>
+      </div>
     </template>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import data from './data.json'
 export default {
   name: 'cards',
   data () {
