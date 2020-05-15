@@ -78,11 +78,6 @@ export default new Router({
           path: '/startup',
           component: () => import('../components/startup/startup.vue'),
         },
-        {
-          name: 'humanities',
-          path: '/humanities',
-          component: () => import('../components/humanities/humanities.vue'),
-        },
       ],
     },
   ],
