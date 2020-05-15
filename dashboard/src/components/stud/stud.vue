@@ -32,45 +32,132 @@
 
     <!-- DATA TABLE -->
 
-    <va-card :title="('Humanities Reviews')" class="mb-2">
-      <table class="va-table">
-        <thead>
-          <tr>
-            <th>{{ $t('Course Name') }}</th>
-            <th>{{ $t('Course IC') }}</th>
-            <th>{{ $t('Course Code') }}</th>
-            <th>{{ $t('Bulletin Description / Student Reviews') }}</th>
-          </tr>
-        </thead>
+    <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
+    <div class="row align--center">
+      <div class="flex xs12 md6">
+        <va-input
+          :value="term"
+          :placeholder="('Search by Course Code, Name or IC')"
+          @input="search"
+          removable
+        >
+          <va-icon name="fa fa-search" slot="prepend" />
+        </va-input>
+      </div>
 
-        <tbody>
-          <tr v-for="user in users" :key="user.id">
-            <td>{{ user.course }}</td>
-            <td>{{ user.code }}</td>
-            <td>{{ user.ic }}</td>
-            <td>{{ user.ic }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </va-card>
+      <div class="flex xs12 md3 offset--md3">
+        <va-select
+          v-model="perPage"
+          :label="$t('tables.perPage')"
+          :options="perPageOptions"
+          noClear
+        />
+      </div>
+    </div>
+
+    <va-data-table
+      :fields="fields"
+      :data="filteredData"
+      :per-page="parseInt(perPage)"
+    >
+    </va-data-table>
+
+    <template slot="review" slot-scope="props">
+        <va-collapse :color="props.rowData.color">
+          <span slot="header"> Another Block </span>
+          <div slot="body">
+                <div>
+                  {{ props.rowData.status }}
+                </div>
+              </div>
+        </va-collapse>
+    </template>
+
+    <template slot="status" slot-scope="props">
+        <va-badge :color="props.rowData.color">
+          {{ props.rowData.status }}
+        </va-badge>
+      </template>
+            
+  </va-card>
   </div>
 </template>
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 
 <script>
-import courses from './humanities.json'
+import { debounce } from 'lodash'
+import users from './humanities.json'
+import users2 from './users.json'
+
 export default {
   data () {
     return {
-      users: courses.slice(),
+      term: null,
+      perPage: '6',
+      perPageOptions: ['4', '6', '10', '20', '50'],
+      users: users,
     }
+  },
+  computed: {
+    fields () {
+      return [{
+        name: 'course',
+        title: 'Course Name',
+        width: '15%',
+      },{
+        name: '__slot:status',
+        title: this.$t('tables.headings.status'),
+        width: '20%',
+      },{
+        name: 'code',
+        title: 'Course Code',
+        width: '5%',
+      }, {
+        name: 'ic',
+        title: 'In-Charge',
+        width: '10%',
+      }, {
+        name: 'bulletin',
+        title: 'Bulletin Description',
+        width: '30%',
+      }, {
+        name: '__slot:review',
+        title: 'Student Review',
+      }]
+    },
+    filteredData () {
+      if (!this.term || this.term.length < 1) {
+        return this.users
+      }
+      return this.users.filter(item => {
+        return item.course.toLowerCase().includes(this.term.toLowerCase()) || item.ic.toLowerCase().includes(this.term.toLowerCase()) || item.code.toLowerCase().includes(this.term.toLowerCase())
+      })
+    },
+  },
+  methods: {
+    search: debounce(function (term) {
+      this.term = term
+    }, 400),
   },
 }
 </script>
 
-<style lang="scss">
+<style scoped>
+
+* {
+  transition: all 0.5s;
+}
+
 body {
-  background-color: #ffdcab;
+  background-color: #f7ecdb;
+}
+
+tr {
+  background-color: #ffdcab !important;
+}
+
+tr:hover {
+  background-color: #fec647;
 }
 
 </style>
