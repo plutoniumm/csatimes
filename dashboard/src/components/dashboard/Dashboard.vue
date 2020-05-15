@@ -127,21 +127,6 @@ export default {
   components: {
   },
   methods: {
-    onsubmit () {
-      const payload = {
-      }
-
-      axios({
-        url: 'http://csa.devsoc.club/api/v1/complaints/student/add',
-        method: 'post',
-        headers: { token: this.$AuthStr },
-        data: payload,
-      })
-      if (!this.formReady) {
-        return
-      }
-      this.$router.push({ name: 'dashboard' })
-    },
   },
 
   data () {
