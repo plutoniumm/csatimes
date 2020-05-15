@@ -83,6 +83,11 @@ export default new Router({
           path: '/humanities',
           component: () => import('../components/humanities/humanities.vue'),
         },
+        {
+          name: 'clubs',
+          path: '/clubs',
+          component: () => import('../components/clubs/Clubs.vue'),
+        },
       ],
     },
   ],

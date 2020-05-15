@@ -1,71 +1,79 @@
 <template>
-  <div class="cards">
-    <div class="cards-container row d-flex wrap align--start">
+  <div>
+    <div>
       <!-- eslint-disable vue/valid-v-for -->
       <template>
         <!-- <va-card class="flex xs12" style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224));">
           <span class="heading">Developers</span>
         </va-card> -->
-        <div class="flex md4 offset--md4" style="margin-right: 5%;">
-          <va-card style="background: #000000; text-align: center;">
-            <h2 style="color: #ffffff;">WEB</h2>
-          </va-card>
+        <div class="row" style="justify-content: center;">
+          <div class="flex xs12 sm6 lg4 xl3" style="">
+            <va-card style="background: #000000; text-align: center;">
+              <h2 style="color: #ffffff;">WEB</h2>
+            </va-card>
+          </div>
         </div>
-        <div class="flex md4 offset--xs2">
-          <div class="card">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
+        <div class="row" style="justify-content: center;">
+          <div class="flex xs12 sm6 lg4 xl3">
+            <div class="card">
+              <div class="imgBx">
+                <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
+              </div>
+              <div class="details">
+                <h2><span  style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Manav Sekseria</span></h2>
+              </div>
             </div>
-            <div class="details">
-              <h2><span  style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Manav Sekseria</span></h2>
+          </div>
+          <div class="flex xs12 sm6 lg4 xl3">
+            <div class="card">
+              <div class="imgBx">
+                <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
+              </div>
+              <div class="details">
+                <h2><span style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Aviral Kumar Goel</span></h2>
+              </div>
             </div>
           </div>
         </div>
-        <div class="flex md4">
-          <div class="card">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
-            </div>
-            <div class="details">
-              <h2><span style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Aviral Kumar Goel</span></h2>
-            </div>
+        <br>
+        <div class="row" style="justify-content: center;">
+          <div class="flex xs12 sm6 lg4 xl3">
+            <va-card style="background: #000000; text-align: center;">
+              <h2 style="color: #ffffff;">DEVSOC COORDINATORS</h2>
+            </va-card>
           </div>
         </div>
+        <div class="row"  style="justify-content: center;">
+          <div class="flex xs12 sm6 lg4 xl3">
+            <div class="card">
+              <div class="imgBx">
+                <img :src="require('../../assets/pics/ishant.jpg')" width='170px'/>
+              </div>
+              <div class="details">
+                <h2>Ishant Gupta<br><span>Coordinator</span></h2>
+              </div>
+            </div>
+          </div>
 
-        <div class="flex md4 offset--md4" style="margin-right: 15%;">
-          <va-card style="background: #000000; text-align: center;">
-            <h2 style="color: #ffffff;">DEVSOC COORDINATORS</h2>
-          </va-card>
-        </div>
-        <div class="flex md4">
-          <div class="card">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/ishant.jpg')" width='170px'/>
-            </div>
-            <div class="details">
-              <h2>Ishant Gupta<br><span>Coordinator</span></h2>
+          <div class="flex xs12 sm6 lg4 xl3">
+            <div class="card">
+              <div class="imgBx">
+                <img :src="require('../../assets/pics/samesh.jpg')" width='170px'/>
+              </div>
+              <div class="details">
+                <h2>Samesh Lakhotia<br><span>Sub-Coordinator</span></h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex md4">
-          <div class="card">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/samesh.jpg')" width='170px'/>
-            </div>
-            <div class="details">
-              <h2>Samesh Lakhotia<br><span>Sub-Coordinator</span></h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex md4">
-          <div class="card">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/sarvesh.jpeg')" width='170px'/>
-            </div>
-            <div class="details">
-              <h2>Sarvesh Shinde<br><span>Operations head</span></h2>
+          <div class="flex xs12 sm6 lg4 xl3">
+            <div class="card">
+              <div class="imgBx">
+                <img :src="require('../../assets/pics/sarvesh.jpeg')" width='170px'/>
+              </div>
+              <div class="details">
+                <h2>Sarvesh Shinde<br><span>Operations head</span></h2>
+              </div>
             </div>
           </div>
         </div>
@@ -113,7 +121,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  // background: #212121;
   font-family: sans-serif;
 }
 
@@ -157,7 +164,7 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  bottom: 10px;
+  bottom: 80px;
   right: 10px;
   background: #222222;
   transition: 0.5s;
@@ -166,7 +173,7 @@ body {
 
 .card:hover .imgBx,
 .card:active {
-  bottom: 80px;
+  bottom: 10px;
 }
 
 .card .imgBx img {
@@ -200,7 +207,6 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: #f38695;
-  display: block;
   margin-top: 0;
 }
 </style>
