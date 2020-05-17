@@ -29,8 +29,9 @@
           </form>
         </div>
       </div>
+    </template>
 
-      <!-- <div class="row" style="justify-content: center;">
+    <!-- <div class="row" style="justify-content: center;">
         <div class="flex xs12  sm6 lg4">
           <va-card style="background: #000000; text-align: center;">
             <h2 style="color: #ffffff;">Council of Student Affairs</h2>
@@ -38,19 +39,35 @@
         </div>
       </div> -->
 
-      <div class="row" style="justify-content: center;">
-        <div class="flex xs12 sm6 lg4">
-          <va-card style="background: #000000; text-align: center;">
-            <h2 style="color: #ffffff;">Council of Student Affairs</h2>
-          </va-card>
+    <div class="row" style="justify-content: center;">
+      <div class="flex xs12 sm6 lg4">
+        <va-card style="background: #000000; text-align: center;">
+          <h2 style="color: #ffffff;">Council of Student Affairs</h2>
+        </va-card>
+      </div>
+    </div>
+
+    <div style="justify-content: center;">
+      <div class="flex">
+        <div class="card">
+          <div class="imgBx">
+            <img :src="require('../../assets/pics/dhruv.png')" :alt="'Dhruv Kaluskar'">
+          </div>
+          <div class="details">
+            <h2>Dhruv Kaluskar<br><span>(President)</span></h2>
+            prez@goa.bits-pilani.ac.in<br>+91 96655 81729
+          </div>
         </div>
       </div>
-      <template v-for="(customer, i) in customers">
-        <div :key="'item' + customer.name"  style="display: inline-block;" class="row">
-          <div class="flex">
-            <div class="card" style="margin: 1rem;">
+    </div>
+
+    <template v-for="(customer, i) in customers">
+      <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center"  v-if="customer.name!='Dhruv Kaluskar'">
+        <div style="justify-content: center;">
+          <div class="flex" style="justify-content: center;">
+            <div class="card" style="margin: 1rem; justify-content: center;">
               <div class="imgBx">
-                <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name" width='170px'>
+                <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name">
               </div>
               <div class="details">
                 <h2>{{ customer.name }}<br><span>({{customer.post}})</span></h2>
@@ -59,7 +76,21 @@
             </div>
           </div>
         </div>
-      </template>
+
+        <!-- <div class="flex" v-else>
+          <div class="card" style="margin: 1rem;">
+            <div class="imgBx">
+              <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name" width='170px'>
+            </div>
+            <div class="details">
+              <h2>{{ customer.name }}<br><span>({{customer.post}})</span></h2>
+              {{ customer.address }} <br> {{ customer.phone}}
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
     </template>
   </div>
 </template>
@@ -124,7 +155,7 @@ export default {
 }
 
 body {
-  background-color: rgb(32, 61, 85);
+  background-color: #f7ecdb;
   margin: 0;
   padding: 0;
   display: flex;
@@ -220,9 +251,3 @@ body {
   margin-top: 0;
 }
 </style>
-
-axios.post(postUrl).then(
-  (res) => {
-    console.log('Axios:',res);
-    console.log('Axios data:',res.data);
-  // }).catch((err) => { console.log('Axios Error:', err); })

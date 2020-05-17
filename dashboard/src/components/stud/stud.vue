@@ -31,55 +31,59 @@
     </div>
 
     <!-- DATA TABLE -->
+    <va-collapse style="background-color: #ffdcab;">
+      <span slot="header">Humanities Reviews</span>
+      <div slot="body">
+        <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
+          <div class="row align--center">
+            <div class="flex xs12 md6">
+              <va-input
+                :value="term"
+                :placeholder="('Search by Course Code, Name or IC')"
+                @input="search"
+                removable
+              >
+                <va-icon name="fa fa-search" slot="prepend" />
+              </va-input>
+            </div>
 
-    <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
-    <div class="row align--center">
-      <div class="flex xs12 md6">
-        <va-input
-          :value="term"
-          :placeholder="('Search by Course Code, Name or IC')"
-          @input="search"
-          removable
-        >
-          <va-icon name="fa fa-search" slot="prepend" />
-        </va-input>
-      </div>
+            <div class="flex xs12 md3 offset--md3">
+              <va-select
+                v-model="perPage"
+                :label="$t('tables.perPage')"
+                :options="perPageOptions"
+                noClear
+              />
+            </div>
+          </div>
 
-      <div class="flex xs12 md3 offset--md3">
-        <va-select
-          v-model="perPage"
-          :label="$t('tables.perPage')"
-          :options="perPageOptions"
-          noClear
-        />
-      </div>
-    </div>
+          <va-data-table
+            :fields="fields"
+            :data="filteredData"
+            :per-page="parseInt(perPage)"
+          >
+          </va-data-table>
 
-    <va-data-table
-      :fields="fields"
-      :data="filteredData"
-      :per-page="parseInt(perPage)"
-    >
-    </va-data-table>
-
-    <template slot="review" slot-scope="props">
-        <va-collapse :color="props.rowData.color">
-          <span slot="header"> Another Block </span>
-          <div slot="body">
+          <template slot="review" slot-scope="props">
+            <va-collapse :color="props.rowData.color">
+              <span slot="header"> Another Block </span>
+              <div slot="body">
                 <div>
                   {{ props.rowData.status }}
                 </div>
               </div>
-        </va-collapse>
-    </template>
+            </va-collapse>
+          </template>
 
-    <template slot="status" slot-scope="props">
-        <va-badge :color="props.rowData.color">
-          {{ props.rowData.status }}
-        </va-badge>
-      </template>
-            
-  </va-card>
+          <template slot="status" slot-scope="props">
+            <va-badge :color="props.rowData.color">
+              {{ props.rowData.status }}
+            </va-badge>
+          </template>
+
+        </va-card>
+      </div>
+    </va-collapse>
   </div>
 </template>
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
@@ -142,22 +146,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 
-* {
-  transition: all 0.5s;
-}
+// * {
+//   transition: all 0.5s;
+// }
 
 body {
   background-color: #f7ecdb;
 }
 
 tr {
-  background-color: #ffdcab !important;
+  // background-color: #ffdcab !important;
 }
 
 tr:hover {
-  background-color: #fec647;
+  background-color: #ffdcab;
 }
 
 </style>
