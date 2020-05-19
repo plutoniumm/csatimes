@@ -6,7 +6,7 @@
           <div class="flex xs12">
             <va-card
               no-padding-h
-              style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224)); overflow-x: auto;"
+              style="background: linear-gradient(to right, #ffdcab, #f7ecdb); overflow-x: auto;"
               class="timelines__horizontal-long"
             >
               <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
@@ -163,7 +163,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: rgb(32, 61, 85);
+  background-color: #f7ecdb;
 }
 
 .row-equal .flex {

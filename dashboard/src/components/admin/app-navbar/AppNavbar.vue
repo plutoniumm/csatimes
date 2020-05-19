@@ -7,6 +7,7 @@
       <div class="app-navbar__menu-container">
         <va-icon-menu
           class="app-navbar__menu"
+          color="black"
           v-if="!minimized"
           @click.native="$emit('update:minimized', !minimized)"
         />
@@ -14,22 +15,25 @@
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized"
+          color="black"
           @click.native="$emit('update:minimized', !minimized)"
-        /><span style="color: Black;">Council for Student Affairs</span>
+        /><span style="color: black;">Council for Student Affairs</span>
       </div>
       <div class="app-navbar__center lg5 md4">
         <span
           class="app-navbar__text"
-          :style="{color: 'Black'}"
+          :style="{color: 'black'}"
         >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
       </div>
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
+        color="black"
         :user-name="userName"
       />
     </div>
     <div
       class="app-navbar__shape"
+      color="black"
       :style="shapeStyle"
     ></div>
   </nav>
@@ -72,7 +76,7 @@ export default {
     },
     navbarStyle () {
       const style = {
-        backgroundColor: 'white',
+        backgroundColor: 'black',
       }
 
       if (this.contextConfig.gradient) {

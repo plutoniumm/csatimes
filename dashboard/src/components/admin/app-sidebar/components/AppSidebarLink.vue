@@ -14,7 +14,7 @@
       <va-icon
         v-if="icon"
         class="app-sidebar-link__item-icon"
-        :style="computedIconStyles"
+        color="black"
         :name="icon"
       />
       <div class="app-sidebar-link__item-title" v-if="title">
@@ -26,7 +26,7 @@
       <va-icon
         v-if="iconRight"
         class="app-sidebar-link__item-icon-right"
-        :style="computedIconStyles"
+        color="black"
         :name="iconRight"
       >{{iconRightContent}}
       </va-icon>

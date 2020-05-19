@@ -114,7 +114,7 @@ export default {
 }
 
 body {
-  background-color: rgb(32, 61, 85);
+  background-color: #f7ecdb;
   margin: 0;
   padding: 0;
   display: flex;
