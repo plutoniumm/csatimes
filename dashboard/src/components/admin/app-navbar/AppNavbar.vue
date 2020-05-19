@@ -15,12 +15,12 @@
           class="app-navbar__menu"
           v-if="minimized"
           @click.native="$emit('update:minimized', !minimized)"
-        /><span style="color: white;">Council for Student Affairs</span>
+        /><span style="color: Black;">Council for Student Affairs</span>
       </div>
       <div class="app-navbar__center lg5 md4">
         <span
           class="app-navbar__text"
-          :style="{color: 'White'}"
+          :style="{color: 'Black'}"
         >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
       </div>
       <app-navbar-actions

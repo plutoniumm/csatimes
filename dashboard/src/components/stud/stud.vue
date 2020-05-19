@@ -48,7 +48,7 @@
       <div class="flex xs12 md3 offset--md3">
         <va-select
           v-model="perPage"
-          :label="$t('tables.perPage')"
+          :label="('Show Per Page')"
           :options="perPageOptions"
           noClear
         />
@@ -60,24 +60,28 @@
       :data="filteredData"
       :per-page="parseInt(perPage)"
     >
-    </va-data-table>
-
+  
     <template slot="review" slot-scope="props">
-        <va-collapse :color="props.rowData.color">
-          <span slot="header"> Another Block </span>
+      <va-collapse withBackground>
+          <span slot="header"> Bulletin Description </span>
           <div slot="body">
                 <div>
-                  {{ props.rowData.status }}
+                  {{ props.rowData.bulletin }}
+                </div>
+              </div>
+        </va-collapse>
+        <br>
+        <va-collapse withBackground>
+          <span slot="header"> Student Review </span>
+          <div slot="body">
+                <div>
+                  {{ props.rowData.review }}
                 </div>
               </div>
         </va-collapse>
     </template>
 
-    <template slot="status" slot-scope="props">
-        <va-badge :color="props.rowData.color">
-          {{ props.rowData.status }}
-        </va-badge>
-      </template>
+    </va-data-table>
             
   </va-card>
   </div>
@@ -87,13 +91,12 @@
 <script>
 import { debounce } from 'lodash'
 import users from './humanities.json'
-import users2 from './users.json'
 
 export default {
   data () {
     return {
       term: null,
-      perPage: '6',
+      perPage: '4',
       perPageOptions: ['4', '6', '10', '20', '50'],
       users: users,
     }
@@ -104,11 +107,7 @@ export default {
         name: 'course',
         title: 'Course Name',
         width: '15%',
-      },{
-        name: '__slot:status',
-        title: this.$t('tables.headings.status'),
-        width: '20%',
-      },{
+      },,{
         name: 'code',
         title: 'Course Code',
         width: '5%',
@@ -116,10 +115,6 @@ export default {
         name: 'ic',
         title: 'In-Charge',
         width: '10%',
-      }, {
-        name: 'bulletin',
-        title: 'Bulletin Description',
-        width: '30%',
       }, {
         name: '__slot:review',
         title: 'Student Review',

@@ -91,7 +91,7 @@ export default {
 
       if (this.contextConfig.invertedColor) {
         if (this.isHovered || this.isActive) {
-          style.color = 'white'
+          style.color = 'White'
         } else {
           style.color = this.$themes.gray
         }

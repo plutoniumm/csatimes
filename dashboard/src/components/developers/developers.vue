@@ -20,7 +20,7 @@
                 <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
               </div>
               <div class="details">
-                <h2><span  style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Manav Sekseria</span></h2>
+                <h2><span  style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;">Manav Seksaria</span> <br> <span>CSA Webmaster</span></h2>
               </div>
             </div>
           </div>
