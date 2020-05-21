@@ -17,7 +17,7 @@
         color="black"
         :name="icon"
       />
-      <div class="app-sidebar-link__item-title" v-if="title">
+      <div class="app-sidebar-link__item-title" style="color: black;" v-if="title">
         <slot>
           {{title}}
         </slot>

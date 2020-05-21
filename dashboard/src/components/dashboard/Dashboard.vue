@@ -6,10 +6,10 @@
           <div class="flex xs12">
             <va-card
               no-padding-h
-              style="background: linear-gradient(to right, #ffdcab, #f7ecdb); overflow-x: auto;"
+              style="background: #ffdcab; overflow-x: auto;"
               class="timelines__horizontal-long"
             >
-              <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
+              <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
               <va-timeline
                 align-top
                 style="min-width: 900px;"
@@ -18,9 +18,9 @@
                 <template v-for="(notice, i) in start1">
                   <va-timeline-item active :key="'item' + notice.name">
                     <template slot="before">
-                      <div class="title text--center" style="color: rgb(64, 229, 134); font-size: 1rem;">{{ notice.updated_at.substring(0,10) }}</div>
+                      <div class="title text--center" style="color: rgb(227, 75, 74); font-size: 1rem;">{{ notice.updated_at.substring(0,10) }}</div>
                     </template>
-                    <va-card slot="after" stripe="warning" class="mb-0">
+                    <va-card slot="after" stripe="danger" class="mb-0">
                       <template slot="title">{{notice.updated_at}}</template>
                       <va-accordion>
                         <va-collapse>
@@ -41,8 +41,8 @@
           </div>
 
           <div class="flex xs12">
-            <va-card no-padding-h style="background: linear-gradient(to right, rgb(52, 181, 229), rgb(46, 132, 224)); overflow-x: auto;">
-              <div style="color: rgb(255, 255, 255); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
+            <va-card no-padding-h style="background: #ffdcab; overflow-x: auto;">
+              <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
               <form>
                 <div>
                   <div class="flex md4 sm6 xs12">

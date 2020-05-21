@@ -31,9 +31,10 @@
     </div>
 
     <!-- DATA TABLE -->
-    <va-collapse style="background-color: #ffdcab;">
+    <va-collapse>
       <span slot="header">Humanities Reviews</span>
       <div slot="body">
+
         <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
           <div class="row align--center">
             <div class="flex xs12 md6">
@@ -47,57 +48,47 @@
               </va-input>
             </div>
 
-            <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
-              <div class="row align--center">
-                <div class="flex xs12 md6">
-                  <va-input
-                    :value="term"
-                    :placeholder="('Search by Course Code, Name or IC')"
-                    @input="search"
-                    removable
-                  >
-                    <va-icon name="fa fa-search" slot="prepend" />
-                  </va-input>
-                </div>
-
-                <div class="flex xs12 md3 offset--md3">
-                  <va-select
-                    v-model="perPage"
-                    :label="('Show Per Page')"
-                    :options="perPageOptions"
-                    noClear
-                  />
-                </div>
-              </div>
-
-              <va-data-table
-                :fields="fields"
-                :data="filteredData"
-                :per-page="parseInt(perPage)"
-              >
-
-                <template slot="review" slot-scope="props">
-                  <va-collapse withBackground>
-                    <span slot="header"> Bulletin Description </span>
-                    <div slot="body">
-                      <div>
-                        {{ props.rowData.bulletin }}
-                      </div>
-                    </div>
-                  </va-collapse>
-                  <br>
-                  <va-collapse withBackground>
-                    <span slot="header"> Student Review </span>
-                    <div slot="body">
-                      <div>
-                        {{ props.rowData.review }}
-                      </div>
-                    </div>
-                  </va-collapse>
-                </template>
-              </va-data-table>
-            </va-card>
+            <div class="flex xs12 md3 offset--md3">
+              <va-select
+                v-model="perPage"
+                :label="('Show Per Page')"
+                :options="perPageOptions"
+                noClear
+              />
+            </div>
           </div>
+
+          <va-data-table
+            :fields="fields"
+            :data="filteredData"
+            :per-page="parseInt(perPage)"
+          >
+
+            <template slot="review" slot-scope="props">
+              <va-collapse withBackground>
+                <span slot="header"> Bulletin Description </span>
+                <div slot="body">
+                  <div>
+                    {{ props.rowData.bulletin }}
+                  </div>
+                </div>
+              </va-collapse>
+              <br>
+              <va-collapse withBackground>
+                <span slot="header"> Student Review </span>
+                <div slot="body">
+                  <div>
+                    {{ props.rowData.review }}
+                  </div>
+                </div>
+              </va-collapse>
+            </template>
+          </va-data-table>
+        </va-card>
+      </div>
+
+    </va-collapse>
+  </div>
 </template>
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 

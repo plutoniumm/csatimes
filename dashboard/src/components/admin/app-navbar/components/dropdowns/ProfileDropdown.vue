@@ -7,15 +7,16 @@
   >
     <span
       class="profile-dropdown__anchor" slot="anchor"
-      :style="{color: this.$themes.primary}"
+      style="color: black;"
     >
       <slot/>
       <va-icon
         class="pa-1"
+        color="black"
         :name="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
       />
     </span>
-    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2" style="min-width: 150px;">
+    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2" style="min-width: 150px; color: black;">
       <router-link
         v-for="option in options"
         :key="option.name"

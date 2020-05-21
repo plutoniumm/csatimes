@@ -15,7 +15,7 @@
         </div>
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card">
+            <div class="card1">
               <div class="imgBx">
                 <img :src="require('../../assets/pics/manav.jpg')" width='170px'/>
               </div>
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card">
+            <div class="card1">
               <div class="imgBx">
                 <img :src="require('../../assets/pics/aviral.jpeg')" width='170px'/>
               </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="row"  style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card">
+            <div class="card1">
               <div class="imgBx">
                 <img :src="require('../../assets/pics/ishant.jpg')" width='170px'/>
               </div>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card">
+            <div class="card1">
               <div class="imgBx">
                 <img :src="require('../../assets/pics/samesh.jpg')" width='170px'/>
               </div>
@@ -67,7 +67,7 @@
           </div>
 
           <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card">
+            <div class="card1">
               <div class="imgBx">
                 <img :src="require('../../assets/pics/sarvesh.jpeg')" width='170px'/>
               </div>
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss">
-.cards-container {
+.card1s-container {
   .va-card {
     margin: 0;
 
@@ -124,7 +124,7 @@ body {
   font-family: sans-serif;
 }
 
-.card {
+.card1 {
   position: relative;
   width: 220px;
   height: 250px;
@@ -134,8 +134,8 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.card::before,
-.card::after {
+.card1::before,
+.card1::after {
   content: "";
   position: absolute;
   top: 0;
@@ -143,24 +143,24 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: #ad4646;
+  background: #ffdcab;
   transition: 0.5s;
   z-index: -1;
 }
 
-.card:hover::before,
-.card:active::before {
+.card1:hover::before,
+.card1:active::before {
   transform: rotate(20deg);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover::after,
-.card:active::after {
+.card1:hover::after,
+.card1:active::after {
   transform: rotate(10deg);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card .imgBx {
+.card1 .imgBx {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -171,12 +171,12 @@ body {
   z-index: 1;
 }
 
-.card:hover .imgBx,
-.card:active {
+.card1:hover .imgBx,
+.card1:active {
   bottom: 10px;
 }
 
-.card .imgBx img {
+.card1 .imgBx img {
   position: absolute;
   top: 0;
   left: 0;
@@ -185,7 +185,7 @@ body {
   object-fit: cover;
 }
 
-.card .details {
+.card1 .details {
   position: absolute;
   left: 10px;
   right: 10px;
@@ -194,7 +194,7 @@ body {
   text-align: center;
 }
 
-.card .details h2 {
+.card1 .details h2 {
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -203,10 +203,10 @@ body {
   text-transform: uppercase;
 }
 
-.card .details h2 span {
+.card1 .details h2 span {
   font-weight: 500;
   font-size: 16px;
-  color: #f38695;
+  color: #ffdcab;
   margin-top: 0;
 }
 </style>

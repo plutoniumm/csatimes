@@ -7,7 +7,7 @@
           <form @submit.prevent="onsubmit()">
             <div class="row">
               <div class="flex xs12">
-                <va-card :title="$t('Complaints')" color="info">
+                <va-card :title="$t('Complaints')" color= "#ffdcab">
                   <div class="flex ">
                     <va-input
                       v-model="comptitle"
@@ -184,7 +184,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: #ad4646;
+  background: #ffdcab;
   transition: 0.5s;
   z-index: -1;
 }
@@ -247,7 +247,7 @@ body {
 .card .details h2 span {
   font-weight: 500;
   font-size: 16px;
-  color: #f38695;
+  color: #ffdcab;
   margin-top: 0;
 }
 </style>
