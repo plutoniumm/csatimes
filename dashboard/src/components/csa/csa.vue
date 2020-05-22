@@ -14,23 +14,39 @@
           noClear
         />
       </div>
-      <form @submit.prevent="onsubmit()">
+      <form @submit.prevent="complaintsend()" v-if="perPage == 'FAQ'">
             <div class="row">
               <div class="flex xs12">
                   <div class="flex">
                     <va-input
                       v-model="comptitle"
-                      placeholder="Enter your complaint title"
+                      placeholder="What is your Complaint About?"
                     />
                   </div>
                   <div class="flex">
                     <va-input
                       v-model="compdes"
-                      placeholder="Enter your complaint description"
+                      placeholder="Tell us your grievance"
                     />
                   </div>
                   <div class="d-flex justify--center mt-3">
-                    <va-button type="submit" class="my-0">{{ $t('Submit') }}</va-button>
+                    <va-button type="submit" class="my-0">Submit</va-button>
+                  </div>
+              </div>
+            </div>
+          </form>
+          <form @submit.prevent="faqsend()" v-if="perPage == 'Complaint'">
+            <div class="row">
+              <div class="flex xs12">
+                  <div class="flex">
+                    Have a Frequently Asked Question which you don't see here? Ask Us.
+                    <va-input
+                      v-model="comptitle"
+                      placeholder="Ask Your Question"
+                    />
+                  </div>
+                  <div class="d-flex justify--center mt-3">
+                    <va-button type="submit" class="my-0">Submit</va-button>
                   </div>
               </div>
             </div>
