@@ -1,14 +1,23 @@
 <template>
   <div>
-    <!-- eslint-disable vue/valid-v-for -->
-    <template>
-      <div class="row" style="justify-content: center;">
-        <div class="flex xs6">
-          <form @submit.prevent="onsubmit()">
+<!-- SUPER INPUT FIREBASE -->
+<va-card title="Grievnaces">
+    <div class="row align--center">
+      <div class="flex xs12 md6">
+      </div>
+
+      <div class="flex xs12 md3 offset--md3">
+        <va-select
+          v-model="perPage"
+          label="Type"
+          :options="perPageOptions"
+          noClear
+        />
+      </div>
+      <form @submit.prevent="onsubmit()">
             <div class="row">
               <div class="flex xs12">
-                <va-card :title="$t('Complaints')" color= "#ffdcab">
-                  <div class="flex ">
+                  <div class="flex">
                     <va-input
                       v-model="comptitle"
                       placeholder="Enter your complaint title"
@@ -23,22 +32,15 @@
                   <div class="d-flex justify--center mt-3">
                     <va-button type="submit" class="my-0">{{ $t('Submit') }}</va-button>
                   </div>
-                </va-card>
               </div>
             </div>
           </form>
-        </div>
-      </div>
-    </template>
+    </div>
 
-    <!-- <div class="row" style="justify-content: center;">
-        <div class="flex xs12  sm6 lg4">
-          <va-card style="background: #000000; text-align: center;">
-            <h2 style="color: #ffffff;">Council of Student Affairs</h2>
-          </va-card>
-        </div>
-      </div> -->
+  </va-card>
 
+
+<!-- CSA -->
     <div class="row" style="justify-content: center;">
       <div class="flex xs12 sm6 lg4">
         <va-card style="background: #000000; text-align: center;">
@@ -47,22 +49,8 @@
       </div>
     </div>
 
-    <div style="justify-content: center;">
-      <div class="flex">
-        <div class="card">
-          <div class="imgBx">
-            <img :src="require('../../assets/pics/dhruv.png')" :alt="'Dhruv Kaluskar'">
-          </div>
-          <div class="details">
-            <h2>Dhruv Kaluskar<br><span>(President)</span></h2>
-            prez@goa.bits-pilani.ac.in<br>+91 96655 81729
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <template v-for="(customer, i) in customers">
-      <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center"  v-if="customer.name!='Dhruv Kaluskar'">
+    <template v-for="(customer) in customers">
+      <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center">
         <div style="justify-content: center;">
           <div class="flex" style="justify-content: center;">
             <div class="card" style="margin: 1rem; justify-content: center;">
@@ -76,21 +64,7 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="flex" v-else>
-          <div class="card" style="margin: 1rem;">
-            <div class="imgBx">
-              <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name" width='170px'>
-            </div>
-            <div class="details">
-              <h2>{{ customer.name }}<br><span>({{customer.post}})</span></h2>
-              {{ customer.address }} <br> {{ customer.phone}}
-            </div>
-          </div>
-        </div> -->
-
       </div>
-
     </template>
   </div>
 </template>
@@ -106,29 +80,16 @@ export default {
       appBanners: false,
       banners: false,
       notifications: true,
+      perPage: 'FAQ',
+      perPageOptions: ['Complaint', 'FAQ'],
     }
   },
   methods: {
-    onsubmit () {
-      const payload = {
-        complaint: { complaint_title: this.comptitle, complaint_details: this.compdes },
+    onsubmit(){
+      if(1 == 1){
+        console.log(perPage)
       }
-
-      axios({
-        url: 'https://csa.devsoc.club/api/v1/complaints/student/add',
-        method: 'post',
-        headers: { token: this.$AuthStr },
-        data: payload,
-      })
-        .then(function (response) {
-          alert('Complaint registered')
-        })
-    },
-  },
-  computed: {
-    formReady () {
-      return !(this.emailErrors.length || this.passwordErrors.length || this.agreedToTermsErrors.length)
-    },
+    }
   },
 }
 

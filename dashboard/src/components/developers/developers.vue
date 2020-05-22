@@ -39,7 +39,7 @@
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
             <va-card style="background: #000000; text-align: center;">
-              <h2 style="color: #ffffff;">DEVSOC COORDINATORS</h2>
+              <h2 style="color: #ffffff;">DEVSOC (App)</h2>
             </va-card>
           </div>
         </div>

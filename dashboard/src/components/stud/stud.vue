@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
-          <!-- <img :src="require('../../assets/pics/hof.jpg')" width='170px'> -->
+          <!-- Link Blocks-->
           <router-link :to="{ path: '../hall'}" append exact>
             <va-button color="danger"> Hall of Fame</va-button>
           </router-link>
@@ -27,6 +27,60 @@
             <va-button color="success"> Clubs</va-button>
           </router-link>
         </va-card>
+      </div>
+      <!-- Tools Links-->
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+         <va-card
+            overlay
+            titleOnImage
+            image="https://logodix.com/logo/635166.png"
+            title="Autodesk AutoCAD"
+            onclick="location.href = 'https://web.autocad.com/';"
+            onMouseOver="this.style.cursor='pointer';"
+          >
+            Use Autodesk AutoCAD online right in the browser completely free, 
+            just login/register with your BITSID as a student
+          </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+         <va-card
+            overlay
+            titleOnImage
+            image="https://i5j2k7b8.rocketcdn.me/wp-content/uploads/2017/04/Matlab.png"
+            title="MathWorks MATLAB"
+            onclick="location.href = 'https://matlab.mathworks.com';"
+            onMouseOver="this.style.cursor='pointer';"
+          >
+          Use MathWorks MATLAB online right in the browser completely free, 
+            just login/register with your BITSID as a student
+          </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+         <va-card
+            overlay
+            titleOnImage
+            image="https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png"
+            onclick="window.location = '/public/ide/index.html';"
+            title="CSATimes IDE"
+            onMouseOver="this.style.cursor='pointer';"
+          >
+            Got a quick code to test? Use the Mini IDE, to test code
+            in over 30 Languages with input, output and error log terminals
+          </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+         <va-card
+            overlay
+            titleOnImage
+            image="https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1"
+            title="Wolfram Alpha"
+            onMouseOver="this.style.cursor='pointer';"
+            onclick="window.location = 'https://www.wolframalpha.com';"
+
+          >
+           Got a quick equation or math defination to check? Go to Wolfram Alpha
+           and use it online now
+          </va-card>
       </div>
     </div>
 
