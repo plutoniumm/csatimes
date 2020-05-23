@@ -1,23 +1,23 @@
 <template>
   <div>
-<!-- SUPER INPUT FIREBASE -->
-<va-card title="Grievnaces">
-    <div class="row align--center">
-      <div class="flex xs12 md6">
-      </div>
+    <!-- SUPER INPUT FIREBASE -->
+    <div class="row" style="justify-content: center;">
+      <va-card title="Grievances" style="background: #ffdcab; text-align: center; justify-content: center;">
+        <div class="row align--center" style="justify-content: center; overflow: hidden;">
 
-      <div class="flex xs12 md3 offset--md3">
-        <va-select
-          v-model="perPage"
-          label="Type"
-          :options="perPageOptions"
-          noClear
-        />
-      </div>
-      <form @submit.prevent="complaintsend()" v-if="perPage == 'FAQ'">
+          <div class="flex xs6">
+            <va-select
+              v-model="perPage"
+              label="Type"
+              :options="perPageOptions"
+              noClear
+            />
+          </div>
+          <form @submit.prevent="complaintsend()" v-if="perPage == 'Complaint'">
             <div class="row">
               <div class="flex xs12">
                   <div class="flex">
+                    <span class="xs12">Describe your complaint briefly below.</span>
                     <va-input
                       v-bind="title"
                       placeholder="What is your Complaint About?"
@@ -35,7 +35,7 @@
               </div>
             </div>
           </form>
-          <form @submit.prevent="faqsend()" v-if="perPage == 'Complaint'">
+          <form @submit.prevent="faqsend()" v-if="perPage == 'FAQ'">
             <div class="row">
               <div class="flex xs12">
                   <div class="flex">
@@ -51,12 +51,12 @@
               </div>
             </div>
           </form>
+        </div>
+
+      </va-card>
     </div>
 
-  </va-card>
-
-
-<!-- CSA -->
+    <!-- CSA -->
     <div class="row" style="justify-content: center;">
       <div class="flex xs12 sm6 lg4">
         <va-card style="background: #000000; text-align: center;">

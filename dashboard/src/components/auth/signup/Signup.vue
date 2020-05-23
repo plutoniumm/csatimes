@@ -102,6 +102,7 @@ export default {
   },
   methods: {
     onsubmit () {
+      const that = this
       if (this.bitsid.match(/G/i)) {
         if (this.bitsid.substring(0, 4) > 2012 && this.bitsid.substring(0, 4) < 2021) { this.bitsidErrors = [] }
       } else this.bitsidErrors = ['Enter a valid BITSID']
@@ -138,14 +139,15 @@ export default {
         url: 'https://csa.devsoc.club/api/v1/profile/create',
         method: 'post',
         headers: { token: this.$AuthStr },
-        data: this.payload,
+        data: payload,
       })
         .then(function (response) {
-          alert(response.data.msg)
-          this.$router.push({ name: 'dashboard' })
+          alert('User Created')
+          that.$router.push({ name: 'dashboard' })
         })
         .catch(function (error) {
-          alert(error)
+          alert('Please try again later')
+          console.log(error)
         })
     },
   },
