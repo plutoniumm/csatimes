@@ -19,13 +19,13 @@
               <div class="flex xs12">
                   <div class="flex">
                     <va-input
-                      v-model="comptitle"
+                      v-bind="title"
                       placeholder="What is your Complaint About?"
                     />
                   </div>
                   <div class="flex">
                     <va-input
-                      v-model="compdes"
+                      v-bind="description"
                       placeholder="Tell us your grievance"
                     />
                   </div>
@@ -41,7 +41,7 @@
                   <div class="flex">
                     Have a Frequently Asked Question which you don't see here? Ask Us.
                     <va-input
-                      v-model="comptitle"
+                      v-bind="comptitle"
                       placeholder="Ask Your Question"
                     />
                   </div>
@@ -101,10 +101,9 @@ export default {
     }
   },
   methods: {
-    onsubmit(){
-      if(1 == 1){
-        console.log(perPage)
-      }
+    complaintsend(){
+      console.log(title)
+      console.log(description)
     }
   },
 }
