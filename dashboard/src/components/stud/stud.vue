@@ -85,10 +85,13 @@
     </div>
 
     <!-- DATA TABLE -->
-    <va-collapse>
-      <span slot="header">Humanities Reviews</span>
+    <va-collapse customHeader>
+      <span slot="header">
+        <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
+          Humanities Reviews
+        </va-button>
+      </span>
       <div slot="body">
-
         <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
           <div class="row align--center">
             <div class="flex xs12 md6">
@@ -119,8 +122,12 @@
           >
 
             <template slot="review" slot-scope="props">
-              <va-collapse withBackground>
-                <span slot="header"> Bulletin Description </span>
+              <va-collapse customHeader>
+                <span slot="header">
+                  <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
+                    Bulletin Description
+                  </va-button>
+                </span>
                 <div slot="body">
                   <div>
                     {{ props.rowData.bulletin }}
@@ -128,9 +135,13 @@
                 </div>
               </va-collapse>
               <br>
-              <va-collapse withBackground>
-                <span slot="header"> Student Review </span>
-                <div slot="body">
+              <va-collapse customHeader>
+                <span slot="header">
+                  <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
+                    Student Review
+                  </va-button>
+                </span>
+              <div slot="body">
                   <div>
                     {{ props.rowData.review }}
                   </div>

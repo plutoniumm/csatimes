@@ -4,7 +4,12 @@
     <div class="row" style="justify-content: center;">
       <va-card title="Grievances" style="background: #ffdcab; text-align: center; justify-content: center;">
         <div class="row align--center" style="justify-content: center; overflow: hidden;">
-
+          <fieldset>
+            <va-toggle
+              v-model="toggles.selected"
+              label="Selected toggle"
+            />
+          </fieldset>
           <div class="flex xs6">
             <va-select
               v-model="perPage"
@@ -16,38 +21,38 @@
           <form @submit.prevent="complaintsend()" v-if="perPage == 'Complaint'">
             <div class="row">
               <div class="flex xs12">
-                  <div class="flex">
-                    <span class="xs12">Describe your complaint briefly below.</span>
-                    <va-input
-                      v-bind="title"
-                      placeholder="What is your Complaint About?"
-                    />
-                  </div>
-                  <div class="flex">
-                    <va-input
-                      v-bind="description"
-                      placeholder="Tell us your grievance"
-                    />
-                  </div>
-                  <div class="d-flex justify--center mt-3">
-                    <va-button type="submit" class="my-0">Submit</va-button>
-                  </div>
+                <div class="flex">
+                  <span class="xs12">Describe your complaint briefly below.</span>
+                  <va-input
+                    v-model="title"
+                    placeholder="What is your Complaint About?"
+                  />
+                </div>
+                <div class="flex">
+                  <va-input
+                    v-model="description"
+                    placeholder="Tell us your grievance"
+                  />
+                </div>
+                <div class="d-flex justify--center mt-3">
+                  <va-button type="submit" class="my-0">Submit</va-button>
+                </div>
               </div>
             </div>
           </form>
           <form @submit.prevent="faqsend()" v-if="perPage == 'FAQ'">
             <div class="row">
               <div class="flex xs12">
-                  <div class="flex">
-                    Have a Frequently Asked Question which you don't see here? Ask Us.
-                    <va-input
-                      v-bind="comptitle"
-                      placeholder="Ask Your Question"
-                    />
-                  </div>
-                  <div class="d-flex justify--center mt-3">
-                    <va-button type="submit" class="my-0">Submit</va-button>
-                  </div>
+                <div class="flex">
+                  Have a Frequently Asked Question which you don't see here? Ask Us.
+                  <va-input
+                    v-model="faq"
+                    placeholder="Ask Your Question"
+                  />
+                </div>
+                <div class="d-flex justify--center mt-3">
+                  <va-button type="submit" class="my-0">Submit</va-button>
+                </div>
               </div>
             </div>
           </form>
@@ -86,7 +91,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import data from './data.json'
 export default {
   name: 'cards',
@@ -98,13 +102,16 @@ export default {
       notifications: true,
       perPage: 'FAQ',
       perPageOptions: ['Complaint', 'FAQ'],
+      toggles: {
+        selected: true,
+      },
     }
   },
   methods: {
-    complaintsend(){
+    complaintsend () {
       console.log(title)
       console.log(description)
-    }
+    },
   },
 }
 
