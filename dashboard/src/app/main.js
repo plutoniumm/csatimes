@@ -1,8 +1,6 @@
 // Polyfills
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import { ColorThemePlugin } from '../services/vuestic-ui'
@@ -13,6 +11,7 @@ import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
 import VueClipboard from 'vue-clipboard2'
 import '../metrics'
+import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
@@ -28,7 +27,7 @@ if (process.env.VUE_APP_BUILD_VERSION) {
 Vue.use(VuesticPlugin)
 Vue.use(VueClipboard)
 Vue.use(VueMoment)
-
+Vue.use(firestorePlugin)
 Vue.use(ColorThemePlugin, {
   // override colors here.
 })
@@ -49,3 +48,18 @@ new Vue({
   store,
   render: h => h(App),
 })
+
+const firebase = initializeApp ({
+  apiKey: "AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA",
+  authDomain: "csatimesmini.firebaseapp.com",
+  databaseURL: "https://csatimesmini.firebaseio.com",
+  projectId: "csatimesmini",
+  storageBucket: "csatimesmini.appspot.com",
+  messagingSenderId: "698625993551",
+  appId: "1:698625993551:web:3a5d2070968c0b9457f33a"
+});
+
+window.firebase = firebase;
+
+export const dbmini = firebase.database();
+Vue.prototype.$issuesRef = dbmini.ref('Complaints')

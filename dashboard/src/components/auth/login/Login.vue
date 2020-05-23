@@ -62,6 +62,7 @@ export default {
       var token = result.credential.idToken;
       var email = result.user.email
       Vue.prototype.$username = result.user.displayName
+      Vue.prototype.$bitsid = result.user.email
       Vue.prototype.$forexam = result.user.email.slice(1,9)
       var str = email.match(/@goa.bits-pilani.ac.in/i)
       if(str===null)

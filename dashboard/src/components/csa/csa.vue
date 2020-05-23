@@ -100,18 +100,33 @@ export default {
       appBanners: false,
       banners: false,
       notifications: true,
-      perPage: 'FAQ',
+      perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ'],
       toggles: {
         selected: true,
       },
+      faq: "",
+      title: "",
+      description: "",
     }
   },
   methods: {
     complaintsend () {
-      console.log(title)
-      console.log(description)
-    },
+      console.log({
+              Title: this.title,
+              Description: this.description,
+              ID: this.$$forexam
+            })
+      firebase.database.ref('Complaints').push({
+              Title: this.title,
+              Description: this.description,
+              ID: this.$$forexam
+            })
+      },
+    faqsend () {
+      console.log(this.faq)
+      console.log(this.$forexam)
+    }
   },
 }
 
