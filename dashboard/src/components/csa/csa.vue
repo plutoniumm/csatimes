@@ -69,7 +69,6 @@
         </va-card>
       </div>
     </div>
-
     <template v-for="(customer) in customers">
       <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center">
         <div style="justify-content: center;">
