@@ -1,5 +1,79 @@
 <template>
   <div>
+    <div class="flex xs12">
+            <va-card no-padding-h style="background: #ffdcab; overflow-x: auto;">
+              <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
+              <form>
+                <div>
+                  <div class="flex md4 sm6 xs12">
+                    <template v-for="(prevent, j) in pr">
+                      <va-accordion :key="'item' + prevent.name">
+                        <va-collapse>
+
+                          <span slot="header"><h2>{{ prevent.name }}</h2></span>
+
+                          <div slot="body">
+                            <form @submit.prevent="onsubmit()">
+                              <template v-for="(imag, i) in prevent.images">
+                                <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
+                              </template>
+                              <br>
+                              <va-input
+                                v-model="withDescription"
+                                placeholder="Enter the scanned QR code here"
+                              />
+                              <div v-if="prevent.is_nick == true">
+                                <h2>Price without nick</h2> {{prevent.price}}
+                                <br>
+                                <h2>Price with nick</h2> {{prevent.price_nick}}
+                                <br>
+                                <br>
+                                <va-checkbox
+                                  label="Do you want a nick?"
+                                  v-model="checkbox"
+                                />
+                                <va-input v-if="checkbox==true"
+                                  v-model="nick"
+                                  placeholder="Enter nick here"
+                                />
+                              </div>
+                              <div v-else>
+                                <h2>Price</h2> {{prevent.price}}
+                              </div>
+                              <br>
+                              <va-select
+                                label="Choose Size"
+                                v-model="simpleSelectModel"
+                                textBy="description"
+                                :options="prevent.available_sizes"
+                              />
+                              <h2>Select Quantity</h2>
+                              <br>
+                              <va-slider
+                                pins
+                                :min="1"
+                                :max="10"
+                                :step="1"
+                                color="warning"
+                                value-visible
+                                v-model="value"
+                                input
+                              />
+                              <va-button color="danger" type="submit"> Register </va-button>
+                              <br>
+                              <br>
+                              <br>
+                            </form>
+                          </div>
+                        </va-collapse>
+                      </va-accordion>
+                    </template>
+                  </div>
+                </div>
+              </form>
+            </va-card>
+          </div>
+
     <div class="row">
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
@@ -119,6 +193,7 @@
 
 <script>
 import { debounce } from 'lodash'
+import axios from 'axios'
 import users from './humanities.json'
 
 export default {
@@ -137,7 +212,13 @@ export default {
           message: "Got a quick code to test? Use the Mini IDE, to test code in over 30 Languages with input, output and error log terminals" },
         { title: "Wolfram Alpha", href: "https://www.wolframalpha.com", image: "https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1",
           message: "Got a quick equation or math defination to check? Go to Wolfram Alpha and use it online now" }
-      ]
+      ],
+      withDescription: '',
+      image: [],
+      simpleOptions: [],
+      simpleSelectModel: '',
+      checkbox: false,
+      value: 1,
     }
   },
   computed: {
@@ -173,6 +254,22 @@ export default {
       this.term = term
     }, 400),
   },
+  mounted () {
+    axios
+      .get('https://csa.devsoc.club/api/v1/en/student/show', {
+        headers: { token: this.$AuthStr },
+      })
+      .then(response => {
+        this.start1 = response.data.en
+      })
+    axios
+      .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
+        headers: { token: this.$AuthStr },
+      })
+      .then(response => {
+        this.pr = response.data.subEvents
+      })
+  },
 }
 </script>
 
@@ -193,6 +290,22 @@ tr {
 
 tr:hover {
   background-color: #ffdcab;
+}
+
+.row-equal .flex {
+  .va-card {
+    height: 100%;
+  }
+}
+
+.dashboard {
+  .va-card {
+    margin-bottom: 0 !important;
+  }
+}
+
+.row.row-inside {
+  max-width: 20px;
 }
 
 </style>
