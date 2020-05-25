@@ -7,25 +7,22 @@
     <va-icon-notification
       slot="anchor"
       class="notification-dropdown__icon"
-      :class="{'notification-dropdown__icon--unread': !allRead}"
-      :color="'black'"
+      color="black"
     />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
         v-for="option in computedOptions"
-        :key="option.id"
-        class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
-        :class="{'notification-dropdown__item--unread': option.unread}"
-        @click="option.unread = false"
+        :key="option"
+        class="notification-dropdown__item--unread row pt-1 pb-1 mt-2 mb-2"
       >
         <img v-if="option.details.avatar" class="mr-2 notification-dropdown__item__avatar" :src="option.details.avatar"/>
         <span class="ellipsis" style="max-width: 85%;">
-          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
+          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> 
+           {{ option.msg }}
         </span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
-        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1"></va-button>
       </div>
     </div>
   </va-dropdown>
@@ -52,9 +49,10 @@ export default {
       default: () => [
         {
           name: 'sentMessage',
-          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
-          unread: true,
-          id: 1,
+          details: { 
+            name: 'Vasily S', 
+            avatar: 'https://picsum.photos/123' },
+          msg: 1,
         },
         {
           name: 'uploadedZip',
@@ -63,29 +61,16 @@ export default {
             avatar: 'https://picsum.photos/100',
             type: 'typography component',
           },
-          unread: true,
-          id: 2,
+          msg: 2,
         },
         {
           name: 'startedTopic',
-          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
-          unread: true,
-          id: 3,
+          details: { 
+            name: 'Andrei H', 
+            avatar: 'https://picsum.photos/24' },
+          msg: 3,
         },
       ],
-    },
-  },
-  computed: {
-    allRead () {
-      return !this.computedOptions.filter(item => item.unread).length
-    },
-  },
-  methods: {
-    markAllAsRead () {
-      this.computedOptions = this.computedOptions.map(item => ({
-        ...item,
-        unread: false,
-      }))
     },
   },
 }

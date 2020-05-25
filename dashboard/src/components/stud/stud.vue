@@ -8,10 +8,12 @@
             <div class="flex md4 sm6 xs12">
               <template v-for="(prevent, j) in pr">
                 <va-accordion :key="'item' + prevent.name">
-                  <va-collapse>
-
-                    <span slot="header"><h2>{{ prevent.name }}</h2></span>
-
+                  <va-collapse customHeader>
+                    <span slot="header">
+                      <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
+                        {{ prevent.name }}
+                      </va-button>
+                    </span>
                     <div slot="body">
                       <form @submit.prevent="onsubmit()">
                         <template v-for="(imag, i) in prevent.images">
