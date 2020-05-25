@@ -1,78 +1,78 @@
 <template>
   <div>
     <div class="flex xs12">
-            <va-card no-padding-h style="background: #ffdcab; overflow-x: auto;">
-              <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
-              <form>
-                <div>
-                  <div class="flex md4 sm6 xs12">
-                    <template v-for="(prevent, j) in pr">
-                      <va-accordion :key="'item' + prevent.name">
-                        <va-collapse>
+      <va-card style="background: #ffdcab; overflow-x: auto;">
+        <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
+        <form>
+          <div>
+            <div class="flex md4 sm6 xs12">
+              <template v-for="(prevent, j) in pr">
+                <va-accordion :key="'item' + prevent.name">
+                  <va-collapse>
 
-                          <span slot="header"><h2>{{ prevent.name }}</h2></span>
+                    <span slot="header"><h2>{{ prevent.name }}</h2></span>
 
-                          <div slot="body">
-                            <form @submit.prevent="onsubmit()">
-                              <template v-for="(imag, i) in prevent.images">
-                                <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
-                              </template>
-                              <br>
-                              <va-input
-                                v-model="withDescription"
-                                placeholder="Enter the scanned QR code here"
-                              />
-                              <div v-if="prevent.is_nick == true">
-                                <h2>Price without nick</h2> {{prevent.price}}
-                                <br>
-                                <h2>Price with nick</h2> {{prevent.price_nick}}
-                                <br>
-                                <br>
-                                <va-checkbox
-                                  label="Do you want a nick?"
-                                  v-model="checkbox"
-                                />
-                                <va-input v-if="checkbox==true"
-                                  v-model="nick"
-                                  placeholder="Enter nick here"
-                                />
-                              </div>
-                              <div v-else>
-                                <h2>Price</h2> {{prevent.price}}
-                              </div>
-                              <br>
-                              <va-select
-                                label="Choose Size"
-                                v-model="simpleSelectModel"
-                                textBy="description"
-                                :options="prevent.available_sizes"
-                              />
-                              <h2>Select Quantity</h2>
-                              <br>
-                              <va-slider
-                                pins
-                                :min="1"
-                                :max="10"
-                                :step="1"
-                                color="warning"
-                                value-visible
-                                v-model="value"
-                                input
-                              />
-                              <va-button color="danger" type="submit"> Register </va-button>
-                              <br>
-                              <br>
-                              <br>
-                            </form>
-                          </div>
-                        </va-collapse>
-                      </va-accordion>
-                    </template>
-                  </div>
-                </div>
-              </form>
-            </va-card>
+                    <div slot="body">
+                      <form @submit.prevent="onsubmit()">
+                        <template v-for="(imag, i) in prevent.images">
+                          <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
+                        </template>
+                        <br>
+                        <va-input
+                          v-model="withDescription"
+                          placeholder="Enter the scanned QR code here"
+                        />
+                        <div v-if="prevent.is_nick == true">
+                          <h2>Price without nick</h2> {{prevent.price}}
+                          <br>
+                          <h2>Price with nick</h2> {{prevent.price_nick}}
+                          <br>
+                          <br>
+                          <va-checkbox
+                            label="Do you want a nick?"
+                            v-model="checkbox"
+                          />
+                          <va-input v-if="checkbox==true"
+                            v-model="nick"
+                            placeholder="Enter nick here"
+                          />
+                        </div>
+                        <div v-else>
+                          <h2>Price</h2> {{prevent.price}}
+                        </div>
+                        <br>
+                        <va-select
+                          label="Choose Size"
+                          v-model="simpleSelectModel"
+                          textBy="description"
+                          :options="prevent.available_sizes"
+                        />
+                        <h2>Select Quantity</h2>
+                        <br>
+                        <va-slider
+                          pins
+                          :min="1"
+                          :max="10"
+                          :step="1"
+                          color="warning"
+                          value-visible
+                          v-model="value"
+                          input
+                        />
+                        <va-button color="danger" type="submit"> Register </va-button>
+                        <br>
+                        <br>
+                        <br>
+                      </form>
+                    </div>
+                  </va-collapse>
+                </va-accordion>
+              </template>
+            </div>
           </div>
+        </form>
+      </va-card>
+    </div>
 
     <div class="row">
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
@@ -104,16 +104,16 @@
       </div>
       <!-- Tools Links-->
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;" v-for="item in items" :key="item">
-       <a :href= item.href style="text-decoration: none; color: black;" >
-         <va-card
-          overlay
-          titleOnImage
-          :image= item.image
-          :title= item.title
-          :to= item.href
-          onMouseOver="this.style.cursor='pointer';"
-        > {{ item.message }}
-        </va-card>
+        <a :href= item.href style="text-decoration: none; color: black;" >
+          <va-card
+            overlay
+            titleOnImage
+            :image= item.image
+            :title= item.title
+            :to= item.href
+            onMouseOver="this.style.cursor='pointer';"
+          > {{ item.message }}
+          </va-card>
         </a>
       </div>
     </div>
@@ -175,7 +175,7 @@
                     Student Review
                   </va-button>
                 </span>
-              <div slot="body">
+                <div slot="body">
                   <div>
                     {{ props.rowData.review }}
                   </div>
@@ -213,6 +213,9 @@ export default {
         { title: "Wolfram Alpha", href: "https://www.wolframalpha.com", image: "https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1",
           message: "Got a quick equation or math defination to check? Go to Wolfram Alpha and use it online now" }
       ],
+      start1: null,
+      pr: null,
+      nick: null,
       withDescription: '',
       image: [],
       simpleOptions: [],
