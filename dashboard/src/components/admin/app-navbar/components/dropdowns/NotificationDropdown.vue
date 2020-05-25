@@ -8,7 +8,7 @@
       slot="anchor"
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
-      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
+      :color="'black'"
     />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
