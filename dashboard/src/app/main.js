@@ -1,4 +1,3 @@
-// Polyfills
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import Vue from 'vue'
@@ -13,6 +12,8 @@ import VueClipboard from 'vue-clipboard2'
 import '../metrics'
 import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
+
+
 
 if (process.env.VUE_APP_BUILD_VERSION) {
   // eslint-disable-next-line
@@ -49,17 +50,3 @@ new Vue({
   render: h => h(App),
 })
 
-const firebase = initializeApp ({
-  apiKey: "AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA",
-  authDomain: "csatimesmini.firebaseapp.com",
-  databaseURL: "https://csatimesmini.firebaseio.com",
-  projectId: "csatimesmini",
-  storageBucket: "csatimesmini.appspot.com",
-  messagingSenderId: "698625993551",
-  appId: "1:698625993551:web:3a5d2070968c0b9457f33a"
-});
-
-window.firebase = firebase;
-
-export const dbmini = firebase.database();
-Vue.prototype.$issuesRef = dbmini.ref('Complaints')

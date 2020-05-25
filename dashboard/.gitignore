@@ -15,6 +15,7 @@ inspect.js
 
 # Editor directories and files
 .idea
+.env
 .vscode
 *.suo
 *.ntvs*
@@ -22,3 +23,9 @@ inspect.js
 *.sln
 *.sw*
 *.orig
+
+
+.DS_Store
+.DS_store
+.ds_Store
+.ds_store

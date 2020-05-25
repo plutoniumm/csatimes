@@ -6,8 +6,8 @@
         <div class="row align--center" style="justify-content: center; overflow: hidden;">
           <fieldset>
             <va-toggle
-              v-model="toggles.selected"
-              label="Selected toggle"
+              v-model="toggle"
+              label="Send Anonymously"
             />
           </fieldset>
           <div class="flex xs6">
@@ -91,6 +91,18 @@
 
 <script>
 import data from './data.json'
+import * as firebase from 'firebase'
+
+const firekeys =  ({
+      apiKey: process.env.Vue_APP_FIREKEY,
+      authDomain: "csatimesmini.firebaseapp.com",
+      databaseURL: "https://csatimesmini.firebaseio.com",
+      projectId: "csatimesmini",
+      storageBucket: "csatimesmini.appspot.com",
+    });
+
+firebase.initializeApp(firekeys)
+
 export default {
   name: 'cards',
   data () {
@@ -101,36 +113,57 @@ export default {
       notifications: true,
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ'],
-      toggles: {
-        selected: true,
-      },
+      toggle: true,
       faq: "",
       title: "",
       description: "",
+      sender : 'Anonymous'
     }
   },
   methods: {
+    launchToast (result) {
+      this.showToast(
+        this.toastText,
+        {
+          toastText: result,
+          icon: this.toastIcon,
+          position: 'bottom',
+          duration: 2500,
+          fullWidth: true,
+        },
+      )
+    },
     complaintsend () {
-      console.log({
-              Title: this.title,
-              Description: this.description,
-              ID: this.$$forexam
-            })
-      firebase.database.ref('Complaints').push({
-              Title: this.title,
-              Description: this.description,
-              ID: this.$$forexam
-            })
+      if(this.toggle==false){
+        this.sender = this.$forexam
+      } else {
+        this.sender = 'Anonymous'
+      }
+      firebase.database().ref('Complaints').push({
+        title: this.title,
+        description: this.description,
+        student: this.sender
+      }).then(res => {
+        if (res.data) {
+          console.error(err)
+          this.launchToast ('Error! Please Try Again Later')
+        } else {
+          this.launchToast ('Thank You for letting us know')
+        }
+      });
       },
     faqsend () {
-      console.log(this.faq)
-      console.log(this.$forexam)
-    }
-  },
+      if(this.toggle==false){
+        this.sender = this.$forexam
+      }
+      firebase.database().ref('FAQ').push({
+        title: this.faq,
+        student: this.sender
+      })
+    },
+  }
 }
-
 </script>
-
 <style lang="scss">
 .cards-container {
   .va-card {
