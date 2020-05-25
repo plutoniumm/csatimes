@@ -92,6 +92,7 @@
 <script>
 import data from './data.json'
 import * as firebase from 'firebase'
+import ToastPositionPicker from './ToastPositionPicker.vue'
 
 const firekeys =  ({
       apiKey: process.env.Vue_APP_FIREKEY,
@@ -105,6 +106,7 @@ firebase.initializeApp(firekeys)
 
 export default {
   name: 'cards',
+  components: { ToastPositionPicker },
   data () {
     return {
       customers: data,
@@ -117,18 +119,24 @@ export default {
       faq: "",
       title: "",
       description: "",
-      sender : 'Anonymous'
+      sender : 'Anonymous',
+
+      toastText: 'This toast is awesome!',
+      toastDuration: 2500,
+      toastIcon: 'fa-star-o',
+      toastPosition: 'top-center',
+      backgroundColor: 'Red',
+      isToastFullWidth: true,
     }
   },
   methods: {
-    launchToast (result) {
+    launchToast (result, icon) {
       this.showToast(
-        this.toastText,
+        result,
         {
-          toastText: result,
-          icon: this.toastIcon,
-          position: 'bottom',
-          duration: 2500,
+          icon: icon,
+          position: this.toastPosition,
+          duration: this.toastDuration,
           fullWidth: true,
         },
       )
@@ -146,21 +154,33 @@ export default {
       }).then(res => {
         if (res.data) {
           console.error(err)
-          this.launchToast ('Error! Please Try Again Later')
+          this.launchToast ('Error! Please Try Again Later', 'fa-bug')
         } else {
-          this.launchToast ('Thank You for letting us know')
+          this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
+          this.title = ''
+          this.description = ''
         }
       });
       },
     faqsend () {
       if(this.toggle==false){
         this.sender = this.$forexam
+      } else {
+        this.sender = 'Anonymous'
       }
       firebase.database().ref('FAQ').push({
         title: this.faq,
         student: this.sender
-      })
-    },
+      }).then(res => {
+        if (res.data) {
+          console.error(err)
+          this.launchToast ('Error! Please Try Again Later', 'fa-bug')
+        } else {
+          this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
+          this.faq = ''
+        }
+      });
+      },
   }
 }
 </script>

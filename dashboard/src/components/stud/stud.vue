@@ -29,58 +29,18 @@
         </va-card>
       </div>
       <!-- Tools Links-->
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;" v-for="item in items" :key="item">
+       <a :href= item.href style="text-decoration: none; color: black;" >
+         <va-card
           overlay
           titleOnImage
-          image="https://logodix.com/logo/635166.png"
-          title="Autodesk AutoCAD"
-          onclick="location.href = 'https://web.autocad.com/';"
+          :image= item.image
+          :title= item.title
+          :to= item.href
           onMouseOver="this.style.cursor='pointer';"
-        >
-          Use Autodesk AutoCAD online right in the browser completely free,
-          just login/register with your BITSID as a student
+        > {{ item.message }}
         </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card
-          overlay
-          titleOnImage
-          image="https://i5j2k7b8.rocketcdn.me/wp-content/uploads/2017/04/Matlab.png"
-          title="MathWorks MATLAB"
-          onclick="location.href = 'https://matlab.mathworks.com';"
-          onMouseOver="this.style.cursor='pointer';"
-        >
-          Use MathWorks MATLAB online right in the browser completely free,
-          just login/register with your BITSID as a student
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card
-          overlay
-          titleOnImage
-          image="https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png"
-          onclick="window.location = '/public/ide/index.html';"
-          title="CSATimes IDE"
-          onMouseOver="this.style.cursor='pointer';"
-        >
-          Got a quick code to test? Use the Mini IDE, to test code
-          in over 30 Languages with input, output and error log terminals
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card
-          overlay
-          titleOnImage
-          image="https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1"
-          title="Wolfram Alpha"
-          onMouseOver="this.style.cursor='pointer';"
-          onclick="window.location = 'https://www.wolframalpha.com';"
-
-        >
-          Got a quick equation or math defination to check? Go to Wolfram Alpha
-          and use it online now
-        </va-card>
+        </a>
       </div>
     </div>
 
@@ -168,6 +128,16 @@ export default {
       perPage: '4',
       perPageOptions: ['4', '6', '10', '20', '50'],
       users: users,
+      items: [
+        { title: "Autodesk AutoCAD", href: "https://web.autocad.com/", image: "https://logodix.com/logo/635166.png",
+          message: "Use Autodesk AutoCAD online right in the browser completely free, just login/register with your BITSID as a student" },
+        { title: "MathWorks MATLAB", href: "https://matlab.mathworks.com", image: "https://i5j2k7b8.rocketcdn.me/wp-content/uploads/2017/04/Matlab.png",
+          message: "Use MathWorks MATLAB online right in the browser completely free, just login/register with your BITSID as a student" },
+        { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
+          message: "Got a quick code to test? Use the Mini IDE, to test code in over 30 Languages with input, output and error log terminals" },
+        { title: "Wolfram Alpha", href: "https://www.wolframalpha.com", image: "https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1",
+          message: "Got a quick equation or math defination to check? Go to Wolfram Alpha and use it online now" }
+      ]
     }
   },
   computed: {
