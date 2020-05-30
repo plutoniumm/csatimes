@@ -18,15 +18,11 @@
               noClear
             />
           </div>
-          <form @submit.prevent="complaintsend()" v-if="perPage == 'Complaint'">
+          <form @submit.prevent="executer()">
             <div class="row">
               <div class="flex xs12">
                 <div class="flex">
-                  <span class="xs12">Describe your complaint briefly below.</span>
-                  <va-input
-                    v-model="title"
-                    placeholder="What is your Complaint About?"
-                  />
+                  <span class="xs12">Write to us!</span>
                 </div>
                 <div class="flex">
                   <va-input
@@ -40,26 +36,38 @@
               </div>
             </div>
           </form>
-          <form @submit.prevent="faqsend()" v-if="perPage == 'FAQ'">
-            <div class="row">
-              <div class="flex xs12">
-                <div class="flex">
-                  Have a Frequently Asked Question which you don't see here? Ask Us.
-                  <va-input
-                    v-model="faq"
-                    placeholder="Ask Your Question"
-                  />
-                </div>
-                <div class="d-flex justify--center mt-3">
-                  <va-button type="submit" class="my-0">Submit</va-button>
-                </div>
-              </div>
-            </div>
-          </form>
         </div>
-
       </va-card>
     </div>
+
+      <va-card v-for="(issue, idx) in grievances" :key="idx">
+         <h1>{{ issue.description }}</h1>
+      </va-card>
+    <va-card>
+       <va-card :title="$t('tables.infiniteScroll')">
+    <div class="data-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
+      <va-data-table
+        :fields="fields"
+        :data="users"
+        api-mode
+        no-pagination
+      >
+        <template slot="marker" slot-scope="props">
+          <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
+        </template>
+      </va-data-table>
+
+      <div class="flex-center ma-3">
+        <spring-spinner
+          v-if="loading"
+          :animation-duration="2000"
+          :size="60"
+          :color="$themes.primary"
+        />
+      </div>
+    </div>
+  </va-card>
+    </va-card>
 
     <!-- CSA -->
     <div class="row" style="justify-content: center;">
@@ -69,6 +77,7 @@
         </va-card>
       </div>
     </div>
+
     <template v-for="(customer) in customers">
       <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center">
         <div style="justify-content: center;">
@@ -86,6 +95,7 @@
         </div>
       </div>
     </template>
+
   </div>
 </template>
 
@@ -93,6 +103,8 @@
 import data from './data.json'
 import * as firebase from 'firebase'
 import ToastPositionPicker from './ToastPositionPicker.vue'
+import { SpringSpinner } from 'epic-spinners'
+// import users from './users.json'
 
 const firekeys =  ({
       apiKey: process.env.Vue_APP_FIREKEY,
@@ -104,9 +116,24 @@ const firekeys =  ({
 
 firebase.initializeApp(firekeys)
 
+let users
+firebase.firestore().collection('Store').doc('Grievances').collection('20180795').get().then( (snapshot) => {
+  snapshot.docs.forEach(doc => {
+    console.log(doc.data())
+    users += JSON.stringify(doc.data()) + ","
+    console.log(users.value())
+  });
+  console.log("TESTpref" + users + "TESTsuf")
+  console.log("TEST1");
+  console.log(users);
+  console.log("TEST2");
+});
+
+
+
 export default {
   name: 'cards',
-  components: { ToastPositionPicker },
+  components: { ToastPositionPicker, SpringSpinner },
   data () {
     return {
       customers: data,
@@ -114,19 +141,22 @@ export default {
       banners: false,
       notifications: true,
       perPage: 'Complaint',
-      perPageOptions: ['Complaint', 'FAQ'],
-      toggle: true,
+      perPageOptions: ['Complaint', 'FAQ', 'RTI'],
+      toggle: false,
       faq: "",
       title: "",
       description: "",
       sender : 'Anonymous',
-
+      grievances: [],
       toastText: 'This toast is awesome!',
       toastDuration: 2500,
       toastIcon: 'fa-star-o',
       toastPosition: 'top-center',
-      backgroundColor: 'Red',
       isToastFullWidth: true,
+
+      users: [],
+      loading: false,
+      offset: 0,
     }
   },
   methods: {
@@ -141,50 +171,94 @@ export default {
         },
       )
     },
-    complaintsend () {
+    loadMore () {
+      this.loading = true
+      this.readUsers()
+        .then(users => {
+          this.users = this.users.concat(users)
+          this.loading = false
+        })
+    },
+    readUsers () {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(users.slice(0, 10))
+        }, 600)
+      })
+    },
+    onScroll (e) {
+      if (this.loading) {
+        return
+      }
+      const { target } = e
+      if (target.offsetHeight + target.scrollTop === target.scrollHeight) {
+        this.loadMore()
+      }
+    },
+    executer () {
       if(this.toggle==false){
         this.sender = this.$forexam
-      } else {
-        this.sender = 'Anonymous'
-      }
-      firebase.database().ref('Complaints').push({
-        title: this.title,
+        firebase.firestore().collection('Store').doc('Grievances').collection(this.sender).add({
+        type: this.perPage,
         description: this.description,
-        student: this.sender
+        status: false
       }).then(res => {
-        if (res.data) {
-          console.error(err)
-          this.launchToast ('Error! Please Try Again Later', 'fa-bug')
-        } else {
-          this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
-          this.title = ''
+        this.launchToast ('Your Response has been submitted!', 'fa-check-circle')
           this.description = ''
-        }
-      });
-      },
-    faqsend () {
-      if(this.toggle==false){
-        this.sender = this.$forexam
+      }).catch(error => {
+        console.error(err)
+    });
       } else {
         this.sender = 'Anonymous'
       }
-      firebase.database().ref('FAQ').push({
-        title: this.faq,
-        student: this.sender
+      firebase.firestore().collection('Save').doc(this.perPage).collection(this.sender).add({
+        description: this.description,
+        student: this.sender,
+        status: false
       }).then(res => {
-        if (res.data) {
-          console.error(err)
-          this.launchToast ('Error! Please Try Again Later', 'fa-bug')
-        } else {
-          this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
-          this.faq = ''
-        }
-      });
+        this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
+          this.description = ''
+      }).catch(error => {
+        console.error(err)
+        this.launchToast ('Error! Please Try Again Later', 'fa-bug')
+    });
       },
+  },
+  firestore () {
+    return {
+      grievances: firebase.firestore().collection('Store').doc('Grievances').collection('20180795')
+    }
+  },
+  created () {
+    this.loadMore()
+  },
+  computed: {
+    fields () {
+      return [{
+        name: '__slot:marker',
+        width: '30px',
+        dataClass: 'text-center',
+      }, {
+        name: 'fullName',
+        title: this.$t('tables.headings.name'),
+      }, {
+        name: 'email',
+        title: this.$t('tables.headings.email'),
+      }, {
+        name: 'country',
+        title: this.$t('tables.headings.country'),
+      }]
+    },
   }
 }
 </script>
 <style lang="scss">
+
+.data-table-infinite-scroll--container {
+  height: 300px;
+  overflow-y: auto;
+}
+
 .cards-container {
   .va-card {
     margin: 0;
