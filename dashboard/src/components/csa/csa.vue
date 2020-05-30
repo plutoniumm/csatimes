@@ -163,7 +163,7 @@ export default {
   },
   firestore () {
     return {
-      grievances: firebase.firestore().collection('Store').doc('Grievances').collection('20180795')
+      grievances: firebase.firestore().collection('Store').doc('Grievances').collection(this.$forexam)
     }
   }
 }
