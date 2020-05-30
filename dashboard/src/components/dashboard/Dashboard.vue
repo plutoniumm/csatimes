@@ -40,37 +40,6 @@
               </va-timeline>
             </va-card> -->
 
-            <va-card
-              no-padding-h
-              style="background: #ffdcab; overflow-x: auto;"
-              class="timelines__horizontal-long"
-            >
-              <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
-              <va-timeline>
-                <template>
-                  <va-timeline-item>
-                    <template slot="before">
-                      <div class="title text--center" style="color: rgb(227, 75, 74); font-size: 1rem;">TEST</div>
-                    </template>
-                    <va-card slot="after" stripe="danger" class="mb-0">
-                      <template slot="title">TEST</template>
-                      <va-accordion>
-                        <va-collapse>
-                          <span slot="header"><h2>TEST</h2></span>
-                          <div slot="body">
-                            <div>TEST
-                              <br>
-                              <h2>TEST</h2>
-                            </div>
-                          </div>
-                        </va-collapse>
-                      </va-accordion>
-                    </va-card>
-                  </va-timeline-item>
-                </template>
-              </va-timeline>
-            </va-card>
-
             <va-card slot="after" stripe="danger" class="mb-0">
                   <h2>Aseem Juneja</h2>
                   <div>
@@ -82,7 +51,6 @@
                     <span style="color: #a7a7a7;">Brought to you by CSA</span>
                   </div>
             </va-card>
-
 
           </div>
         </div>
