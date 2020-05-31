@@ -79,19 +79,8 @@
 
 <script>
 import data from './data.json'
-import * as firebase from 'firebase'
-// import 'firebase/firestore'
+import '../firebase.js'
 import ToastPositionPicker from './ToastPositionPicker.vue'
-
-const firekeys =  ({
-      apiKey: process.env.Vue_APP_FIREKEY,
-      authDomain: "csatimesmini.firebaseapp.com",
-      databaseURL: "https://csatimesmini.firebaseio.com",
-      projectId: "csatimesmini",
-      storageBucket: "csatimesmini.appspot.com",
-    });
-
-firebase.initializeApp(firekeys)
 
 export default {
   name: 'cards',
@@ -104,7 +93,7 @@ export default {
       notifications: true,
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ', 'RTI'],
-      toggle: false,
+      toggle: true,
       faq: "",
       title: "",
       description: "",
@@ -133,7 +122,7 @@ export default {
       let issueid = Date.now().toString().slice(4)
       if(this.toggle==false){
         this.sender = this.$forexam
-        firebase.firestore().collection('Store').doc('Grievances').collection(this.sender).add({
+        this.$staticdb.collection('Store').doc('Grievances').collection(this.sender).add({
         type: this.perPage,
         description: this.description,
         status: false,
@@ -147,7 +136,7 @@ export default {
       } else {
         this.sender = 'Anonymous'
       }
-      firebase.firestore().collection('Save').doc(this.perPage).collection(this.sender).add({
+      this.$staticdb.collection('Save').doc(this.perPage).collection(this.sender).add({
         description: this.description,
         student: this.sender,
         status: false,
@@ -163,7 +152,7 @@ export default {
   },
   firestore () {
     return {
-      grievances: firebase.firestore().collection('Store').doc('Grievances').collection(this.$forexam)
+      grievances: this.$staticdb.collection('Store').doc('Grievances').collection(this.$forexam)
     }
   }
 }
