@@ -12181,10 +12181,10 @@ vue-unused-components-checker@1.0.1:
     ora "^2.0.0"
     rx-text-search "^1.0.0"
 
-vue-yandex-maps@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/vue-yandex-maps/-/vue-yandex-maps-0.9.0.tgz#331c5a8b97f652c735a4660167fbf26ce2310fab"
-  integrity sha512-6gXec68eXNHvo5d6m43lGCDMShYRpciWWy55VA1RiFtMkLHIDeK4CJzYmkfAec32vpzYEqdcNBJh9b93wqtp8w==
+vue-yandex-maps@0.10.7:
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/vue-yandex-maps/-/vue-yandex-maps-0.10.7.tgz#5e9596d9a7fad3d853cb5daeb8b907d6153a575e"
+  integrity sha512-3KBe5ljz5efSLQwQX7tY4zqQ8X22UuMtS4hpxw752Ar7AsHcAkZyCCSuy2F3kGUdaeKoPjaihZGFozCle6RxMg==
 
 vue-yandex-maps@^0.8.14:
   version "0.8.18"
