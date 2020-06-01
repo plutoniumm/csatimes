@@ -12091,10 +12091,10 @@ vue-flatpickr-component@^8.0.0:
   dependencies:
     flatpickr "^4.6.1"
 
-vue-gtm@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.2.0.tgz#7b96cce86eb1318d37f55e761cb3253b5369c312"
-  integrity sha512-DsypU2nqN7xc8GbdAxOatzj+LCCkM9F4Lz5m0FhGLw1Cs+ENgHt7ieHIRD41pu8g0QbJiIMkpcnwPQEBe2Sg0w==
+vue-gtm@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.3.0.tgz#3bc41734921a071f243aa6fca308d105b7ea2fa7"
+  integrity sha512-hwRRyyO2U7LrwJw+6OB/gObvVjcEz770Ajne8XOldhpE9gL2CaloP3AEFTtKXmrsDE6z6A0mrXeWqjQ4vlyK9Q==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
