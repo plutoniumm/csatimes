@@ -24,7 +24,7 @@
     "bulma": "0.8.2",
     "chart.js": "2.9.3",
     "core-js": "3.6.5",
-    "detect-browser": "4.8.0",
+    "detect-browser": "5.1.0",
     "element-resize-detector": "1.2.1",
     "epic-spinners": "1.1.0",
     "extend": "3.0.2",
