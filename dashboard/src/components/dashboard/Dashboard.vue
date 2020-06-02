@@ -7,34 +7,32 @@
       </va-card>
       <hr>
 
-  <va-card title="News for you">
-    <va-tabs grow v-model="tabsState">
-      <va-tab>
-        Campus Updates
-      </va-tab>
-      <va-tab>
-        Campus News
-      </va-tab>
-    </va-tabs>
-    <va-separator/>
-    <component :is="tabs[tabsState]" @submit="submit"/>
-  </va-card>
+      <va-card title="News for you">
+        <va-tabs grow v-model="tabsState">
+          <va-tab>
+            Campus Updates
+          </va-tab>
+          <va-tab>
+            Campus News
+          </va-tab>
+        </va-tabs>
+        <va-separator/>
+        <component :is="tabs[tabsState]" @submit="submit"/>
+      </va-card>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 
 import CampusUpdates from './updates.vue'
 import CampusNews from './news.vue'
-
 
 export default {
   name: 'dashboard',
   components: {
     CampusUpdates,
-    CampusNews
+    CampusNews,
   },
   methods: {
     submit (data) {
@@ -46,7 +44,7 @@ export default {
       tabsState: 1,
       tabs: [
         'CampusUpdates',
-        'CampusNews'
+        'CampusNews',
       ],
     }
   },

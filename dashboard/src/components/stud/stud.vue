@@ -208,28 +208,28 @@ export default {
       items: [
           { title: "BITS Goa ERP", href: "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", image: "https://logodix.com/logo/635166.png",
           message: "Go to BITS Goa PeopleSoft Enterprise Resourse Planning System for all Academic Activity" },
-          
+
           { title: "Student Welfare Divison", href: "https://swd.bits-goa.ac.in", image: "https://swd.bits-goa.ac.in/static_files/img/swd.png",
           message: "Go to Student Welfare Divison BITS Goa Website for all Campus Life, Mess and Related Activities" },
-          
+
           { title: "BITS Goa Library", href: "https://www.bits-goa.ac.in/Library/Index.aspx", image: "https://qphs.fs.quoracdn.net/main-qimg-a1d3a181327d624de25ca00f4d9c9dae-c",
           message: "Go to BITS Goa Library Website for all Library Services such as FTP, Question Papers, Journals etc" },
-          
+
           { title: "CTE Techforums", href: "http://forum.bpgc-cte.org/", image: "https://bpgc-cte.org/logo.png",
           message: "Use Autodesk AutoCAD online right in the browser completely free, just login/register with your BITSID as a student" },
-          
+
           { title: "Campus Website", href: "https://web.autocad.com/", image: "https://physociety.files.wordpress.com/2014/02/bits-goa.jpg?w=640",
           message: "Use Autodesk AutoCAD online right in the browser completely free, just login/register with your BITSID as a student" },
-          
+
           { title: "AutoDesk AutoCAD", href: "https://web.autocad.com/", image: "https://logodix.com/logo/635166.png",
           message: "Use Autodesk AutoCAD online right in the browser completely free, just login/register with your BITSID as a student" },
-          
+
           { title: "MathWorks MATLAB", href: "https://matlab.mathworks.com", image: "https://i5j2k7b8.rocketcdn.me/wp-content/uploads/2017/04/Matlab.png",
             message: "Use MathWorks MATLAB online right in the browser completely free, just login/register with your BITSID as a student" },
-          
+
           { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
             message: "Got a quick code to test? Use the Mini IDE, to test code in over 30 Languages with input, output and error log terminals" },
-          
+
           { title: "Wolfram Alpha", href: "https://www.wolframalpha.com", image: "https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1",
             message: "Got a quick equation or math defination to check? Go to Wolfram Alpha and use it online now" }
       ],

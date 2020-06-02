@@ -41,13 +41,13 @@
     </div>
     <va-card>
       <va-card v-for="issue in grievances" :key="issue">
-         <va-card>
-           <h2> {{ issue.type }} </h2>
-           <div> {{ issue.description }} </div>
-           {{ issue.issueid }}, {{ issue.status }}
+        <va-card>
+          <h2> {{ issue.type }} </h2>
+          <div> {{ issue.description }} </div>
+          {{ issue.issueid }}, {{ issue.status }}
         </va-card>
       </va-card>
-      
+      <!-- <toast-positon-picker/> -->
     </va-card>
     <!-- CSA -->
     <div class="row" style="justify-content: center;">
@@ -80,7 +80,7 @@
 <script>
 import data from './data.json'
 import '../firebase.js'
-import ToastPositionPicker from './ToastPositionPicker.vue'
+import ToastPositionPicker from './ToastPositionPicker'
 
 export default {
   name: 'cards',
@@ -94,10 +94,10 @@ export default {
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ', 'RTI'],
       toggle: true,
-      faq: "",
-      title: "",
-      description: "",
-      sender : 'Anonymous',
+      faq: '',
+      title: '',
+      description: '',
+      sender: 'Anonymous',
       grievances: [],
       toastText: 'This toast is awesome!',
       toastDuration: 2500,
@@ -119,20 +119,20 @@ export default {
       )
     },
     executer () {
-      let issueid = Date.now().toString().slice(4)
-      if(this.toggle==false){
+      const issueid = Date.now().toString().slice(4)
+      if (this.toggle === false) {
         this.sender = this.$forexam
         this.$staticdb.collection('Store').doc('Grievances').collection(this.sender).add({
-        type: this.perPage,
-        description: this.description,
-        status: false,
-        issueid: issueid
-      }).then(res => {
-        this.launchToast ('Your Response has been submitted!', 'fa-check-circle')
+          type: this.perPage,
+          description: this.description,
+          status: false,
+          issueid: issueid,
+        }).then(res => {
+          this.launchToast('Your Response has been submitted!', 'fa-check-circle')
           this.description = ''
-      }).catch(error => {
-        console.error(err)
-    });
+        }).catch(error => {
+          console.error(error)
+        })
       } else {
         this.sender = 'Anonymous'
       }
@@ -140,21 +140,21 @@ export default {
         description: this.description,
         student: this.sender,
         status: false,
-        issueid: issueid
+        issueid: issueid,
       }).then(res => {
-        this.launchToast ('Thank You for letting us Know!', 'fa-check-circle')
-          this.description = ''
+        this.launchToast('Thank You for letting us Know!', 'fa-check-circle')
+        this.description = ''
       }).catch(error => {
-        console.error(err)
-        this.launchToast ('Error! Please Try Again Later', 'fa-bug')
-    });
-      },
+        console.error(error)
+        this.launchToast('Error! Please Try Again Later', 'fa-bug')
+      })
+    },
   },
   firestore () {
     return {
-      grievances: this.$staticdb.collection('Store').doc('Grievances').collection(this.$forexam)
+      grievances: this.$staticdb.collection('Store').doc('Grievances').collection(this.$forexam),
     }
-  }
+  },
 }
 </script>
 <style lang="scss">
