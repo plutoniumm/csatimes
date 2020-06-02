@@ -13,21 +13,21 @@ import '../metrics'
 import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 
-import * as firebase from 'firebase'
-require('firebase/firestore')
+// import firebase from 'firebase'
+// require('firebase/firestore')
 
-const config = {
-  apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
-  authDomain: 'csatimesmini.firebaseapp.com',
-  databaseURL: 'https://csatimesmini.firebaseio.com',
-  projectId: 'csatimesmini',
-  storageBucket: 'csatimesmini.appspot.com',
-  messagingSenderId: '698625993551',
-  appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
-  measurementId: 'G-Y12HTWVH87',
-}
-firebase.initializeApp(config)
-Vue.prototype.$staticdb = firebase.firestore()
+// const config = {
+//   apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
+//   authDomain: 'csatimesmini.firebaseapp.com',
+//   databaseURL: 'https://csatimesmini.firebaseio.com',
+//   projectId: 'csatimesmini',
+//   storageBucket: 'csatimesmini.appspot.com',
+//   messagingSenderId: '698625993551',
+//   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
+//   measurementId: 'G-Y12HTWVH87',
+// }
+// firebase.initializeApp(config)
+// Vue.prototype.$staticdb = firebase.firestore()
 
 // const settings = {
 //   timestampsInSnapshots: true,
@@ -57,6 +57,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  // firebaseApp,
   render: h => h(App),
 }).$mount('#app')

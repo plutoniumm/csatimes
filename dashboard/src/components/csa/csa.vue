@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ToastPositionPicker />
     <!-- SUPER INPUT FIREBASE -->
     <div class="row" style="justify-content: center;">
       <va-card title="Grievances" style="background: #ffdcab; text-align: center; justify-content: center;">
@@ -38,7 +39,9 @@
           </form>
         </div>
       </va-card>
+
     </div>
+
     <va-card>
       <va-card v-for="issue in grievances" :key="issue">
         <va-card>
@@ -47,8 +50,8 @@
           {{ issue.issueid }}, {{ issue.status }}
         </va-card>
       </va-card>
-      <!-- <toast-positon-picker/> -->
     </va-card>
+
     <!-- CSA -->
     <div class="row" style="justify-content: center;">
       <div class="flex xs12 sm6 lg4">
@@ -79,8 +82,31 @@
 
 <script>
 import data from './data.json'
-import '../firebase.js'
-import ToastPositionPicker from './ToastPositionPicker'
+// import '../firebase.js'
+import firebase1 from 'firebase'
+import Vue from 'vue'
+import ToastPositionPicker from './toast/ToastPositionPicker'
+
+const config = {
+  apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
+  authDomain: 'csatimesmini.firebaseapp.com',
+  databaseURL: 'https://csatimesmini.firebaseio.com',
+  projectId: 'csatimesmini',
+  storageBucket: 'csatimesmini.appspot.com',
+  messagingSenderId: '698625993551',
+  appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
+  measurementId: 'G-Y12HTWVH87',
+}
+
+if (!firebase1.apps.length) firebase1.initializeApp(config)
+else firebase1.initializeApp(config,"secondary")
+
+Vue.prototype.$staticdb = firebase1.firestore()
+
+// const settings = {
+//   timestampsInSnapshots: true,
+// }
+// this.$staticdb.settings(settings)   //THIS LINE IS NOT ALLOWING THE CSA PAGE TO RENDER
 
 export default {
   name: 'cards',

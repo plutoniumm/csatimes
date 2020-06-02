@@ -17,8 +17,8 @@
       >
         <img v-if="option.details.avatar" class="mr-2 notification-dropdown__item__avatar" :src="option.details.avatar"/>
         <span class="ellipsis" style="max-width: 85%;">
-          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> 
-           {{ option.msg }}
+          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span>
+          {{ option.msg }}
         </span>
       </div>
       <div class="row justify--space-between">
@@ -49,9 +49,10 @@ export default {
       default: () => [
         {
           name: 'sentMessage',
-          details: { 
-            name: 'Vasily S', 
-            avatar: 'https://picsum.photos/123' },
+          details: {
+            name: 'Vasily S',
+            avatar: 'https://picsum.photos/123',
+          },
           msg: 1,
         },
         {
@@ -65,9 +66,10 @@ export default {
         },
         {
           name: 'startedTopic',
-          details: { 
-            name: 'Andrei H', 
-            avatar: 'https://picsum.photos/24' },
+          details: {
+            name: 'Andrei H',
+            avatar: 'https://picsum.photos/24',
+          },
           msg: 3,
         },
       ],

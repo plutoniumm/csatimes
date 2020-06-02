@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: 'toast-position-picker',
+  name: 'ToastPositionPicker',
   props: {
     value: {
       type: String,

@@ -21,6 +21,7 @@
 <script>
 import axios from 'axios'
 import Vue from 'vue'
+import firebase from 'firebase'
 var firebaseConfig = {
       apiKey: "AIzaSyATjcR_5F98ADo3iY5ZxgpcBSbMX4Z_M34",
       authDomain: "csa-app-41a53.firebaseapp.com",
