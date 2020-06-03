@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ToastPositionPicker />
     <!-- SUPER INPUT FIREBASE -->
     <div class="row" style="justify-content: center;">
       <va-card title="Grievances" style="background: #ffdcab; text-align: center; justify-content: center;">
@@ -82,10 +81,8 @@
 
 <script>
 import data from './data.json'
-// import '../firebase.js'
-import firebase1 from 'firebase'
-import Vue from 'vue'
-import ToastPositionPicker from './toast/ToastPositionPicker'
+import firebase from 'firebase'
+import './toast/ToastPositionPicker'
 
 const config = {
   apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
@@ -97,20 +94,11 @@ const config = {
   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
   measurementId: 'G-Y12HTWVH87',
 }
-
-if (!firebase1.apps.length) firebase1.initializeApp(config)
-else firebase1.initializeApp(config,"secondary")
-
-Vue.prototype.$staticdb = firebase1.firestore()
-
-// const settings = {
-//   timestampsInSnapshots: true,
-// }
-// this.$staticdb.settings(settings)   //THIS LINE IS NOT ALLOWING THE CSA PAGE TO RENDER
+firebase.initializeApp(config)
+const staticdb = firebase.firestore()
 
 export default {
   name: 'cards',
-  components: { ToastPositionPicker },
   data () {
     return {
       customers: data,
@@ -148,7 +136,7 @@ export default {
       const issueid = Date.now().toString().slice(4)
       if (this.toggle === false) {
         this.sender = this.$forexam
-        this.$staticdb.collection('Store').doc('Grievances').collection(this.sender).add({
+        staticdb.collection('Store').doc('Grievances').collection(this.sender).add({
           type: this.perPage,
           description: this.description,
           status: false,
@@ -162,7 +150,7 @@ export default {
       } else {
         this.sender = 'Anonymous'
       }
-      this.$staticdb.collection('Save').doc(this.perPage).collection(this.sender).add({
+      staticdb.collection('Save').doc(this.perPage).collection(this.sender).add({
         description: this.description,
         student: this.sender,
         status: false,
@@ -178,7 +166,7 @@ export default {
   },
   firestore () {
     return {
-      grievances: this.$staticdb.collection('Store').doc('Grievances').collection(this.$forexam),
+      grievances: staticdb.collection('Store').doc('Grievances').collection(this.$forexam),
     }
   },
 }
