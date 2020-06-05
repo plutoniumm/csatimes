@@ -233,7 +233,6 @@ export default {
           { title: "Wolfram Alpha", href: "https://www.wolframalpha.com", image: "https://i0.wp.com/onetechstop.net/wp-content/uploads/2014/11/Wolfram-Alpha-Logo.png?ssl=1",
             message: "Got a quick equation or math defination to check? Go to Wolfram Alpha and use it online now" }
       ],
-      start1: null,
       pr: null,
       nick: null,
       withDescription: '',
@@ -279,15 +278,8 @@ export default {
   },
   mounted () {
     axios
-      .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: this.$AuthStr },
-      })
-      .then(response => {
-        this.start1 = response.data.en
-      })
-    axios
       .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
-        headers: { token: this.$AuthStr },
+        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
       })
       .then(response => {
         this.pr = response.data.subEvents

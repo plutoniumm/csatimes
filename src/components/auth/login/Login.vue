@@ -63,6 +63,7 @@ export default {
       var token = result.credential.idToken;
       var email = result.user.email
       Vue.prototype.$username = result.user.displayName
+      localStorage.setItem('user', result.user.displayName)
       Vue.prototype.$bitsid = result.user.email
       Vue.prototype.$forexam = result.user.email.slice(1,9)
       var str = email.match(/@goa.bits-pilani.ac.in/i)
@@ -78,6 +79,7 @@ export default {
             })
             .then(function(response) {
               Vue.prototype.$AuthStr = response.data.authToken
+              localStorage.setItem('user-token', response.data.authToken)
               if(!response.data.newUser)
                 that.$router.push({ name: 'dashboard' })
               else
@@ -85,6 +87,7 @@ export default {
             })
             .catch(function(error) {
               alert('Please try again later')
+              localStorage.removeItem('user-token')
               console.log(error)
             })
         }

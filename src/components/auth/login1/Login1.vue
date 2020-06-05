@@ -21,6 +21,7 @@
 <script>
 import axios from 'axios'
 import Vue from 'vue'
+import firebase from 'firebase'
 var firebaseConfig = {
       apiKey: "AIzaSyATjcR_5F98ADo3iY5ZxgpcBSbMX4Z_M34",
       authDomain: "csa-app-41a53.firebaseapp.com",
@@ -42,6 +43,8 @@ export default {
         var token = result.credential.idToken;
         var email = result.user.email
         Vue.prototype.$username = result.user.displayName
+        localStorage.setItem('user', response.user.displayName)
+        Vue.prototype.$bitsid = result.user.email
         Vue.prototype.$forexam = result.user.email.slice(1,9)
         var str = email.match(/@goa.bits-pilani.ac.in/i)
         if(str===null)
@@ -56,6 +59,7 @@ export default {
               })
               .then(function(response) {
                 Vue.prototype.$AuthStr = response.data.authToken
+                localStorage.setItem('user-token', response.data.authToken)
                 if(!response.data.newUser)
                   that.$router.push({ name: 'dashboard' })
                 else

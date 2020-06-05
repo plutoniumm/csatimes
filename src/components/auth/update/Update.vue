@@ -138,7 +138,7 @@ export default {
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
-        headers: { token: this.$AuthStr },
+        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
         body: { update: payload },
       })
         .then(function (response) {
