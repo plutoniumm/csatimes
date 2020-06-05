@@ -2,32 +2,30 @@
   <div>
     <div class="dashboard">
 
-      <va-card>
-        <va-card title="Music Night Recommendations" style=" text-align: center; justify-content: center; width: 50%;">
-          <div class="row align--center">
-            <form @submit.prevent="musoc()">
-              <div class="row">
-                <div class="flex xs12">
-                  <div class="flex">
-                    <span class="xs12">Recommend One Song to The Music Society that you would like to see
-                      them cover in their next event!
-                    </span>
-                  </div>
-                  <div class="flex">
-                    <va-input
-                      v-model="song"
-                      placeholder="Ex. Paper Kite by Bharat Rajagopalan"
-                    />
-                    <div class="d-flex justify--center mt-3">
-                      <va-button type="submit" class="my-0">Submit</va-button>
-                    </div> <hr>
-                    Your current song:
-                  </div>
+      <va-card title="Music Night Recommendations" style=" text-align: center; justify-content: center; width: 50%;">
+        <div class="row align--center">
+          <form @submit.prevent="musoc()">
+            <div class="row">
+              <div class="flex xs12">
+                <div class="flex">
+                  <span class="xs12">Recommend One Song to The Music Society that you would like to see
+                    them cover in their next event!
+                  </span>
+                </div>
+                <div class="flex">
+                  <va-input
+                    v-model="song"
+                    placeholder="Ex. Paper Kite by Bharat Rajagopalan"
+                  />
+                  <div class="d-flex justify--center mt-3">
+                    <va-button type="submit" class="my-0">Submit</va-button>
+                  </div> <hr>
+                  Your current song:
                 </div>
               </div>
-            </form>
-          </div>
-        </va-card>
+            </div>
+          </form>
+        </div>
       </va-card>
       <hr>
 
@@ -62,7 +60,8 @@ const config = {
   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
   measurementId: 'G-Y12HTWVH87',
 }
-firebase.initializeApp(config)
+if (!firebase.apps.length) firebase.initializeApp(config)
+else firebase.initializeApp(config, 'secondary')
 const staticdb = firebase.firestore()
 export default {
   name: 'dashboard',

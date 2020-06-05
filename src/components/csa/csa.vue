@@ -94,7 +94,7 @@ const config = {
   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
   measurementId: 'G-Y12HTWVH87',
 }
-firebase.initializeApp(config)
+if (!firebase.apps.length) firebase.initializeApp(config)
 const staticdb = firebase.firestore()
 
 export default {
