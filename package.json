@@ -16,6 +16,7 @@
     "@types/jest": "24.9.1",
     "amcharts3": "3.21.15",
     "ammap3": "3.21.15",
+    "aos": "^2.3.4",
     "approximate-number": "2.0.0",
     "asva-executors": "0.1.23",
     "axios": "0.19.2",

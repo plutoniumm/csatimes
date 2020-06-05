@@ -1,45 +1,42 @@
 <template>
   <div>
     <div class="dashboard">
-
-      <va-card title="Music Night Recommendations" style=" text-align: center; justify-content: center; width: 50%;">
+      <va-card
+        title="Music Night Recommendations"
+        style=" text-align: center; justify-content: center; width: 50%;"
+        data-aos="fade-left"
+      >
         <div class="row align--center">
           <form @submit.prevent="musoc()">
             <div class="row">
               <div class="flex xs12">
                 <div class="flex">
-                  <span class="xs12">Recommend One Song to The Music Society that you would like to see
+                  <span class="xs12">
+                    Recommend One Song to The Music Society that you would like to see
                     them cover in their next event!
                   </span>
                 </div>
                 <div class="flex">
-                  <va-input
-                    v-model="song"
-                    placeholder="Ex. Paper Kite by Bharat Rajagopalan"
-                  />
+                  <va-input v-model="song" placeholder="Ex. Paper Kite by Bharat Rajagopalan" />
                   <div class="d-flex justify--center mt-3">
                     <va-button type="submit" class="my-0">Submit</va-button>
-                  </div> <hr>
-                  Your current song:
+                  </div>
+                  <hr />Your current song:
                 </div>
               </div>
             </div>
           </form>
         </div>
       </va-card>
-      <hr>
+      <hr />
 
-      <va-card title="News for you">
+      <va-card title="News for you" data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
-          <va-tab>
-            Campus Updates
-          </va-tab>
-          <va-tab>
-            Campus News
-          </va-tab>
+          <va-tab>Campus Updates</va-tab>
+          <va-tab>Campus News</va-tab>
         </va-tabs>
-        <va-separator/>
-        <component :is="tabs[tabsState]" @submit="submit"/>
+        <va-separator />
+        <component :is="tabs[tabsState]" @submit="submit" />
       </va-card>
     </div>
   </div>
@@ -135,5 +132,4 @@ body {
 .row.row-inside {
   max-width: 20px;
 }
-
 </style>

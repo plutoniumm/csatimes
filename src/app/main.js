@@ -12,31 +12,12 @@ import VueClipboard from 'vue-clipboard2'
 import '../metrics'
 import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
-
-// import firebase from 'firebase'
-// require('firebase/firestore')
-
-// const config = {
-//   apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
-//   authDomain: 'csatimesmini.firebaseapp.com',
-//   databaseURL: 'https://csatimesmini.firebaseio.com',
-//   projectId: 'csatimesmini',
-//   storageBucket: 'csatimesmini.appspot.com',
-//   messagingSenderId: '698625993551',
-//   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
-//   measurementId: 'G-Y12HTWVH87',
-// }
-// firebase.initializeApp(config)
-// Vue.prototype.$staticdb = firebase.firestore()
-
-// const settings = {
-//   timestampsInSnapshots: true,
-// }
-// staticdb.settings(settings)
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
   // eslint-disable-next-line
-  const message = `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`
+  const message = `%c${ 'Build_information:' }\n %c${ 'Version' }: %c${ VERSION },\n %c${ 'Timestamp' }: %c${ TIMESTAMP },\n %c${ 'Commit' }: %c${ COMMIT }`
   // eslint-disable-next-line
   console.info(
     message,
@@ -54,6 +35,7 @@ Vue.use(ColorThemePlugin, {
 
 /* eslint-disable no-new */
 new Vue({
+  created () { AOS.init() },
   el: '#app',
   router,
   store,
