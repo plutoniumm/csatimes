@@ -1,48 +1,51 @@
 <template>
-  <div>
+  <div data-aos="fade-up">
     <div class="flex xs12">
       <va-card style="background: #ffdcab; overflow-x: auto;">
         <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
         <form>
           <div>
             <div class="flex md4 sm6 xs12">
-              <template v-for="(prevent, j) in pr">
+              <template v-for="prevent in pr">
                 <va-accordion :key="'item' + prevent.name">
                   <va-collapse customHeader>
                     <span slot="header">
-                      <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
-                        {{ prevent.name }}
-                      </va-button>
+                      <va-button
+                        style="width: 100%;"
+                        color="warning"
+                        icon-right="ion-ios-arrow-down arrow-down"
+                      >{{ prevent.name }}</va-button>
                     </span>
                     <div slot="body">
                       <form @submit.prevent="onsubmit()">
                         <template v-for="(imag, i) in prevent.images">
-                          <img :src= prevent.images[i].image width="300px" :key="imag.image"/>
+                          <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
                         </template>
-                        <br>
+                        <br />
                         <va-input
                           v-model="withDescription"
                           placeholder="Enter the scanned QR code here"
                         />
                         <div v-if="prevent.is_nick == true">
-                          <h2>Price without nick</h2> {{prevent.price}}
-                          <br>
-                          <h2>Price with nick</h2> {{prevent.price_nick}}
-                          <br>
-                          <br>
-                          <va-checkbox
-                            label="Do you want a nick?"
-                            v-model="checkbox"
-                          />
-                          <va-input v-if="checkbox==true"
+                          <h2>Price without nick</h2>
+                          {{prevent.price}}
+                          <br />
+                          <h2>Price with nick</h2>
+                          {{prevent.price_nick}}
+                          <br />
+                          <br />
+                          <va-checkbox label="Do you want a nick?" v-model="checkbox" />
+                          <va-input
+                            v-if="checkbox==true"
                             v-model="nick"
                             placeholder="Enter nick here"
                           />
                         </div>
                         <div v-else>
-                          <h2>Price</h2> {{prevent.price}}
+                          <h2>Price</h2>
+                          {{prevent.price}}
                         </div>
-                        <br>
+                        <br />
                         <va-select
                           label="Choose Size"
                           v-model="simpleSelectModel"
@@ -50,7 +53,7 @@
                           :options="prevent.available_sizes"
                         />
                         <h2>Select Quantity</h2>
-                        <br>
+                        <br />
                         <va-slider
                           pins
                           :min="1"
@@ -61,10 +64,10 @@
                           v-model="value"
                           input
                         />
-                        <va-button color="danger" type="submit"> Register </va-button>
-                        <br>
-                        <br>
-                        <br>
+                        <va-button color="danger" type="submit">Register</va-button>
+                        <br />
+                        <br />
+                        <br />
                       </form>
                     </div>
                   </va-collapse>
@@ -81,41 +84,47 @@
         <va-card>
           <!-- Link Blocks-->
           <router-link :to="{ path: '../hall'}" append exact>
-            <va-button color="danger"> Hall of Fame</va-button>
+            <va-button color="danger">Hall of Fame</va-button>
           </router-link>
         </va-card>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
           <router-link :to="{ path: '../startup'}" append exact>
-            <va-button color="warning"> BITS Goa Startups</va-button>
+            <va-button color="warning">BITS Goa Startups</va-button>
           </router-link>
         </va-card>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
-          <a href='http://know-your-exam-schedule.herokuapp.com' target="_blank"><va-button color="info"> Exam Schedule</va-button></a>
+          <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
+            <va-button color="info">Exam Schedule</va-button>
+          </a>
         </va-card>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
           <router-link :to="{ path: '../clubs'}" append exact>
-            <va-button color="success"> Clubs</va-button>
+            <va-button color="success">Clubs</va-button>
           </router-link>
         </va-card>
       </div>
       <!-- Tools Links-->
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;" v-for="item in items" :key="item">
-        <a :href= item.href style="text-decoration: none; color: black;" >
+      <div
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+        v-for="item in items"
+        :key="item"
+      >
+        <a :href="item.href" style="text-decoration: none; color: black;">
           <va-card
             overlay
             titleOnImage
-            :image= item.image
-            :title= item.title
-            :to= item.href
-            onMouseOver="this.style.cursor='pointer';"
-          > {{ item.message }}
-          </va-card>
+            :image="item.image"
+            :title="item.title"
+            :to="item.href"
+            onmouseover="this.style.cursor='pointer';"
+          >{{ item.message }}</va-card>
         </a>
       </div>
     </div>
@@ -123,9 +132,11 @@
     <!-- DATA TABLE -->
     <va-collapse customHeader>
       <span slot="header">
-        <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
-          Humanities Reviews
-        </va-button>
+        <va-button
+          style="width: 100%;"
+          color="warning"
+          icon-right="ion-ios-arrow-down arrow-down"
+        >Humanities Reviews</va-button>
       </span>
       <div slot="body">
         <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
@@ -151,43 +162,37 @@
             </div>
           </div>
 
-          <va-data-table
-            :fields="fields"
-            :data="filteredData"
-            :per-page="parseInt(perPage)"
-          >
-
+          <va-data-table :fields="fields" :data="filteredData" :per-page="parseInt(perPage)">
             <template slot="review" slot-scope="props">
               <va-collapse customHeader>
                 <span slot="header">
-                  <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
-                    Bulletin Description
-                  </va-button>
+                  <va-button
+                    style="width: 100%;"
+                    color="warning"
+                    icon-right="ion-ios-arrow-down arrow-down"
+                  >Bulletin Description</va-button>
                 </span>
                 <div slot="body">
-                  <div>
-                    {{ props.rowData.bulletin }}
-                  </div>
+                  <div>{{ props.rowData.bulletin }}</div>
                 </div>
               </va-collapse>
-              <br>
+              <br />
               <va-collapse customHeader>
                 <span slot="header">
-                  <va-button style="width: 100%;" color="warning" icon-right="ion-ios-arrow-down arrow-down">
-                    Student Review
-                  </va-button>
+                  <va-button
+                    style="width: 100%;"
+                    color="warning"
+                    icon-right="ion-ios-arrow-down arrow-down"
+                  >Student Review</va-button>
                 </span>
                 <div slot="body">
-                  <div>
-                    {{ props.rowData.review }}
-                  </div>
+                  <div>{{ props.rowData.review }}</div>
                 </div>
               </va-collapse>
             </template>
           </va-data-table>
         </va-card>
       </div>
-
     </va-collapse>
   </div>
 </template>
@@ -289,7 +294,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 // * {
 //   transition: all 0.5s;
 // }
@@ -322,5 +326,4 @@ tr:hover {
 .row.row-inside {
   max-width: 20px;
 }
-
 </style>
