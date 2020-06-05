@@ -75,7 +75,7 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: this.$AuthStr },
+        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
       })
       .then(response => {
         this.start1 = response.data.en.reverse()

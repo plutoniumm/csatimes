@@ -62,7 +62,7 @@ export default {
   },
   data () {
     return {
-      userName: this.$username,
+      userName: localStorage.getItem('user') || this.$username,
     }
   },
   computed: {
