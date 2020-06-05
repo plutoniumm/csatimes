@@ -2,21 +2,16 @@
   <div>
     <!-- SUPER INPUT FIREBASE -->
     <div class="row" style="justify-content: center;">
-      <va-card title="Grievances" style="background: #ffdcab; text-align: center; justify-content: center;">
+      <va-card
+        title="Grievances"
+        style="background: #ffdcab; text-align: center; justify-content: center;"
+      >
         <div class="row align--center" style="justify-content: center; overflow: hidden;">
           <fieldset>
-            <va-toggle
-              v-model="toggle"
-              label="Send Anonymously"
-            />
+            <va-toggle v-model="toggle" label="Send Anonymously" />
           </fieldset>
           <div class="flex xs6">
-            <va-select
-              v-model="perPage"
-              label="Type"
-              :options="perPageOptions"
-              noClear
-            />
+            <va-select v-model="perPage" label="Type" :options="perPageOptions" noClear />
           </div>
           <form @submit.prevent="executer()">
             <div class="row">
@@ -25,10 +20,7 @@
                   <span class="xs12">Write to us!</span>
                 </div>
                 <div class="flex">
-                  <va-input
-                    v-model="description"
-                    placeholder="Tell us your grievance"
-                  />
+                  <va-input v-model="description" placeholder="Tell us your grievance" />
                 </div>
                 <div class="d-flex justify--center mt-3">
                   <va-button type="submit" class="my-0">Submit</va-button>
@@ -38,14 +30,13 @@
           </form>
         </div>
       </va-card>
-
     </div>
 
     <va-card>
       <va-card v-for="issue in grievances" :key="issue">
         <va-card>
-          <h2> {{ issue.type }} </h2>
-          <div> {{ issue.description }} </div>
+          <h2>{{ issue.type }}</h2>
+          <div>{{ issue.description }}</div>
           {{ issue.issueid }}, {{ issue.status }}
         </va-card>
       </va-card>
@@ -59,17 +50,23 @@
         </va-card>
       </div>
     </div>
-    <template v-for="(customer) in customers">
-      <div :key="'item' + customer.name"  style="display: inline-block;" class="row align--center">
+    <template v-for="customer in customers">
+      <div :key="item + customer.name" style="display: inline-block;" class="row align--center">
         <div style="justify-content: center;">
           <div class="flex" style="justify-content: center;">
             <div class="card" style="margin: 1rem; justify-content: center;">
               <div class="imgBx">
-                <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name">
+                <img :src="require('../../assets/pics/' + customer.picture)" :alt="customer.name" />
               </div>
               <div class="details">
-                <h2>{{ customer.name }}<br><span>({{customer.post}})</span></h2>
-                {{ customer.address }} <br> {{ customer.phone}}
+                <h2>
+                  {{ customer.name }}
+                  <br />
+                  <span>({{ customer.post }})</span>
+                </h2>
+                {{ customer.address }}
+                <br />
+                {{ customer.phone }}
               </div>
             </div>
           </div>
@@ -122,56 +119,73 @@ export default {
   },
   methods: {
     launchToast (result, icon) {
-      this.showToast(
-        result,
-        {
-          icon: icon,
-          position: this.toastPosition,
-          duration: this.toastDuration,
-          fullWidth: true,
-        },
-      )
+      this.showToast(result, {
+        icon: icon,
+        position: this.toastPosition,
+        duration: this.toastDuration,
+        fullWidth: true,
+      })
     },
     executer () {
-      const issueid = Date.now().toString().slice(4)
+      const issueid = Date.now()
+        .toString()
+        .slice(4)
       if (this.toggle === false) {
         this.sender = this.$forexam
-        staticdb.collection('Store').doc('Grievances').collection(this.sender).add({
-          type: this.perPage,
-          description: this.description,
-          status: false,
-          issueid: issueid,
-        }).then(res => {
-          this.launchToast('Your Response has been submitted!', 'fa-check-circle')
-          this.description = ''
-        }).catch(error => {
-          console.error(error)
-        })
+        staticdb
+          .collection('Store')
+          .doc('Grievances')
+          .collection(this.sender)
+          .add({
+            type: this.perPage,
+            description: this.description,
+            status: false,
+            issueid: issueid,
+          })
+          .then(res => {
+            this.launchToast(
+              'Your Response has been submitted!',
+              'fa-check-circle',
+            )
+            this.description = ''
+          })
+          .catch(error => {
+            console.error(error)
+          })
       } else {
         this.sender = 'Anonymous'
       }
-      staticdb.collection('Save').doc(this.perPage).collection(this.sender).add({
-        description: this.description,
-        student: this.sender,
-        status: false,
-        issueid: issueid,
-      }).then(res => {
-        this.launchToast('Thank You for letting us Know!', 'fa-check-circle')
-        this.description = ''
-      }).catch(error => {
-        console.error(error)
-        this.launchToast('Error! Please Try Again Later', 'fa-bug')
-      })
+      staticdb
+        .collection('Save')
+        .doc(this.perPage)
+        .collection(this.sender)
+        .add({
+          description: this.description,
+          student: this.sender,
+          status: false,
+          issueid: issueid,
+        })
+        .then(res => {
+          this.launchToast('Thank You for letting us Know!', 'fa-check-circle')
+          this.description = ''
+        })
+        .catch(error => {
+          console.error(error)
+          this.launchToast('Error! Please Try Again Later', 'fa-bug')
+        })
     },
   },
   firestore () {
     return {
-      grievances: staticdb.collection('Store').doc('Grievances').collection(this.$forexam),
+      grievances: staticdb
+        .collection('Store')
+        .doc('Grievances')
+        .collection(this.$forexam),
     }
   },
 }
 </script>
-<style lang="scss">
+<style lang='scss'>
 .cards-container {
   .va-card {
     margin: 0;
