@@ -1,56 +1,62 @@
 <template>
   <div>
     <div>
-      <va-card
-        title="GDPR Compliance"
-        style=" text-align: center; justify-content: center; width: 50%;"
-        data-aos="fade-left"
-      >
-        <table class="va-table">
-          <thead>
-            <tr>
-              <th>{{ 'Issue' }}</th>
-              <th>{{ 'Status' }}</th>
-            </tr>
-          </thead>
+      <div class="row" style="justify-content: center;">
+        <div class="flex xs12 sm6 lg4" style="justify-content: center; text-align: center;">
+          <va-card
+            title="GDPR Compliance"
+            style=" text-align: center; justify-content: center;"
+            data-aos="fade-left"
+          >
+            <table class="va-table">
+              <thead>
+                <tr>
+                  <th>{{ 'Issue' }}</th>
+                  <th>{{ 'Status' }}</th>
+                </tr>
+              </thead>
 
-          <tbody>
-            <tr>
-              <td>{{ 'We do not use cookies' }}</td>
-              <td>
-                <va-badge color="Green">{{ 'Compliant' }}</va-badge>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </va-card>
-      <va-card
-        title="Site Information"
-        style=" text-align: center; justify-content: center; width: 50%;"
-        data-aos="fade-left"
-      >
-        <table class="va-table">
-          <thead>
-            <tr>
-              <th>{{ 'Feature' }}</th>
-              <th>{{ 'Value' }}</th>
-            </tr>
-          </thead>
+              <tbody>
+                <tr>
+                  <td>{{ 'We do not use cookies' }}</td>
+                  <td>
+                    <va-badge color="Green">{{ 'Compliant' }}</va-badge>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </va-card>
+        </div>
+        <div class="flex xs12 sm6 lg4" style="justify-content: center; text-align: center;">
+          <va-card
+            title="Site Information"
+            style=" text-align: center; justify-content: center;"
+            data-aos="fade-left"
+          >
+            <table class="va-table">
+              <thead>
+                <tr>
+                  <th>{{ 'Feature' }}</th>
+                  <th>{{ 'Value' }}</th>
+                </tr>
+              </thead>
 
-          <tbody>
-            <tr>
-              <td>{{ 'Wesbite Version' }}</td>
-              <td>
-                <va-badge color="Green">{{ '1.0.0 Little Boy' }}</va-badge>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </va-card>
+              <tbody>
+                <tr>
+                  <td>{{ 'Wesbite Version' }}</td>
+                  <td>
+                    <va-badge color="Green">{{ '1.0.0 Little Boy' }}</va-badge>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </va-card>
+        </div>
+      </div>
       <!-- eslint-disable vue/valid-v-for -->
       <template>
         <div class="row" style="justify-content: center;">
-          <div class="flex xs12 sm6 lg4 xl3" style>
+          <div class="flex xs12 sm6 lg4 xl3">
             <va-card style="background: #000000; text-align: center;">
               <h2 style="color: #ffffff;">WEB</h2>
             </va-card>

@@ -41,7 +41,9 @@
         </va-card>
       </va-card>
     </va-card>
-
+    <br>
+    <br>
+    <div class="row" style="justify-content: center;">
     <va-card
       overlay
       v-for="person in people"
@@ -49,12 +51,15 @@
       stripe="danger"
       titleOnImage
       :image="person.picture"
-      style="width: 30%;"
+      style="width: 30%; margin: 1rem;"
     >
       <va-badge slot="header">{{ person.name }}</va-badge>
       <div>Whitsunday Island, Whitsunday Islands</div>
       <va-badge>{{ person.post }}</va-badge>
     </va-card>
+    </div>
+    <br>
+    <br>
   </div>
 </template>
 
