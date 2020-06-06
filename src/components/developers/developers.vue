@@ -24,6 +24,29 @@
           </tbody>
         </table>
       </va-card>
+      <va-card
+        title="Site Information"
+        style=" text-align: center; justify-content: center; width: 50%;"
+        data-aos="fade-left"
+      >
+        <table class="va-table">
+          <thead>
+            <tr>
+              <th>{{ 'Feature' }}</th>
+              <th>{{ 'Value' }}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>{{ 'Wesbite Version' }}</td>
+              <td>
+                <va-badge color="Green">{{ '1.0.0 Little Boy' }}</va-badge>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </va-card>
       <!-- eslint-disable vue/valid-v-for -->
       <template>
         <div class="row" style="justify-content: center;">
@@ -134,7 +157,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card1s-container {
   .va-card {
     margin: 0;

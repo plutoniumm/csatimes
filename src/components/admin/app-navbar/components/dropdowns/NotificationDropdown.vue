@@ -1,21 +1,17 @@
 <template>
-  <va-dropdown
-    class="notification-dropdown"
-    offset="0, 16px"
-    boundary-body
-  >
-    <va-icon-notification
-      slot="anchor"
-      class="notification-dropdown__icon"
-      color="black"
-    />
+  <va-dropdown class="notification-dropdown" offset="0, 16px" boundary-body>
+    <va-icon-notification slot="anchor" class="notification-dropdown__icon" color="black" />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
         v-for="option in computedOptions"
         :key="option"
         class="notification-dropdown__item--unread row pt-1 pb-1 mt-2 mb-2"
       >
-        <img v-if="option.details.avatar" class="mr-2 notification-dropdown__item__avatar" :src="option.details.avatar"/>
+        <img
+          v-if="option.details.avatar"
+          class="mr-2 notification-dropdown__item__avatar"
+          :src="option.details.avatar"
+        />
         <span class="ellipsis" style="max-width: 85%;">
           <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span>
           {{ option.msg }}
@@ -50,19 +46,19 @@ export default {
         {
           name: 'sentMessage',
           details: {
-            name: 'Vasily S',
+            name: 'Backend',
             avatar: 'https://picsum.photos/123',
           },
-          msg: 1,
+          msg: 'Custom Settings Coming Soon!',
         },
         {
           name: 'uploadedZip',
           details: {
-            name: 'Oleg M',
+            name: 'Backend',
             avatar: 'https://picsum.photos/100',
-            type: 'typography component',
+            type: 'Academics',
           },
-          msg: 2,
+          msg: 'Question Papers Coming Soon',
         },
         {
           name: 'startedTopic',
@@ -70,7 +66,7 @@ export default {
             name: 'Andrei H',
             avatar: 'https://picsum.photos/24',
           },
-          msg: 3,
+          msg: 'Please Let us know any new features you want',
         },
       ],
     },
@@ -88,7 +84,7 @@ export default {
     align-items: center;
 
     &--unread::before {
-      content: '';
+      content: "";
       position: absolute;
       right: 0;
       left: 0;
@@ -119,7 +115,7 @@ export default {
       color: $vue-darkest-blue;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         right: 0;
         top: 0;
