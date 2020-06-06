@@ -5,31 +5,12 @@
     :minimized.sync="minimized"
     :mobile-width="mobileWidth"
   >
-    <app-navbar
-      class="app-layout__navbar"
-      :is-top-bar.sync="isTopBar"
-      :minimized.sync="minimized"
-    />
-    <app-topbar
-      class="app-layout__topbar"
-      v-if="isTopBar"
-    />
+    <app-navbar :is-top-bar.sync="isTopBar" :minimized.sync="minimized" />
     <div class="app-layout__container">
-      <app-sidebar
-        class="app-layout__sidebar"
-        v-if="!isTopBar"
-        :minimized="minimized"
-      />
-      <div
-        class="app-layout__main"
-        :class="{'app-layout__main--top': isTopBar}"
-      >
-        <main
-          class="app-layout__main-layout layout fluid gutter--xl"
-          slot="content"
-          role="main"
-        >
-          <router-view/>
+      <app-sidebar v-if="!isTopBar" :minimized="minimized" />
+      <div class="app-layout__main" :class="{'app-layout__main--top': isTopBar}">
+        <main class="app-layout__main-layout layout fluid gutter--xl" slot="content" role="main">
+          <router-view />
         </main>
       </div>
     </div>
@@ -106,9 +87,6 @@ export default {
     position: relative;
     max-height: 100%;
     min-height: 100%;
-
-    &--top {
-    }
 
     &-layout {
       position: absolute;

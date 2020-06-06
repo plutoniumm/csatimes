@@ -1,8 +1,5 @@
 <template>
-  <nav
-    class="app-navbar"
-    :style="navbarStyle"
-  >
+  <nav class="app-navbar" :style="navbarStyle">
     <div class="app-navbar__content row">
       <div class="app-navbar__menu-container">
         <va-icon-menu
@@ -17,7 +14,8 @@
           v-if="minimized"
           color="black"
           @click.native="$emit('update:minimized', !minimized)"
-        /><span style="color: black;">Council for Student Affairs</span>
+        />
+        <span style="color: black;">Council for Student Affairs</span>
       </div>
       <div class="app-navbar__center lg5 md4">
         <span
@@ -25,17 +23,9 @@
           :style="{color: 'black'}"
         >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
       </div>
-      <app-navbar-actions
-        class="app-navbar__actions md5 lg4"
-        color="black"
-        :user-name="userName"
-      />
+      <app-navbar-actions class="app-navbar__actions md5 lg4" color="black" :user-name="userName" />
     </div>
-    <div
-      class="app-navbar__shape"
-      color="black"
-      :style="shapeStyle"
-    ></div>
+    <div class="app-navbar__shape" color="black" :style="shapeStyle"></div>
   </nav>
 </template>
 
@@ -109,6 +99,7 @@ $nav-border-side-width: 3.1875rem;
   display: flex;
   padding: 1rem 1rem;
   z-index: 1;
+  background: #8ecffc;
 
   &__content {
     z-index: 1;

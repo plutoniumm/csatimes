@@ -41,25 +41,27 @@
         </va-card>
       </va-card>
     </va-card>
-    <br>
-    <br>
+
+    <br />
     <div class="row" style="justify-content: center;">
-    <va-card
-      overlay
-      v-for="person in people"
-      :key="person"
-      stripe="danger"
-      titleOnImage
-      :image="person.picture"
-      style="width: 30%; margin: 1rem;"
-    >
-      <va-badge slot="header">{{ person.name }}</va-badge>
-      <div>Whitsunday Island, Whitsunday Islands</div>
-      <va-badge>{{ person.post }}</va-badge>
-    </va-card>
+      <div class="flex xs12 sm6 lg4 xl3" v-for="person in people" :key="person">
+        <va-card
+          overlay
+          titleOnImage
+          :stripe="person.stripe"
+          :image="person.picture"
+          :title="person.name"
+        >
+          <template slot="actions">
+            <va-badge>{{person.post}}</va-badge>
+            <va-badge>{{person.organisation}}</va-badge>
+          </template>
+          Phone : {{person.phone}}
+          <br />
+          Email : {{ person.address}}@goa.bits-pilani.ac.in
+        </va-card>
+      </div>
     </div>
-    <br>
-    <br>
   </div>
 </template>
 

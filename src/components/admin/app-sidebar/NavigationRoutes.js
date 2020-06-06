@@ -20,7 +20,7 @@ export const navigationRoutes = {
     },
     {
       name: 'csa',
-      displayName: 'CSA',
+      displayName: 'Assistance',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-comments',
       },
@@ -34,7 +34,7 @@ export const navigationRoutes = {
     },
     {
       name: '',
-      displayName: 'Settings (Coming Soon)',
+      displayName: 'Settings (Soon...)',
       meta: {
         iconClass: 'vuestic-iconset vuestic-iconset-settings',
       },

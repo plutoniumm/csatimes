@@ -1,8 +1,5 @@
 <template>
-  <li
-    class="app-sidebar-link"
-    :class="computedLinkClass"
-  >
+  <li class="app-sidebar-link" :class="computedLinkClass">
     <router-link
       class="app-sidebar-link__item"
       @mouseenter.native="updateHoverState(true)"
@@ -11,16 +8,9 @@
       :to="to"
       :target="target"
     >
-      <va-icon
-        v-if="icon"
-        class="app-sidebar-link__item-icon"
-        color="black"
-        :name="icon"
-      />
+      <va-icon v-if="icon" class="app-sidebar-link__item-icon" color="black" :name="icon" />
       <div class="app-sidebar-link__item-title" style="color: black;" v-if="title">
-        <slot>
-          {{title}}
-        </slot>
+        <slot>{{title}}</slot>
       </div>
 
       <va-icon
@@ -28,8 +18,7 @@
         class="app-sidebar-link__item-icon-right"
         color="black"
         :name="iconRight"
-      >{{iconRightContent}}
-      </va-icon>
+      >{{iconRightContent}}</va-icon>
     </router-link>
   </li>
 </template>
@@ -89,16 +78,6 @@ export default {
     computedLinkStyles () {
       const style = {}
 
-      if (this.contextConfig.invertedColor) {
-        if (this.isHovered || this.isActive) {
-          style.color = 'White'
-        } else {
-          style.color = this.$themes.gray
-        }
-      } else {
-        style.color = this.$themes.primary
-      }
-
       if (this.isHovered || this.isActive) {
         style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.dimgrey, {
           s: -13,
@@ -118,18 +97,6 @@ export default {
       return style
     },
     computedIconStyles () {
-      if (this.contextConfig.invertedColor) {
-        if (this.isHovered || this.isActive) {
-          return {
-            color: 'white',
-          }
-        }
-
-        return {
-          color: this.$themes.gray,
-        }
-      }
-
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
@@ -156,6 +123,10 @@ export default {
 </script>
 
 <style lang="scss">
+li {
+  color: green;
+}
+
 .app-sidebar-link {
   display: flex;
 
@@ -170,7 +141,7 @@ export default {
     border-left: 0.25rem solid transparent;
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
-    width: 20rem;
+    width: 15rem;
 
     @include media-breakpoint-down(sm) {
       flex: 0 0 100%;

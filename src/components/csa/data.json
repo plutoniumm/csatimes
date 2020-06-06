@@ -2,36 +2,145 @@
   {
     "picture": "dhruv.png",
     "name": "Dhruv Kaluskar",
-    "post":"President",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "President",
     "phone": "+91 96655 81729",
-    "address": "prez@goa.bits-pilani.ac.in "
+    "address": "prez"
   },
   {
     "picture": "avi.png",
     "name": "Avi Chauhan",
-    "post":"Vice President",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "Vice Prez",
     "phone": "+91 96655 81729",
-    "address": "viceprez@goa.bits-pilani.ac.in"
+    "address": "viceprez"
   },
   {
     "picture": "aanak.png",
     "name": "Aanak Sengupta",
-    "post":"Treasurer",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "Treasurer",
     "phone": "+91 70305 30377",
-    "address": "trez@goa.bits-pilani.ac.in"
+    "address": "trez"
   },
   {
     "picture": "aseem.png",
     "name": "Aseem Juneja",
-    "post":"General Secretary",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "General Secretary",
     "phone": "+91 75892 01824",
-    "address": "gensec@goa.bits-pilani.ac.in"
+    "address": "gensec"
   },
   {
     "picture": "deva.png",
     "name": "Devashish Rane",
-    "post":"Sports Secretary",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "Sports Secretary",
     "phone": "+91 95526 74242",
-    "address": "sportssec@goa.bits-pilani.ac.in"
+    "address": "sportssec"
+  },
+  {
+    "picture": "",
+    "name": "",
+    "stripe": "",
+    "organisation": "",
+    "post": "",
+    "phone": "",
+    "address": ""
+  },
+  {
+    "picture": "deva.png",
+    "name": "Neil Daftary",
+    "stripe": "#FFCC00",
+    "organisation": "DisCo",
+    "post": "Student Rep",
+    "phone": "Redacted",
+    "address": "f20170322"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Saee Abhyankar",
+    "stripe": "#FFCC00",
+    "organisation": "DisCo",
+    "post": "Student Rep",
+    "phone": "Redacted",
+    "address": "f20170327"
+  },
+  {
+    "picture": "",
+    "name": "",
+    "stripe": "",
+    "organisation": "",
+    "post": "",
+    "phone": "",
+    "address": ""
+  },
+  {
+    "picture": "deva.png",
+    "name": "Kartik Khandelwal",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "Coordinator",
+    "phone": "+91 88188 98880",
+    "address": "f20170811"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Utkarsh Tewari",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "Pitching Head",
+    "phone": "+91 88600 98667",
+    "address": "f20170671"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Poorvi Rao",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "H/O Ops & Strategy",
+    "phone": "+91 99209 65920",
+    "address": "f20170921"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Piyush Sanjeev Agarwal",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "Coordinator",
+    "phone": "+91 90280 12394",
+    "address": "f20170898"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Saee Abhyankar",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "Pitching Head",
+    "phone": "Redacted",
+    "address": "f20170327"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Abhinav Gupta",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "Pitching Head",
+    "phone": "+91 95895 60620",
+    "address": "f20170907"
+  },
+  {
+    "picture": "deva.png",
+    "name": "Pulaksh Khimesara",
+    "stripe": "#66ff00",
+    "organisation": "Placement",
+    "post": "H/O Ops & Strategy",
+    "phone": "+91 75669 09936",
+    "address": "f20170792"
   }
 ]

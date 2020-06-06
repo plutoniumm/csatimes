@@ -1,9 +1,5 @@
 <template>
-  <aside
-    class="app-sidebar"
-    :class="computedClass"
-    :style="computedStyle"
-  >
+  <aside class="app-sidebar" :class="computedClass" :style="computedStyle">
     <ul class="app-sidebar__menu">
       <template v-for="(item, key) in items">
         <app-sidebar-link-group
@@ -91,6 +87,7 @@ export default {
   display: flex;
   max-height: 100%;
   flex: 0 0 16rem;
+  background: #8ecffc;
 
   @include media-breakpoint-down(sm) {
     flex: 0 0 100%;
