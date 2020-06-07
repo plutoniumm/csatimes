@@ -12,7 +12,7 @@
                     <span slot="header">
                       <va-button
                         style="width: 100%;"
-                        color="warning"
+                        color="info"
                         icon-right="ion-ios-arrow-down arrow-down"
                       >{{ prevent.name }}</va-button>
                     </span>
@@ -134,7 +134,7 @@
       <span slot="header">
         <va-button
           style="width: 100%;"
-          color="warning"
+          color="info"
           icon-right="ion-ios-arrow-down arrow-down"
         >Humanities Reviews</va-button>
       </span>
@@ -168,7 +168,7 @@
                 <span slot="header">
                   <va-button
                     style="width: 100%;"
-                    color="warning"
+                    color="info"
                     icon-right="ion-ios-arrow-down arrow-down"
                   >Bulletin Description</va-button>
                 </span>
@@ -325,5 +325,9 @@ tr:hover {
 
 .row.row-inside {
   max-width: 20px;
+}
+
+.va-card {
+  background-color: #ffdcab;
 }
 </style>

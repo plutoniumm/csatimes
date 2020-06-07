@@ -99,7 +99,7 @@ $nav-border-side-width: 3.1875rem;
   display: flex;
   padding: 1rem 1rem;
   z-index: 1;
-  background: #8ecffc;
+  background: #eb5757;
 
   &__content {
     z-index: 1;

@@ -87,7 +87,7 @@ export default {
   display: flex;
   max-height: 100%;
   flex: 0 0 16rem;
-  background: #8ecffc;
+  background: #eb5757;
 
   @include media-breakpoint-down(sm) {
     flex: 0 0 100%;

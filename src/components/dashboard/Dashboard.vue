@@ -132,4 +132,5 @@ body {
 .row.row-inside {
   max-width: 20px;
 }
+
 </style>
