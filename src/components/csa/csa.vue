@@ -4,7 +4,7 @@
     <div class="row" style="justify-content: center;">
       <va-card
         title="Grievances"
-        style="background: #ffdcab; text-align: center; justify-content: center;"
+        style="text-align: center; justify-content: center;"
       >
         <div class="row align--center" style="justify-content: center; overflow: hidden;">
           <fieldset>
@@ -120,7 +120,7 @@ export default {
         .toString()
         .slice(4)
       if (this.toggle === false) {
-        this.sender = this.$forexam
+        this.sender = this.$forexam || localStorage.getItem('forexam')
         staticdb
           .collection('Store')
           .doc('Grievances')
@@ -169,13 +169,17 @@ export default {
       grievances: staticdb
         .collection('Store')
         .doc('Grievances')
-        .collection(this.$forexam),
+        .collection(this.$forexam || localStorage.getItem('forexam')),
     }
   },
 }
 </script>
 <style lang='scss'>
 body {
+  background-color: #ffdcab;
+}
+
+.va-card {
   background-color: #f7ecdb;
 }
 </style>

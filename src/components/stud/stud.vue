@@ -1,7 +1,7 @@
 <template>
   <div data-aos="fade-up">
     <div class="flex xs12">
-      <va-card style="background: #ffdcab; overflow-x: auto;">
+      <va-card style="overflow-x: auto;">
         <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
         <form>
           <div>
@@ -299,7 +299,7 @@ export default {
 // }
 
 body {
-  background-color: #f7ecdb;
+  background-color: #ffdcab;
   min-height: 150vh;
 }
 
@@ -328,6 +328,7 @@ tr:hover {
 }
 
 .va-card {
-  background-color: #ffdcab;
+  box-shadow: 10px;
+  background-color: #f7ecdb;
 }
 </style>

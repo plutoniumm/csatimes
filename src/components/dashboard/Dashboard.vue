@@ -114,7 +114,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #f7ecdb;
+  background-color: #ffdcab;
 }
 
 .row-equal .flex {
@@ -131,6 +131,10 @@ body {
 
 .row.row-inside {
   max-width: 20px;
+}
+
+.va-card {
+  background-color: #f7ecdb;
 }
 
 </style>

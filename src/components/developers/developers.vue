@@ -57,8 +57,8 @@
       <template>
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #000000; text-align: center;">
-              <h2 style="color: #ffffff;">WEB</h2>
+            <va-card style="background: #f7ecdb; text-align: center;">
+              <h2 style="color: #000000;">WEB</h2>
             </va-card>
           </div>
         </div>
@@ -97,8 +97,8 @@
         <br />
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #000000; text-align: center;">
-              <h2 style="color: #ffffff;">DEVSOC (App)</h2>
+            <va-card style="background: #f7ecdb; text-align: center;">
+              <h2 style="color: #000000;">DEVSOC (App)</h2>
             </va-card>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default {
 }
 
 body {
-  background-color: #f7ecdb;
+  background-color: #ffdcab;
   margin: 0;
   padding: 0;
   display: flex;
@@ -198,7 +198,7 @@ body {
   position: relative;
   width: 220px;
   height: 250px;
-  background: #000000;
+  background: #f7ecdb;
   margin: 0 auto;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -213,7 +213,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: #ffdcab;
+  background: #eb5757;
   transition: 0.5s;
   z-index: -1;
 }
