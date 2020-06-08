@@ -1,43 +1,17 @@
 <template>
   <div>
     <div class="dashboard">
-      <va-card
-        title="Music Night Recommendations"
-        style=" text-align: center; justify-content: center; width: 50%;"
-        data-aos="fade-left"
-      >
-        <div class="row align--center">
-          <form @submit.prevent="musoc()">
-            <div class="row">
-              <div class="flex xs12">
-                <div class="flex">
-                  <span class="xs12">
-                    Recommend One Song to The Music Society that you would like to see
-                    them cover in their next event!
-                  </span>
-                </div>
-                <div class="flex">
-                  <va-input v-model="song" placeholder="Ex. Paper Kite by Bharat Rajagopalan" />
-                  <div class="d-flex justify--center mt-3">
-                    <va-button type="submit" class="my-0">Submit</va-button>
-                  </div>
-                  <hr />Your current song:
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </va-card>
+      <MusocBox />
       <hr />
 
-      <va-card title="News for you" data-aos="fade-up">
+      <div data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
           <va-tab>Campus Updates</va-tab>
           <va-tab>Campus News</va-tab>
         </va-tabs>
         <va-separator />
         <component :is="tabs[tabsState]" @submit="submit" />
-      </va-card>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +19,7 @@
 <script>
 import CampusUpdates from './updates.vue'
 import CampusNews from './news.vue'
+import MusocBox from './musoc.vue'
 import firebase from 'firebase'
 
 const config = {
@@ -65,6 +40,7 @@ export default {
   components: {
     CampusUpdates,
     CampusNews,
+    MusocBox,
   },
   data () {
     return {
@@ -75,38 +51,6 @@ export default {
       ],
       musoc: 'Default Value',
       song: 'None',
-    }
-  },
-  methods: {
-    executer () {
-      var dbtracker = 0
-      var studtrack = 0
-      staticdb.collection('Store').doc('Groups').collection('Musoc').add({
-        type: this.perPage,
-        description: this.song,
-        student: this.$forexam,
-      }).then(res => {
-        dbtracker = 1
-      }).catch(error => {
-        dbtracker = 0
-        console.log(error)
-      })
-      staticdb.collection('Save').doc(this.$forexam).collection('Groups').doc('Musoc').set({
-        description: this.song,
-      }).then(res => {
-        dbtracker = 1
-      }).catch(error => {
-        dbtracker = 0
-        console.log(error)
-      })
-      if (dbtracker * studtrack === 1) {
-        console.log('success')
-      }
-    },
-  },
-  firestore () {
-    return {
-      song: staticdb.collection('Save').doc(this.$forexam).collection('Groups').doc('Musoc'),
     }
   },
 }
