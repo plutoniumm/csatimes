@@ -2,32 +2,30 @@
   <div>
     <div>
       <div class="row" style="justify-content: center;">
-        <div class="flex xs12 sm6 lg4" style="justify-content: center; text-align: center;">
-          <va-card
-            title="GDPR Compliance"
-            style=" text-align: center; justify-content: center;"
-            data-aos="fade-left"
-          >
+        <div class="flex xs12 sm6">
+          <va-card title="GDPR Compliance" data-aos="fade-left">
             <table class="va-table">
               <thead>
                 <tr>
-                  <th>{{ 'Issue' }}</th>
-                  <th>{{ 'Status' }}</th>
+                  <th>Issue</th>
+                  <th>Status</th>
+                  <th>Location</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>{{ 'We do not use cookies' }}</td>
+                <tr v-for="law in laws" :key="law">
+                  <td>{{ law.State }}</td>
                   <td>
-                    <va-badge color="Green">{{ 'Compliant' }}</va-badge>
+                    <va-badge :color="law.color">{{ law.Badge }}</va-badge>
                   </td>
+                  <td>{{ law.Location }}</td>
                 </tr>
               </tbody>
             </table>
           </va-card>
         </div>
-        <div class="flex xs12 sm6 lg4" style="justify-content: center; text-align: center;">
+        <div class="flex xs12 sm6">
           <va-card
             title="Site Information"
             style=" text-align: center; justify-content: center;"
@@ -45,7 +43,7 @@
                 <tr>
                   <td>{{ 'Wesbite Version' }}</td>
                   <td>
-                    <va-badge color="Green">{{ '1.0.0 Little Boy' }}</va-badge>
+                    <va-badge color="green">{{ '1.0.0 Little Boy' }}</va-badge>
                   </td>
                 </tr>
               </tbody>
@@ -158,6 +156,13 @@ export default {
   name: 'cards',
   data () {
     return {
+      laws: [
+        { State: 'We do not use Cookies', color: 'green', Badge: 'Compliant', Location: 'Recital 30' },
+        { State: 'We do not Sell any data collected on the Website', color: 'green', Badge: 'Compliant', Location: 'Recital 23' },
+        { State: 'We collect only the data we NEED for processing', color: 'green', Badge: 'Compliant', Location: 'Recital 23' },
+        { State: 'All Analytics Tracking is Anonymous', color: 'green', Badge: 'Compliant', Location: 'Recital 26' },
+        { State: 'You have a right to be Forgotten', color: 'red', Badge: 'Non Compliant', Location: 'Recital 65' },
+      ],
     }
   },
 }

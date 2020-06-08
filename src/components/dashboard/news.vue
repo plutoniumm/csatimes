@@ -1,18 +1,20 @@
 <template>
   <div>
-    <template v-for="(notice, i) in start1">
+    <template v-for="notice in start1">
       <va-card slot="after" stripe="info" class="mb-0" :key="'item' + notice.name">
         <h2>{{ notice.writer }}</h2>
         <div>
-          <div><span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
-            <hr>
-            <strong>{{ notice.name }}</strong> <br>
+          <div>
+            <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
+            <hr />
+            <strong>{{ notice.name }}</strong>
+            <br />
             {{ notice.summary }}
           </div>
           <span style="color: #a7a7a7;">Brought to you by CSA</span>
         </div>
       </va-card>
-      <br>
+      <br />
     </template>
   </div>
 </template>
@@ -65,5 +67,4 @@ body {
 .row.row-inside {
   max-width: 20px;
 }
-
 </style>

@@ -7,71 +7,38 @@
           <div>
             <div class="flex md4 sm6 xs12">
               <template v-for="prevent in pr">
-                <va-accordion :key="'item' + prevent.name">
-                  <va-collapse customHeader>
-                    <span slot="header">
-                      <va-button
-                        style="width: 100%;"
-                        color="info"
-                        icon-right="ion-ios-arrow-down arrow-down"
-                      >{{ prevent.name }}</va-button>
-                    </span>
-                    <div slot="body">
-                      <form @submit.prevent="onsubmit()">
-                        <template v-for="(imag, i) in prevent.images">
-                          <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
-                        </template>
-                        <br />
-                        <va-input
-                          v-model="withDescription"
-                          placeholder="Enter the scanned QR code here"
-                        />
-                        <div v-if="prevent.is_nick == true">
-                          <h2>Price without nick</h2>
-                          {{prevent.price}}
-                          <br />
-                          <h2>Price with nick</h2>
-                          {{prevent.price_nick}}
-                          <br />
-                          <br />
-                          <va-checkbox label="Do you want a nick?" v-model="checkbox" />
-                          <va-input
-                            v-if="checkbox==true"
-                            v-model="nick"
-                            placeholder="Enter nick here"
-                          />
-                        </div>
-                        <div v-else>
-                          <h2>Price</h2>
-                          {{prevent.price}}
-                        </div>
-                        <br />
-                        <va-select
-                          label="Choose Size"
-                          v-model="simpleSelectModel"
-                          textBy="description"
-                          :options="prevent.available_sizes"
-                        />
-                        <h2>Select Quantity</h2>
-                        <br />
-                        <va-slider
-                          pins
-                          :min="1"
-                          :max="10"
-                          :step="1"
-                          color="warning"
-                          value-visible
-                          v-model="value"
-                          input
-                        />
-                        <va-button color="danger" type="submit">Register</va-button>
-                        <br />
-                        <br />
-                        <br />
-                      </form>
+                <va-card :key="'item' + prevent.name">
+                  <form @submit.prevent="onsubmit()">
+                    <template v-for="(imag, i) in prevent.images">
+                      <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
+                    </template>
+                    <br />
+                    <va-input
+                      v-model="withDescription"
+                      placeholder="Enter the scanned QR code here"
+                    />
+                    <div v-if="prevent.is_nick == true">
+                      <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
+                      <va-checkbox label="Add nick?" v-model="checkbox" />
+                      <va-input v-if="checkbox==true" v-model="nick" placeholder="Enter nick here" />Quantity :
+                      <va-input v-model="value" type="number" width="50%" />
                     </div>
-                  </va-collapse>
-                </va-accordion>
+                    <div v-else>
+                      <h2>Price</h2>
+                      {{prevent.price}}
+                    </div>
+                    <br />
+                    <va-select
+                      label="Choose Size"
+                      v-model="simpleSelectModel"
+                      textBy="description"
+                      :options="prevent.available_sizes"
+                      width="50%"
+                    />
+                    <va-button color="danger" type="submit">Go</va-button>
+                    <br />
+                  </form>
+                </va-card>
               </template>
             </div>
           </div>
@@ -303,31 +270,11 @@ body {
   min-height: 150vh;
 }
 
-tr {
-  // background-color: #ffdcab !important;
-}
-
 tr:hover {
   background-color: #ffdcab;
 }
 
-.row-equal .flex {
-  .va-card {
-    height: 100%;
-  }
-}
-
-.dashboard {
-  .va-card {
-    margin-bottom: 0 !important;
-  }
-}
-
 .row.row-inside {
   max-width: 20px;
-}
-
-.va-card {
-  background-color: #ffdcab;
 }
 </style>
