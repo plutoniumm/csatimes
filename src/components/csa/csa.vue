@@ -1,49 +1,43 @@
 <template>
-  <div class="flex xs-12">
+  <div class="xs12">
     <!-- SUPER INPUT FIREBASE -->
-    <div class="row" style="justify-content: center;">
-      <va-card
-        title="Grievances"
-        style="text-align: center; justify-content: center;"
-      >
-        <div class="row align--center" style="justify-content: center; overflow: hidden;">
-          <fieldset>
-            <va-toggle v-model="toggle" label="Send Anonymously" />
-          </fieldset>
-          <div class="flex xs6">
-            <va-select v-model="perPage" label="Type" :options="perPageOptions" noClear />
+    <div class="row">
+      <div class="flex xs12 md6">
+        <va-card class="flex xs12 sm6" title="Write to us!">
+          <div class="row align--center">
+            <div class="flex xs12 md6">
+              <va-toggle v-model="toggle" label="Send Anonymously" />
+            </div>
+            <div class="flex xs12 md3 offset--md3">
+              <va-select v-model="perPage" label="Type" :options="perPageOptions" noClear />
+            </div>
           </div>
           <form @submit.prevent="executer()">
             <div class="row">
               <div class="flex xs12">
-                <div class="flex">
-                  <span class="xs12">Write to us!</span>
-                </div>
-                <div class="flex">
-                  <va-input v-model="description" placeholder="Tell us your grievance" />
-                </div>
-                <div class="d-flex justify--center mt-3">
-                  <va-button type="submit" class="my-0">Submit</va-button>
-                </div>
+                <va-input
+                  :label="perPage"
+                  v-model="description"
+                  placeholder="Tell us your grievance"
+                />
+                <va-button>Submit</va-button>
               </div>
             </div>
           </form>
-        </div>
-      </va-card>
+        </va-card>
+        <va-card>
+          <div class="flex" v-for="issue in this.grievances" :key="issue">
+            <va-card stripe="danger">
+              <h2>{{ issue.type }}</h2>
+              <div>{{ issue.description }}</div>
+              {{ issue.issueid }}, {{ issue.status }}
+            </va-card>
+          </div>
+        </va-card>
+      </div>
     </div>
 
-    <va-card>
-      <va-card v-for="issue in grievances" :key="issue">
-        <va-card>
-          <h2>{{ issue.type }}</h2>
-          <div>{{ issue.description }}</div>
-          {{ issue.issueid }}, {{ issue.status }}
-        </va-card>
-      </va-card>
-    </va-card>
-
-    <br />
-    <div class="row" style="justify-content: center;">
+    <div class="row">
       <div class="flex xs12 sm6 lg4 xl3" v-for="person in people" :key="person">
         <va-card
           overlay
@@ -88,9 +82,6 @@ export default {
   data () {
     return {
       people: data,
-      appBanners: false,
-      banners: false,
-      notifications: true,
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ', 'RTI'],
       toggle: true,
@@ -100,18 +91,14 @@ export default {
       sender: 'Anonymous',
       grievances: [],
       toastText: 'This toast is awesome!',
-      toastDuration: 2500,
       toastIcon: 'fa-star-o',
-      toastPosition: 'top-center',
-      isToastFullWidth: true,
     }
   },
   methods: {
     launchToast (result, icon) {
       this.showToast(result, {
         icon: icon,
-        position: this.toastPosition,
-        duration: this.toastDuration,
+        duration: 2500,
         fullWidth: true,
       })
     },
@@ -120,7 +107,7 @@ export default {
         .toString()
         .slice(4)
       if (this.toggle === false) {
-        this.sender = this.$forexam || localStorage.getItem('forexam')
+        this.sender = '20180795'
         staticdb
           .collection('Store')
           .doc('Grievances')
@@ -150,6 +137,7 @@ export default {
         .collection(this.sender)
         .add({
           description: this.description,
+          type: this.perPage,
           student: this.sender,
           status: false,
           issueid: issueid,
@@ -167,9 +155,9 @@ export default {
   firestore () {
     return {
       grievances: staticdb
-        .collection('Store')
-        .doc('Grievances')
-        .collection(this.$forexam || localStorage.getItem('forexam')),
+        .collection('Save')
+        .doc('Complaint')
+        .collection('20180795'),
     }
   },
 }
@@ -177,9 +165,5 @@ export default {
 <style lang='scss'>
 body {
   background-color: #ffdcab;
-}
-
-.va-card {
-  background-color: #f7ecdb;
 }
 </style>

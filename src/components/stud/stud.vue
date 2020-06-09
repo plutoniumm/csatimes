@@ -1,50 +1,40 @@
 <template>
-  <div data-aos="fade-up">
-    <div class="flex xs12">
-      <va-card style="overflow-x: auto;">
-        <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">PR Drive</div>
-        <form>
-          <div>
-            <div class="flex md4 sm6 xs12">
-              <template v-for="prevent in pr">
-                <va-card :key="'item' + prevent.name">
-                  <form @submit.prevent="onsubmit()">
-                    <template v-for="(imag, i) in prevent.images">
-                      <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
-                    </template>
-                    <br />
-                    <va-input
-                      v-model="withDescription"
-                      placeholder="Enter the scanned QR code here"
-                    />
-                    <div v-if="prevent.is_nick == true">
-                      <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
-                      <va-checkbox label="Add nick?" v-model="checkbox" />
-                      <va-input v-if="checkbox==true" v-model="nick" placeholder="Enter nick here" />Quantity :
-                      <va-input v-model="value" type="number" width="50%" />
-                    </div>
-                    <div v-else>
-                      <h2>Price</h2>
-                      {{prevent.price}}
-                    </div>
-                    <br />
-                    <va-select
-                      label="Choose Size"
-                      v-model="simpleSelectModel"
-                      textBy="description"
-                      :options="prevent.available_sizes"
-                      width="50%"
-                    />
-                    <va-button color="danger" type="submit">Go</va-button>
-                    <br />
-                  </form>
-                </va-card>
+  <div>
+    <va-card class="flex xs12" style="overflow-x: auto;">
+      PR Drive
+      <form>
+        <template v-for="prevent in pr">
+          <va-card class="flex sm6 xs12" :key="'item' + prevent.name" data-aos="fade-left">
+            <form @submit.prevent="onsubmit()">
+              <template v-for="(imag, i) in prevent.images">
+                <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
               </template>
-            </div>
-          </div>
-        </form>
-      </va-card>
-    </div>
+              <br />
+              <va-input v-model="withDescription" placeholder="Enter the scanned QR code here" />
+              <div v-if="prevent.is_nick == true">
+                <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
+                <va-checkbox label="Add nick?" v-model="checkbox" />
+                <va-input v-if="checkbox==true" v-model="nick" placeholder="Enter nick here" />
+                <va-input label="Number of Tees" v-model="value" type="number" width="50%" />
+              </div>
+              <div v-else>
+                <h2>Price</h2>
+                {{prevent.price}}
+              </div>
+              <va-select
+                label="Choose Size"
+                v-model="simpleSelectModel"
+                textBy="description"
+                :options="prevent.available_sizes"
+                width="50%"
+              />
+              <va-button color="danger" type="submit">Go</va-button>
+              <br />
+            </form>
+          </va-card>
+        </template>
+      </form>
+    </va-card>
 
     <div class="row">
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">

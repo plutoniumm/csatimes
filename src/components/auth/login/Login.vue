@@ -117,13 +117,6 @@ export default {
 <style lang="scss">
 .auth-layout {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #941f1f, #193c83);
-  // background-color: rgb(32, 61, 85);
-
-  &__card {
-    width: 100%;
-    max-width: 600px;
-  }
 
   &__options {
     @include media-breakpoint-down(xs) {

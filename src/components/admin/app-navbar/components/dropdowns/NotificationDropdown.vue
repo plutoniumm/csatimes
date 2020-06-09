@@ -7,18 +7,10 @@
         :key="option"
         class="notification-dropdown__item--unread row pt-1 pb-1 mt-2 mb-2"
       >
-        <img
-          v-if="option.details.avatar"
-          class="mr-2 notification-dropdown__item__avatar"
-          :src="option.details.avatar"
-        />
         <span class="ellipsis" style="max-width: 85%;">
-          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span>
+          <span class="text--bold">{{option.details}}</span>
           {{ option.msg }}
         </span>
-      </div>
-      <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1"></va-button>
       </div>
     </div>
   </va-dropdown>
@@ -44,28 +36,15 @@ export default {
       type: Array,
       default: () => [
         {
-          name: 'sentMessage',
-          details: {
-            name: 'Backend',
-            avatar: 'https://picsum.photos/123',
-          },
+          details: 'Backend',
           msg: 'Custom Settings Coming Soon!',
         },
         {
-          name: 'uploadedZip',
-          details: {
-            name: 'Backend',
-            avatar: 'https://picsum.photos/100',
-            type: 'Academics',
-          },
+          details: 'Backend',
           msg: 'Question Papers Coming Soon',
         },
         {
-          name: 'startedTopic',
-          details: {
-            name: 'Andrei H',
-            avatar: 'https://picsum.photos/24',
-          },
+          details: 'Andrei H',
           msg: 'Please Let us know any new features you want',
         },
       ],
@@ -101,7 +80,7 @@ export default {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: 0.5rem;
-    max-width: 19rem;
+    max-width: 22.5rem;
   }
 
   &__item {
