@@ -1,11 +1,14 @@
 <template>
   <div>
-    <template v-for="club in clubs" >
+    <template v-for="club in clubs">
       <div :key="club" style="text-align: justify-center;">
         <va-card>
           <div>
             <span style="font-size: 2rem;">{{club.Name}}</span>
-            <span><hr>Founded: {{club.Founded}}</span>
+            <span>
+              <hr />
+              Founded: {{club.Founded}}
+            </span>
           </div>
           <!-- <div style="text-align: center;">
             <img :src="require('../../assets' + club.Logo)" :alt="club.Name">
@@ -40,7 +43,6 @@
                   :img-src="require('../../assets' + por.Photo)"
                 ></b-carousel-slide>
               </template>
-
             </b-carousel>
           </div>
         </va-card>
@@ -101,10 +103,8 @@
         </b-carousel>
 
       </div>
-    </template> -->
-
+    </template>-->
   </div>
-
 </template>
 <script>
 import data from './pclubs.json'
@@ -128,7 +128,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 body {
   background-color: #f7ecdb;
 }
@@ -143,5 +142,4 @@ p {
   margin: 0 auto;
   height: auto;
 }
-
 </style>

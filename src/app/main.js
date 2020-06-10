@@ -5,11 +5,9 @@ import App from './App'
 import { ColorThemePlugin } from '../services/vuestic-ui'
 import store from '../store/index'
 import router from '../router/index'
-import VueMoment from 'vue-moment'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
 import VueClipboard from 'vue-clipboard2'
-import '../metrics'
 import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 import AOS from 'aos'
@@ -18,7 +16,7 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-if (process.env.VUE_APP_BUILD_VERSION) {
+if ( process.env.VUE_APP_BUILD_VERSION ) {
   // eslint-disable-next-line
   const message = `%c${ 'Build_information:' }\n %c${ 'Version' }: %c${ VERSION },\n %c${ 'Timestamp' }: %c${ TIMESTAMP },\n %c${ 'Commit' }: %c${ COMMIT }`
   // eslint-disable-next-line
@@ -28,20 +26,18 @@ if (process.env.VUE_APP_BUILD_VERSION) {
   )
 }
 
-Vue.use(VuesticPlugin)
-Vue.use(VueClipboard)
-Vue.use(VueMoment)
-Vue.use(firestorePlugin)
-Vue.use(BootstrapVue)
-Vue.use(ColorThemePlugin, {
+Vue.use( VuesticPlugin )
+Vue.use( VueClipboard )
+Vue.use( firestorePlugin )
+Vue.use( ColorThemePlugin, {
   // override colors here.
-})
+} )
 
 /* eslint-disable no-new */
-new Vue({
+new Vue( {
   created () { AOS.init() },
   el: '#app',
   router,
   store,
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h( App ),
+} ).$mount( '#app' )

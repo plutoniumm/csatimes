@@ -15,13 +15,7 @@
           color="black"
           @click.native="$emit('update:minimized', !minimized)"
         />
-        <span style="color: black;">Council for Student Affairs</span>
-      </div>
-      <div class="app-navbar__center lg5 md4">
-        <span
-          class="app-navbar__text"
-          :style="{color: 'black'}"
-        >{{ new Date() | moment("dddd, MMMM Do YYYY, h:mm A")}}</span>
+        <span style="color: black;">CSATimes</span>
       </div>
       <app-navbar-actions class="app-navbar__actions md5 lg4" color="black" :user-name="userName" />
     </div>
@@ -99,7 +93,8 @@ $nav-border-side-width: 3.1875rem;
   display: flex;
   padding: 1rem 1rem;
   z-index: 1;
-  background: #eb5757;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 
   &__content {
     z-index: 1;

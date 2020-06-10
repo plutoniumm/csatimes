@@ -44,27 +44,4 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  background-color: #f7ecdb;
-}
-
-.row-equal .flex {
-  .va-card {
-    height: 100%;
-  }
-}
-
-.dashboard {
-  .va-card {
-    margin-bottom: 0 !important;
-
-    .va-card {
-      background-color: #ffffff;
-    }
-  }
-}
-
-.row.row-inside {
-  max-width: 20px;
-}
 </style>

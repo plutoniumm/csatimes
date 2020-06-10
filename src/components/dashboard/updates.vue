@@ -3,7 +3,7 @@
     <div class="dashboard">
       <!-- <va-card
               no-padding-h
-              style="background: #ffdcab; overflow-x: auto;"
+              style="background:  #8ecffc; overflow-x: auto;"
               class="timelines__horizontal-long"
             >
               <div style="color: rgb(0, 0, 0); font-size: 2rem; margin-left: 1rem;">Latest Updates</div>
@@ -86,23 +86,4 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  background-color: #f7ecdb;
-}
-
-.row-equal .flex {
-  .va-card {
-    height: 100%;
-  }
-}
-
-.dashboard {
-  .va-card {
-    margin-bottom: 0 !important;
-  }
-}
-
-.row.row-inside {
-  max-width: 20px;
-}
 </style>
