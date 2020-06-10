@@ -1462,6 +1462,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/googlemaps@^3.39.1":
+  version "3.39.6"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.6.tgz#ca76df823fb4a8bd78bf47bd215fc70417a9ae51"
+  integrity sha512-O2joRmShgUcGBSyjp0pYFIP0Kv3y6jl8UXokEkcTI4D8FinTYsSt8OaHGQ/tI7WUF2eZTXKVJg6jQuEQS4d30w==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.2.tgz#79d7a78bad4219f4c03d6557a1c72d9ca6ba62d5"
@@ -5802,10 +5807,12 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-google-maps@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/google-maps/-/google-maps-3.3.0.tgz#4432b4715406bc15268ad35b1dd1b04d974956a6"
-  integrity sha512-pj4En0cWKG+lcBvC7qrzu5ItiMsYNTgjG2capsPzAbAM/O8ftugGpUUftTTwdGL8KlNvB4CEZ6IBWwpWYzUEpw==
+google-maps@4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/google-maps/-/google-maps-4.2.3.tgz#0cf7383154b80db9bbddf2a96d298adfea09e765"
+  integrity sha512-RGKlYq57/3tKq+o03+25CAOHWq6lAOPPy4knIeVfFw3xmZtwaJsMPuQnQNnITf/BRIC0EBqq0YbbCFW+6q5P0Q==
+  dependencies:
+    "@types/googlemaps" "^3.39.1"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.2:
   version "4.2.4"
