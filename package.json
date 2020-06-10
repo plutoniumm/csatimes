@@ -6,11 +6,8 @@
   "author": "Lord Plutonium <ssmanav@icloud.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "yarn serve",
     "lint": "vue-cli-service lint",
-    "lint:style": "stylelint --fix src/**/*.{vue,htm,html,css,sss,less,scss}",
-    "inspect": "vue-cli-service inspect > inspect.js",
-    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@types/jest": "24.9.1",
