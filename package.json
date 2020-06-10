@@ -5,9 +5,9 @@
   "description": "CSATimes",
   "author": "Lord Plutonium <ssmanav@icloud.com>",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "yarn serve",
     "build": "yarn serve",
-    "lint": "vue-cli-service lint",
+    "lint": "yarn lint"
   },
   "dependencies": {
     "@types/jest": "24.9.1",
