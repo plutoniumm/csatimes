@@ -170,6 +170,6 @@ export default {
 
 <style lang="scss" scoped>
 body {
-  background-color: #ffdcab;
+  background-color: #f7ecdb;
 }
 </style>

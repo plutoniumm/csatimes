@@ -256,7 +256,7 @@ export default {
 // }
 
 body {
-  background-color: #ffdcab;
+  background-color: #f7ecdb;
   min-height: 150vh;
 }
 
@@ -270,6 +270,6 @@ tr:hover {
 
 .va-card {
   box-shadow: 10px;
-  background-color: #f7ecdb;
+  // background-color: #f7ecdb;
 }
 </style>

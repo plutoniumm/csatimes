@@ -164,6 +164,6 @@ export default {
 </script>
 <style lang='scss'>
 body {
-  background-color: #ffdcab;
+  background-color: #f7ecdb;
 }
 </style>

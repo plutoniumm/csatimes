@@ -14,6 +14,9 @@ import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
   // eslint-disable-next-line
@@ -29,6 +32,7 @@ Vue.use(VuesticPlugin)
 Vue.use(VueClipboard)
 Vue.use(VueMoment)
 Vue.use(firestorePlugin)
+Vue.use(BootstrapVue)
 Vue.use(ColorThemePlugin, {
   // override colors here.
 })
