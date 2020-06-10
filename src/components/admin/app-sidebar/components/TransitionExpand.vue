@@ -67,23 +67,23 @@ export default {
 </script>
 
 <style scoped>
-  * {
-    will-change: height;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
+* {
+  will-change: height;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 </style>
 
 <style>
-  .expand-enter-active,
-  .expand-leave-active {
-    transition: height 0.377s ease;
-    overflow: hidden;
-  }
+.expand-enter-active,
+.expand-leave-active {
+  transition: height 0.377s ease;
+  overflow: hidden;
+}
 
-  .expand-enter,
-  .expand-leave-to {
-    height: 0;
-  }
+.expand-enter,
+.expand-leave-to {
+  height: 0;
+}
 </style>

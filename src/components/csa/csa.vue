@@ -2,8 +2,8 @@
   <div class="xs12">
     <!-- SUPER INPUT FIREBASE -->
     <div class="row">
-      <div class="flex xs12 md6">
-        <va-card class="flex xs12 sm6" title="Write to us!">
+      <div class="flex xs12 sm6">
+        <va-card title="Write to us!">
           <div class="row align--center">
             <div class="flex xs12 md6">
               <va-toggle v-model="toggle" label="Send Anonymously" />
@@ -25,6 +25,9 @@
             </div>
           </form>
         </va-card>
+      </div>
+
+      <div class="flex xs12 sm6">
         <va-card>
           <div class="flex" v-for="issue in this.grievances" :key="issue">
             <va-card stripe="danger">
@@ -164,6 +167,6 @@ export default {
 </script>
 <style lang='scss'>
 body {
-  background-color: #ffdcab;
+  background-color: #8ecffc;
 }
 </style>
