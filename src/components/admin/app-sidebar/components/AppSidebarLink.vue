@@ -8,17 +8,10 @@
       :to="to"
       :target="target"
     >
-      <va-icon v-if="icon" class="app-sidebar-link__item-icon" color="black" :name="icon" />
+      <va-icon v-if="icon" :name="icon">{{icon}}</va-icon>
       <div class="app-sidebar-link__item-title" style="color: black;" v-if="title">
         <slot>{{title}}</slot>
       </div>
-
-      <va-icon
-        v-if="iconRight"
-        class="app-sidebar-link__item-icon-right"
-        color="black"
-        :name="iconRight"
-      >{{iconRightContent}}</va-icon>
     </router-link>
   </li>
 </template>
@@ -40,13 +33,8 @@ export default {
       default: '_self',
     },
     icon: {
-      type: [String, Array],
-    },
-    iconRight: {
-      type: [String, Array],
-    },
-    iconRightContent: {
-      type: String,
+      type: [Object, String],
+      default: '🌐',
     },
     title: {
       type: String,

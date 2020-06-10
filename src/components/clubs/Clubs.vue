@@ -14,7 +14,7 @@
             <img :src="require('../../assets' + club.Logo)" :alt="club.Name">
             <br>
             {{club.Description}}
-          </div> -->
+          </div>-->
           <div>
             <b-carousel
               id="carousel-1"
@@ -129,7 +129,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #f7ecdb;
+  background-color: #8ecffc;
 }
 
 p {

@@ -7,37 +7,27 @@ export const navigationRoutes = {
     {
       name: 'dashboard',
       displayName: 'Feed',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-image',
-      },
+      meta: '🌐',
     },
     {
       name: 'stud',
       displayName: 'Student Portal',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-user',
-      },
+      meta: '🎓',
     },
     {
       name: 'csa',
       displayName: 'Assistance',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-comments',
-      },
+      meta: '👨‍💻',
     },
     {
       name: 'developers',
       displayName: 'Site Info',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-files',
-      },
+      meta: 'ℹ️',
     },
     {
       name: '',
       displayName: 'Settings (Soon...)',
-      meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-settings',
-      },
+      meta: '⚙️',
     },
   ],
 }

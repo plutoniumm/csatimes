@@ -2,28 +2,11 @@
   <aside class="app-sidebar" :class="computedClass" :style="computedStyle">
     <ul class="app-sidebar__menu">
       <template v-for="(item, key) in items">
-        <app-sidebar-link-group
-          :key="key"
-          :minimized="minimized"
-          :icon="item.meta && item.meta.iconClass"
-          v-if="item.children"
-          :title="$t(item.displayName)"
-          :children="item.children"
-          :active-by-default="hasActiveByDefault(item)"
-        >
-          <app-sidebar-link
-            v-for="(subMenuItem, key) in item.children"
-            :key="key"
-            :to="{ name: subMenuItem.name }"
-            :title="$t(subMenuItem.displayName)"
-          />
-        </app-sidebar-link-group>
         <app-sidebar-link
-          v-else
           :key="key"
           :minimized="minimized"
           :active-by-default="item.name === $route.name"
-          :icon="item.meta && item.meta.iconClass"
+          :icon="item.meta"
           :to="{ name: item.name }"
           :title="$t(item.displayName)"
         />
@@ -35,7 +18,6 @@
 <script>
 import { navigationRoutes } from './NavigationRoutes'
 import AppSidebarLink from './components/AppSidebarLink'
-import AppSidebarLinkGroup from './components/AppSidebarLinkGroup'
 import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
@@ -43,7 +25,6 @@ export default {
   inject: ['contextConfig'],
   components: {
     AppSidebarLink,
-    AppSidebarLinkGroup,
   },
   mixins: [ColorThemeMixin],
   props: {
