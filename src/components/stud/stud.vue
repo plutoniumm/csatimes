@@ -106,7 +106,7 @@
         >Humanities Reviews</va-button>
       </span>
       <div slot="body">
-        <va-card :title="('Humanities Reviews')" color="#ffdcab" style="color: black;">
+        <va-card :title="('Humanities Reviews')" style="color: black;">
           <div class="row align--center">
             <div class="flex xs12 md6">
               <va-input

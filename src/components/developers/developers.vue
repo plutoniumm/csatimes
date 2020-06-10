@@ -55,7 +55,7 @@
       <template>
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #f7ecdb; text-align: center;">
+            <va-card style="background: #8ecffc; text-align: center;">
               <h2 style="color: #000000;">WEB</h2>
             </va-card>
           </div>
@@ -95,7 +95,7 @@
         <br />
         <div class="row" style="justify-content: center;">
           <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #f7ecdb; text-align: center;">
+            <va-card style="background: #8ecffc; text-align: center;">
               <h2 style="color: #000000;">DEVSOC (App)</h2>
             </va-card>
           </div>
