@@ -7,11 +7,11 @@
             <span style="font-size: 2rem;">{{club.Name}}</span>
             <span><hr>Founded: {{club.Founded}}</span>
           </div>
-          <div style="text-align: center;">
+          <!-- <div style="text-align: center;">
             <img :src="require('../../assets' + club.Logo)" :alt="club.Name">
             <br>
             {{club.Description}}
-          </div>
+          </div> -->
           <div>
             <b-carousel
               id="carousel-1"
@@ -29,7 +29,7 @@
               <!-- Text slides with image -->
               <b-carousel-slide
                 :caption="club.Name"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                :text="club.Description"
                 :img-src="require('../../assets' + club.Logo)"
               ></b-carousel-slide>
               <template v-for="por in club.PORs">
