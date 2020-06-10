@@ -10,12 +10,13 @@
               Founded: {{club.Founded}}
             </span>
           </div>
-          <!-- <div style="text-align: center;">
+          <div style="display: inline-block;">
             <img :src="require('../../assets' + club.Logo)" :alt="club.Name">
-            <br>
+          </div>
+          <div style="display: inline-block;">
             {{club.Description}}
-          </div> -->
-          <div>
+          </div>
+          <div style="max-width: 300px;">
             <b-carousel
               id="carousel-1"
               v-model="slide"
@@ -142,4 +143,12 @@ p {
   margin: 0 auto;
   height: auto;
 }
+
+// .carousel-item img {
+//   height: 200px !important;
+//   width: 200px !important;
+//   // margin: 100px;
+//   justify-content: center;
+//   text-align: center;
+// }
 </style>
