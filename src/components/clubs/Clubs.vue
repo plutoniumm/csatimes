@@ -11,10 +11,7 @@
             </span>
           </div>
           <div style="display: inline-block;">
-            <img :src="require('../../assets' + club.Logo)" :alt="club.Name">
-          </div>
-          <div style="display: inline-block;">
-            {{club.Description}}
+            <img :src="require('../../assets' + club.Logo)" :alt="club.Name" />
           </div>
           <!-- <div style="max-width: 300px;">
             <b-carousel
@@ -44,7 +41,7 @@
                 ></b-carousel-slide>
               </template>
             </b-carousel>
-          </div> -->
+          </div>-->
         </va-card>
       </div>
     </template>
@@ -129,6 +126,10 @@ export default {
 
 <style lang="scss">
 body {
+  background-color: #8ecffc;
+}
+
+.va-card {
   background-color: #8ecffc;
 }
 
