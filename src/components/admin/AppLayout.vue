@@ -1,13 +1,8 @@
 <template>
-  <app-page-layout
-    class="app-layout"
-    :is-top-bar.sync="isTopBar"
-    :minimized.sync="minimized"
-    :mobile-width="mobileWidth"
-  >
-    <app-navbar :is-top-bar.sync="isTopBar" :minimized.sync="minimized" />
+  <app-page-layout class="app-layout" :minimized.sync="minimized" :mobile-width="mobileWidth">
+    <app-navbar :minimized.sync="minimized" />
     <div class="app-layout__container">
-      <app-sidebar v-if="!isTopBar" :minimized="minimized" />
+      <app-sidebar :minimized="minimized" />
       <div class="app-layout__main" :class="{'app-layout__main--top': isTopBar}">
         <main class="app-layout__main-layout layout fluid gutter--xl" slot="content" role="main">
           <router-view />
@@ -36,30 +31,17 @@ export default {
   },
   data () {
     return {
-      isTopBar: false,
-      minimized: false,
+      minimized: true,
       mobileWidth: 767,
     }
   },
   inject: ['contextConfig'],
   mixins: [ColorThemeActionsMixin, ColorThemeMixin],
   created () {
-    if (this.$route.query && this.$route.query.theme === 'corporate') {
-      this.setTheme('corporate')
-    }
     this.$root.$on('change-theme', this.setTheme)
   },
   beforeDestroy () {
     this.$root.$off('change-theme', this.setTheme)
-  },
-  methods: {
-    setTheme (themeName) {
-      const theme = themeName === 'corporate' ? corporateTheme : originalTheme
-      this.setColors(theme.colors)
-      Object.keys(theme.context).forEach((key) => {
-        this.contextConfig[key] = theme.context[key]
-      })
-    },
   },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="app-navbar" :style="navbarStyle">
+  <nav class="app-navbar">
     <div class="app-navbar__content row">
       <div class="app-navbar__menu-container">
         <va-icon-menu
@@ -19,7 +19,6 @@
       </div>
       <app-navbar-actions class="app-navbar__actions md5 lg4" color="black" :user-name="userName" />
     </div>
-    <div class="app-navbar__shape" color="black" :style="shapeStyle"></div>
   </nav>
 </template>
 
@@ -58,38 +57,14 @@ export default {
         this.$emit('update:minimized', minimized)
       },
     },
-    navbarStyle () {
-      const style = {
-        backgroundColor: 'black',
-      }
-
-      if (this.contextConfig.gradient) {
-        style.backgroundColor = colorShiftHsl(this.$themes.dimgrey, {
-          s: -13,
-          l: 15,
-        }).css
-      }
-      return style
-    },
-
-    shapeStyle () {
-      return {
-        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.dimgrey, {
-          h: -1,
-          s: -11,
-          l: 10,
-        }).css : 'transparent',
-      }
-    },
   },
 }
 </script>
 
 <style lang="scss">
-$nav-border-side-width: 3.1875rem;
+$nav-border-side-width: 3.2rem;
 
 .app-navbar {
-  transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
   display: flex;
   padding: 1rem 1rem;
   z-index: 1;
@@ -144,25 +119,6 @@ $nav-border-side-width: 3.1875rem;
 
   &__actions {
     justify-content: flex-end;
-  }
-
-  &__mailto-link:hover {
-    filter: brightness(85%);
-  }
-
-  &__shape {
-    transition: border-top-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-    width: 33%;
-    max-width: 467px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    margin: auto;
-    border-top: 4.215rem solid transparent; // hardcoded size
-    border-left: $nav-border-side-width solid transparent;
-    border-right: $nav-border-side-width solid transparent;
-    height: 0;
   }
 
   @include media-breakpoint-down(lg) {
