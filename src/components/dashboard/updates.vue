@@ -44,13 +44,15 @@
               <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
               <hr />
               <strong>{{ notice.name }}</strong>
-              <br />
+              <br>
               {{ notice.summary }}
+              <br>
             </div>
+            <br>
             <span style="color: #a7a7a7;">Brought to you by CSA</span>
           </div>
         </va-card>
-        <br />
+        <br>
       </template>
     </div>
   </div>
