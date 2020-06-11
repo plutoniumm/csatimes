@@ -16,11 +16,7 @@
 import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
-import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
-import {
-  ColorThemeActionsMixin,
-  ColorThemeMixin,
-} from '../../services/vuestic-ui'
+import { ColorThemeActionsMixin, ColorThemeMixin } from '../../services/vuestic-ui'
 
 export default {
   name: 'app-layout',
@@ -37,12 +33,6 @@ export default {
   },
   inject: ['contextConfig'],
   mixins: [ColorThemeActionsMixin, ColorThemeMixin],
-  created () {
-    this.$root.$on('change-theme', this.setTheme)
-  },
-  beforeDestroy () {
-    this.$root.$off('change-theme', this.setTheme)
-  },
 }
 </script>
 
@@ -55,7 +45,6 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
-    // TODO Probably there is a better way to achieve this.
     height: calc(100% - 65px);
 
     @include media-breakpoint-down(sm) {

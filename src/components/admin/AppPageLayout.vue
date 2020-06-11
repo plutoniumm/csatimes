@@ -29,9 +29,9 @@ export default {
     },
     updateSidebarState () {
       if (this.checkIsDesktop()) {
-        this.$emit('update:minimized', false)
-      } else {
         this.$emit('update:minimized', true)
+      } else {
+        this.$emit('update:minimized', false)
       }
     },
   },
@@ -39,7 +39,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .app-page-layout {
   position: fixed;
   top: 0;
