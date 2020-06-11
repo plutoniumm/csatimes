@@ -46,16 +46,17 @@
           overlay
           titleOnImage
           :stripe="person.stripe"
-          :image="person.picture"
+          :image="require('../../assets/pics/'+person.picture)"
           :title="person.name"
         >
           <template slot="actions">
             <va-badge>{{person.post}}</va-badge>
+            <br>
             <va-badge>{{person.organisation}}</va-badge>
           </template>
           Phone : {{person.phone}}
           <br />
-          Email : {{ person.address}}@goa.bits-pilani.ac.in
+          <span>Email : {{ person.address}}@goa.bits-pilani.ac.in</span>
         </va-card>
       </div>
     </div>

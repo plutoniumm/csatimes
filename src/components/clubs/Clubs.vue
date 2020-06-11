@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-for="club in clubs">
-      <div :key="club" style="text-align: justify-center;">
+      <div :key="club" style="text-align: center;">
         <va-card>
           <div>
             <span style="font-size: 2rem;">{{club.Name}}</span>
@@ -16,7 +16,7 @@
           <div style="display: inline-block;">
             {{club.Description}}
           </div>
-          <div style="max-width: 300px;">
+          <!-- <div style="max-width: 300px;">
             <b-carousel
               id="carousel-1"
               v-model="slide"
@@ -30,7 +30,6 @@
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
             >
-              <!-- Text slides with image -->
               <b-carousel-slide
                 :caption="club.Name"
                 :text="club.Description"
@@ -45,7 +44,7 @@
                 ></b-carousel-slide>
               </template>
             </b-carousel>
-          </div>
+          </div> -->
         </va-card>
       </div>
     </template>
