@@ -129,10 +129,6 @@ body {
   background-color: #8ecffc;
 }
 
-.va-card {
-  background-color: #8ecffc;
-}
-
 p {
   text-align: justify;
   text-justify: inter-word;

@@ -64,6 +64,15 @@
   },
   {
     "picture": "deva.png",
+    "name": "Dolly Khandelwal",
+    "stripe": "#008000",
+    "organisation": "ICC",
+    "post": "Student Rep",
+    "phone": "+91 70164 72573",
+    "address": "f20170952"
+  },
+  {
+    "picture": "deva.png",
     "name": "Kartik Khandelwal",
     "stripe": "#66ff00",
     "organisation": "PU",

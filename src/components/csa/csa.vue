@@ -51,7 +51,6 @@
         >
           <template slot="actions">
             <va-badge>{{person.post}}</va-badge>
-            <br>
             <va-badge>{{person.organisation}}</va-badge>
           </template>
           Phone : {{person.phone}}
