@@ -11,7 +11,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@types/jest": "24.9.1",
+    "@types/jest": "26.0.0",
     "aos": "^2.3.4",
     "approximate-number": "2.0.0",
     "asva-executors": "0.1.23",
