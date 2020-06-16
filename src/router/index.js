@@ -83,6 +83,11 @@ export default new Router({
           path: '/clubs',
           component: () => import('../components/clubs/Clubs.vue'),
         },
+        {
+          name: 'sports',
+          path: '/sports',
+          component: () => import('../components/sports/Sports.vue'),
+        },
       ],
     },
   ],

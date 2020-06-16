@@ -1,33 +1,22 @@
 <template>
-  <div class="cards">
-    <va-card>
-      <div style="font-size: 2.5rem; text-align: center;">BITS GOA STARTUPS</div>
-      <div class="cards-container row d-flex wrap align--start">
-        <!-- eslint-disable vue/valid-v-for -->
+  <div class="xs12">
+    <va-card color="info" style="text-align: center; font-size: 3rem;"><h2>BITS GOA STARTUPS</h2></va-card>
 
-        <template v-for="(startup, i) in startups">
-          <div class="flex xs12" :key="startup.name">
-            <va-card v-if="i%2==0">
-              <va-card color="success">
-                <div style="text-align: center;">
-                  <h2>{{startup.Name1}}</h2>
-                </div>
-              </va-card>
-              {{ startup.content1 }}
-            </va-card>
-
-            <va-card v-if="i%2!=0">
-              <va-card color="danger">
-                <div style="text-align: center;">
-                  <h2>{{startup.Name2}}</h2>
-                </div>
-              </va-card>
-              {{ startup.content2 }}
-            </va-card>
-          </div>
-        </template>
+    <br>
+    <br>
+    <div class="row">
+      <div class="flex xs12 sm6 lg4" v-for="startup in startups" :key="startup">
+        <va-card no padding>
+          <va-card color="warning">
+            <div style="text-align: center;">
+              <h3>{{startup.Name}}</h3>
+            </div>
+          </va-card>
+          <br>
+          {{ startup.content }}
+        </va-card>
       </div>
-    </va-card>
+    </div>
   </div>
 </template>
 
@@ -46,4 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background-color: #8ecffc;
+}
 </style>

@@ -10,97 +10,38 @@
               Founded: {{club.Founded}}
             </span>
           </div>
-          <div style="display: inline-block;">
+          <div>
             <img :src="require('../../assets' + club.Logo)" :alt="club.Name" />
+            <div>{{club.Description}}</div>
           </div>
-          <!-- <div style="max-width: 300px;">
-            <b-carousel
-              id="carousel-1"
-              v-model="slide"
-              :interval="4000"
-              controls
-              indicators
-              background="#ababab"
-              img-width="1024"
-              img-height="480"
-              style="text-shadow: 1px 1px 2px #333333; text-align: center;"
-              @sliding-start="onSlideStart"
-              @sliding-end="onSlideEnd"
-            >
-              <b-carousel-slide
-                :caption="club.Name"
-                :text="club.Description"
-                :img-src="require('../../assets' + club.Logo)"
-              ></b-carousel-slide>
-              <template v-for="por in club.PORs">
-                <b-carousel-slide
-                  :key="por"
-                  :caption="por.Name + ' | ' + por.Title"
-                  :text="por.Phone + ' | ' + por.Email"
-                  :img-src="require('../../assets' + por.Photo)"
-                ></b-carousel-slide>
-              </template>
-            </b-carousel>
-          </div>-->
+
+          <va-collapse customHeader>
+            <span slot="header">
+              <va-button
+                color="info"
+                icon-right="ion-ios-arrow-down arrow-down"
+              >PORs</va-button>
+            </span>
+            <div slot="body" style="height: 270px;">
+              <carousel-3d :controls-visible="true">
+                <slide v-for="(por,slide) in club.PORs" :index="slide" :key="slide">
+                  <figure>
+                    <img :src="require('../../assets'+por.Photo)" height="270px;">
+                    <figcaption style="font-size: 1rem;">
+                      <span style="font-size: 1.5rem;">{{por.Name}}</span> ({{por.Title}})
+                      <br>
+                      {{por.Phone}}
+                      <br>{{por.Email}}
+                    </figcaption>
+                  </figure>
+                </slide>
+              </carousel-3d>
+            </div>
+          </va-collapse>
+
         </va-card>
       </div>
     </template>
-
-    <!-- <template>
-      <div>
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="4000"
-          controls
-          indicators
-          background="#ababab"
-          img-width="1024"
-          img-height="480"
-          style="text-shadow: 1px 1px 2px #333333;"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
-        >
-          Text slides with image
-          <b-carousel-slide
-            caption="First slide"
-            text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-            img-src="https://picsum.photos/1024/480/?image=52"
-          ></b-carousel-slide>
-
-          Slides with custom text
-          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-            <h1>Hello world!</h1>
-          </b-carousel-slide>
-
-          Slides with image only
-          <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
-
-          Slides with img slot
-          Note the classes .d-block and .img-fluid to prevent browser default image alignment
-          <b-carousel-slide>
-            <template v-slot:img>
-              <img
-                class="d-block img-fluid w-100"
-                width="1024"
-                height="480"
-                src="https://picsum.photos/1024/480/?image=55"
-                alt="image slot"
-              >
-            </template>
-          </b-carousel-slide>
-
-          Slide with blank fluid image to maintain slide aspect ratio
-          <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-              a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-            </p>
-          </b-carousel-slide>
-        </b-carousel>
-
-      </div>
-    </template>-->
   </div>
 </template>
 <script>
@@ -109,17 +50,7 @@ export default {
   data () {
     return {
       clubs: data,
-      // slide: 0,
-      // sliding: null,
     }
-  },
-  methods: {
-    // onSlideStart (slide) {
-    //   this.sliding = true
-    // },
-    // onSlideEnd (slide) {
-    //   this.sliding = false
-    // },
   },
 }
 </script>
@@ -140,11 +71,18 @@ p {
   height: auto;
 }
 
-// .carousel-item img {
-//   height: 200px !important;
-//   width: 200px !important;
-//   // margin: 100px;
-//   justify-content: center;
-//   text-align: center;
-// }
+.carousel-3d-container figcaption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  bottom: 0;
+  padding: 15px;
+  font-size: 12px;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-3d-container figure {
+  margin: 0;
+}
 </style>

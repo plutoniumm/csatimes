@@ -3,13 +3,12 @@
     <va-collapse customHeader>
       <span slot="header">
         <va-button
-          style="width: 100%;"
           color="info"
           icon-right="ion-ios-arrow-down arrow-down"
         >PR Drives</va-button>
       </span>
       <div slot="body">
-        <va-card class="flex xs12" style="overflow-x: auto;">
+        <div class="flex xs12" style="overflow-x: auto; display: inline;">
           <form>
             <template v-for="prevent in pr">
               <va-card class="flex sm6 xs12" :key="'item' + prevent.name" data-aos="fade-left">
@@ -42,65 +41,14 @@
               </va-card>
             </template>
           </form>
-        </va-card>
+        </div>
       </div>
     </va-collapse>
-
-    <div class="row">
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <!-- Link Blocks-->
-          <router-link :to="{ path: '../hall'}" append exact>
-            <va-button color="danger">Hall of Fame</va-button>
-          </router-link>
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../startup'}" append exact>
-            <va-button color="warning">BITS Goa Startups</va-button>
-          </router-link>
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
-            <va-button color="info">Exam Schedule</va-button>
-          </a>
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../clubs'}" append exact>
-            <va-button color="success">Clubs</va-button>
-          </router-link>
-        </va-card>
-      </div>
-      <!-- Tools Links-->
-      <div
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
-        v-for="item in items"
-        :key="item"
-      >
-        <a :href="item.href" style="text-decoration: none; color: black;">
-          <va-card
-            overlay
-            titleOnImage
-            :image="item.image"
-            :title="item.title"
-            :to="item.href"
-            onmouseover="this.style.cursor='pointer';"
-          >{{ item.message }}</va-card>
-        </a>
-      </div>
-    </div>
 
     <!-- DATA TABLE -->
     <va-collapse customHeader>
       <span slot="header">
         <va-button
-          style="width: 100%;"
           color="info"
           icon-right="ion-ios-arrow-down arrow-down"
         >Humanities Reviews</va-button>
@@ -161,6 +109,80 @@
         </va-card>
       </div>
     </va-collapse>
+
+    <div class="row">
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <!-- Link Blocks-->
+          <router-link :to="{ path: '../hall'}" append exact>
+            <va-button color="danger">Hall of Fame</va-button>
+          </router-link>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <router-link :to="{ path: '../startup'}" append exact>
+            <va-button color="warning">BITS Goa Startups</va-button>
+          </router-link>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
+            <va-button color="info">Exam Schedule</va-button>
+          </a>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <router-link :to="{ path: '../clubs'}" append exact>
+            <va-button color="success">Clubs</va-button>
+          </router-link>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <router-link :to="{ path: '../sports'}" append exact>
+            <va-button color="danger">Sports Teams</va-button>
+          </router-link>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <router-link :to="{ path: '../clubs'}" append exact>
+            <va-button color="warning">Departments</va-button>
+          </router-link>
+        </va-card>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
+        <va-card>
+          <router-link :to="{ path: '../clubs'}" append exact>
+            <va-button color="info">Events</va-button>
+          </router-link>
+        </va-card>
+      </div>
+    </div>
+    <!-- Tools Links-->
+    <div class="row">
+      <div
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+        v-for="item in items"
+        :key="item"
+      >
+        <a :href="item.href" style="text-decoration: none; color: black;">
+          <va-card
+            overlay
+            titleOnImage
+            :image="item.image"
+            :title="item.title"
+            :to="item.href"
+            onmouseover="this.style.cursor='pointer';"
+          >{{ item.message }}</va-card>
+        </a>
+      </div>
+    </div>
+
   </div>
 </template>
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>

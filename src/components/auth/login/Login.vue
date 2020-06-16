@@ -1,18 +1,20 @@
 <template>
-  <div class="auth-layout row align-content--center">
-    <div class="flex xs12 pa-3">
-      <div class="d-flex justify--center">
-        <div id="app">
-          <div id="nav">
-            <div class="d-flex justify--center">
-              <va-button @click="socialLogin" color="info">Sign in</va-button>
-            </div>
-            <router-view />
-          </div>
-        </div>
+  <!-- <div class="auth-layout row align-content--center"> -->
+  <!-- <div class="flex xs12 pa-3"> -->
+  <div class="d-flex justify--center">
+    <!-- <div id="app"> -->
+    <!-- <div id="nav"> -->
+    <div class="flex xs12 justify--center row align-content--center">
+      <div class="d-flex justify--center align-content--center" style="position: absolute; top: 50%;">
+        <va-button @click="socialLogin" color="info">Sign in</va-button>
       </div>
+      <router-view />
     </div>
   </div>
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
 </template>
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>

@@ -40,30 +40,82 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="flex xs12 sm6 lg4 xl3" v-for="person in people" :key="person">
-        <va-card
-          overlay
-          titleOnImage
-          :stripe="person.stripe"
-          :image="require('../../assets/pics/'+person.picture)"
-          :title="person.name"
-        >
-          <template slot="actions">
-            <va-badge>{{person.post}}</va-badge>
-            <va-badge>{{person.organisation}}</va-badge>
-          </template>
-          Phone : {{person.phone}}
-          <br />
-          <span>Email : {{ person.address}}@goa.bits-pilani.ac.in</span>
-        </va-card>
+    <va-collapse customHeader>
+      <span slot="header">
+        <va-button
+          color="info"
+          icon-right="ion-ios-arrow-down arrow-down"
+        >Council of Student Affairs Members</va-button>
+      </span>
+      <div slot="body" style="height: 272px;">
+        <carousel-3d :controls-visible="true">
+          <slide v-for="(person,slide) in people" :index="slide" :key="slide">
+            <figure>
+              <img :src="require('../../assets/pics/'+person.picture)">
+              <figcaption style="font-size: 1rem;">
+                <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
+                <br>
+                {{person.phone}}
+                <br>{{person.address}}@goa.bits-pilani.ac.in
+              </figcaption>
+            </figure>
+          </slide>
+        </carousel-3d>
       </div>
-    </div>
+    </va-collapse>
+
+    <va-collapse customHeader>
+      <span slot="header">
+        <va-button
+          color="info"
+          icon-right="ion-ios-arrow-down arrow-down"
+        >DisCo</va-button>
+      </span>
+      <div slot="body" style="height: 272px;"><carousel-3d :controls-visible="true">
+        <slide v-for="(person,slide) in people1" :index="slide" :key="slide">
+          <figure>
+            <img :src="require('../../assets/pics/'+person.picture)">
+            <figcaption style="font-size: 1rem;">
+              <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
+              <br>
+              {{person.phone}}
+              <br>{{person.address}}@goa.bits-pilani.ac.in
+            </figcaption>
+          </figure>
+        </slide>
+      </carousel-3d>
+      </div>
+    </va-collapse>
+
+    <va-collapse customHeader>
+      <span slot="header">
+        <va-button
+          color="info"
+          icon-right="ion-ios-arrow-down arrow-down"
+        >Placement Unit and ICC</va-button>
+      </span>
+      <div slot="body" style="height: 272px;"><carousel-3d :controls-visible="true">
+        <slide v-for="(person,slide) in people2" :index="slide" :key="slide">
+          <figure>
+            <img :src="require('../../assets/pics/'+person.picture)">
+            <figcaption style="font-size: 1rem;">
+              <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
+              <br>
+              {{person.phone}}
+              <br>{{person.address}}@goa.bits-pilani.ac.in
+            </figcaption>
+          </figure>
+        </slide>
+      </carousel-3d>
+      </div>
+    </va-collapse>
   </div>
 </template>
 
 <script>
 import data from './data.json'
+import data1 from './data1.json'
+import data2 from './data2.json'
 import firebase from 'firebase'
 import './toast/ToastPositionPicker'
 
@@ -85,6 +137,8 @@ export default {
   data () {
     return {
       people: data,
+      people1: data1,
+      people2: data2,
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ', 'RTI'],
       toggle: true,
@@ -168,5 +222,20 @@ export default {
 <style lang='scss'>
 body {
   background-color: #8ecffc;
+}
+
+.carousel-3d-container figcaption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  bottom: 0;
+  padding: 15px;
+  font-size: 12px;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-3d-container figure {
+  margin: 0;
 }
 </style>

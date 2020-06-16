@@ -1,0 +1,204 @@
+[
+  {
+    "Club": "Football club",
+    "PORs": [
+      {
+        "Name": "Neel Bhandari",
+        "Post": "Captain",
+        "ID": "2018B1A70084G",
+        "Personal": "neelb0210@gmail.com",
+        "Calling": "7666406020",
+        "Whatsapp": 9423037590
+      },
+      {
+        "Name": "Ninad Marathe",
+        "Post": "Vice Captain",
+        "ID": "2018A8PS0063G",
+        "Personal": "ninad1702@gmail.com",
+        "Calling": "8779925212",
+        "Whatsapp": 8779925212
+      }
+    ]
+  },
+  {
+    "Club": "Women's football club",
+    "PORs": [
+      {
+        "Name": "Ishita Chakravarthy",
+        "Post": "Captain ",
+        "ID": "2018B4AA0670G",
+        "Personal": "ishitac1150@gmail.com",
+        "Calling": "9742735824",
+        "Whatsapp": 9742735824
+      },
+      {
+        "Name": "Anjali Kadambi",
+        "Post": "Vice Captain",
+        "ID": "2018AAPS0292G",
+        "Personal": "anjali.kadambi@gmail.com ",
+        "Calling": "9886555054",
+        "Whatsapp": 9886555054
+      }
+    ]
+  },
+  {
+    "Club": "Girls' Basketball team",
+    "PORs": [
+      {
+        "Name": "Richa Naik",
+        "Post": "Captain",
+        "ID": "2018AAPS0267G",
+        "Personal": "richacnaik@gmail.com",
+        "Calling": "7718832612",
+        "Whatsapp": 7718832612
+      },
+      {
+        "Name": "Anushka Panda",
+        "Post": "Vice Captain",
+        "ID": "2018A8PS0401G",
+        "Personal": "anushka0809panda@gmail.com",
+        "Calling": "6370091597",
+        "Whatsapp": 6370091597
+      }
+    ]
+  },
+  {
+    "Club": "Boys Tennis Team",
+    "PORs": [
+      {
+        "Name": "Vaibhav Rouduri",
+        "Post": "Captain",
+        "ID": "2018A7PS1020G",
+        "Personal": "vaibh232000@gmail.com",
+        "Calling": "7447429923",
+        "Whatsapp": 7447429923
+      }
+    ]
+  },
+  {
+    "Club": "Girls' Tennis Team",
+    "PORs": [
+      {
+        "Name": "Nupur Funkwal",
+        "Post": "Captain",
+        "ID": "2018A7PS0624G",
+        "Personal": "walkinspacewithme@gmail.com",
+        "Calling": "7517477913",
+        "Whatsapp": 7517477913
+      }
+    ]
+  },
+  {
+    "Club": "Chess Team",
+    "PORs": [
+      {
+        "Name": "Jainam Gala",
+        "Post": "Captain",
+        "ID": "2018A8PS0445G",
+        "Personal": "vishyanand10@gmail.com",
+        "Calling": "7021571195",
+        "Whatsapp": 7021571195
+      },
+      {
+        "Name": "S Sethuram",
+        "Post": "Vice Captain",
+        "ID": "2018A7PS0101G",
+        "Personal": "sethuramsenthil@gmail.com",
+        "Calling": "8668071643",
+        "Whatsapp": 8668071643
+      }
+    ]
+  },
+  {
+    "Club": "BITS UFC ",
+    "PORs": [
+      {
+        "Name": "Divakar Rai",
+        "Post": "Captain",
+        "ID": "2018A1PS0058G",
+        "Personal": "dvdivakarrai@gmail.com",
+        "Calling": "7237969465",
+        "Whatsapp": 9415813315
+      },
+      {
+        "Name": "Shrilaxmi Patil",
+        "Post": "Vice Captain ",
+        "ID": "2018B5A80889G",
+        "Personal": "shreegau@gmail.com",
+        "Calling": "9049000317",
+        "Whatsapp": 9049000317
+      },
+      {
+        "Name": "Parmesh Mathur ",
+        "Post": "Coordinator ",
+        "ID": "2018A7PS0133G",
+        "Personal": "parmesh.sf@gmail.com",
+        "Calling": "9845179554, 9767519131",
+        "Whatsapp": 9845179554
+      },
+      {
+        "Name": "Aditya Dubey",
+        "Post": "Spirit Captain ",
+        "ID": "2019A4PS0766G",
+        "Personal": "adityaduveyy@gmail.com",
+        "Calling": "9307869811, 8290033623",
+        "Whatsapp": 9307869811
+      }
+    ]
+  },
+  {
+    "Club": "Girl's Badminton team",
+    "PORs": [
+      {
+        "Name": "Rajvi Sampat ",
+        "Post": "Captain",
+        "ID": "2018B4A70820G ",
+        "Personal": "rsampat24@gmail.com ",
+        "Calling": "9619299301",
+        "Whatsapp": 9619299301
+      }
+    ]
+  },
+  {
+    "Club": "Boy's Badminton Team",
+    "PORs": [
+      {
+        "Name": "Anshit Garg",
+        "Post": "Captain",
+        "ID": "2018A8PS0306G",
+        "Personal": "anshitgarg@gmail.com",
+        "Calling": "9660390459",
+        "Whatsapp": 9660390459
+      },
+      {
+        "Name": "Vivek Gupte",
+        "Post": "Vice Captain",
+        "ID": "2018B1A40948G",
+        "Personal": "vivekgupte07@gmail.com",
+        "Calling": "9689945114",
+        "Whatsapp": 9689945114
+      }
+    ]
+  },
+  {
+    "Club": "Boys' Basketball Team",
+    "PORs": [
+      {
+        "Name": "Vrushal Chaudhari",
+        "Post": "Captain",
+        "ID": "2018A4PS0825G",
+        "Personal": "vrushal572@gmail.com",
+        "Calling": "9029207551",
+        "Whatsapp": 9029207551
+      },
+      {
+        "Name": "Aaditya Singh",
+        "Post": "Vice Captain",
+        "ID": "2018A7PS0161G",
+        "Personal": "aadityasingh0702@gmail.com",
+        "Calling": "9886690702",
+        "Whatsapp": 9886690702
+      }
+    ]
+  }
+]
