@@ -35,7 +35,7 @@
     "register-service-worker": "1.7.1",
     "sass-loader": "^7.1.0",
     "string-replace-loader": "2.3.0",
-    "vee-validate": "3.3.3",
+    "vee-validate": "3.3.5",
     "vue-bulma-expanding": "0.0.1",
     "vue-carousel-3d": "^0.2.0",
     "vue-chartjs": "^3.4.0",
