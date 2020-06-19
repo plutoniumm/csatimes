@@ -7,21 +7,19 @@
             <span style="font-size: 2rem;">{{club.Club}}</span>
             <span>
               <hr />
-              Founded: {{club.Founded}}
             </span>
           </div>
           <div>
-            <div v-if = "club.Logo !== null">
-              <!-- <img :src="require('../../assets' + club.Logo)" :alt="club.Name" /> -->
-            </div>
+            <!-- <img :src="require('../../assets' + club.Logo)" :alt="club.Name" /> -->
             <div>{{club.Description}}</div>
           </div>
 
           <va-collapse customHeader>
-            <span slot="header">
+            <span slot="header" style="text-align: center;">
               <va-button
                 color="info"
                 icon-right="ion-ios-arrow-down arrow-down"
+                style="text-align: center;"
               >PORs</va-button>
             </span>
             <div slot="body" style="height: 270px;">
@@ -49,7 +47,7 @@
   </div>
 </template>
 <script>
-import data from './pclubs.json'
+import data from './por.json'
 export default {
   data () {
     return {

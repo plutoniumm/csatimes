@@ -149,14 +149,14 @@
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
-          <router-link :to="{ path: '../clubs'}" append exact>
+          <router-link :to="{ path: '../departments'}" append exact>
             <va-button color="warning">Departments</va-button>
           </router-link>
         </va-card>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
         <va-card>
-          <router-link :to="{ path: '../clubs'}" append exact>
+          <router-link :to="{ path: '../events'}" append exact>
             <va-button color="info">Events</va-button>
           </router-link>
         </va-card>

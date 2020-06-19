@@ -88,6 +88,11 @@ export default new Router({
           path: '/sports',
           component: () => import('../components/sports/Sports.vue'),
         },
+        {
+          name: 'departments',
+          path: '/departments',
+          component: () => import('../components/departments/Departments.vue'),
+        },
       ],
     },
   ],
