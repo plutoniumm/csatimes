@@ -78,7 +78,6 @@ export default {
 
   &__content {
     background-color: $dropdown-background;
-    box-shadow: $gray-box-shadow;
     border-radius: 0.5rem;
     max-width: 22.5rem;
   }
@@ -105,17 +104,6 @@ export default {
         margin: auto;
         border-radius: 0.187rem;
       }
-    }
-
-    &:hover {
-      color: $vue-green;
-    }
-
-    &__avatar {
-      border-radius: 50%;
-      width: 1.5rem;
-      height: 1.5rem;
-      min-width: 1.5rem;
     }
   }
 

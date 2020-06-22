@@ -34,7 +34,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#46bee2',
+      default: 'black',
     },
   },
   data () {
@@ -64,11 +64,12 @@ export default {
 
 <style lang="scss">
 .app-sidebar {
+  color: white !important;
   overflow: auto;
   display: flex;
   max-height: 100%;
   flex: 0 0 12rem;
-  background: #8ecffc;
+  background: black;
 
   @include media-breakpoint-down(sm) {
     flex: 0 0 100%;
@@ -80,7 +81,7 @@ export default {
 
   &__menu {
     margin-bottom: 0;
-    padding-top: 2.5625rem;
+    padding-top: 4rem;
     padding-bottom: 2.5rem;
     list-style: none;
     padding-left: 0;

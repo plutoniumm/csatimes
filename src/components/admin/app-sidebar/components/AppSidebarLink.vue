@@ -9,8 +9,9 @@
       :target="target"
     >
       <div>
-        <va-icon v-if="icon" :name="icon" style="margin: 0.5rem;">{{icon}}</va-icon></div>
-      <div class="app-sidebar-link__item-title" style="color: black;" v-if="title">
+        <va-icon v-if="icon" :name="icon" style="margin: 0.5rem;">{{icon}}</va-icon>
+      </div>
+      <div class="app-sidebar-link__item-title" style="color: white;" v-if="title">
         <slot>{{title}}</slot>
       </div>
     </router-link>

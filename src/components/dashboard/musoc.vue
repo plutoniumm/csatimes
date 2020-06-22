@@ -1,10 +1,14 @@
 <template>
-  <va-card title="Music Night Recommendations" class="flex xs12 sm6" data-aos="fade-left">
+  <va-card
+    title="Music Night Recommendations"
+    class="flex xs12 sm6"
+    data-aos="fade-left"
+    style="background-image: linear-gradient(to right, blue, purple); color: white;"
+  >
     <form @submit.prevent="musoc()">
       <div class="row">
         <div class="flex xs12">
-          Recommend One Song to The Music Society that you would like to see
-          them cover in their next event!
+          <h1>Recommend your song for Musoc to Cover!</h1>
           <div class="flex">
             <va-input v-model="song" placeholder="Ex. Paper Kites by Bharat Rajagopalan" />
             <div class="d-flex justify--center mt-3">

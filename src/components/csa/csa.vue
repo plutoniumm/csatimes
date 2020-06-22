@@ -1,5 +1,9 @@
 <template>
   <div class="xs12">
+    <br />
+    <br />
+    <br />
+    <br />
     <!-- SUPER INPUT FIREBASE -->
     <div class="row">
       <div class="flex xs12 sm6">
@@ -40,75 +44,33 @@
       </div>
     </div>
 
-    <va-collapse customHeader>
-      <span slot="header">
-        <va-button
-          color="info"
-          icon-right="ion-ios-arrow-down arrow-down"
-        >Council of Student Affairs Members</va-button>
-      </span>
-      <div slot="body" style="height: 272px;">
-        <carousel-3d :controls-visible="true">
-          <slide v-for="(person,slide) in people" :index="slide" :key="slide">
-            <figure>
-              <img :src="require('../../assets/pics/'+person.picture)">
-              <figcaption style="font-size: 1rem;">
-                <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
-                <br>
-                {{person.phone}}
-                <br>{{person.address}}@goa.bits-pilani.ac.in
-              </figcaption>
-            </figure>
-          </slide>
-        </carousel-3d>
-      </div>
-    </va-collapse>
-
-    <va-collapse customHeader>
-      <span slot="header">
-        <va-button
-          color="info"
-          icon-right="ion-ios-arrow-down arrow-down"
-        >DisCo</va-button>
-      </span>
-      <div slot="body" style="height: 272px;"><carousel-3d :controls-visible="true">
+    <va-card title="Disciplinary Committee & ICC">
+      <carousel-3d :controls-visible="true">
         <slide v-for="(person,slide) in people1" :index="slide" :key="slide">
-          <figure>
-            <img :src="require('../../assets/pics/'+person.picture)">
-            <figcaption style="font-size: 1rem;">
-              <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
-              <br>
-              {{person.phone}}
-              <br>{{person.address}}@goa.bits-pilani.ac.in
-            </figcaption>
-          </figure>
+          <va-card>
+            <div class="row">
+              <div class="flex xs4">
+                <img :src="require('../../assets/pics/'+person.picture)" />
+              </div>
+              <div class="flex xs8">
+                <h1>
+                  <strong>{{person.name}}</strong>
+                </h1>
+                <br />
+                {{person.post}}
+                <br />
+                <br />
+                <strong>Phone:</strong>
+                {{person.phone}}
+                <br />
+                <strong>Email:</strong>
+                {{person.address}}@goa.bits-pilani.ac.in
+              </div>
+            </div>
+          </va-card>
         </slide>
       </carousel-3d>
-      </div>
-    </va-collapse>
-
-    <va-collapse customHeader>
-      <span slot="header">
-        <va-button
-          color="info"
-          icon-right="ion-ios-arrow-down arrow-down"
-        >Placement Unit and ICC</va-button>
-      </span>
-      <div slot="body" style="height: 272px;"><carousel-3d :controls-visible="true">
-        <slide v-for="(person,slide) in people2" :index="slide" :key="slide">
-          <figure>
-            <img :src="require('../../assets/pics/'+person.picture)">
-            <figcaption style="font-size: 1rem;">
-              <span style="font-size: 1.5rem;">{{person.name}}</span> ({{person.post}})
-              <br>
-              {{person.phone}}
-              <br>{{person.address}}@goa.bits-pilani.ac.in
-            </figcaption>
-          </figure>
-        </slide>
-      </carousel-3d>
-      </div>
-    </va-collapse>
+    </va-card>
   </div>
 </template>
 
@@ -221,18 +183,7 @@ export default {
 </script>
 <style lang='scss'>
 body {
-  background-color: #8ecffc;
-}
-
-.carousel-3d-container figcaption {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  bottom: 0;
-  padding: 15px;
-  font-size: 12px;
-  min-width: 100%;
-  box-sizing: border-box;
+  background-color: black;
 }
 
 .carousel-3d-container figure {

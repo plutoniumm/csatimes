@@ -1,9 +1,11 @@
 <template>
   <div class="xs12">
-    <va-card color="info" style="text-align: center; font-size: 3rem;"><h2>BITS GOA STARTUPS</h2></va-card>
+    <va-card color="info" style="text-align: center; font-size: 3rem;">
+      <h2>BITS GOA STARTUPS</h2>
+    </va-card>
 
-    <br>
-    <br>
+    <br />
+    <br />
     <div class="row">
       <div class="flex xs12 sm6 lg4" v-for="startup in startups" :key="startup">
         <va-card no padding>
@@ -12,7 +14,7 @@
               <h3>{{startup.Name}}</h3>
             </div>
           </va-card>
-          <br>
+          <br />
           {{ startup.content }}
         </va-card>
       </div>
@@ -36,6 +38,6 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 </style>

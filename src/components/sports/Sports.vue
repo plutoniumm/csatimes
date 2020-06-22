@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="flex xs12">
-      <va-card color="info" style="text-align: center; font-size: 3rem;"><h2>SPORTS TEAMS</h2></va-card>
-      <br>
-      <br>
-      <br>
+      <va-card color="info" style="text-align: center; font-size: 3rem;">
+        <h2>SPORTS TEAMS</h2>
+      </va-card>
+      <br />
+      <br />
+      <br />
     </div>
     <template v-for="sport in sports">
       <div :key="sport" style="text-align: center;">
@@ -13,25 +15,31 @@
             <span style="font-size: 2rem;">{{sport.Club}}</span>
             <span>
               <hr />
-              <br>
+              <br />
             </span>
           </div>
 
-          <div v-for="(por,slide) in sport.PORs" :index="slide" :key="slide" style="font-size: 1rem; display: inline-block; margin: 1.5rem;">
+          <div
+            v-for="(por,slide) in sport.PORs"
+            :index="slide"
+            :key="slide"
+            style="font-size: 1rem; display: inline-block; margin: 1.5rem;"
+          >
             <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
             <div>
-              <span style="font-size: 1.5rem;">{{por.Name}}</span> ({{por.Post}})
-              <br>
+              <span style="font-size: 1.5rem;">{{por.Name}}</span>
+              ({{por.Post}})
+              <br />
               {{por.ID}}
-              <br>
-              Calling No. {{por.Calling}}  |  Whatsapp No. {{por.Whatsapp}}
-              <br>{{por.Personal}}
+              <br />
+              Calling No. {{por.Calling}} | Whatsapp No. {{por.Whatsapp}}
+              <br />
+              {{por.Personal}}
             </div>
           </div>
-
         </va-card>
-        <br>
-        <br>
+        <br />
+        <br />
       </div>
     </template>
   </div>
@@ -49,7 +57,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 
 p {
@@ -62,5 +70,4 @@ p {
   margin: 0 auto;
   height: auto;
 }
-
 </style>

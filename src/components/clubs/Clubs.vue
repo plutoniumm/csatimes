@@ -11,7 +11,7 @@
             </span>
           </div>
           <div>
-            <div v-if = "club.Logo !== null">
+            <div v-if="club.Logo !== null">
               <!-- <img :src="require('../../assets' + club.Logo)" :alt="club.Name" /> -->
             </div>
             <div>{{club.Description}}</div>
@@ -19,10 +19,7 @@
 
           <va-collapse customHeader>
             <span slot="header">
-              <va-button
-                color="info"
-                icon-right="ion-ios-arrow-down arrow-down"
-              >PORs</va-button>
+              <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">PORs</va-button>
             </span>
             <div slot="body" style="height: 270px;">
               <carousel-3d :controls-visible="true">
@@ -30,20 +27,25 @@
                   <figure>
                     <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
                     <figcaption style="font-size: 1rem;">
-                      <span style="font-size: 1.5rem;">{{por.Name}}</span> ({{por.Post}})
-                      <br>
+                      <span style="font-size: 1.5rem;">{{por.Name}}</span>
+                      ({{por.Post}})
+                      <br />
                       {{por.ID}}
-                      <br>{{por.Personal}}
-                      <br> Calling No - {{por.Calling}}  <br> Whatsapp No - {{por.Whatsapp}}
+                      <br />
+                      {{por.Personal}}
+                      <br />
+                      Calling No - {{por.Calling}}
+                      <br />
+                      Whatsapp No - {{por.Whatsapp}}
                     </figcaption>
                   </figure>
                 </slide>
               </carousel-3d>
             </div>
           </va-collapse>
-
         </va-card>
-        <br><br>
+        <br />
+        <br />
       </div>
     </template>
   </div>
@@ -61,7 +63,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 
 p {

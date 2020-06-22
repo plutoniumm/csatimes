@@ -4,7 +4,6 @@
       <div class="app-navbar__menu-container">
         <va-icon-menu
           class="app-navbar__menu"
-          color="black"
           v-if="!minimized"
           @click.native="$emit('update:minimized', !minimized)"
         />
@@ -12,12 +11,10 @@
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized"
-          color="black"
           @click.native="$emit('update:minimized', !minimized)"
         />
-        <span style="color: black;">CSATimes</span>
       </div>
-      <app-navbar-actions class="app-navbar__actions md5 lg4" color="black" :user-name="userName" />
+      <app-navbar-actions class="app-navbar__actions md5 lg4" :user-name="userName" />
     </div>
   </nav>
 </template>
@@ -61,15 +58,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $nav-border-side-width: 3.2rem;
 
+* {
+  color: white;
+}
+
 .app-navbar {
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(0.5em);
+  -webkit-backdrop-filter: blur(0.5em);
   display: flex;
   padding: 1rem 1rem;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  z-index: 5;
 
   &__content {
     z-index: 1;
@@ -79,13 +82,6 @@ $nav-border-side-width: 3.2rem;
     flex-wrap: wrap;
     height: 100%;
     flex: 1 1 auto;
-  }
-
-  &__center {
-    display: flex;
-    margin-left: 3rem;
-    justify-content: space-between;
-    align-items: center;
   }
 
   &__menu {
@@ -101,20 +97,6 @@ $nav-border-side-width: 3.2rem;
     display: flex;
     flex-wrap: nowrap;
     height: 1.5rem;
-  }
-
-  &__logo {
-    width: 9.5rem;
-    height: auto;
-    align-items: center;
-
-    & * {
-      max-height: 100%;
-      max-width: 100%;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
   }
 
   &__actions {

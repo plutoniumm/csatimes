@@ -1,11 +1,15 @@
 <template>
   <div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <va-card
+      style="background-image: linear-gradient(to right, yellow, blue, orange);"
+    >Student Portal</va-card>
     <va-collapse customHeader>
       <span slot="header">
-        <va-button
-          color="info"
-          icon-right="ion-ios-arrow-down arrow-down"
-        >PR Drives</va-button>
+        <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">PR Drives</va-button>
       </span>
       <div slot="body">
         <div class="flex xs12" style="overflow-x: auto; display: inline;">
@@ -48,10 +52,7 @@
     <!-- DATA TABLE -->
     <va-collapse customHeader>
       <span slot="header">
-        <va-button
-          color="info"
-          icon-right="ion-ios-arrow-down arrow-down"
-        >Humanities Reviews</va-button>
+        <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">Humanities Reviews</va-button>
       </span>
       <div slot="body">
         <va-card :title="('Humanities Reviews')" style="color: black;">
@@ -163,6 +164,7 @@
       </div>
     </div>
     <!-- Tools Links-->
+    <va-card style="background-image: linear-gradient(to right, yellow, red);">Important Links</va-card>
     <div class="row">
       <div
         class="flex xs12 sm6 lg4 xl3"
@@ -178,11 +180,12 @@
             :title="item.title"
             :to="item.href"
             onmouseover="this.style.cursor='pointer';"
-          >{{ item.message }}</va-card>
+          >
+            <!-- {{ item.message }} -->
+          </va-card>
         </a>
       </div>
     </div>
-
   </div>
 </template>
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
@@ -200,7 +203,7 @@ export default {
       perPageOptions: ['4', '6', '10', '20', '50'],
       users: users,
       items: [
-          { title: "BITS Goa ERP", href: "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", image: "https://logodix.com/logo/635166.png",
+          { title: "BITS Goa ERP", href: "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", image: "https://erp.bits-pilani.ac.in/img/bits-tagline.png",
           message: "Go to BITS Goa ERP" },
           { title: "Student Welfare Divison", href: "https://swd.bits-goa.ac.in", image: "https://swd.bits-goa.ac.in/static_files/img/swd.png",
           message: "Go to BITS Goa SWD Website" },
@@ -274,6 +277,6 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 </style>

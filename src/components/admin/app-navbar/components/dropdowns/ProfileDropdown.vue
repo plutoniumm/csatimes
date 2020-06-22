@@ -7,7 +7,7 @@
   >
     <span
       class="profile-dropdown__anchor" slot="anchor"
-      style="color: black;"
+      style="color: white;"
     >
       <slot/>
       <va-icon

@@ -28,20 +28,25 @@
                   <figure>
                     <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
                     <figcaption style="font-size: 1rem;">
-                      <span style="font-size: 1.5rem;">{{por.Name}}</span> ({{por.Post}})
-                      <br>
+                      <span style="font-size: 1.5rem;">{{por.Name}}</span>
+                      ({{por.Post}})
+                      <br />
                       {{por.ID}}
-                      <br>{{por.Personal}}
-                      <br> Calling No - {{por.Calling}}  <br> Whatsapp No - {{por.Whatsapp}}
+                      <br />
+                      {{por.Personal}}
+                      <br />
+                      Calling No - {{por.Calling}}
+                      <br />
+                      Whatsapp No - {{por.Whatsapp}}
                     </figcaption>
                   </figure>
                 </slide>
               </carousel-3d>
             </div>
           </va-collapse>
-
         </va-card>
-        <br><br>
+        <br />
+        <br />
       </div>
     </template>
   </div>
@@ -59,7 +64,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 
 p {

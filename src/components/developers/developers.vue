@@ -1,5 +1,9 @@
 <template>
   <div>
+    <br />
+    <br />
+    <br />
+    <br />
     <div>
       <div class="row">
         <div class="flex xs12 sm6">
@@ -170,6 +174,6 @@ export default {
 
 <style lang="scss" scoped>
 body {
-  background-color: #8ecffc;
+  background-color: black;
 }
 </style>
