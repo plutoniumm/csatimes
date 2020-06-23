@@ -62,7 +62,7 @@ body {
 
 .csatimes {
   color: white;
-  background-image: linear-gradient(to right, yellow, red);
+  background-image: radial-gradient(circle at 0% 100%, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 50%, rgba(255, 229, 180, 1) 100%);
   font-size: 500%;
   display: flex;
   justify-content: center;

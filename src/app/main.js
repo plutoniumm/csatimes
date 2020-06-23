@@ -14,29 +14,28 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Carousel3d from 'vue-carousel-3d'
 
-if (process.env.VUE_APP_BUILD_VERSION) {
-  // eslint-disable-next-line
+/* eslint-disable */
+if ( process.env.VUE_APP_BUILD_VERSION ) {
   const message = `%c${ 'Build_information:' }\n %c${ 'Version' }: %c${ VERSION },\n %c${ 'Timestamp' }: %c${ TIMESTAMP },\n %c${ 'Commit' }: %c${ COMMIT }`
-  // eslint-disable-next-line
   console.info(
     message,
     'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;',
   )
 }
 
-Vue.use(VuesticPlugin)
-Vue.use(VueClipboard)
-Vue.use(firestorePlugin)
-Vue.use(Carousel3d)
-Vue.use(ColorThemePlugin, {
+Vue.use( VuesticPlugin )
+Vue.use( VueClipboard )
+Vue.use( firestorePlugin )
+Vue.use( Carousel3d )
+Vue.use( ColorThemePlugin, {
   // override colors here.
-})
+} )
 
 /* eslint-disable no-new */
-new Vue({
+new Vue( {
   created () { AOS.init() },
   el: '#app',
   router,
   store,
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h( App ),
+} ).$mount( '#app' )

@@ -4,168 +4,114 @@
     <br />
     <br />
     <br />
-    <va-card
-      style="background-image: linear-gradient(to right, yellow, blue, orange);"
-    >Student Portal</va-card>
-    <va-collapse customHeader>
-      <span slot="header">
-        <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">PR Drives</va-button>
-      </span>
-      <div slot="body">
-        <div class="flex xs12" style="overflow-x: auto; display: inline;">
-          <form>
-            <template v-for="prevent in pr">
-              <va-card class="flex sm6 xs12" :key="'item' + prevent.name" data-aos="fade-left">
-                <form @submit.prevent="onsubmit()">
-                  <template v-for="(imag, i) in prevent.images">
-                    <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
-                  </template>
-                  <br />
-                  <va-input v-model="withDescription" placeholder="Enter the scanned QR code here" />
-                  <div v-if="prevent.is_nick == true">
-                    <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
-                    <va-checkbox label="Add nick?" v-model="checkbox" />
-                    <va-input v-if="checkbox==true" v-model="nick" placeholder="Enter nick here" />
-                    <va-input label="Number of Tees" v-model="value" type="number" width="50%" />
-                  </div>
-                  <div v-else>
-                    <h2>Price</h2>
-                    {{prevent.price}}
-                  </div>
-                  <va-select
-                    label="Choose Size"
-                    v-model="simpleSelectModel"
-                    textBy="description"
-                    :options="prevent.available_sizes"
-                    width="50%"
-                  />
-                  <va-button color="danger" type="submit">Go</va-button>
-                  <br />
-                </form>
-              </va-card>
-            </template>
-          </form>
-        </div>
+    <div class="row">
+      <div class="flex xs12 sm6">
+        <va-card class="upcoming">What's Coming</va-card>
       </div>
-    </va-collapse>
-
-    <!-- DATA TABLE -->
-    <va-collapse customHeader>
-      <span slot="header">
-        <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">Humanities Reviews</va-button>
-      </span>
-      <div slot="body">
-        <va-card :title="('Humanities Reviews')" style="color: black;">
-          <div class="row align--center">
-            <div class="flex xs12 md6">
-              <va-input
-                :value="term"
-                :placeholder="('Search by Course Code, Name or IC')"
-                @input="search"
-                removable
-              >
-                <va-icon name="fa fa-search" slot="prepend" />
-              </va-input>
+      <div style="display: inline-block;">
+        <va-collapse customHeader>
+          <span slot="header">
+            <div class="flex xs12 sm6 lg4 xl3">
+              <va-card class="portalboxes" style="text-align: center;">
+                <i
+                  class="icongrad fas fa-rocket"
+                  style="background: -webkit-linear-gradient(45deg, green, red);"
+                ></i>
+                <p>Humanities Reviews</p>
+              </va-card>
             </div>
-
-            <div class="flex xs12 md3 offset--md3">
-              <va-select
-                v-model="perPage"
-                :label="('Show Per Page')"
-                :options="perPageOptions"
-                noClear
-              />
+          </span>
+          <div slot="body">
+            <Humanity />
+          </div>
+        </va-collapse>
+      </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
+        <va-collapse customHeader>
+          <span slot="header">
+            <va-card class="portalboxes" style="text-align: center;">
+              <i
+                class="icongrad fas fa-rocket"
+                style="background: -webkit-linear-gradient(45deg, green, red);"
+              ></i>
+              <p>PR Drives</p>
+            </va-card>
+          </span>
+          <div slot="body">
+            <div class="flex xs12" style="overflow-x: auto; display: inline;">
+              <form>
+                <template v-for="prevent in pr">
+                  <va-card class="flex sm6 xs12" :key="'item' + prevent.name" data-aos="fade-left">
+                    <form @submit.prevent="onsubmit()">
+                      <template v-for="(imag, i) in prevent.images">
+                        <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
+                      </template>
+                      <br />
+                      <va-input
+                        v-model="withDescription"
+                        placeholder="Enter the scanned QR code here"
+                      />
+                      <div v-if="prevent.is_nick == true">
+                        <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
+                        <va-checkbox label="Add nick?" v-model="checkbox" />
+                        <va-input
+                          v-if="checkbox==true"
+                          v-model="nick"
+                          placeholder="Enter nick here"
+                        />
+                        <va-input label="Number of Tees" v-model="value" type="number" width="50%" />
+                      </div>
+                      <div v-else>
+                        <h2>Price</h2>
+                        {{prevent.price}}
+                      </div>
+                      <va-select
+                        label="Choose Size"
+                        v-model="simpleSelectModel"
+                        textBy="description"
+                        :options="prevent.available_sizes"
+                        width="50%"
+                      />
+                      <va-button color="danger" type="submit">Go</va-button>
+                      <br />
+                    </form>
+                  </va-card>
+                </template>
+              </form>
             </div>
           </div>
-
-          <va-data-table :fields="fields" :data="filteredData" :per-page="parseInt(perPage)">
-            <template slot="review" slot-scope="props">
-              <va-collapse customHeader>
-                <span slot="header">
-                  <va-button
-                    style="width: 100%;"
-                    color="info"
-                    icon-right="ion-ios-arrow-down arrow-down"
-                  >Bulletin Description</va-button>
-                </span>
-                <div slot="body">
-                  <div>{{ props.rowData.bulletin }}</div>
-                </div>
-              </va-collapse>
-              <br />
-              <va-collapse customHeader>
-                <span slot="header">
-                  <va-button
-                    style="width: 100%;"
-                    color="warning"
-                    icon-right="ion-ios-arrow-down arrow-down"
-                  >Student Review</va-button>
-                </span>
-                <div slot="body">
-                  <div>{{ props.rowData.review }}</div>
-                </div>
-              </va-collapse>
-            </template>
-          </va-data-table>
-        </va-card>
-      </div>
-    </va-collapse>
-
-    <div class="row">
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <!-- Link Blocks-->
-          <router-link :to="{ path: '../hall'}" append exact>
-            <va-button color="danger">Hall of Fame</va-button>
-          </router-link>
-        </va-card>
+        </va-collapse>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../startup'}" append exact>
-            <va-button color="warning">BITS Goa Startups</va-button>
-          </router-link>
-        </va-card>
+        <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
+          <va-card class="portalboxes">
+            <i
+              class="icongrad fas fa-comments"
+              style="background: -webkit-linear-gradient(45deg, green, red);"
+            ></i>
+            <p>Exam Schedule</p>
+          </va-card>
+        </a>
       </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
-            <va-button color="info">Exam Schedule</va-button>
-          </a>
-        </va-card>
+      <div class="flex xs12 sm6">
+        <va-card class="studpor">Student Portal</va-card>
       </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../clubs'}" append exact>
-            <va-button color="success">Clubs</va-button>
-          </router-link>
-        </va-card>
+      <div
+        v-for="link in portlinks"
+        :key="link"
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+      >
+        <router-link :to="{ path: link.link}" append exact>
+          <va-card class="portalboxes">
+            <i :class="link.icon" :style="link.icograd"></i>
+            <p>{{link.name}}</p>
+          </va-card>
+        </router-link>
       </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../sports'}" append exact>
-            <va-button color="danger">Sports Teams</va-button>
-          </router-link>
-        </va-card>
+      <div class="flex xs12 sm6">
+        <va-card class="implinks">Important Links</va-card>
       </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../departments'}" append exact>
-            <va-button color="warning">Departments</va-button>
-          </router-link>
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <va-card>
-          <router-link :to="{ path: '../events'}" append exact>
-            <va-button color="info">Events</va-button>
-          </router-link>
-        </va-card>
-      </div>
-    </div>
-    <!-- Tools Links-->
-    <va-card style="background-image: linear-gradient(to right, yellow, red);">Important Links</va-card>
-    <div class="row">
       <div
         class="flex xs12 sm6 lg4 xl3"
         style="text-align: center;"
@@ -191,17 +137,13 @@
 <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 
 <script>
-import { debounce } from 'lodash'
 import axios from 'axios'
-import users from './humanities.json'
+import Humanity from './humanities.vue'
 
 export default {
+  components: {Humanity},
   data () {
     return {
-      term: null,
-      perPage: '4',
-      perPageOptions: ['4', '6', '10', '20', '50'],
-      users: users,
       items: [
           { title: "BITS Goa ERP", href: "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", image: "https://erp.bits-pilani.ac.in/img/bits-tagline.png",
           message: "Go to BITS Goa ERP" },
@@ -220,6 +162,14 @@ export default {
           { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
             message: "Go to the CSATimes Mini IDE, code in 30+ Languages" }
       ],
+      portlinks:[
+            { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hall", },
+            { "name": "BPGC Startups", "icon": "icongrad fas fa-rocket", "icograd":"background: -webkit-linear-gradient(45deg, #fc5185, #3fc1c9);", "link": "../startup", },
+            { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../sports", },
+            { "name": "Departments", "icon": "icongrad fas fa-cocktail", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, blue);", "link": "../departments", },
+            { "name": "Sports Teams", "icon": "icongrad fas fa-quidditch", "icograd":"background: -webkit-linear-gradient(45deg, red, yellow, red);", "link": "../sports", },
+            { "name": "Events", "icon": "icongrad fas fa-calendar-check", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #3f5efb);", "link": "../events", }
+      ],
       pr: null,
       nick: null,
       withDescription: '',
@@ -229,39 +179,6 @@ export default {
       checkbox: false,
       value: 1,
     }
-  },
-  computed: {
-    fields () {
-      return [{
-        name: 'course',
-        title: 'Course Name',
-        width: '15%',
-      },,{
-        name: 'code',
-        title: 'Course Code',
-        width: '5%',
-      }, {
-        name: 'ic',
-        title: 'In-Charge',
-        width: '10%',
-      }, {
-        name: '__slot:review',
-        title: 'Student Review',
-      }]
-    },
-    filteredData () {
-      if (!this.term || this.term.length < 1) {
-        return this.users
-      }
-      return this.users.filter(item => {
-        return item.course.toLowerCase().includes(this.term.toLowerCase()) || item.ic.toLowerCase().includes(this.term.toLowerCase()) || item.code.toLowerCase().includes(this.term.toLowerCase())
-      })
-    },
-  },
-  methods: {
-    search: debounce(function (term) {
-      this.term = term
-    }, 400),
   },
   mounted () {
     axios
@@ -276,7 +193,66 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  text-decoration: none;
+}
+
 body {
   background-color: black;
+}
+
+.implinks {
+  background-image: linear-gradient(to right, blue 0%, red 100%);
+  color: white;
+  font-size: 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75em;
+}
+
+.studpor {
+  background-image:
+    radial-gradient(
+      circle at 0% 100%,
+      red 0%,
+      cyan 40%,
+      rebeccapurple 100%
+    );
+  color: white;
+  font-size: 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75em;
+}
+
+.upcoming {
+  background-image:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(144, 238, 144, 1) 0%,
+      rgba(255, 229, 180, 1) 40%,
+      rgba(252, 70, 107, 1) 100%
+    );
+  color: white;
+  font-size: 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75em;
+}
+
+.portalboxes {
+  background-image: linear-gradient(rgba(18, 18, 18, 1), rgba(18, 18, 18, 1));
+  color: white;
+  height: 11.25em;
+}
+
+.icongrad {
+  font-size: 5em;
+  padding: 0.25em;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 </style>
