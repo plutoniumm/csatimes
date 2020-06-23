@@ -1,24 +1,16 @@
 <template>
-  <div>
-    <div class="dashboard">
-      <template v-for="notice in start1">
-        <va-card slot="after" stripe="danger" class="mb-0" :key="'item' + notice.name">
-          <h2>{{ notice.writer }}</h2>
-          <div>
-            <div>
-              <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
-              <hr />
-              <strong>{{ notice.name }}</strong>
-              <br>
-              {{ notice.summary }}
-              <br>
-            </div>
-            <br>
-            <span style="color: #a7a7a7;">Brought to you by CSA</span>
-          </div>
-        </va-card>
-        <br>
-      </template>
+  <div class="row">
+    <div class="flex xs12 sm6" v-for="notice in start1">
+      <va-card class="mb-0 upds" :key="'item' + notice.name">
+        <div class="mailtop">
+          <span>
+            <h1>{{ notice.writer }}</h1>
+          </span>
+          <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
+        </div>
+        <div style="margin: 0.5em 0;">{{ notice.name }}</div>
+        <span style="color: #dddddd;">{{ notice.summary }}</span>
+      </va-card>
     </div>
   </div>
 </template>
@@ -30,15 +22,15 @@ export default {
   name: 'CampusUpdates',
   components: {
   },
-  methods: {
-    submit (data) {
-      this.$emit('submit', data)
-    },
-  },
   data () {
     return {
       start1: null,
     }
+  },
+  methods: {
+    submit (data) {
+      this.$emit('submit', data)
+    },
   },
   mounted () {
     axios
@@ -53,4 +45,14 @@ export default {
 </script>
 
 <style lang="scss">
+.mailtop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upds {
+  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
+  color: white;
+  margin-top: 1em;
+}
 </style>

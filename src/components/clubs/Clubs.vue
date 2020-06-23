@@ -76,19 +76,4 @@ p {
   margin: 0 auto;
   height: auto;
 }
-
-.carousel-3d-container figcaption {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  bottom: 0;
-  padding: 15px;
-  font-size: 12px;
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.carousel-3d-container figure {
-  margin: 0;
-}
 </style>

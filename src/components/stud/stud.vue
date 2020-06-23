@@ -244,7 +244,7 @@ body {
 }
 
 .portalboxes {
-  background-image: linear-gradient(rgba(18, 18, 18, 1), rgba(18, 18, 18, 1));
+  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
   color: white;
   height: 11.25em;
 }

@@ -19,11 +19,7 @@
           <form @submit.prevent="executer()">
             <div class="row">
               <div class="flex xs12">
-                <va-input
-                  :label="perPage"
-                  v-model="description"
-                  placeholder="Tell us your grievance"
-                />
+                <input :label="perPage" v-model="description" placeholder="Tell us your grievance" />
                 <va-button>Submit</va-button>
               </div>
             </div>
@@ -32,15 +28,13 @@
       </div>
 
       <div class="flex xs12 sm6">
-        <va-card>
-          <div class="flex" v-for="issue in this.grievances" :key="issue">
-            <va-card stripe="danger">
-              <h2>{{ issue.type }}</h2>
-              <div>{{ issue.description }}</div>
-              {{ issue.issueid }}, {{ issue.status }}
-            </va-card>
-          </div>
-        </va-card>
+        <div class="flex" v-for="issue in this.grievances" :key="issue">
+          <va-card stripe="danger">
+            <h2>{{ issue.type }}</h2>
+            <div>{{ issue.description }}</div>
+            {{ issue.issueid }}, {{ issue.status }}
+          </va-card>
+        </div>
       </div>
     </div>
 
@@ -124,7 +118,7 @@ export default {
     executer () {
       const issueid = Date.now()
         .toString()
-        .slice(4)
+        .slice(3, 11)
       if (this.toggle === false) {
         this.sender = '20180795'
         staticdb
@@ -174,8 +168,8 @@ export default {
   firestore () {
     return {
       grievances: staticdb
-        .collection('Save')
-        .doc('Complaint')
+        .collection('Store')
+        .doc('Grievances')
         .collection('20180795'),
     }
   },
