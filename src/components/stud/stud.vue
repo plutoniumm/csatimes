@@ -14,8 +14,8 @@
             <div class="flex xs12 sm6 lg4 xl3">
               <va-card class="portalboxes" style="text-align: center;">
                 <i
-                  class="icongrad fas fa-rocket"
-                  style="background: -webkit-linear-gradient(45deg, green, red);"
+                  class="icongrad fas fa-peace"
+                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
                 ></i>
                 <p>Humanities Reviews</p>
               </va-card>
@@ -31,8 +31,8 @@
           <span slot="header">
             <va-card class="portalboxes" style="text-align: center;">
               <i
-                class="icongrad fas fa-rocket"
-                style="background: -webkit-linear-gradient(45deg, green, red);"
+                class="icongrad fas fa-signature"
+                style="background: -webkit-linear-gradient(45deg, green, white, green);"
               ></i>
               <p>PR Drives</p>
             </va-card>
@@ -86,8 +86,8 @@
         <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
           <va-card class="portalboxes">
             <i
-              class="icongrad fas fa-comments"
-              style="background: -webkit-linear-gradient(45deg, green, red);"
+              class="icongrad fas fa-vials"
+              style="background: -webkit-linear-gradient(45deg, purple, white, purple);"
             ></i>
             <p>Exam Schedule</p>
           </va-card>
@@ -155,10 +155,6 @@ export default {
           message: "Go to Techforums by CTE" },
           { title: "Campus Website", href: "https://web.autocad.com/", image: "https://physociety.files.wordpress.com/2014/02/bits-goa.jpg?w=640",
           message: "Use Autodesk AutoCAD online right in the browser with your BITSID for free" },
-          { title: "AutoDesk AutoCAD", href: "https://web.autocad.com/", image: "https://logodix.com/logo/635166.png",
-          message: "Use Autodesk AutoCAD Online with your BITSID" },
-          { title: "MathWorks MATLAB", href: "https://matlab.mathworks.com", image: "https://i5j2k7b8.rocketcdn.me/wp-content/uploads/2017/04/Matlab.png",
-            message: "Use MathWorks MATLAB Online with your BITSID" },
           { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
             message: "Go to the CSATimes Mini IDE, code in 30+ Languages" }
       ],

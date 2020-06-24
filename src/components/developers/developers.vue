@@ -7,26 +7,21 @@
     <div>
       <div class="row">
         <div class="flex xs12 sm6">
-          <va-card title="GDPR Compliance" data-aos="fade-right">
-            <table class="va-table">
-              <thead>
-                <tr>
-                  <th>Law</th>
-                  <th>Status</th>
-                  <th>Reference</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr v-for="law in laws" :key="law">
-                  <td>{{ law.State }}</td>
-                  <td>
-                    <va-badge :color="law.color">{{ law.Badge }}</va-badge>
-                  </td>
-                  <td>{{ law.Location }}</td>
-                </tr>
-              </tbody>
-            </table>
+          <va-card
+            title="Tracker Information"
+            data-aos="fade-right"
+            class="infboxes"
+            style="left: -1em;"
+          >
+            <i class="fas fa-user-circle" style="color: blue; font-size: 3em;"></i>
+            <h2 style="padding: 1em;">CSATimes Web DOES NOT use any of the following trackers</h2>
+            <div class="row">
+              <div class="flex xs12 xm6 lg4" v-for="law in laws" :key="law">
+                <i :class="law.logo"></i>
+                {{law.tracker}}
+              </div>
+            </div>
+            <i class="far fa-times-circle" style="color: red; font-size: 1.5em;"></i>
           </va-card>
         </div>
         <div class="flex xs12 sm6">
@@ -161,11 +156,12 @@ export default {
   data () {
     return {
       laws: [
-        { State: 'We do not use Cookies', color: 'green', Badge: 'Compliant', Location: 'Recital 30' },
-        { State: 'We do not Sell any data collected on the Website', color: 'green', Badge: 'Compliant', Location: 'Recital 23' },
-        { State: 'We collect only the data we NEED for processing', color: 'green', Badge: 'Compliant', Location: 'Recital 23' },
-        { State: 'All Web Analytics Tracking is Anonymous', color: 'green', Badge: 'Compliant', Location: 'Recital 26' },
-        { State: 'You have a right to be Forgotten', color: 'red', Badge: 'Non Compliant', Location: 'Recital 65' },
+        { tracker: 'Location', logo: 'fas fa-location-arrow' },
+        { tracker: 'Financial Information', logo: 'fas fa-credit-card' },
+        { tracker: 'Contacts', logo: 'fas fa-address-book' },
+        { tracker: 'Cookies', logo: 'fas fa-cookie-bite' },
+        { tracker: 'Device Information', logo: 'fas fa-laptop' },
+        { tracker: 'Purchase Information', logo: 'fas fa-shopping-bag' },
       ],
     }
   },
@@ -175,5 +171,14 @@ export default {
 <style lang="scss" scoped>
 body {
   background-color: black;
+}
+
+.tracker {
+  padding-right: 1em;
+}
+
+.infboxes {
+  background: -webkit-linear-gradient(#d0d0d0, #a0a0a0);
+  text-align: center;
 }
 </style>

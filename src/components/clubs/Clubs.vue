@@ -22,7 +22,15 @@
               <va-button color="info" icon-right="ion-ios-arrow-down arrow-down">PORs</va-button>
             </span>
             <div slot="body" style="height: 270px;">
-              <carousel-3d :controls-visible="true">
+              <carousel
+                :per-page="1"
+                :centerMode="1"
+                :autoplay="1"
+                :easing="ease"
+                :loop="1"
+                :navigationEnabled="1"
+                :controls-visible="true"
+              >
                 <slide v-for="(por,slide) in club.Pors" :index="slide" :key="slide">
                   <figure>
                     <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
@@ -40,7 +48,7 @@
                     </figcaption>
                   </figure>
                 </slide>
-              </carousel-3d>
+              </carousel>
             </div>
           </va-collapse>
         </va-card>
