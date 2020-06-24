@@ -5,15 +5,79 @@
     <br />
     <br />
     <div class="row">
-      <!-- <div class="flex xs12 sm6">
-        <va-card class="upcoming">What's Coming</va-card>
-      </div> -->
       <div class="flex xs12 sm6">
         <va-card class="studpor">Student Portal</va-card>
       </div>
-    </div>
-    <div class="row">
-      <div class="flex sm6" style="display: inline-block;">
+      <div
+        v-for="link in portlinks"
+        :key="link"
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+      >
+        <router-link :to="{ path: link.link}" append exact>
+          <va-card class="portalboxes">
+            <i :class="link.icon" :style="link.icograd"></i>
+            <p>{{link.name}}</p>
+          </va-card>
+        </router-link>
+      </div>
+      <div class="flex xs12 sm6">
+        <va-card class="implinks">Important Links</va-card>
+      </div>
+      <div
+        v-for="link in implinks"
+        :key="link"
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+      >
+        <a :href="link.link">
+          <va-card class="portalboxes">
+            <i :class="link.icon" :style="link.icograd">{{link.reptext}}</i>
+            <p>{{link.name}}</p>
+          </va-card>
+        </a>
+      </div>
+      <div
+        class="flex xs12 sm6 lg4 xl3"
+        style="text-align: center;"
+        v-for="item in items"
+        :key="item"
+      >
+        <a :href="item.href" style="text-decoration: none; color: black;">
+          <va-card
+            overlay
+            titleOnImage
+            :image="item.image"
+            :title="item.title"
+            :to="item.href"
+            onmouseover="this.style.cursor='pointer';"
+          >
+            <!-- {{ item.message }} -->
+          </va-card>
+        </a>
+      </div>
+      <div class="flex xs12 sm6">
+        <va-card class="upcoming">What's Coming</va-card>
+      </div>
+      <div style="display: inline-block;">
+        <va-collapse customHeader>
+          <span slot="header">
+            <div class="flex sm6">
+              <va-card class="portalboxes" style="text-align: center;">
+                <i
+                  class="icongrad fas fa-peace"
+                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
+                ></i>
+                <p>Humanities Reviews</p>
+              </va-card>
+            </div>
+          </span>
+          <div slot="body">
+            <Humanity />
+          </div>
+        </va-collapse>
+      </div>
+      <div class="flex xs12 sm6" style="display: inline-block;">
         <va-collapse customHeader>
           <span slot="header">
             <va-card class="portalboxes" style="text-align: center;">
@@ -80,68 +144,6 @@
           </va-card>
         </a>
       </div>
-      <!-- <div class="flex xs12 sm6">
-        <va-card class="studpor">Student Portal</va-card>
-      </div> -->
-      <div
-        v-for="link in portlinks"
-        :key="link"
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
-      >
-        <router-link :to="{ path: link.link}" append exact>
-          <va-card class="portalboxes">
-            <i :class="link.icon" :style="link.icograd"></i>
-            <p>{{link.name}}</p>
-          </va-card>
-        </router-link>
-      </div>
-      <div style="display: inline-block;">
-        <va-collapse customHeader>
-          <span slot="header">
-            <div class="flex sm6">
-              <va-card class="portalboxes" style="text-align: center;">
-                <i
-                  class="icongrad fas fa-peace"
-                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
-                ></i>
-                <p>Humanities Reviews</p>
-              </va-card>
-            </div>
-          </span>
-          <div slot="body">
-            <Humanity />
-          </div>
-        </va-collapse>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <div class="flex xs12 sm6">
-        <va-card class="implinks">Important Links</va-card>
-      </div>
-    </div>
-    <div class="row">
-      <div
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
-        v-for="item in items"
-        :key="item"
-      >
-        <a :href="item.href" style="text-decoration: none; color: black;">
-          <va-card
-            overlay
-            titleOnImage
-            :image="item.image"
-            :title="item.title"
-            :to="item.href"
-            onmouseover="this.style.cursor='pointer';"
-          >
-            <!-- {{ item.message }} -->
-          </va-card>
-        </a>
-      </div>
     </div>
   </div>
 </template>
@@ -156,14 +158,8 @@ export default {
   data () {
     return {
       items: [
-          { title: "BITS Goa ERP", href: "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", image: "https://erp.bits-pilani.ac.in/img/bits-tagline.png",
-          message: "Go to BITS Goa ERP" },
-          { title: "Student Welfare Divison", href: "https://swd.bits-goa.ac.in", image: "https://swd.bits-goa.ac.in/static_files/img/swd.png",
-          message: "Go to BITS Goa SWD Website" },
           { title: "BITS Goa Library", href: "https://www.bits-goa.ac.in/Library/Index.aspx", image: "https://qphs.fs.quoracdn.net/main-qimg-a1d3a181327d624de25ca00f4d9c9dae-c",
           message: "Go to BITS Goa Library Website" },
-          { title: "CTE Techforums", href: "http://forum.bpgc-cte.org/", image: "https://bpgc-cte.org/logo.png",
-          message: "Go to Techforums by CTE" },
           { title: "Campus Website", href: "https://web.autocad.com/", image: "https://physociety.files.wordpress.com/2014/02/bits-goa.jpg?w=640",
           message: "Use Autodesk AutoCAD online right in the browser with your BITSID for free" },
           { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
@@ -171,11 +167,16 @@ export default {
       ],
       portlinks:[
             { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hall", },
-            { "name": "BPGC Startups", "icon": "icongrad fas fa-rocket", "icograd":"background: -webkit-linear-gradient(45deg, #fc5185, #3fc1c9);", "link": "../startup", },
+            { "name": "BPGC Startups", "icon": "icongrad fas fa-rocket", "icograd":"background: -webkit-linear-gradient(45deg, #4AFF98, #38C3FF);", "link": "../startup", },
             { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../clubs", },
             { "name": "Departments", "icon": "icongrad fas fa-cocktail", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, blue);", "link": "../departments", },
             { "name": "Sports Teams", "icon": "icongrad fas fa-quidditch", "icograd":"background: -webkit-linear-gradient(45deg, red, yellow, red);", "link": "../sports", },
             { "name": "Events", "icon": "icongrad fas fa-calendar-check", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #3f5efb);", "link": "../events", }
+      ],
+     implinks:[
+            { "name": "Student Welfare Division", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #FCFF9E, #35FF51);", "link": "https://swd.bits-goa.ac.in", "reptext" : "SWD" },
+            { "name": "Enterprise Resource Planning", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, #eeda9b, #12fff7);", "link": "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", "reptext" : "ERP" },
+            { "name": "TechForums by CTE", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #ffffff, #64e632);", "link": "http://forum.bpgc-cte.org/", "reptext" : "CTE" },
       ],
       pr: null,
       nick: null,

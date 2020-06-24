@@ -5,11 +5,10 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row flex xs12" style="justify-content: center;">
+      <div class="row">
         <div style="margin-right: 1em; margin-left: 1em;">
           <va-card class="csatimes">CSATimes</va-card>
         </div>
-        <br>
         <MusocBox />
       </div>
       <br>
@@ -70,10 +69,10 @@ body {
       rgba(252, 70, 107, 1) 50%,
       rgba(255, 229, 180, 1) 100%
     );
-  font-size: 4rem;
+  font-size: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  // height: 4em;
+  height: 4em;
 }
 </style>
