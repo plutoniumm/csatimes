@@ -5,24 +5,25 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row">
+      <div class="row flex xs12" style="justify-content: center;">
         <div style="margin-right: 1em; margin-left: 1em;">
           <va-card class="csatimes">CSATimes</va-card>
         </div>
+        <br>
         <MusocBox />
       </div>
-      <hr />
+      <br>
 
       <div data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
           <va-tab>
-            <va-card>Campus Updates</va-card>
+            <va-card style="border-radius: 15px; background-color: black; color: white;">Campus Updates</va-card>
           </va-tab>
           <va-tab>
-            <va-card>Campus News</va-card>
+            <va-card style="border-radius: 15px; background-color: black; color: white;">Campus News</va-card>
           </va-tab>
         </va-tabs>
-        <va-separator />
+        <!-- <va-separator /> -->
         <component :is="tabs[tabsState]" @submit="submit" />
       </div>
     </div>
@@ -69,10 +70,10 @@ body {
       rgba(252, 70, 107, 1) 50%,
       rgba(255, 229, 180, 1) 100%
     );
-  font-size: 500%;
+  font-size: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  // height: 4em;
 }
 </style>

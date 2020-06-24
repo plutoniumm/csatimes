@@ -5,28 +5,15 @@
     <br />
     <br />
     <div class="row">
-      <div class="flex xs12 sm6">
+      <!-- <div class="flex xs12 sm6">
         <va-card class="upcoming">What's Coming</va-card>
+      </div> -->
+      <div class="flex xs12 sm6">
+        <va-card class="studpor">Student Portal</va-card>
       </div>
-      <div style="display: inline-block;">
-        <va-collapse customHeader>
-          <span slot="header">
-            <div class="flex xs12 sm6 lg4 xl3">
-              <va-card class="portalboxes" style="text-align: center;">
-                <i
-                  class="icongrad fas fa-peace"
-                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
-                ></i>
-                <p>Humanities Reviews</p>
-              </va-card>
-            </div>
-          </span>
-          <div slot="body">
-            <Humanity />
-          </div>
-        </va-collapse>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="display: inline-block;">
+    </div>
+    <div class="row">
+      <div class="flex sm6" style="display: inline-block;">
         <va-collapse customHeader>
           <span slot="header">
             <va-card class="portalboxes" style="text-align: center;">
@@ -41,7 +28,7 @@
             <div class="flex xs12" style="overflow-x: auto; display: inline;">
               <form>
                 <template v-for="prevent in pr">
-                  <va-card class="flex sm6 xs12" :key="'item' + prevent.name" data-aos="fade-left">
+                  <va-card class="flex xs12" :key="'item' + prevent.name" data-aos="fade-left">
                     <form @submit.prevent="onsubmit()">
                       <template v-for="(imag, i) in prevent.images">
                         <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
@@ -93,9 +80,9 @@
           </va-card>
         </a>
       </div>
-      <div class="flex xs12 sm6">
+      <!-- <div class="flex xs12 sm6">
         <va-card class="studpor">Student Portal</va-card>
-      </div>
+      </div> -->
       <div
         v-for="link in portlinks"
         :key="link"
@@ -109,9 +96,33 @@
           </va-card>
         </router-link>
       </div>
+      <div style="display: inline-block;">
+        <va-collapse customHeader>
+          <span slot="header">
+            <div class="flex sm6">
+              <va-card class="portalboxes" style="text-align: center;">
+                <i
+                  class="icongrad fas fa-peace"
+                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
+                ></i>
+                <p>Humanities Reviews</p>
+              </va-card>
+            </div>
+          </span>
+          <div slot="body">
+            <Humanity />
+          </div>
+        </va-collapse>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
       <div class="flex xs12 sm6">
         <va-card class="implinks">Important Links</va-card>
       </div>
+    </div>
+    <div class="row">
       <div
         class="flex xs12 sm6 lg4 xl3"
         style="text-align: center;"
@@ -161,7 +172,7 @@ export default {
       portlinks:[
             { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hall", },
             { "name": "BPGC Startups", "icon": "icongrad fas fa-rocket", "icograd":"background: -webkit-linear-gradient(45deg, #fc5185, #3fc1c9);", "link": "../startup", },
-            { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../sports", },
+            { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../clubs", },
             { "name": "Departments", "icon": "icongrad fas fa-cocktail", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, blue);", "link": "../departments", },
             { "name": "Sports Teams", "icon": "icongrad fas fa-quidditch", "icograd":"background: -webkit-linear-gradient(45deg, red, yellow, red);", "link": "../sports", },
             { "name": "Events", "icon": "icongrad fas fa-calendar-check", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #3f5efb);", "link": "../events", }

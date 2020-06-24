@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6" v-for="notice in start1">
+    <div class="flex xs12 sm6 md6" v-for="notice in start1">
       <va-card class="mb-0 upds" :key="'item' + notice.name">
         <div class="mailtop">
           <span>
