@@ -5909,10 +5909,10 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-google-maps@4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/google-maps/-/google-maps-4.2.3.tgz#0cf7383154b80db9bbddf2a96d298adfea09e765"
-  integrity sha512-RGKlYq57/3tKq+o03+25CAOHWq6lAOPPy4knIeVfFw3xmZtwaJsMPuQnQNnITf/BRIC0EBqq0YbbCFW+6q5P0Q==
+google-maps@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/google-maps/-/google-maps-4.3.2.tgz#686183f35ef349b6780e39fd2683078062ac8fb5"
+  integrity sha512-Khyflf23C0I+JFEYapau2jtRzUCQD1f72ZmXd54DZB3yNBD6RXNCB50hkSBZmwgEUDiTosQRbKkRm43SwdsYcQ==
   dependencies:
     "@types/googlemaps" "^3.39.1"
 
