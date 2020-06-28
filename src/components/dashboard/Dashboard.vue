@@ -5,7 +5,7 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row">
+      <div class="row" style="justify-content: space-around;">
         <div style="margin-right: 1em; margin-left: 1em;">
           <va-card class="csatimes">CSATimes</va-card>
         </div>
@@ -69,7 +69,7 @@ body {
       rgba(252, 70, 107, 1) 50%,
       rgba(255, 229, 180, 1) 100%
     );
-  font-size: 6rem;
+  font-size: 5.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

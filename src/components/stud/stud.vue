@@ -88,7 +88,9 @@
               <p>PR Drives</p>
             </va-card>
           </span>
+          
           <div slot="body">
+            <va-card>
             <div class="flex xs12" style="overflow-x: auto; display: inline;">
               <form>
                 <template v-for="prevent in pr">
@@ -130,7 +132,9 @@
                 </template>
               </form>
             </div>
+            </va-card>
           </div>
+          
         </va-collapse>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">

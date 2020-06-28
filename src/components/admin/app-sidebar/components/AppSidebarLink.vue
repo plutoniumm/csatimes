@@ -1,5 +1,5 @@
 <template>
-  <li class="app-sidebar-link" :class="computedLinkClass">
+  <li class="app-sidebar-link" style="overflow: hidden;" :class="computedLinkClass">
     <router-link
       class="app-sidebar-link__item"
       @mouseenter.native="updateHoverState(true)"
