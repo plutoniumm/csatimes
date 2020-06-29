@@ -53,22 +53,15 @@
 
       <template v-for="credit in credits">
         <div :key="credit">
-          <div class="row" style="justify-content: center;">
-            <div class="flex xs12 sm6 lg4 xl3">
-              <va-card style="background: #8ecffc; text-align: center;">
-                <h2 style="color: #000000;">{{credit.Cat}}</h2>
-              </va-card>
-            </div>
-          </div>
-          <div class="row" style="justify-content: center;">
-            <div class="flex xs12 sm6 lg4 xl3">
-              <va-card  style="text-align: center;">
-                <span v-for="person in credit.People" :key="person">
+          <div class="flex xs12 sm6 lg4 xl3">
+            <va-card style="text-align: center;" class="boxes">
+              <h2>{{credit.Cat}}</h2>
+              <span v-for="person in credit.People" :key="person">
                 {{person}}<br>
-                </span>
-              </va-card>
-            </div>
+              </span>
+            </va-card>
           </div>
+
         </div>
 
       </template>
@@ -109,5 +102,10 @@ body {
 .infboxes {
   background: -webkit-linear-gradient(#d0d0d0, #a0a0a0);
   text-align: center;
+}
+
+.boxes {
+  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
+  color: white;
 }
 </style>
