@@ -1,0 +1,33 @@
+[
+    {
+        "Cat" : "WEB",
+        "People":[
+            "Manav Sekseria",
+            "Aviral Kumar Goel"
+        ]
+    },
+    {
+        "Cat" : "BACKEND",
+        "People":[
+            "Sarvesh Shinde",
+            "Samesh Lakhotia"
+        ]
+    },
+    {
+        "Cat" : "WEB",
+        "People":[
+            "Arjun Bajpai",
+            "Anshuman Singh",
+            "Yatik Budhrani",
+            "Garima Sharma"
+        ]
+    },
+    {
+        "Cat" : "DevSoc Coordinators",
+        "People":[
+            "Ishant Sharma",
+            "Samesh Lakhotia",
+            "Sarvesh Shinde"
+        ]
+    }
+]

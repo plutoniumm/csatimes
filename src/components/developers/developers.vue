@@ -50,111 +50,40 @@
           </va-card>
         </div>
       </div>
-      <!-- eslint-disable vue/valid-v-for -->
-      <template>
-        <div class="row" style="justify-content: center;">
-          <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #8ecffc; text-align: center;">
-              <h2 style="color: #000000;">WEB</h2>
-            </va-card>
-          </div>
-        </div>
-        <div class="row" style="justify-content: center;">
-          <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card1">
-              <div class="imgBx">
-                <img :src="require('../../assets/pics/manav.jpg')" width="170px" />
-              </div>
-              <div class="details">
-                <h2>
-                  <span
-                    style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;"
-                  >Manav Seksaria</span>
-                  <br />
-                  <span>CSA Webmaster</span>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card1">
-              <div class="imgBx">
-                <img :src="require('../../assets/pics/aviral.jpeg')" width="170px" />
-              </div>
-              <div class="details">
-                <h2>
-                  <span
-                    style="font-weight: 600; font-size: 20px; text-transform: uppercase; color: #777777;"
-                  >Aviral Kumar Goel</span>
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="row" style="justify-content: center;">
-          <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="background: #8ecffc; text-align: center;">
-              <h2 style="color: #000000;">DEVSOC (App)</h2>
-            </va-card>
-          </div>
-        </div>
-        <div class="row" style="justify-content: center;">
-          <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card1">
-              <div class="imgBx">
-                <img :src="require('../../assets/pics/ishant.jpg')" width="170px" />
-              </div>
-              <div class="details">
-                <h2>
-                  Ishant Gupta
-                  <br />
-                  <span>Coordinator</span>
-                </h2>
-              </div>
-            </div>
-          </div>
 
-          <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card1">
-              <div class="imgBx">
-                <img :src="require('../../assets/pics/samesh.jpg')" width="170px" />
-              </div>
-              <div class="details">
-                <h2>
-                  Samesh Lakhotia
-                  <br />
-                  <span>Sub-Coordinator</span>
-                </h2>
-              </div>
+      <template v-for="credit in credits">
+        <div :key="credit">
+          <div class="row" style="justify-content: center;">
+            <div class="flex xs12 sm6 lg4 xl3">
+              <va-card style="background: #8ecffc; text-align: center;">
+                <h2 style="color: #000000;">{{credit.Cat}}</h2>
+              </va-card>
             </div>
           </div>
-
-          <div class="flex xs12 sm6 lg4 xl3">
-            <div class="card1">
-              <div class="imgBx">
-                <img :src="require('../../assets/pics/sarvesh.jpeg')" width="170px" />
-              </div>
-              <div class="details">
-                <h2>
-                  Sarvesh Shinde
-                  <br />
-                  <span>Operations head</span>
-                </h2>
-              </div>
+          <div class="row" style="justify-content: center;">
+            <div class="flex xs12 sm6 lg4 xl3">
+              <va-card  style="text-align: center;">
+                <span v-for="person in credit.People" :key="person">
+                {{person}}<br>
+                </span>
+              </va-card>
             </div>
           </div>
         </div>
+
       </template>
     </div>
   </div>
 </template>
 
 <script>
+import data1 from './credits.json'
+
 export default {
   name: 'cards',
   data () {
     return {
+      credits: data1,
       laws: [
         { tracker: 'Location', logo: 'fas fa-location-arrow' },
         { tracker: 'Financial Information', logo: 'fas fa-credit-card' },
