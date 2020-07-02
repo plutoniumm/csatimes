@@ -59,46 +59,47 @@
       </div>
     </div>
 
-    <va-card
-      class="issues flex xs12 sm6"
-      title="Disciplinary Committee & ICC"
-      style="width: 100%; text-align: center; align-items: center; justify-content: center;"
-    >
-      <carousel
-        :per-page="1"
-        :centerMode="true"
-        :autoplay="1"
-        :easing="ease"
-        :loop="true"
-        :navigationEnabled="true"
-        style="float: center;"
+    <div>
+      <va-card
+        class="issues flex xs12 sm6"
+        title="Disciplinary Committee & ICC"
+        style="margin: auto; margin-bottom: 2rem;"
       >
-        <slide v-for="(person,slide) in people1" :index="slide" :key="slide"  style="justify-content: center; align-items: center;" >
-          <div style="justify-content: center; align-items: center;">
-            <va-card style="height: 15em; width: 25em; color: black;">
-              <div class="row">
-                <div class="flex xs12 sm6">
-                  <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+        <carousel
+          :per-page="1"
+          :centerMode="true"
+          :autoplay="1"
+          :easing="ease"
+          :loop="true"
+          style=""
+        >
+          <slide v-for="(person,slide) in people1" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center;">
+              <va-card class="flex" style="color: black;">
+                <div class="row">
+                  <div class="flex xs12 sm6">
+                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                  </div>
+                  <div class="flex xs12 sm6" style="float: right; text-align: left; padding: 2em;">
+                    <h1>
+                      <strong>{{person.name}}</strong>
+                    </h1>
+                    {{person.post}}
+                    <br />
+                    <br />
+                    <strong>Phone:</strong>
+                    {{person.phone}}
+                    <br />
+                    <strong>Email:</strong>
+                    {{person.address}}@goa.bits-pilani.ac.in
+                  </div>
                 </div>
-                <div class="flex xs12 sm6" style="float: right; text-align: left; padding: 2em;">
-                  <h1>
-                    <strong>{{person.name}}</strong>
-                  </h1>
-                  {{person.post}}
-                  <br />
-                  <br />
-                  <strong>Phone:</strong>
-                  {{person.phone}}
-                  <br />
-                  <strong>Email:</strong>
-                  {{person.address}}@goa.bits-pilani.ac.in
-                </div>
-              </div>
-            </va-card></div>
-        </slide>
+              </va-card></div>
+          </slide>
 
-      </carousel>
-    </va-card>
+        </carousel>
+      </va-card>
+    </div>
   </div>
 </template>
 
