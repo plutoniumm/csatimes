@@ -51,20 +51,23 @@
         </div>
       </div>
 
-      <template v-for="credit in credits">
-        <div :key="credit">
-          <div class="flex xs12 sm6 lg4 xl3">
-            <va-card style="text-align: center;" class="boxes">
-              <h2>{{credit.Cat}}</h2>
-              <span v-for="person in credit.People" :key="person">
-                {{person}}<br>
-              </span>
-            </va-card>
+      <div style="display: flex; justify-content: center;">
+        <template v-for="credit in credits">
+          <div :key="credit">
+            <div class="xs12 sm6 lg4 xl3" style="margin: 1rem;">
+              <div>
+                <va-card style="text-align: center; height: 9rem; font-size: 1.25rem;" class="boxes">
+                  <h2>{{credit.Cat}}</h2>
+                  <span v-for="person in credit.People" :key="person">
+                    {{person}}<br>
+                  </span>
+                </va-card>
+              </div>
+            </div>
           </div>
+        </template>
+      </div>
 
-        </div>
-
-      </template>
     </div>
   </div>
 </template>
@@ -90,7 +93,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 body {
   background-color: black;
 }
