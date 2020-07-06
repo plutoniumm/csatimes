@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6 md6" v-for="notice in start1">
-      <va-card class="mb-0 upds" :key="'item' + notice.name">
+    <div class="flex xs12 sm6 md6" v-for="(notice, index) in start1" :key="notice">
+      <va-card class="mb-0 upds" :key="'item' + notice.name" :set="chex[index] = 1">
         <div class="mailtop">
           <span>
             <h1>{{ notice.writer }}</h1>
@@ -9,7 +9,11 @@
           <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
         </div>
         <div style="margin: 0.5em 0;">{{ notice.name }}</div>
-        <span style="color: #dddddd;">{{ notice.summary }}</span>
+        <span style="color: #dddddd;" v-if="chex[index]">
+          {{ notice.summary.slice(0,140) }}...
+          <va-button :click="chex[index] = !chex[index]">Read More</va-button>
+        </span>
+        <span style="color: #dddddd;" v-else>{{ notice.summary }}</span>
       </va-card>
     </div>
   </div>
@@ -25,6 +29,7 @@ export default {
   data () {
     return {
       start1: null,
+      chex: [],
     }
   },
   methods: {

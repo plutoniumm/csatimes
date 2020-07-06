@@ -1,10 +1,10 @@
 [
-    {
+  {
     "picture": "deva.png",
     "name": "Neil Daftary",
     "stripe": "#FFCC00",
-    "organisation": "DisCo",
-    "post": "Student Rep",
+    "organisation": "Disciplinary Committee",
+    "post": "Student Representative",
     "phone": "Redacted",
     "address": "f20170322"
   },
@@ -12,8 +12,8 @@
     "picture": "deva.png",
     "name": "Saee Abhyankar",
     "stripe": "#FFCC00",
-    "organisation": "DisCo",
-    "post": "Student Rep",
+    "organisation": "Disciplinary Committee",
+    "post": "Student Representative",
     "phone": "Redacted",
     "address": "f20170327"
   },
@@ -21,8 +21,8 @@
     "picture": "deva.png",
     "name": "Dolly Khandelwal",
     "stripe": "#008000",
-    "organisation": "ICC",
-    "post": "Student Rep",
+    "organisation": "Internal Complaints Committee",
+    "post": "Student Representative",
     "phone": "+91 70164 72573",
     "address": "f20170952"
   }

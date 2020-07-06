@@ -57,33 +57,18 @@
           </va-card>
         </div>
       </div>
-    </div>
 
-    <div>
-      <va-card
-        class="issues flex xs12 sm6"
-        title="Disciplinary Committee & ICC"
-        style="margin: auto; margin-bottom: 2rem;"
-      >
-        <carousel
-          :per-page="1"
-          :centerMode="true"
-          :autoplay="1"
-          :easing="ease"
-          :loop="true"
-          style=""
-        >
+      <div class="flex xs12 sm6">
+        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
           <slide v-for="(person,slide) in people1" :index="slide" :key="slide">
             <div style="justify-content: center; align-items: center;">
-              <va-card class="flex" style="color: black;">
+              <va-card class="flex issues" :title="person.organisation">
                 <div class="row">
-                  <div class="flex xs12 sm6">
+                  <div class="flex xs8 md3">
                     <img :src="require('../../assets/pics/'+person.picture)" class="person" />
                   </div>
-                  <div class="flex xs12 sm6" style="float: right; text-align: left; padding: 2em;">
-                    <h1>
-                      <strong>{{person.name}}</strong>
-                    </h1>
+                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
+                    <strong>{{person.name}}</strong>
                     {{person.post}}
                     <br />
                     <br />
@@ -94,11 +79,63 @@
                     {{person.address}}@goa.bits-pilani.ac.in
                   </div>
                 </div>
-              </va-card></div>
+              </va-card>
+            </div>
           </slide>
-
         </carousel>
-      </va-card>
+      </div>
+      <div class="flex xs12 sm6">
+        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
+          <slide v-for="(person,slide) in people" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center;">
+              <va-card class="flex issues" :title="person.organisation">
+                <div class="row">
+                  <div class="flex xs8 md3">
+                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                  </div>
+                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
+                    <strong>{{person.name}}</strong>
+                    {{person.post}}
+                    <br />
+                    <br />
+                    <strong>Phone:</strong>
+                    {{person.phone}}
+                    <br />
+                    <strong>Email:</strong>
+                    {{person.address}}@goa.bits-pilani.ac.in
+                  </div>
+                </div>
+              </va-card>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+      <div class="flex xs12 sm6">
+        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
+          <slide v-for="(person,slide) in people2" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center;">
+              <va-card class="flex issues" :title="person.organisation">
+                <div class="row">
+                  <div class="flex xs8 md3">
+                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                  </div>
+                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
+                    <strong>{{person.name}}</strong>
+                    {{person.post}}
+                    <br />
+                    <br />
+                    <strong>Phone:</strong>
+                    {{person.phone}}
+                    <br />
+                    <strong>Email:</strong>
+                    {{person.address}}@goa.bits-pilani.ac.in
+                  </div>
+                </div>
+              </va-card>
+            </div>
+          </slide>
+        </carousel>
+      </div>
     </div>
   </div>
 </template>

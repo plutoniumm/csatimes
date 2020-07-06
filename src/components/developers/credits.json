@@ -1,33 +1,32 @@
 [
     {
-        "Cat" : "WEB",
-        "People":[
-            "Manav Sekseria",
-            "Aviral Kumar Goel"
+        "cat": "Web",
+        "people": [
+            {
+                "name": "Manav Seksaria",
+                "image": "manav.jpg",
+                "email": "f20180795"
+            },
+            {
+                "name": "Aviral Kumar Goel",
+                "image": "aviral.jpeg",
+                "email": "f20180795"
+            }
         ]
     },
     {
-        "Cat" : "BACKEND",
-        "People":[
-            "Sarvesh Shinde",
-            "Samesh Lakhotia"
-        ]
-    },
-    {
-        "Cat" : "Frontend: Android App",
-        "People":[
-            "Arjun Bajpai",
-            "Anshuman Singh",
-            "Yatik Budhrani",
-            "Garima Sharma"
-        ]
-    },
-    {
-        "Cat" : "DevSoc Coordinators",
-        "People":[
-            "Ishant Sharma",
-            "Samesh Lakhotia",
-            "Sarvesh Shinde"
+        "cat": "APIs",
+        "people": [
+            {
+                "name": "Sarvesh Shinde",
+                "image": "sarvesh.jpeg",
+                "email": "f20180795"
+            },
+            {
+                "name": "Samesh Lakhotia",
+                "image": "samesh.jpg",
+                "email": "f20180795"
+            }
         ]
     }
 ]

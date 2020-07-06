@@ -7,14 +7,12 @@
     <div>
       <div class="row">
         <div class="flex xs12 sm6">
-          <va-card
-            title="Tracker Information"
-            data-aos="fade-right"
-            class="infboxes"
-            style="left: -1em;"
-          >
+          <va-card data-aos="fade-right" class="infboxes">
             <i class="fas fa-user-circle" style="color: blue; font-size: 3em;"></i>
-            <h2 style="padding: 1em;">CSATimes Web DOES NOT use any of the following trackers</h2>
+            <h2 style="padding: 1em;">
+              CSATimes
+              <u>Web</u> DOES NOT use any of the following trackers
+            </h2>
             <div class="row">
               <div class="flex xs12 xm6 lg4" v-for="law in laws" :key="law">
                 <i :class="law.logo"></i>
@@ -24,25 +22,48 @@
             <i class="far fa-times-circle" style="color: red; font-size: 1.5em;"></i>
           </va-card>
         </div>
-        <div class="flex xs12 sm6">
-          <va-card
-            title="Site Information"
-            style=" text-align: center; justify-content: center;"
-            data-aos="fade-left"
-          >
-            <table class="va-table">
-              <thead>
-                <tr>
-                  <th>{{ 'Feature' }}</th>
-                  <th>{{ 'Value' }}</th>
-                </tr>
-              </thead>
 
+        <div class="flex xs12 sm6">
+          <va-card data-aos="fade-right" class="infboxes">
+            <i class="fas fa-user-circle" style="color: blue; font-size: 3em;"></i>
+            <h2 style="padding: 1em;">
+              CSATimes
+              <u>Web</u> DOES track and store following data
+            </h2>
+            <div class="row">
+              <div class="flex xs12 sm6" v-for="law in tracks" :key="law">
+                <i :class="law.logo"></i>
+                {{law.tracker}}
+              </div>
+            </div>
+            <i class="far fa-check-circle" style="color: lightgreen; font-size: 1.5em;"></i>
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6" v-for="credit in credits" :key="credit">
+          <va-card
+            :title="credit.cat"
+            class="boxes"
+            style="text-align: center; height: 11em; overflow: auto;"
+          >
+            <table class="va-table" style="width: 100%;">
               <tbody>
-                <tr>
-                  <td>{{ 'Wesbite Version' }}</td>
+                <tr v-for="person in credit.people" :key="person">
+                  <td v-if="person.image">
+                    <img
+                      :src="require('../../assets/pics/'+person.image)"
+                      :alt="person.image"
+                      width="25em"
+                      height="25em"
+                      style="border-radius: 11.25em;"
+                    />
+                  </td>
+                  <td v-else>
+                    <i class="fas fa-user" style="color: blue;"></i>
+                  </td>
+                  <td>{{ person.name }}</td>
                   <td>
-                    <va-badge color="green">{{ '1.0.0 Little Boy' }}</va-badge>
+                    <i class="fas fa-info-circle" style="color: blue;"></i>
                   </td>
                 </tr>
               </tbody>
@@ -50,24 +71,6 @@
           </va-card>
         </div>
       </div>
-
-      <div style="display: flex; justify-content: center;">
-        <template v-for="credit in credits">
-          <div :key="credit">
-            <div class="xs12 sm6 lg4 xl3" style="margin: 1rem;">
-              <div>
-                <va-card style="text-align: center; height: 9rem; font-size: 1.25rem;" class="boxes">
-                  <h2>{{credit.Cat}}</h2>
-                  <span v-for="person in credit.People" :key="person">
-                    {{person}}<br>
-                  </span>
-                </va-card>
-              </div>
-            </div>
-          </div>
-        </template>
-      </div>
-
     </div>
   </div>
 </template>
@@ -87,6 +90,12 @@ export default {
         { tracker: 'Cookies', logo: 'fas fa-cookie-bite' },
         { tracker: 'Device Information', logo: 'fas fa-laptop' },
         { tracker: 'Purchase Information', logo: 'fas fa-shopping-bag' },
+      ],
+      tracks: [
+        { tracker: 'Form Data', logo: 'fab fa-wpforms' },
+        { tracker: 'Login Data', logo: 'fas fa-sign-in-alt' },
+        { tracker: 'Edit History', logo: 'fas fa-music' },
+        { tracker: 'Grievance Data', logo: 'fas fa-heart-broken' },
       ],
     }
   },

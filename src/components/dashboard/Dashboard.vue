@@ -5,7 +5,7 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row" style="justify-content: space-around;">
+      <div class="row">
         <div style="margin-right: 1em; margin-left: 1em;">
           <va-card class="csatimes">CSATimes</va-card>
         </div>
@@ -46,7 +46,7 @@ export default {
       tabsState: 0,
       tabs: [
         'CampusUpdates',
-        'CampusNews',
+        // 'CampusNews',
       ],
       musoc: 'Default Value',
       song: 'None',
@@ -62,17 +62,17 @@ body {
 
 .csatimes {
   color: white;
-  background-image:
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(63, 94, 251, 1) 0%,
-      rgba(252, 70, 107, 1) 50%,
-      rgba(255, 229, 180, 1) 100%
+  background:
+    -webkit-radial-gradient(
+      0% 100%,
+      rgba(63, 94, 251, 1),
+      rgba(252, 70, 107, 1),
+      rgba(255, 229, 180, 1)
     );
   font-size: 5.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  height: 2.5em;
 }
 </style>

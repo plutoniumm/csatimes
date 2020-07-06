@@ -59,25 +59,7 @@
       <div class="flex xs12 sm6">
         <va-card class="upcoming">What's Coming</va-card>
       </div>
-      <div style="display: inline-block;">
-        <va-collapse customHeader>
-          <span slot="header">
-            <div class="flex sm6">
-              <va-card class="portalboxes" style="text-align: center;">
-                <i
-                  class="icongrad fas fa-peace"
-                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
-                ></i>
-                <p>Humanities Reviews</p>
-              </va-card>
-            </div>
-          </span>
-          <div slot="body">
-            <Humanity />
-          </div>
-        </va-collapse>
-      </div>
-      <div class="flex xs12 sm6" style="display: inline-block;">
+      <div class="flex xs12 sm6">
         <va-collapse customHeader>
           <span slot="header">
             <va-card class="portalboxes" style="text-align: center;">
@@ -112,7 +94,12 @@
                             v-model="nick"
                             placeholder="Enter nick here"
                           />
-                          <va-input label="Number of Tees" v-model="value" type="number" width="50%" />
+                          <va-input
+                            label="Number of Tees"
+                            v-model="value"
+                            type="number"
+                            width="50%"
+                          />
                         </div>
                         <div v-else>
                           <h2>Price</h2>
@@ -134,7 +121,24 @@
               </div>
             </va-card>
           </div>
-
+        </va-collapse>
+      </div>
+      <div>
+        <va-collapse customHeader>
+          <span slot="header">
+            <div class="flex sm6">
+              <va-card class="portalboxes" style="text-align: center;">
+                <i
+                  class="icongrad fas fa-peace"
+                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
+                ></i>
+                <p>Humanities Reviews</p>
+              </va-card>
+            </div>
+          </span>
+          <div slot="body">
+            <Humanity />
+          </div>
         </va-collapse>
       </div>
       <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
@@ -175,7 +179,7 @@ export default {
             { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../clubs", },
             { "name": "Departments", "icon": "icongrad fas fa-cocktail", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, blue);", "link": "../departments", },
             { "name": "Sports Teams", "icon": "icongrad fas fa-quidditch", "icograd":"background: -webkit-linear-gradient(45deg, red, yellow, red);", "link": "../sports", },
-            { "name": "Events", "icon": "icongrad fas fa-calendar-check", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #3f5efb);", "link": "../events", }
+            { "name": "Events", "icon": "icongrad fas fa-calendar-check", "icograd":"background: -webkit-linear-gradient(270deg, #12fff7, #3f5efb);", "link": "../events", }
       ],
      implinks:[
             { "name": "Student Welfare Division", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #FCFF9E, #35FF51);", "link": "https://swd.bits-goa.ac.in", "reptext" : "SWD" },

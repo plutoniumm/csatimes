@@ -12,7 +12,6 @@ import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-// import Carousel3d from 'vue-carousel-3d'
 import VueCarousel from 'vue-carousel'
 
 /* eslint-disable */
@@ -27,7 +26,6 @@ if ( process.env.VUE_APP_BUILD_VERSION ) {
 Vue.use( VuesticPlugin )
 Vue.use( VueClipboard )
 Vue.use( firestorePlugin )
-// Vue.use( Carousel3d )
 Vue.use( VueCarousel )
 Vue.use( ColorThemePlugin, {
   // override colors here.
