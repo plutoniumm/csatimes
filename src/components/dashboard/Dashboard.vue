@@ -46,7 +46,7 @@ export default {
       tabsState: 0,
       tabs: [
         'CampusUpdates',
-        // 'CampusNews',
+        'CampusNews',
       ],
       musoc: 'Default Value',
       song: 'None',
