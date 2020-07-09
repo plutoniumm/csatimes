@@ -5,7 +5,7 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row">
+      <div class="row" style="justify-content: center;">
         <div style="margin-right: 1em; margin-left: 1em;">
           <va-card class="csatimes">CSATimes</va-card>
         </div>

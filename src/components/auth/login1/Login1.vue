@@ -1,18 +1,20 @@
 <template>
-  <div class="auth-layout row align-content--center">
-    <div class="flex xs12 pa-3">
-      <div class="d-flex justify--center">
-        <div id="app">
-          <div id="nav">
-            <div class="d-flex justify--center">
-              <va-button @click="socialLogin" color="info">Mobile Sign in</va-button>
-            </div>
-            <router-view />
-          </div>
-        </div>
+  <!-- <div class="auth-layout row align-content--center"> -->
+  <!-- <div class="flex xs12 pa-3"> -->
+  <div class="d-flex justify--center">
+    <!-- <div id="app"> -->
+    <!-- <div id="nav"> -->
+    <div class="flex xs12 justify--center row align-content--center">
+      <div class="d-flex justify--center align-content--center" style="position: absolute; top: 50%;">
+        <va-button @click="socialLogin" color="info">Mobile Sign in</va-button>
       </div>
     </div>
+    <router-view />
   </div>
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
 </template>
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -57,6 +59,8 @@ export default {
               idToken: token
               })
               .then(function(response) {
+                console.log(response)
+                alert(response)
                 Vue.prototype.$AuthStr = response.data.authToken
                 localStorage.setItem('user-token', response.data.authToken)
                 if(!response.data.newUser)
@@ -93,8 +97,6 @@ export default {
       });
       firebase.auth().signInWithRedirect(provider);
     },
-  },
-  mounted () {
   },
 }
 </script>
