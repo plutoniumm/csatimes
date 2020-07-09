@@ -1,9 +1,5 @@
 <template>
-  <!-- <div class="auth-layout row align-content--center"> -->
-  <!-- <div class="flex xs12 pa-3"> -->
   <div class="d-flex justify--center">
-    <!-- <div id="app"> -->
-    <!-- <div id="nav"> -->
     <div class="flex xs12 justify--center row align-content--center">
       <div class="d-flex justify--center align-content--center" style="position: absolute; top: 50%;">
         <va-button @click="socialLogin" color="info">Mobile Sign in</va-button>
@@ -11,10 +7,6 @@
     </div>
     <router-view />
   </div>
-  <!-- </div> -->
-  <!-- </div> -->
-  <!-- </div> -->
-  <!-- </div> -->
 </template>
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -43,10 +35,10 @@ export default {
         var token = result.credential.idToken;
         var email = result.user.email
         Vue.prototype.$username = result.user.displayName
-        localStorage.setItem('user', response.user.displayName)
+        // localStorage.setItem('user', response.user.displayName)
         Vue.prototype.$bitsid = result.user.email
         Vue.prototype.$forexam = result.user.email.slice(1,9)
-        localStorage.setItem('forexam', result.user.email.slice(1,9))
+        // localStorage.setItem('forexam', result.user.email.slice(1,9))
         var str = email.match(/@goa.bits-pilani.ac.in/i)
         if(str===null)
           {firebase.auth().signOut().then(function() {
@@ -59,10 +51,8 @@ export default {
               idToken: token
               })
               .then(function(response) {
-                console.log(response)
-                alert(response)
                 Vue.prototype.$AuthStr = response.data.authToken
-                localStorage.setItem('user-token', response.data.authToken)
+                // localStorage.setItem('user-token', response.data.authToken)
                 if(!response.data.newUser)
                   that.$router.push({ name: 'dashboard' })
                 else
