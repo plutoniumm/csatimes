@@ -7,7 +7,6 @@ import store from '../store/index'
 import router from '../router/index'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
-import VueClipboard from 'vue-clipboard2'
 import { firestorePlugin } from 'vuefire'
 import '../registerServiceWorker'
 import AOS from 'aos'
@@ -24,7 +23,6 @@ if ( process.env.VUE_APP_BUILD_VERSION ) {
 }
 
 Vue.use( VuesticPlugin )
-Vue.use( VueClipboard )
 Vue.use( firestorePlugin )
 Vue.use( VueCarousel )
 Vue.use( ColorThemePlugin, {

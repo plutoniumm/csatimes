@@ -1,15 +1,15 @@
-const path = require('path')
-const webpack = require('webpack')
-const StylelintPlugin = require('stylelint-webpack-plugin')
+const path = require( 'path' )
+const webpack = require( 'webpack' )
+const StylelintPlugin = require( 'stylelint-webpack-plugin' )
 
-const version = require('./package.json').version
+const version = require( './package.json' ).version
 const timeStamp = new Date().toUTCString()
 
 const getLastCommitHash = () => {
-  const hash = require('child_process').execSync('git rev-parse HEAD')
+  const hash = require( 'child_process' ).execSync( 'git rev-parse HEAD' )
     .toString()
 
-  return hash.slice(0, 6)
+  return hash.slice( 0, 6 )
 }
 
 const lintOnSave = true
@@ -30,30 +30,30 @@ module.exports = {
       filename: 'index.html',
       // when using title option,
       // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
-      title: 'Vuestic Admin',
+      title: 'CSATimes',
       // chunks to include on this page, by default includes
       // extracted common chunks and vendor chunks.
-      chunks: ['chunk-vendors', 'chunk-common', 'index'],
+      chunks: [ 'chunk-vendors', 'chunk-common', 'index' ],
     },
   },
   configureWebpack: {
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.esm.js',
-        '@': path.resolve('src'),
+        '@': path.resolve( 'src' ),
       },
     },
     plugins: [
       ...(
-        (!lintOnSave && process.env.NODE_ENV === 'development') ? [] : [new StylelintPlugin({
-          files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-        })]
+        ( !lintOnSave && process.env.NODE_ENV === 'development' ) ? [] : [ new StylelintPlugin( {
+          files: [ 'src/**/*.{vue,htm,html,css,sss,less,scss}' ],
+        } ) ]
       ),
-      new webpack.DefinePlugin({
-        VERSION: JSON.stringify(version),
-        TIMESTAMP: JSON.stringify(timeStamp),
-        COMMIT: JSON.stringify(getLastCommitHash()),
-      }),
+      new webpack.DefinePlugin( {
+        VERSION: JSON.stringify( version ),
+        TIMESTAMP: JSON.stringify( timeStamp ),
+        COMMIT: JSON.stringify( getLastCommitHash() ),
+      } ),
     ],
   },
   css: {
