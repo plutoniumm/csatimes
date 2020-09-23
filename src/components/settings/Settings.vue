@@ -1,5 +1,5 @@
 <template>
-  <div class="auth-layout row align-content--center">
+  <div class=" auth-layout row align-content--center">
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
         <va-card class="auth-layout__card">
@@ -160,9 +160,13 @@ export default {
 </script>
 
 <style lang="scss">
+body{
+    background-color: black;
+}
+
 .auth-layout {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #941f1f, #193c83);
+  box-sizing: border-box;
 
   &__card {
     width: 100%;

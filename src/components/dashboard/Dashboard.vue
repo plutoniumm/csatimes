@@ -18,9 +18,9 @@
           <va-tab>
             <va-card style="border-radius: 15px; background-color: black; color: white;">Campus Updates</va-card>
           </va-tab>
-          <va-tab>
+          <!-- <va-tab>
             <va-card style="border-radius: 15px; background-color: black; color: white;">Campus News</va-card>
-          </va-tab>
+          </va-tab> -->
         </va-tabs>
         <!-- <va-separator /> -->
         <component :is="tabs[tabsState]" @submit="submit" />
@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import CampusUpdates from './components/updates.vue'
-import CampusNews from './components/news.vue'
-import MusocBox from './components/musoc.vue'
+import CampusUpdates from './components/Updates'
+import CampusNews from './components/News'
+import MusocBox from './components/Musoc'
 
 export default {
   name: 'dashboard',
@@ -46,7 +46,7 @@ export default {
       tabsState: 0,
       tabs: [
         'CampusUpdates',
-        'CampusNews',
+        // 'CampusNews',
       ],
       musoc: 'Default Value',
       song: 'None',
@@ -74,5 +74,23 @@ body {
   justify-content: center;
   align-items: center;
   height: 2.5em;
+
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 0.5rem;
+    height: 2.5em;
+    font-size: 5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 0.5rem;
+    height: 2.5em;
+    font-size: 4rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 0.5rem;
+    height: 4.5rem;
+    font-size: 4rem;
+  }
 }
 </style>

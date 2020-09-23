@@ -31,7 +31,7 @@ export default {
       if (this.checkIsDesktop()) {
         this.$emit('update:minimized', true)
       } else {
-        this.$emit('update:minimized', false)
+        this.$emit('update:minimized', true)
       }
     },
   },

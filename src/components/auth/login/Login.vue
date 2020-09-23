@@ -2,8 +2,10 @@
   <div class="d-flex justify--center">
     <div class="flex xs12 justify--center row align-content--center">
       <div class="d-flex justify--center align-content--center" style="position: absolute; top: 50%;">
+        Gotta insert BITS Pilani logo
         <va-button @click="socialLogin" color="info">Sign in</va-button>
       </div>
+      Please use Desktop/ Laptop only to view
       <router-view />
     </div>
   </div>
@@ -34,7 +36,7 @@ export default {
     }
   },
   methods: {
-    signout() {
+    signOut() {
       firebase.auth().signOut()
         .then(function() {
           alert('Signed out')

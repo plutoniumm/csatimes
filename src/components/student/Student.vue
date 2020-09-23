@@ -193,7 +193,7 @@
 
 <script>
 import axios from 'axios'
-import Humanity from './components/humanities.vue'
+import Humanity from './components/Humanities'
 
 export default {
   components: {Humanity},
@@ -298,6 +298,7 @@ body {
 .icongrad {
   font-size: 5em;
   padding: 0.25em;
+  background-clip: text !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }

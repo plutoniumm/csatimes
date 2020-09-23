@@ -10,7 +10,7 @@ export const navigationRoutes = {
       meta: '🌐',
     },
     {
-      name: 'stud',
+      name: 'student',
       displayName: 'Student Portal',
       meta: '🎓',
     },
@@ -22,12 +22,17 @@ export const navigationRoutes = {
     {
       name: 'developers',
       displayName: 'Site Info',
-      meta: 'ℹ️',
+      meta: '🛈',
     },
     {
-      name: '',
-      displayName: 'Settings (Soon...)',
+      name: 'settings',
+      displayName: 'Settings',
       meta: '⚙️',
+    },
+    {
+      name: 'logout',
+      displayName: 'Logout',
+      meta: '🚪',
     },
   ],
 }

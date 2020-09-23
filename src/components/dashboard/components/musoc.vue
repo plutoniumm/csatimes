@@ -106,6 +106,7 @@ export default {
 .musocbtn:hover {
   border: 1px solid rgba(255, 255, 255, 1);
   border: 1px solid rgba(white, 1);
+  color: black;
   cursor: pointer;
   transition: all 0.3s ease;
 }
