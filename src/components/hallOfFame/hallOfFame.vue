@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import data from './halloffame.json'
+import data from '../../data/halloffame.json'
 export default {
   name: 'cards',
   data () {

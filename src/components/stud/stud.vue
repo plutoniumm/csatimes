@@ -159,7 +159,7 @@
 
 <script>
 import axios from 'axios'
-import Humanity from './humanities.vue'
+import Humanity from './components/humanities.vue'
 
 export default {
   components: {Humanity},
@@ -174,7 +174,7 @@ export default {
             message: "Go to the CSATimes Mini IDE, code in 30+ Languages" }
       ],
       portlinks:[
-            { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hall", },
+            { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hallOfFame", },
             { "name": "BPGC Startups", "icon": "icongrad fas fa-rocket", "icograd":"background: -webkit-linear-gradient(45deg, #4AFF98, #38C3FF);", "link": "../startup", },
             { "name": "Clubs", "icon": "icongrad fas fa-comments", "icograd":"background: -webkit-linear-gradient(45deg, #d5f5ee, #90ee90);", "link": "../clubs", },
             { "name": "Departments", "icon": "icongrad fas fa-cocktail", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, blue);", "link": "../departments", },

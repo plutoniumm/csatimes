@@ -60,7 +60,7 @@
   </div>
 </template>
 <script>
-import data from './por.json'
+import data from '../../data/por.json'
 export default {
   data () {
     return {

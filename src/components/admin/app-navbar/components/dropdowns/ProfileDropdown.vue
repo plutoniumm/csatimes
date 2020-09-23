@@ -47,7 +47,7 @@ export default {
         },
         {
           name: 'Logout',
-          redirectTo: 'init',
+          redirectTo: 'login',
         },
       ],
     },

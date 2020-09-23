@@ -141,11 +141,11 @@
 </template>
 
 <script>
-import data from './data.json'
-import data1 from './data1.json'
-import data2 from './data2.json'
+import data from '../../data/data.json'
+import data1 from '../../data/data1.json'
+import data2 from '../../data/data2.json'
 import firebase from 'firebase'
-import './toast/ToastPositionPicker'
+import '../toast/ToastPositionPicker'
 
 const config = {
   apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',

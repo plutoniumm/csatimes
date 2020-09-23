@@ -30,16 +30,6 @@ export default new Router({
           path: '/update',
           component: () => import('../components/auth/update/Update.vue'),
         },
-        {
-          name: 'login1',
-          path: '/login1',
-          component: () => import('../components/auth/login1/Login1.vue'),
-        },
-        {
-          name: 'init',
-          path: '/init',
-          component: () => import('../components/auth/init/init.vue'),
-        },
       ],
     },
     {
@@ -69,9 +59,9 @@ export default new Router({
           component: () => import('../components/stud/stud.vue'),
         },
         {
-          name: 'hall',
-          path: '/hall',
-          component: () => import('../components/hall/hall.vue'),
+          name: 'hallOfFame',
+          path: '/hallOfFame',
+          component: () => import('../components/hallOfFame/hallOfFame.vue'),
         },
         {
           name: 'startup',

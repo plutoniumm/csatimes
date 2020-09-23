@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-import data from './pclubs.json'
+import data from '../../data/pclubs.json'
 export default {
   data () {
     return {

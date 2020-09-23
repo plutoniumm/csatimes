@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-import data from './sports.json'
+import data from '../../data/sports.json'
 export default {
   data () {
     return {

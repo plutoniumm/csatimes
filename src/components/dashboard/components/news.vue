@@ -14,7 +14,7 @@
           <span style="color: #a7a7a7;">Brought to you by CSA</span>
         </div>
       </va-card>
-      <br />
+      <!-- <br /> -->
     </template>
   </div>
 </template>

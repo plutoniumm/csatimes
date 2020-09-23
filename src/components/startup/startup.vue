@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import data from './startup.json'
+import data from '../../data/startup.json'
 export default {
   name: 'cards',
   data () {

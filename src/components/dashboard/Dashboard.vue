@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import CampusUpdates from './updates.vue'
-import CampusNews from './news.vue'
-import MusocBox from './musoc.vue'
+import CampusUpdates from './components/updates.vue'
+import CampusNews from './components/news.vue'
+import MusocBox from './components/musoc.vue'
 
 export default {
   name: 'dashboard',

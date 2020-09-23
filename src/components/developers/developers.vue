@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import data1 from './credits.json'
+import data1 from '../../data/credits.json'
 
 export default {
   name: 'cards',

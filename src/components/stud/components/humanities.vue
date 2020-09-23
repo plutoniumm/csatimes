@@ -51,7 +51,7 @@
 
 <script>
 import { debounce } from 'lodash'
-import users from './humanities.json'
+import users from '../../../data/humanities.json'
 
 export default {
   name: 'Humanity',
@@ -74,7 +74,7 @@ export default {
         name: 'course',
         title: 'Course Name',
         width: '15%',
-      },{
+      }, {
         name: 'code',
         title: 'Course Code',
         width: '5%',

@@ -26,7 +26,7 @@
 
 <script>
 import firebase from 'firebase'
-import '../csa/toast/ToastPositionPicker'
+import '../../toast/ToastPositionPicker'
 
 const config = {
   apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',

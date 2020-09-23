@@ -23,6 +23,7 @@
 import VaIconMenu from '../../../iconset/VaIconMenu'
 import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
+// eslint-disable-next-line no-unused-vars
 import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
