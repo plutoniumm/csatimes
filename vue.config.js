@@ -1,6 +1,5 @@
 const path = require( 'path' )
 const webpack = require( 'webpack' )
-const StylelintPlugin = require( 'stylelint-webpack-plugin' )
 
 const version = require( './package.json' ).version
 const timeStamp = new Date().toUTCString()
@@ -18,7 +17,6 @@ module.exports = {
   lintOnSave,
   transpileDependencies: [
     'vuestic-ui',
-    'epic-spinners',
   ],
   pages: {
     index: {
@@ -44,11 +42,6 @@ module.exports = {
       },
     },
     plugins: [
-      ...(
-        ( !lintOnSave && process.env.NODE_ENV === 'development' ) ? [] : [ new StylelintPlugin( {
-          files: [ 'src/**/*.{vue,htm,html,css,sss,less,scss}' ],
-        } ) ]
-      ),
       new webpack.DefinePlugin( {
         VERSION: JSON.stringify( version ),
         TIMESTAMP: JSON.stringify( timeStamp ),

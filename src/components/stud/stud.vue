@@ -12,12 +12,12 @@
         v-for="link in portlinks"
         :key="link"
         class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
+        style="text-align: center"
       >
-        <router-link :to="{ path: link.link}" append exact>
+        <router-link :to="{ path: link.link }" append exact>
           <va-card class="portalboxes">
             <i :class="link.icon" :style="link.icograd"></i>
-            <p>{{link.name}}</p>
+            <p>{{ link.name }}</p>
           </va-card>
         </router-link>
       </div>
@@ -28,22 +28,22 @@
         v-for="link in implinks"
         :key="link"
         class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
+        style="text-align: center"
       >
         <a :href="link.link">
           <va-card class="portalboxes">
-            <i :class="link.icon" :style="link.icograd">{{link.reptext}}</i>
-            <p>{{link.name}}</p>
+            <i :class="link.icon" :style="link.icograd">{{ link.reptext }}</i>
+            <p>{{ link.name }}</p>
           </va-card>
         </a>
       </div>
       <div
         class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center;"
+        style="text-align: center"
         v-for="item in items"
         :key="item"
       >
-        <a :href="item.href" style="text-decoration: none; color: black;">
+        <a :href="item.href" style="text-decoration: none; color: black">
           <va-card
             overlay
             titleOnImage
@@ -56,16 +56,41 @@
           </va-card>
         </a>
       </div>
+      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center">
+        <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
+          <va-card class="portalboxes">
+            <i
+              class="icongrad fas fa-vials"
+              style="
+                background: -webkit-linear-gradient(
+                  45deg,
+                  purple,
+                  white,
+                  purple
+                );
+              "
+            ></i>
+            <p>Exam Schedule</p>
+          </va-card>
+        </a>
+      </div>
       <div class="flex xs12 sm6">
         <va-card class="upcoming">What's Coming</va-card>
       </div>
       <div class="flex xs12 sm6">
         <va-collapse customHeader>
           <span slot="header">
-            <va-card class="portalboxes" style="text-align: center;">
+            <va-card class="portalboxes" style="text-align: center">
               <i
                 class="icongrad fas fa-signature"
-                style="background: -webkit-linear-gradient(45deg, green, white, green);"
+                style="
+                  background: -webkit-linear-gradient(
+                    45deg,
+                    green,
+                    white,
+                    green
+                  );
+                "
               ></i>
               <p>PR Drives</p>
             </va-card>
@@ -73,13 +98,21 @@
 
           <div slot="body">
             <va-card>
-              <div class="flex xs12" style="overflow-x: auto; display: inline;">
+              <div class="flex xs12" style="overflow-x: auto; display: inline">
                 <form>
                   <template v-for="prevent in pr">
-                    <va-card class="flex xs12" :key="'item' + prevent.name" data-aos="fade-left">
+                    <va-card
+                      class="flex xs12"
+                      :key="'item' + prevent.name"
+                      data-aos="fade-left"
+                    >
                       <form @submit.prevent="onsubmit()">
                         <template v-for="(imag, i) in prevent.images">
-                          <img :src="prevent.images[i].image" width="300px" :key="imag.image" />
+                          <img
+                            :src="prevent.images[i].image"
+                            width="300px"
+                            :key="imag.image"
+                          />
                         </template>
                         <br />
                         <va-input
@@ -87,10 +120,15 @@
                           placeholder="Enter the scanned QR code here"
                         />
                         <div v-if="prevent.is_nick == true">
-                          <h2>Price: {{prevent.price}} ( +{{prevent.price_nick - prevent.price}} for Nick )</h2>
+                          <h2>
+                            Price: {{ prevent.price }} ( +{{
+                              prevent.price_nick - prevent.price
+                            }}
+                            for Nick )
+                          </h2>
                           <va-checkbox label="Add nick?" v-model="checkbox" />
                           <va-input
-                            v-if="checkbox==true"
+                            v-if="checkbox == true"
                             v-model="nick"
                             placeholder="Enter nick here"
                           />
@@ -103,7 +141,7 @@
                         </div>
                         <div v-else>
                           <h2>Price</h2>
-                          {{prevent.price}}
+                          {{ prevent.price }}
                         </div>
                         <va-select
                           label="Choose Size"
@@ -127,10 +165,17 @@
         <va-collapse customHeader>
           <span slot="header">
             <div class="flex sm6">
-              <va-card class="portalboxes" style="text-align: center;">
+              <va-card class="portalboxes" style="text-align: center">
                 <i
                   class="icongrad fas fa-peace"
-                  style="background: -webkit-linear-gradient(45deg, blue, white, blue);"
+                  style="
+                    background: -webkit-linear-gradient(
+                      45deg,
+                      blue,
+                      white,
+                      blue
+                    );
+                  "
                 ></i>
                 <p>Humanities Reviews</p>
               </va-card>
@@ -140,17 +185,6 @@
             <Humanity />
           </div>
         </va-collapse>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center;">
-        <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
-          <va-card class="portalboxes">
-            <i
-              class="icongrad fas fa-vials"
-              style="background: -webkit-linear-gradient(45deg, purple, white, purple);"
-            ></i>
-            <p>Exam Schedule</p>
-          </va-card>
-        </a>
       </div>
     </div>
   </div>
@@ -169,9 +203,7 @@ export default {
           { title: "BITS Goa Library", href: "https://www.bits-goa.ac.in/Library/Index.aspx", image: "https://qphs.fs.quoracdn.net/main-qimg-a1d3a181327d624de25ca00f4d9c9dae-c",
           message: "Go to BITS Goa Library Website" },
           { title: "Campus Website", href: "https://web.autocad.com/", image: "https://physociety.files.wordpress.com/2014/02/bits-goa.jpg?w=640",
-          message: "Use Autodesk AutoCAD online right in the browser with your BITSID for free" },
-          { title: "CSATimes IDE", href: "https://web.autocad.com/", image: "https://miro.medium.com/max/1200/1*AvcSX3HOMujgic1RCA6lLQ.png",
-            message: "Go to the CSATimes Mini IDE, code in 30+ Languages" }
+          message: "Use Autodesk AutoCAD online right in the browser with your BITSID for free" }
       ],
       portlinks:[
             { "name": "Hall of Fame", "icon": "icongrad fas fa-gem", "icograd":"background: -webkit-linear-gradient(45deg, #eeb425, #ffffff, #eeb425);", "link": "../hallOfFame", },
@@ -228,13 +260,12 @@ body {
 }
 
 .studpor {
-  background-image:
-    radial-gradient(
-      circle at 0% 100%,
-      red 0%,
-      cyan 40%,
-      rebeccapurple 100%
-    );
+  background-image: radial-gradient(
+    circle at 0% 100%,
+    red 0%,
+    cyan 40%,
+    rebeccapurple 100%
+  );
   color: white;
   font-size: 300%;
   display: flex;
@@ -244,13 +275,12 @@ body {
 }
 
 .upcoming {
-  background-image:
-    radial-gradient(
-      circle at 0% 0%,
-      rgba(144, 238, 144, 1) 0%,
-      rgba(255, 229, 180, 1) 40%,
-      rgba(252, 70, 107, 1) 100%
-    );
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    rgba(144, 238, 144, 1) 0%,
+    rgba(255, 229, 180, 1) 40%,
+    rgba(252, 70, 107, 1) 100%
+  );
   color: white;
   font-size: 300%;
   display: flex;

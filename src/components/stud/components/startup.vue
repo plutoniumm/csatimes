@@ -1,6 +1,6 @@
 <template>
   <div class="xs12">
-    <va-card color="info" style="text-align: center; font-size: 3rem;">
+    <va-card color="info" style="text-align: center; font-size: 3rem">
       <h2>BITS GOA STARTUPS</h2>
     </va-card>
 
@@ -10,8 +10,8 @@
       <div class="flex xs12 sm6 lg4" v-for="startup in startups" :key="startup">
         <va-card no padding>
           <va-card color="warning">
-            <div style="text-align: center;">
-              <h3>{{startup.Name}}</h3>
+            <div style="text-align: center">
+              <h3>{{ startup.Name }}</h3>
             </div>
           </va-card>
           <br />
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import data from '../../data/startup.json'
+import data from '../../../data/startup.json'
 export default {
   name: 'cards',
   data () {

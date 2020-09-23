@@ -1,28 +1,29 @@
 <template>
   <div>
     <template v-for="club in clubs">
-      <div :key="club" style="text-align: center;">
+      <div :key="club" style="text-align: center">
         <va-card>
           <div>
-            <span style="font-size: 2rem;">{{club.Club}}</span>
+            <span style="font-size: 2rem">{{ club.Club }}</span>
             <span>
               <hr />
             </span>
           </div>
           <div>
             <!-- <img :src="require('../../assets' + club.Logo)" :alt="club.Name" /> -->
-            <div>{{club.Description}}</div>
+            <div>{{ club.Description }}</div>
           </div>
 
           <va-collapse customHeader>
-            <span slot="header" style="text-align: center;">
+            <span slot="header" style="text-align: center">
               <va-button
                 color="info"
                 icon-right="ion-ios-arrow-down arrow-down"
-                style="text-align: center;"
-              >PORs</va-button>
+                style="text-align: center"
+                >PORs
+              </va-button>
             </span>
-            <div slot="body" style="height: 270px;">
+            <div slot="body" style="height: 270px">
               <carousel
                 :per-page="1"
                 :centerMode="1"
@@ -32,20 +33,24 @@
                 :navigationEnabled="1"
                 :controls-visible="true"
               >
-                <slide v-for="(por,slide) in club.Pors" :index="slide" :key="slide">
+                <slide
+                  v-for="(por, slide) in club.Pors"
+                  :index="slide"
+                  :key="slide"
+                >
                   <figure>
                     <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
-                    <figcaption style="font-size: 1rem;">
-                      <span style="font-size: 1.5rem;">{{por.Name}}</span>
-                      ({{por.Post}})
+                    <figcaption style="font-size: 1rem">
+                      <span style="font-size: 1.5rem">{{ por.Name }}</span>
+                      ({{ por.Post }})
                       <br />
-                      {{por.ID}}
+                      {{ por.ID }}
                       <br />
-                      {{por.Personal}}
+                      {{ por.Personal }}
                       <br />
-                      Calling No - {{por.Calling}}
+                      Calling No - {{ por.Calling }}
                       <br />
-                      Whatsapp No - {{por.Whatsapp}}
+                      Whatsapp No - {{ por.Whatsapp }}
                     </figcaption>
                   </figure>
                 </slide>
@@ -60,7 +65,7 @@
   </div>
 </template>
 <script>
-import data from '../../data/por.json'
+import data from '../../../data/por.json'
 export default {
   data () {
     return {
