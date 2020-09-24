@@ -1,7 +1,10 @@
 <template>
   <div class="d-flex justify--center">
     <div class="flex xs12 justify--center row align-content--center">
-      <div class="d-flex justify--center align-content--center" style="position: absolute; top: 50%;">
+      <div
+        class="d-flex justify--center align-content--center"
+        style="position: absolute; top: 50%"
+      >
         Gotta insert BITS Pilani logo
         <va-button @click="socialLogin" color="info">Sign in</va-button>
       </div>
@@ -14,18 +17,8 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
 import axios from 'axios'
-import Vue from 'vue'
 import firebase from 'firebase'
-var firebaseConfig = {
-      apiKey: "AIzaSyATjcR_5F98ADo3iY5ZxgpcBSbMX4Z_M34",
-      authDomain: "csa-app-41a53.firebaseapp.com",
-      databaseURL: "https://csa-app-41a53.firebaseio.com",
-      projectId: "csa-app-41a53",
-      storageBucket: "csa-app-41a53.appspot.com",
-      messagingSenderId: "796324132621",
-      appId: "1:796324132621:web:15c982520a7a465ba1e244",
-      measurementId: "G-1XBCX23ZR2"
-      };
+var firebaseConfig = process.env.authFire
 
 firebase.initializeApp(firebaseConfig);
 
@@ -87,20 +80,9 @@ export default {
             })
         }
       })
-      .catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
+      .catch(function(e) {
+      console.log(e);
       });
-      // else
-      //   {if (!firebase.apps.length) firebase.initializeApp({});
-      //   firebase.analytics();
-      //   const provider = new firebase.auth.GoogleAuthProvider();
-      //   provider.setCustomParameters({
-      //     prompt: 'select_account'
-      //   });
-      //   firebase.auth().signInWithRedirect(provider);
     }
   },
   mounted () {

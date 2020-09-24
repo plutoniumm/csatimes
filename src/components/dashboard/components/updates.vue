@@ -1,19 +1,31 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6 md6" v-for="(notice, index) in start1" :key="notice">
-      <va-card class="mb-0 upds" :key="'item' + notice.name" :set="chex[index] = true">
+    <div
+      class="flex xs12 sm6 md6"
+      v-for="(notice, index) in start1"
+      :key="notice"
+    >
+      <va-card
+        class="mb-0 upds"
+        :key="'item' + notice.name"
+        :set="(chex[index] = true)"
+      >
         <div class="mailtop">
           <span>
             <h1>{{ notice.writer }}</h1>
           </span>
-          <span style="color: #a7a7a7;">{{ notice.updated_at.substring(0,10) }}</span>
+          <span style="color: #a7a7a7">{{
+            notice.updated_at.substring(0, 10)
+          }}</span>
         </div>
-        <div style="margin: 0.5em 0;">{{ notice.name }}</div>
-        <span style="color: #dddddd;" :id="'less' + index">
-          {{ notice.summary.slice(0,140) }}...
+        <div style="margin: 0.5em 0">{{ notice.name }}</div>
+        <span style="color: #dddddd" :id="'less' + index">
+          {{ notice.summary.slice(0, 140) }}...
           <button v-on:click="flip(index)">Read More</button>
         </span>
-        <span style="display: none;" :id="'more' + index">{{ notice.summary }}</span>
+        <span style="display: none" :id="'more' + index">{{
+          notice.summary
+        }}</span>
       </va-card>
     </div>
   </div>
@@ -44,7 +56,7 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
+        headers: { token: btoa(localStorage.getItem('user-token')) },
       })
       .then(response => {
         this.start1 = response.data.en.reverse()

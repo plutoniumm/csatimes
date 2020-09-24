@@ -231,7 +231,7 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
-        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
+        headers: { token: btoa(localStorage.getItem('user-token')) },
       })
       .then(response => {
         this.pr = response.data.subEvents

@@ -1,11 +1,12 @@
 .DS_Store
 node_modules
 /dist
-production.json
 
 # local env files
 .env.local
 .env.*.local
+config/*.env.js
+
 
 # Log files
 npm-debug.log*

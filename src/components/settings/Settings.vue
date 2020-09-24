@@ -153,22 +153,22 @@ export default {
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
-        headers: { token: localStorage.getItem('user-token') || this.$AuthStr },
+        headers: { token: btoa(localStorage.getItem('user-token'))},
         body: { update: payload },
       })
-        .then(function (response) {
+        .then((res) => {
           alert('Profile updated')
           that.$router.push({ name: 'dashboard' })
         })
-        .catch(function (error) {
+        .catch((e) => {
           alert('Please try again later')
-          console.log(error)
+          console.log(e)
         })
     },
   },
   computed: {
     formReady () {
-      return !(this.bitsidErrors.length || this.hostelErrors.length || this.mobileErrors.length || this.hostelnameErrors.length)
+      return !(this.errors.id.length || this.errors.room.length || this.errors.mobile.length)
     },
   },
 }
