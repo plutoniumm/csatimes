@@ -18,7 +18,8 @@
 <script>
 import axios from 'axios'
 import firebase from 'firebase'
-var firebaseConfig = process.env.authFire
+console.log(process.env.VUE_APP_AUTH_FIRE);
+var firebaseConfig = JSON.parse(process.env.VUE_APP_AUTH_FIRE)
 
 firebase.initializeApp(firebaseConfig);
 
@@ -39,9 +40,7 @@ export default {
         });
     },
     socialLogin() {
-      const that=this
       if (!firebase.apps.length) firebase.initializeApp({});
-      firebase.analytics();
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({
         prompt: 'select_account'
@@ -49,11 +48,9 @@ export default {
       firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.idToken;
       var email = result.user.email
-      Vue.prototype.$username = result.user.displayName
-      localStorage.setItem('user', result.user.displayName)
-      Vue.prototype.$bitsid = result.user.email
-      Vue.prototype.$forexam = result.user.email.slice(1,9)
-      localStorage.setItem('forexam', result.user.email.slice(1,9))
+      localStorage.setItem('userName', result.user.displayName)
+      localStorage.setItem('emailID', email)
+      localStorage.setItem('shortID', result.user.email.slice(1,9))
       var str = email.match(/@goa.bits-pilani.ac.in/i)
       if(str===null)
         {firebase.auth().signOut().then(function() {
@@ -62,21 +59,14 @@ export default {
       else
         {
           axios
-            .post('https://csa.devsoc.club/api/v1/google/student/signin', {
-            idToken: token
-            })
+            .post('https://csa.devsoc.club/api/v1/google/student/signin', {idToken: token})
             .then(function(response) {
-              Vue.prototype.$AuthStr = response.data.authToken
-              localStorage.setItem('user-token', response.data.authToken)
-              if(!response.data.newUser)
-                that.$router.push({ name: 'dashboard' })
-              else
-                that.$router.push({ name: 'signup' })
-            })
-            .catch(function(error) {
+              localStorage.setItem('user-token', atob(response.data.authToken))
+              !response.data.newUser ? this.$router.push({ name: 'student' }) : this.$router.push({ name: 'signup' })})
+            .catch((e) => {
               alert('Please try again later')
               localStorage.removeItem('user-token')
-              console.log(error)
+              console.log(e)
             })
         }
       })
@@ -84,8 +74,6 @@ export default {
       console.log(e);
       });
     }
-  },
-  mounted () {
   },
 }
 </script>

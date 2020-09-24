@@ -15,7 +15,7 @@
           :active-by-default="item.name === $route.name"
           :icon="item.meta"
           :to="{ name: item.name }"
-          :title="$t(item.displayName)"
+          :title="item.displayName"
         />
       </template>
     </ul>
