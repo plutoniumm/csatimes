@@ -5,18 +5,21 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row" style="justify-content: center;">
-        <div style="margin-right: 1em; margin-left: 1em;">
+      <div class="row" style="justify-content: center">
+        <div style="margin-right: 1em; margin-left: 1em">
           <va-card class="csatimes">CSATimes</va-card>
         </div>
         <MusocBox />
       </div>
-      <br>
+      <br />
 
       <div data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
           <va-tab>
-            <va-card style="border-radius: 15px; background-color: black; color: white;">Campus Updates</va-card>
+            <va-card
+              style="border-radius: 15px; background-color: black; color: white"
+              >Campus Updates</va-card
+            >
           </va-tab>
           <!-- <va-tab>
             <va-card style="border-radius: 15px; background-color: black; color: white;">Campus News</va-card>
@@ -30,9 +33,9 @@
 </template>
 
 <script>
-import CampusUpdates from './components/Updates'
-import CampusNews from './components/News'
-import MusocBox from './components/Musoc'
+import CampusUpdates from './components/updates'
+// import CampusNews from './components/news'
+import MusocBox from './components/musoc'
 
 export default {
   name: 'dashboard',
@@ -62,13 +65,12 @@ body {
 
 .csatimes {
   color: white;
-  background:
-    -webkit-radial-gradient(
-      0% 100%,
-      rgba(63, 94, 251, 1),
-      rgba(252, 70, 107, 1),
-      rgba(255, 229, 180, 1)
-    );
+  background: -webkit-radial-gradient(
+    0% 100%,
+    rgba(63, 94, 251, 1),
+    rgba(252, 70, 107, 1),
+    rgba(255, 229, 180, 1)
+  );
   font-size: 5.5rem;
   display: flex;
   justify-content: center;

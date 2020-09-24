@@ -1,10 +1,20 @@
 <template>
-  <app-page-layout class="app-layout" :minimized.sync="minimized" :mobile-width="mobileWidth">
-    <app-navbar :minimized.sync="minimized" />
+  <app-page-layout
+    class="app-layout"
+    :minimized.sync="minimized"
+    :mobile-width="mobileWidth"
+  >
     <div class="app-layout__container">
       <app-sidebar :minimized="minimized" />
-      <div class="app-layout__main" :class="{'app-layout__main--top': isTopBar}">
-        <main class="app-layout__main-layout layout fluid gutter--xl" slot="content" role="main">
+      <div
+        class="app-layout__main"
+        :class="{ 'app-layout__main--top': isTopBar }"
+      >
+        <main
+          class="app-layout__main-layout layout fluid gutter--xl"
+          slot="content"
+          role="main"
+        >
           <router-view />
         </main>
       </div>
@@ -14,7 +24,6 @@
 
 <script>
 import AppPageLayout from './AppPageLayout'
-import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { ColorThemeActionsMixin, ColorThemeMixin } from '../../services/vuestic-ui'
 
@@ -22,7 +31,6 @@ export default {
   name: 'app-layout',
   components: {
     AppPageLayout,
-    AppNavbar,
     AppSidebar,
   },
   data () {

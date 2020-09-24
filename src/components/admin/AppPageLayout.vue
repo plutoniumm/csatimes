@@ -9,12 +9,6 @@
 
 export default {
   name: 'app-page-layout',
-  props: {
-    mobileWidth: {
-      type: Number,
-      default: 767,
-    },
-  },
   mounted () {
     window.addEventListener('resize', () => this.updateSidebarState())
 
@@ -26,13 +20,6 @@ export default {
   methods: {
     checkIsDesktop () {
       return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
-    },
-    updateSidebarState () {
-      if (this.checkIsDesktop()) {
-        this.$emit('update:minimized', true)
-      } else {
-        this.$emit('update:minimized', true)
-      }
     },
   },
 }

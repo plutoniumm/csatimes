@@ -20,11 +20,6 @@ export const navigationRoutes = {
       meta: '👨‍💻',
     },
     {
-      name: 'developers',
-      displayName: 'Site Info',
-      meta: '🛈',
-    },
-    {
       name: 'settings',
       displayName: 'Settings',
       meta: '⚙️',

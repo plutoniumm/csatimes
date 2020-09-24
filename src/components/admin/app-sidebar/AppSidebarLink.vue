@@ -1,5 +1,9 @@
 <template>
-  <li class="app-sidebar-link" style="overflow: hidden;" :class="computedLinkClass">
+  <li
+    class="app-sidebar-link"
+    style="overflow: hidden"
+    :class="computedLinkClass"
+  >
     <router-link
       class="app-sidebar-link__item"
       @mouseenter.native="updateHoverState(true)"
@@ -9,17 +13,23 @@
       :target="target"
     >
       <div>
-        <va-icon v-if="icon" :name="icon" style="margin: 0.5rem;">{{icon}}</va-icon>
+        <va-icon v-if="icon" :name="icon" style="margin: 0.5rem">{{
+          icon
+        }}</va-icon>
       </div>
-      <div class="app-sidebar-link__item-title" style="color: white;" v-if="title">
-        <slot>{{title}}</slot>
+      <div
+        class="app-sidebar-link__item-title"
+        style="color: white"
+        v-if="title"
+      >
+        <slot>{{ title }}</slot>
       </div>
     </router-link>
   </li>
 </template>
 
 <script>
-import { colorShiftHsl, ColorThemeMixin } from '../../../../services/vuestic-ui'
+import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar-link',
