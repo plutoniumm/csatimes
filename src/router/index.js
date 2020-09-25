@@ -41,7 +41,7 @@ const router = new Router( {
         {
           name: 'csa',
           path: '/csa',
-          component: () => import( '../components/csa/csa.vue' ),
+          component: () => import( '../components/csa/CSA.vue' ),
         },
         {
           name: 'student',
@@ -80,7 +80,7 @@ const router = new Router( {
         },
         {
           name: 'logout',
-          path: '/',
+          path: '/logout',
           redirect: to => {
             localStorage.clear()
             return '/login'

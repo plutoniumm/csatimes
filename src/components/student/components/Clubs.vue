@@ -20,7 +20,7 @@
           <va-collapse customHeader>
             <span slot="header">
               <va-button color="info" icon-right="ion-ios-arrow-down arrow-down"
-                >PORs</va-button
+              >PORs</va-button
               >
             </span>
             <div slot="body" style="height: 270px">

@@ -20,7 +20,7 @@
                 color="info"
                 icon-right="ion-ios-arrow-down arrow-down"
                 style="text-align: center"
-                >PORs
+              >PORs
               </va-button>
             </span>
             <div slot="body" style="height: 270px">

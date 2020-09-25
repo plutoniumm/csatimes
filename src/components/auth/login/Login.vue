@@ -62,7 +62,7 @@ export default {
             .post('https://csa.devsoc.club/api/v1/google/student/signin', {idToken: token})
             .then(function(response) {
               localStorage.setItem('user-token', atob(response.data.authToken))
-              !response.data.newUser ? this.$router.push({ name: 'student' }) : this.$router.push({ name: 'signup' })})
+              !response.data.newUser ? this.$router.push({ name: 'dashboard' }) : this.$router.push({ name: 'signup' })})
             .catch((e) => {
               alert('Please try again later')
               localStorage.removeItem('user-token')

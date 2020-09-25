@@ -153,7 +153,7 @@ export default {
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
-        headers: { token: btoa(localStorage.getItem('user-token'))},
+        headers: { token: btoa(localStorage.getItem('user-token')) },
         body: { update: payload },
       })
         .then((res) => {

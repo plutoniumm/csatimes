@@ -41,7 +41,7 @@ export default {
   mounted () {
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: btoa(localStorage.getItem('user-token'))},
+        headers: { token: btoa(localStorage.getItem('user-token')) },
       })
       .then(response => {
         this.start1 = response.data.en.reverse()

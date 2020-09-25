@@ -18,7 +18,7 @@
           <va-tab>
             <va-card
               style="border-radius: 15px; background-color: black; color: white"
-              >Campus Updates</va-card
+            >Campus Updates</va-card
             >
           </va-tab>
           <!-- <va-tab>
@@ -33,15 +33,15 @@
 </template>
 
 <script>
-import CampusUpdates from './components/updates'
+import CampusUpdates from './components/Updates'
 // import CampusNews from './components/news'
-import MusocBox from './components/musoc'
+import MusocBox from './components/Musoc'
 
 export default {
   name: 'dashboard',
   components: {
     CampusUpdates,
-    CampusNews,
+    // CampusNews,
     MusocBox,
   },
   data () {
