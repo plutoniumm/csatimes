@@ -18,9 +18,8 @@
 <script>
 import axios from 'axios'
 import firebase from 'firebase'
-console.log(process.env.VUE_APP_AUTH_FIRE);
-var firebaseConfig = JSON.parse(process.env.VUE_APP_AUTH_FIRE)
 
+var firebaseConfig = JSON.parse(process.env.VUE_APP_AUTH_FIRE)
 firebase.initializeApp(firebaseConfig);
 
 export default {
@@ -40,6 +39,7 @@ export default {
         });
     },
     socialLogin() {
+      const that = this
       if (!firebase.apps.length) firebase.initializeApp({});
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({
@@ -61,8 +61,8 @@ export default {
           axios
             .post('https://csa.devsoc.club/api/v1/google/student/signin', {idToken: token})
             .then(function(response) {
-              localStorage.setItem('user-token', atob(response.data.authToken))
-              !response.data.newUser ? this.$router.push({ name: 'dashboard' }) : this.$router.push({ name: 'signup' })})
+              localStorage.setItem('user-token', btoa(response.data.authToken))
+              !response.data.newUser ? that.$router.push({ name: 'dashboard' }) : that.$router.push({ name: 'signup' })})
             .catch((e) => {
               alert('Please try again later')
               localStorage.removeItem('user-token')

@@ -2,8 +2,6 @@
   <div>
     <br />
     <br />
-    <br />
-    <br />
     <div class="dashboard">
       <div class="row" style="justify-content: center">
         <div style="margin-right: 1em; margin-left: 1em">

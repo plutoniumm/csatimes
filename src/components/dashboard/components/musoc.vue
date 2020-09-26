@@ -28,16 +28,8 @@
 import firebase from 'firebase'
 import '../../toast/ToastPositionPicker'
 
-const config = {
-  apiKey: 'AIzaSyBeX0IUMosV9uoXtcjLKpNFjb6wbJbyCHA',
-  authDomain: 'csatimesmini.firebaseapp.com',
-  databaseURL: 'https://csatimesmini.firebaseio.com',
-  projectId: 'csatimesmini',
-  storageBucket: 'csatimesmini.appspot.com',
-  messagingSenderId: '698625993551',
-  appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
-  measurementId: 'G-Y12HTWVH87',
-}
+const config = JSON.parse(process.env.VUE_APP_AUTH_MUSOC)
+
 if (!firebase.apps.length) firebase.initializeApp(config)
 else firebase.initializeApp(config, 'secondary')
 const staticdb = firebase.firestore()
