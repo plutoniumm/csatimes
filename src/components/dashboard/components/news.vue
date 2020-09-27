@@ -39,9 +39,10 @@ export default {
     }
   },
   mounted () {
+    const utok = atob(document.cookie.split(';').filter(e => e.includes('uToken'))[0].split('=')[1])
     axios
       .get('https://csa.devsoc.club/api/v1/en/student/show', {
-        headers: { token: atob(localStorage.getItem('user-token')) },
+        headers: { token: utok },
       })
       .then(response => {
         this.start1 = response.data.en.reverse()

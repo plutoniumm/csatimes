@@ -229,9 +229,10 @@ export default {
     }
   },
   mounted () {
+    const utok = atob(document.cookie.split(';').filter(e => e.includes('uToken'))[0].split('=')[1])
     axios
       .get('https://csa.devsoc.club/api/v1/genpr/student/getAllsubEvents', {
-        headers: { token: btoa(localStorage.getItem('user-token')) },
+        headers: { token: utok },
       })
       .then(response => {
         this.pr = response.data.subEvents

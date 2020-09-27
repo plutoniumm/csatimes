@@ -150,10 +150,11 @@ export default {
           roomNo: this.hostel + this.simpleSelectModel,
         }
       }
+      const utok = atob(document.cookie.split(';').filter(e => e.includes('uToken'))[0].split('=')[1])
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
-        headers: { token: btoa(localStorage.getItem('user-token')) },
+        headers: { token: utok},
         body: { update: payload },
       })
         .then((res) => {
