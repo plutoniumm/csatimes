@@ -1,0 +1,11 @@
+[
+  {
+    "picture": "download.jpg",
+    "name": "Person Name",
+    "stripe": "#ff0000",
+    "organisation": "Council",
+    "post": "President",
+    "phone": "+91 123123123",
+    "address": "prez"
+  }
+]

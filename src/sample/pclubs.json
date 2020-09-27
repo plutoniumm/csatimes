@@ -1,0 +1,19 @@
+[
+  {
+    "Club": "Club Name",
+    "Logo": "/tclubs/seds/logo.png",
+    "Founded": "2009",
+    "Description": "Short Desc",
+    "Pors": [
+      {
+        "Club": "Club Name",
+        "Name ": "Person Name",
+        "Post": "President",
+        "ID": "2000123123",
+        "Personal": "person@gmail.com",
+        "Calling": 1231231231,
+        "Whatsapp": 1231231231
+      }
+    ]
+  }
+]
