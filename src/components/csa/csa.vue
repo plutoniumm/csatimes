@@ -9,10 +9,16 @@
       <div class="flex xs12 sm6">
         <va-card
           title="Write to us!"
-          style="background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1)); height: 17em;"
+          style="
+            background: -webkit-linear-gradient(
+              rgba(26, 26, 26, 1),
+              rgba(26, 26, 26, 1)
+            );
+            height: 17em;
+          "
         >
           <div class="row align--center">
-            <div class="flex xs12 md6" style="color: #c0c0c0;">
+            <div class="flex xs12 md6" style="color: #c0c0c0">
               <va-toggle v-model="toggle" label="(Send Anonymously!)" />
             </div>
             <div class="flex xs12 md3 offset--md3">
@@ -36,7 +42,10 @@
       </div>
 
       <div class="flex xs12 sm6">
-        <div class="flex" style="height: 17em; overflow-y: scroll; margin: 0; padding: 0;">
+        <div
+          class="flex"
+          style="height: 17em; overflow-y: scroll; margin: 0; padding: 0"
+        >
           <va-card class="issues" v-for="issue in this.grievances" :key="issue">
             <div class="mailtop">
               <span>
@@ -59,24 +68,37 @@
       </div>
 
       <div class="flex xs12 sm6">
-        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
-          <slide v-for="(person,slide) in people1" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center;">
+        <carousel
+          :per-page="1"
+          :centerMode="true"
+          :autoplay="1"
+          :easing="ease"
+          :loop="true"
+          style
+        >
+          <slide v-for="(person, slide) in people1" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center">
               <va-card class="flex issues" :title="person.organisation">
                 <div class="row">
                   <div class="flex xs8 md3">
-                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                    <img
+                      :src="require('../../assets/pics/' + person.picture)"
+                      class="person"
+                    />
                   </div>
-                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
-                    <strong>{{person.name}}</strong>
-                    {{person.post}}
+                  <div
+                    class="flex xs4 md9"
+                    style="float: right; text-align: left; padding: 2em"
+                  >
+                    <strong>{{ person.name }}</strong>
+                    {{ person.post }}
                     <br />
                     <br />
                     <strong>Phone:</strong>
-                    {{person.phone}}
+                    {{ person.phone }}
                     <br />
                     <strong>Email:</strong>
-                    {{person.address}}@goa.bits-pilani.ac.in
+                    {{ person.address }}@goa.bits-pilani.ac.in
                   </div>
                 </div>
               </va-card>
@@ -85,24 +107,37 @@
         </carousel>
       </div>
       <div class="flex xs12 sm6">
-        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
-          <slide v-for="(person,slide) in people" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center;">
+        <carousel
+          :per-page="1"
+          :centerMode="true"
+          :autoplay="1"
+          :easing="ease"
+          :loop="true"
+          style
+        >
+          <slide v-for="(person, slide) in people" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center">
               <va-card class="flex issues" :title="person.organisation">
                 <div class="row">
                   <div class="flex xs8 md3">
-                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                    <img
+                      :src="require('../../assets/pics/' + person.picture)"
+                      class="person"
+                    />
                   </div>
-                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
-                    <strong>{{person.name}}</strong>
-                    {{person.post}}
+                  <div
+                    class="flex xs4 md9"
+                    style="float: right; text-align: left; padding: 2em"
+                  >
+                    <strong>{{ person.name }}</strong>
+                    {{ person.post }}
                     <br />
                     <br />
                     <strong>Phone:</strong>
-                    {{person.phone}}
+                    {{ person.phone }}
                     <br />
                     <strong>Email:</strong>
-                    {{person.address}}@goa.bits-pilani.ac.in
+                    {{ person.address }}@goa.bits-pilani.ac.in
                   </div>
                 </div>
               </va-card>
@@ -111,24 +146,37 @@
         </carousel>
       </div>
       <div class="flex xs12 sm6">
-        <carousel :per-page="1" :centerMode="true" :autoplay="1" :easing="ease" :loop="true" style>
-          <slide v-for="(person,slide) in people2" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center;">
+        <carousel
+          :per-page="1"
+          :centerMode="true"
+          :autoplay="1"
+          :easing="ease"
+          :loop="true"
+          style
+        >
+          <slide v-for="(person, slide) in people2" :index="slide" :key="slide">
+            <div style="justify-content: center; align-items: center">
               <va-card class="flex issues" :title="person.organisation">
                 <div class="row">
                   <div class="flex xs8 md3">
-                    <img :src="require('../../assets/pics/'+person.picture)" class="person" />
+                    <img
+                      :src="require('../../assets/pics/' + person.picture)"
+                      class="person"
+                    />
                   </div>
-                  <div class="flex xs4 md9" style="float: right; text-align: left; padding: 2em;">
-                    <strong>{{person.name}}</strong>
-                    {{person.post}}
+                  <div
+                    class="flex xs4 md9"
+                    style="float: right; text-align: left; padding: 2em"
+                  >
+                    <strong>{{ person.name }}</strong>
+                    {{ person.post }}
                     <br />
                     <br />
                     <strong>Phone:</strong>
-                    {{person.phone}}
+                    {{ person.phone }}
                     <br />
                     <strong>Email:</strong>
-                    {{person.address}}@goa.bits-pilani.ac.in
+                    {{ person.address }}@goa.bits-pilani.ac.in
                   </div>
                 </div>
               </va-card>
@@ -153,9 +201,7 @@ const config = {
   databaseURL: 'https://csatimesmini.firebaseio.com',
   projectId: 'csatimesmini',
   storageBucket: 'csatimesmini.appspot.com',
-  messagingSenderId: '698625993551',
   appId: '1:698625993551:web:3a5d2070968c0b9457f33a',
-  measurementId: 'G-Y12HTWVH87',
 }
 if (!firebase.apps.length) firebase.initializeApp(config)
 const staticdb = firebase.firestore()

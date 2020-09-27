@@ -3,27 +3,17 @@
     <br />
     <br />
     <div class="dashboard">
-      <div class="row" style="justify-content: center">
-        <div style="margin-right: 1em; margin-left: 1em">
-          <va-card class="csatimes">CSATimes</va-card>
-        </div>
-        <MusocBox />
-      </div>
       <br />
-
       <div data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
           <va-tab>
             <va-card
               style="border-radius: 15px; background-color: black; color: white"
-            >Campus Updates</va-card
             >
+              Campus Updates
+            </va-card>
           </va-tab>
-          <!-- <va-tab>
-            <va-card style="border-radius: 15px; background-color: black; color: white;">Campus News</va-card>
-          </va-tab> -->
         </va-tabs>
-        <!-- <va-separator /> -->
         <component :is="tabs[tabsState]" @submit="submit" />
       </div>
     </div>
@@ -31,23 +21,20 @@
 </template>
 
 <script>
-import CampusUpdates from './components/Updates'
-// import CampusNews from './components/news'
-import MusocBox from './components/Musoc'
+import CampusUpdates from './components/updates'
 
 export default {
   name: 'dashboard',
   components: {
     CampusUpdates,
     // CampusNews,
-    MusocBox,
+    // MusocBox,
   },
   data () {
     return {
       tabsState: 0,
       tabs: [
         'CampusUpdates',
-        // 'CampusNews',
       ],
       musoc: 'Default Value',
       song: 'None',

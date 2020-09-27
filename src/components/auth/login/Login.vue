@@ -45,12 +45,12 @@ export default {
       provider.setCustomParameters({
         prompt: 'select_account'
       });
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-      var token = result.credential.idToken;
-      var email = result.user.email
-      localStorage.setItem('userName', result.user.displayName)
-      localStorage.setItem('emailID', email)
-      localStorage.setItem('shortID', result.user.email.slice(1,9))
+      firebase.auth().signInWithPopup(provider).then((res)=> {
+      var token = res.credential.idToken;
+      var email = res.user.email
+      document.cookie = `userName=${res.user.displayName}; expires=${new Date().getTime() + 86400*1000*30}`
+      document.cookie = `emailID=${email}; expires=${new Date().getTime() + 86400*1000*30}`
+      document.cookie = `shortID=${res.user.email.slice(1,9)}; expires=${new Date().getTime() + 86400*1000*30}`
       var str = email.match(/@goa.bits-pilani.ac.in/i)
       if(str===null)
         {firebase.auth().signOut().then(function() {
@@ -61,11 +61,12 @@ export default {
           axios
             .post('https://csa.devsoc.club/api/v1/google/student/signin', {idToken: token})
             .then(function(response) {
-              localStorage.setItem('user-token', btoa(response.data.authToken))
+              document.cookie = `uToken=${btoa(response.data.authToken)}; expires=${new Date().getTime() + 86400*1000*30}`
+              alert(document.cookie);
               !response.data.newUser ? that.$router.push({ name: 'dashboard' }) : that.$router.push({ name: 'signup' })})
             .catch((e) => {
               alert('Please try again later')
-              localStorage.removeItem('user-token')
+              document.cookie = `uToken=; expires=${new Date().getTime()}`
               console.log(e)
             })
         }

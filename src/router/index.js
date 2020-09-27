@@ -41,7 +41,7 @@ const router = new Router( {
         {
           name: 'csa',
           path: '/csa',
-          component: () => import( '../components/csa/CSA.vue' ),
+          component: () => import( '../components/csa/csa.vue' ),
         },
         {
           name: 'student',
@@ -82,7 +82,10 @@ const router = new Router( {
           name: 'logout',
           path: '/logout',
           redirect: to => {
-            localStorage.clear()
+            document.cookie = `uToken=; expires=${ new Date().getTime() }`
+            document.cookie = `emailID=; expires=${ new Date().getTime() }`
+            document.cookie = `shortID=; expires=${ new Date().getTime() }`
+            document.cookie = `userName=; expires=${ new Date().getTime() }`
             return '/login'
           },
         },
