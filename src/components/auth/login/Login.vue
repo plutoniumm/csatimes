@@ -62,7 +62,7 @@ export default {
             .post('https://csa.devsoc.club/api/v1/google/student/signin', {idToken: token})
             .then(function(response) {
               document.cookie = `uToken=${btoa(response.data.authToken)}; expires=${new Date().getTime() + 86400*1000*30}`
-              alert(document.cookie);
+              // alert(document.cookie);
               !response.data.newUser ? that.$router.push({ name: 'dashboard' }) : that.$router.push({ name: 'signup' })})
             .catch((e) => {
               alert('Please try again later')

@@ -135,10 +135,11 @@ export default {
           roomNo: this.hostel + this.simpleSelectModel,
         }
       }
+      const utok = atob(document.cookie.split(';').filter(e => e.includes('uToken'))[0].split('=')[1])
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/create',
         method: 'post',
-        headers: { token: this.$AuthStr },
+        headers: { token: utok },
         data: payload,
       })
         .then(function (response) {

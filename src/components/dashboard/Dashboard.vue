@@ -3,6 +3,13 @@
     <br />
     <br />
     <div class="dashboard">
+      <div class="row" style="justify-content: center">
+        <div style="margin-right: 1em; margin-left: 1em">
+          <va-card class="csatimes">CSATimes</va-card>
+        </div>
+        <MusocBox />
+      </div>
+      <br />
       <br />
       <div data-aos="fade-up">
         <va-tabs grow v-model="tabsState">
@@ -22,13 +29,14 @@
 
 <script>
 import CampusUpdates from './components/updates'
+import MusocBox from './components/Musoc'
 
 export default {
   name: 'dashboard',
   components: {
     CampusUpdates,
     // CampusNews,
-    // MusocBox,
+    MusocBox,
   },
   data () {
     return {

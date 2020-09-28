@@ -154,7 +154,7 @@ export default {
       axios({
         url: 'https://csa.devsoc.club/api/v1/profile/update',
         method: 'post',
-        headers: { token: utok},
+        headers: { token: utok },
         body: { update: payload },
       })
         .then((res) => {

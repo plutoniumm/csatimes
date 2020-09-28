@@ -82,10 +82,10 @@ const router = new Router( {
           name: 'logout',
           path: '/logout',
           redirect: to => {
-            document.cookie = `uToken=; expires=${ new Date().getTime() }`
-            document.cookie = `emailID=; expires=${ new Date().getTime() }`
-            document.cookie = `shortID=; expires=${ new Date().getTime() }`
-            document.cookie = `userName=; expires=${ new Date().getTime() }`
+            // document.cookie = `uToken=; expires=${ new Date().getTime() }`
+            // document.cookie = `emailID=; expires=${ new Date().getTime() }`
+            // document.cookie = `shortID=; expires=${ new Date().getTime() }`
+            // document.cookie = `userName=; expires=${ new Date().getTime() }`
             return '/login'
           },
         },
