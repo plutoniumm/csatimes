@@ -29,7 +29,7 @@
 
 <script>
 import CampusUpdates from './components/updates'
-import MusocBox from './components/Musoc'
+import MusocBox from './components/musoc'
 
 export default {
   name: 'dashboard',

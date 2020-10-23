@@ -3,6 +3,9 @@ node_modules
 /dist
 src/data
 
+*.lock
+*-lock*.*
+
 # local env files
 .env.local
 .env.*.local
@@ -20,12 +23,6 @@ inspect.js
 .idea
 .env
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
-*.orig
 
 
 .DS_Store

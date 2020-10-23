@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import AppLayout from '../components/admin/AppLayout'
 
-/* eslint-disable */
 Vue.use( Router )
 
 const EmptyParentComponent = {

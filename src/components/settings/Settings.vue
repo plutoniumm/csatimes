@@ -35,9 +35,7 @@
             :error-messages="errors.mobile"
           />
           <div class="d-flex justify--center mt-3">
-            <va-button type="submit" class="my-0">{{
-              $t("Confirm Details")
-            }}</va-button>
+            <va-button type="submit" class="my-0">Confirm Details</va-button>
           </div>
         </form>
       </va-card>

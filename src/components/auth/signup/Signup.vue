@@ -9,13 +9,13 @@
                 <va-input
                   v-model="bitsid"
                   type="bitsid"
-                  :label="$t('BITSID')"
+                  label="BITSID"
                   :error="!!bitsidErrors.length"
                   :error-messages="bitsidErrors"
                 />
 
                 <va-select
-                  :label="$t('Select Hostel Name')"
+                  label="Select Hostel Name"
                   v-model="hostelname"
                   textBy="description"
                   :options="Options"
@@ -26,13 +26,13 @@
                 <va-input
                   v-model="hostel"
                   type="hostel"
-                  :label="$t('HOSTEL ROOM NUMBER')"
+                  label="HOSTEL ROOM NUMBER"
                   :error="!!hostelErrors.length"
                   :error-messages="hostelErrors"
                 />
 
                 <va-select
-                  :label="$t('Select R or L or None')"
+                  label="Select R or L or None"
                   v-model="simpleSelectModel"
                   textBy="description"
                   :options="simpleOptions"
@@ -41,13 +41,15 @@
                 <va-input
                   v-model="mobile"
                   type="mobile"
-                  :label="$t('MOBILE NUMBER')"
+                  label="MOBILE NUMBER"
                   :error="!!mobileErrors.length"
                   :error-messages="mobileErrors"
                 />
 
                 <div class="d-flex justify--center mt-3">
-                  <va-button type="submit" class="my-0">{{ $t('Confirm Details') }}</va-button>
+                  <va-button type="submit" class="my-0"
+                    >Confirm Details</va-button
+                  >
                 </div>
               </form>
             </div>
