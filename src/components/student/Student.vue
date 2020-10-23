@@ -1,191 +1,170 @@
 <template>
-  <div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="row">
-      <div class="flex xs12 sm6">
-        <va-card class="studpor">Student Portal</va-card>
-      </div>
-      <div
-        v-for="link in portlinks"
-        :key="link"
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center"
-      >
-        <router-link :to="{ path: link.link }" append exact>
-          <va-card class="portalboxes">
-            <i :class="link.icon" :style="link.icograd"></i>
-            <p>{{ link.name }}</p>
-          </va-card>
-        </router-link>
-      </div>
-      <div class="flex xs12 sm6">
-        <va-card class="implinks">Important Links</va-card>
-      </div>
-      <div
-        v-for="link in implinks"
-        :key="link"
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center"
-      >
-        <a :href="link.link">
-          <va-card class="portalboxes">
-            <i :class="link.icon" :style="link.icograd">{{ link.reptext }}</i>
-            <p>{{ link.name }}</p>
-          </va-card>
-        </a>
-      </div>
-      <div
-        class="flex xs12 sm6 lg4 xl3"
-        style="text-align: center"
-        v-for="item in items"
-        :key="item"
-      >
-        <a :href="item.href" style="text-decoration: none; color: black">
-          <va-card
-            overlay
-            titleOnImage
-            :image="item.image"
-            :title="item.title"
-            :to="item.href"
-            onmouseover="this.style.cursor='pointer';"
-          >
-            <!-- {{ item.message }} -->
-          </va-card>
-        </a>
-      </div>
-      <div class="flex xs12 sm6 lg4 xl3" style="text-align: center">
-        <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
-          <va-card class="portalboxes">
+  <div class="row">
+    <div class="flex xs12 sm6">
+      <va-card class="studpor">Student Portal</va-card>
+    </div>
+    <div
+      v-for="link in portlinks"
+      :key="link"
+      class="flex xs12 sm6 lg4 xl3"
+      style="text-align: center"
+    >
+      <router-link :to="{ path: link.link }" append exact>
+        <va-card class="portalboxes">
+          <i :class="link.icon" :style="link.icograd"></i>
+          <p>{{ link.name }}</p>
+        </va-card>
+      </router-link>
+    </div>
+    <div class="flex xs12 sm6">
+      <va-card class="implinks">Important Links</va-card>
+    </div>
+    <div
+      v-for="link in implinks"
+      :key="link"
+      class="flex xs12 sm6 lg4 xl3"
+      style="text-align: center"
+    >
+      <a :href="link.link">
+        <va-card class="portalboxes">
+          <i :class="link.icon" :style="link.icograd">{{ link.reptext }}</i>
+          <p>{{ link.name }}</p>
+        </va-card>
+      </a>
+    </div>
+    <div
+      class="flex xs12 sm6 lg4 xl3"
+      style="text-align: center"
+      v-for="item in items"
+      :key="item"
+    >
+      <a :href="item.href" style="text-decoration: none; color: black">
+        <va-card
+          overlay
+          titleOnImage
+          :image="item.image"
+          :title="item.title"
+          :to="item.href"
+          onmouseover="this.style.cursor='pointer';"
+        >
+          <!-- {{ item.message }} -->
+        </va-card>
+      </a>
+    </div>
+    <div class="flex xs12 sm6 lg4 xl3" style="text-align: center">
+      <a href="http://know-your-exam-schedule.herokuapp.com" target="_blank">
+        <va-card class="portalboxes">
+          <i
+            class="icongrad fas fa-vials"
+            style="
+              background: -webkit-linear-gradient(45deg, purple, white, purple);
+            "
+          ></i>
+          <p>Exam Schedule</p>
+        </va-card>
+      </a>
+    </div>
+    <div class="flex xs12 sm6">
+      <va-card class="upcoming">What's Coming</va-card>
+    </div>
+    <div class="flex xs12 sm6">
+      <va-collapse customHeader>
+        <span slot="header">
+          <va-card class="portalboxes" style="text-align: center">
             <i
-              class="icongrad fas fa-vials"
+              class="icongrad fas fa-signature"
               style="
-                background: -webkit-linear-gradient(
-                  45deg,
-                  purple,
-                  white,
-                  purple
-                );
+                background: -webkit-linear-gradient(45deg, green, white, green);
               "
             ></i>
-            <p>Exam Schedule</p>
+            <p>PR Drives</p>
           </va-card>
-        </a>
-      </div>
-      <div class="flex xs12 sm6">
-        <va-card class="upcoming">What's Coming</va-card>
-      </div>
-      <div class="flex xs12 sm6">
-        <va-collapse customHeader>
-          <span slot="header">
-            <va-card class="portalboxes" style="text-align: center">
-              <i
-                class="icongrad fas fa-signature"
-                style="
-                  background: -webkit-linear-gradient(
-                    45deg,
-                    green,
-                    white,
-                    green
-                  );
-                "
-              ></i>
-              <p>PR Drives</p>
-            </va-card>
-          </span>
+        </span>
 
-          <div slot="body">
-            <va-card>
-              <div class="flex xs12" style="overflow-x: auto; display: inline">
-                <form>
-                  <template v-for="prevent in pr">
-                    <va-card
-                      class="flex xs12"
-                      :key="'item' + prevent.name"
-                      data-aos="fade-left"
-                    >
-                      <form @submit.prevent="onsubmit()">
-                        <template v-for="(imag, i) in prevent.images">
-                          <img
-                            :src="prevent.images[i].image"
-                            width="300px"
-                            :key="imag.image"
-                          />
-                        </template>
-                        <br />
-                        <va-input
-                          v-model="withDescription"
-                          placeholder="Enter the scanned QR code here"
+        <div slot="body">
+          <va-card>
+            <div class="flex xs12" style="overflow-x: auto; display: inline">
+              <form>
+                <template v-for="prevent in pr">
+                  <va-card
+                    class="flex xs12"
+                    :key="'item' + prevent.name"
+                    data-aos="fade-left"
+                  >
+                    <form @submit.prevent="onsubmit()">
+                      <template v-for="(imag, i) in prevent.images">
+                        <img
+                          :src="prevent.images[i].image"
+                          width="300px"
+                          :key="imag.image"
                         />
-                        <div v-if="prevent.is_nick == true">
-                          <h2>
-                            Price: {{ prevent.price }} ( +{{
-                              prevent.price_nick - prevent.price
-                            }}
-                            for Nick )
-                          </h2>
-                          <va-checkbox label="Add nick?" v-model="checkbox" />
-                          <va-input
-                            v-if="checkbox == true"
-                            v-model="nick"
-                            placeholder="Enter nick here"
-                          />
-                          <va-input
-                            label="Number of Tees"
-                            v-model="value"
-                            type="number"
-                            width="50%"
-                          />
-                        </div>
-                        <div v-else>
-                          <h2>Price</h2>
-                          {{ prevent.price }}
-                        </div>
-                        <va-select
-                          label="Choose Size"
-                          v-model="simpleSelectModel"
-                          textBy="description"
-                          :options="prevent.available_sizes"
+                      </template>
+                      <br />
+                      <va-input
+                        v-model="withDescription"
+                        placeholder="Enter the scanned QR code here"
+                      />
+                      <div v-if="prevent.is_nick == true">
+                        <h2>
+                          Price: {{ prevent.price }} ( +{{
+                            prevent.price_nick - prevent.price
+                          }}
+                          for Nick )
+                        </h2>
+                        <va-checkbox label="Add nick?" v-model="checkbox" />
+                        <va-input
+                          v-if="checkbox == true"
+                          v-model="nick"
+                          placeholder="Enter nick here"
+                        />
+                        <va-input
+                          label="Number of Tees"
+                          v-model="value"
+                          type="number"
                           width="50%"
                         />
-                        <va-button color="danger" type="submit">Go</va-button>
-                        <br />
-                      </form>
-                    </va-card>
-                  </template>
-                </form>
-              </div>
+                      </div>
+                      <div v-else>
+                        <h2>Price</h2>
+                        {{ prevent.price }}
+                      </div>
+                      <va-select
+                        label="Choose Size"
+                        v-model="simpleSelectModel"
+                        textBy="description"
+                        :options="prevent.available_sizes"
+                        width="50%"
+                      />
+                      <va-button color="danger" type="submit">Go</va-button>
+                      <br />
+                    </form>
+                  </va-card>
+                </template>
+              </form>
+            </div>
+          </va-card>
+        </div>
+      </va-collapse>
+    </div>
+    <div>
+      <va-collapse customHeader>
+        <span slot="header">
+          <div class="flex sm6">
+            <va-card class="portalboxes" style="text-align: center">
+              <i
+                class="icongrad fas fa-peace"
+                style="
+                  background: -webkit-linear-gradient(45deg, blue, white, blue);
+                "
+              ></i>
+              <p>Humanities Reviews</p>
             </va-card>
           </div>
-        </va-collapse>
-      </div>
-      <div>
-        <va-collapse customHeader>
-          <span slot="header">
-            <div class="flex sm6">
-              <va-card class="portalboxes" style="text-align: center">
-                <i
-                  class="icongrad fas fa-peace"
-                  style="
-                    background: -webkit-linear-gradient(
-                      45deg,
-                      blue,
-                      white,
-                      blue
-                    );
-                  "
-                ></i>
-                <p>Humanities Reviews</p>
-              </va-card>
-            </div>
-          </span>
-          <div slot="body">
-            <Humanity />
-          </div>
-        </va-collapse>
-      </div>
+        </span>
+        <div slot="body">
+          <Humanity />
+        </div>
+      </va-collapse>
     </div>
   </div>
 </template>
@@ -215,8 +194,7 @@ export default {
       ],
      implinks:[
             { "name": "Student Welfare Division", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #12fff7, #FCFF9E, #35FF51);", "link": "https://swd.bits-goa.ac.in", "reptext" : "SWD" },
-            { "name": "Enterprise Resource Planning", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, #eeda9b, #12fff7);", "link": "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", "reptext" : "ERP" },
-            { "name": "TechForums by CTE", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #ffffff, #64e632);", "link": "http://forum.bpgc-cte.org/", "reptext" : "CTE" },
+            { "name": "Enterprise Resource Planning", "icon": "icongrad", "icograd":"background: -webkit-linear-gradient(45deg, #cd3333, #eeda9b, #12fff7);", "link": "https://erp.bits-pilani.ac.in:4431/psp/hcsprod/?cmd=login&languageCd=ENG&", "reptext" : "ERP" }
       ],
       pr: null,
       nick: null,

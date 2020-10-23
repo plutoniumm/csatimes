@@ -6,10 +6,7 @@
   >
     <div class="app-layout__container">
       <app-sidebar :minimized="minimized" />
-      <div
-        class="app-layout__main"
-        :class="{ 'app-layout__main--top': isTopBar }"
-      >
+      <div class="app-layout__main">
         <main
           class="app-layout__main-layout layout fluid gutter--xl"
           slot="content"

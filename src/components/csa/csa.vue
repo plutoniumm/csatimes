@@ -1,189 +1,63 @@
 <template>
-  <div class="xs12">
-    <br />
-    <br />
-    <br />
-    <br />
-    <!-- SUPER INPUT FIREBASE -->
-    <div class="row">
-      <div class="flex xs12 sm6">
-        <va-card
-          title="Write to us!"
-          style="
-            background: -webkit-linear-gradient(
-              rgba(26, 26, 26, 1),
-              rgba(26, 26, 26, 1)
-            );
-            height: 17em;
-          "
-        >
-          <div class="row align--center">
-            <div class="flex xs12 md6" style="color: #c0c0c0">
-              <va-toggle v-model="toggle" label="(Send Anonymously!)" />
-            </div>
-            <div class="flex xs12 md3 offset--md3">
-              <va-select v-model="perPage" :options="perPageOptions" noClear />
+  <div class="row">
+    <div class="flex xs12 sm6">
+      <va-card
+        title="Write to us!"
+        style="
+          background: -webkit-linear-gradient(
+            rgba(26, 26, 26, 1),
+            rgba(26, 26, 26, 1)
+          );
+          height: 17em;
+        "
+      >
+        <div class="row align--center">
+          <div class="flex xs12 md6" style="color: #c0c0c0">
+            <va-toggle v-model="toggle" label="(Send Anonymously!)" />
+          </div>
+          <div class="flex xs12 md3 offset--md3">
+            <va-select v-model="perPage" :options="perPageOptions" noClear />
+          </div>
+        </div>
+        <form @submit.prevent="executer()">
+          <div class="row">
+            <div class="flex xs12">
+              <input
+                class="grieve"
+                :label="perPage"
+                v-model="description"
+                placeholder="Tell us your grievance"
+              />
+              <button class="send">Submit</button>
             </div>
           </div>
-          <form @submit.prevent="executer()">
-            <div class="row">
-              <div class="flex xs12">
-                <input
-                  class="grieve"
-                  :label="perPage"
-                  v-model="description"
-                  placeholder="Tell us your grievance"
-                />
-                <button class="send">Submit</button>
+        </form>
+      </va-card>
+    </div>
+
+    <div v-for="set in people" :key="set" class="flex xs12 sm6">
+      <carousel
+        :per-page="1"
+        :centerMode="true"
+        :autoplay="2"
+        :loop="true"
+        style
+      >
+        <slide v-for="(person, slide) in set" :index="slide" :key="slide">
+          <va-card class="issues" :title="person.organisation">
+            <div style="display: flex">
+              <img :src="require('../../assets/pics/' + person.picture)" />
+              <div style="text-align: left; padding: 2em; flex: 2">
+                <h1>{{ person.name }}:{{ person.post }}</h1>
+                <br />
+                Phone:{{ person.phone }}
+                <br />
+                Email:{{ person.address }}@goa.bits-pilani.ac.in
               </div>
             </div>
-          </form>
-        </va-card>
-      </div>
-
-      <div class="flex xs12 sm6">
-        <div
-          class="flex"
-          style="height: 17em; overflow-y: scroll; margin: 0; padding: 0"
-        >
-          <va-card class="issues" v-for="issue in this.grievances" :key="issue">
-            <div class="mailtop">
-              <span>
-                <h2>{{ issue.type }}</h2>
-              </span>
-              <span>
-                <strong>ID</strong>
-                {{ issue.issueid }}
-              </span>
-            </div>
-            <br />
-            <div>{{ issue.description }}</div>
-            <br />
-            <span>
-              <strong>Resolved:</strong>
-              {{ issue.status }}
-            </span>
           </va-card>
-        </div>
-      </div>
-
-      <div class="flex xs12 sm6">
-        <carousel
-          :per-page="1"
-          :centerMode="true"
-          :autoplay="1"
-          :easing="ease"
-          :loop="true"
-          style
-        >
-          <slide v-for="(person, slide) in people1" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center">
-              <va-card class="flex issues" :title="person.organisation">
-                <div class="row">
-                  <div class="flex xs8 md3">
-                    <img
-                      :src="require('../../assets/pics/' + person.picture)"
-                      class="person"
-                    />
-                  </div>
-                  <div
-                    class="flex xs4 md9"
-                    style="float: right; text-align: left; padding: 2em"
-                  >
-                    <strong>{{ person.name }}</strong>
-                    {{ person.post }}
-                    <br />
-                    <br />
-                    <strong>Phone:</strong>
-                    {{ person.phone }}
-                    <br />
-                    <strong>Email:</strong>
-                    {{ person.address }}@goa.bits-pilani.ac.in
-                  </div>
-                </div>
-              </va-card>
-            </div>
-          </slide>
-        </carousel>
-      </div>
-      <div class="flex xs12 sm6">
-        <carousel
-          :per-page="1"
-          :centerMode="true"
-          :autoplay="1"
-          :easing="ease"
-          :loop="true"
-          style
-        >
-          <slide v-for="(person, slide) in people" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center">
-              <va-card class="flex issues" :title="person.organisation">
-                <div class="row">
-                  <div class="flex xs8 md3">
-                    <img
-                      :src="require('../../assets/pics/' + person.picture)"
-                      class="person"
-                    />
-                  </div>
-                  <div
-                    class="flex xs4 md9"
-                    style="float: right; text-align: left; padding: 2em"
-                  >
-                    <strong>{{ person.name }}</strong>
-                    {{ person.post }}
-                    <br />
-                    <br />
-                    <strong>Phone:</strong>
-                    {{ person.phone }}
-                    <br />
-                    <strong>Email:</strong>
-                    {{ person.address }}@goa.bits-pilani.ac.in
-                  </div>
-                </div>
-              </va-card>
-            </div>
-          </slide>
-        </carousel>
-      </div>
-      <div class="flex xs12 sm6">
-        <carousel
-          :per-page="1"
-          :centerMode="true"
-          :autoplay="1"
-          :easing="ease"
-          :loop="true"
-          style
-        >
-          <slide v-for="(person, slide) in people2" :index="slide" :key="slide">
-            <div style="justify-content: center; align-items: center">
-              <va-card class="flex issues" :title="person.organisation">
-                <div class="row">
-                  <div class="flex xs8 md3">
-                    <img
-                      :src="require('../../assets/pics/' + person.picture)"
-                      class="person"
-                    />
-                  </div>
-                  <div
-                    class="flex xs4 md9"
-                    style="float: right; text-align: left; padding: 2em"
-                  >
-                    <strong>{{ person.name }}</strong>
-                    {{ person.post }}
-                    <br />
-                    <br />
-                    <strong>Phone:</strong>
-                    {{ person.phone }}
-                    <br />
-                    <strong>Email:</strong>
-                    {{ person.address }}@goa.bits-pilani.ac.in
-                  </div>
-                </div>
-              </va-card>
-            </div>
-          </slide>
-        </carousel>
-      </div>
+        </slide>
+      </carousel>
     </div>
   </div>
 </template>
@@ -203,9 +77,7 @@ export default {
   name: 'cards',
   data () {
     return {
-      people: data,
-      people1: data1,
-      people2: data2,
+      people: [data, data1, data2],
       perPage: 'Complaint',
       perPageOptions: ['Complaint', 'FAQ', 'RTI'],
       toggle: false,
@@ -213,7 +85,6 @@ export default {
       title: '',
       description: '',
       sender: 'Anonymous',
-      grievances: [],
       toastText: 'This toast is awesome!',
       toastIcon: 'fa-star-o',
     }
@@ -275,20 +146,16 @@ export default {
           this.launchToast('Error! Please Try Again Later', 'fa-bug')
         })
     },
-  },
-  firestore () {
-    return {
-      grievances: staticdb
-        .collection('Store')
-        .doc('Grievances')
-        .collection('20180795'),
-    }
-  },
+  }
 }
 </script>
-<style lang='scss'>
-body {
-  background-color: black;
+<style lang='scss' scoped>
+img {
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 1;
+  width: 150px;
+  height: 150px;
 }
 
 .grieve {
@@ -299,18 +166,16 @@ body {
   width: 100%;
   border-radius: 0.25em;
   transition: all 0.3s;
-}
-
-.grieve:hover {
-  background-color: rgba($color: #ffffff, $alpha: 0.95);
-  border: 2px solid rgba(0, 122, 255, 0.5);
-  transition: all 0.3s;
-}
-
-.grieve:focus {
-  background-color: rgba($color: #ffffff, $alpha: 1);
-  border: 2px solid rgba(0, 122, 255, 1);
-  transition: all 0.3s;
+  &:hover {
+    background-color: rgba($color: #ffffff, $alpha: 0.95);
+    border: 2px solid rgba(0, 122, 255, 0.5);
+    transition: all 0.3s;
+  }
+  &:focus {
+    background-color: rgba($color: #ffffff, $alpha: 1);
+    border: 2px solid rgba(0, 122, 255, 1);
+    transition: all 0.3s;
+  }
 }
 
 .send {
@@ -332,22 +197,9 @@ body {
   transition: all 0.3s;
 }
 
-.mailtop {
-  display: flex;
-  justify-content: space-between;
-}
-
 .issues {
   color: white;
   background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
   margin-bottom: 1em;
-}
-
-.person {
-  display: flex;
-  width: 7.5em;
-  height: 7.5em;
-  border-radius: 50%;
-  object-fit: cover;
 }
 </style>

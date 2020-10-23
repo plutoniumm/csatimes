@@ -3,7 +3,6 @@ import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import App from './App'
 import { ColorThemePlugin } from '../services/vuestic-ui'
-import store from '../store/index'
 import router from '../router/index'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
 import { firestorePlugin } from 'vuefire'
@@ -22,6 +21,5 @@ new Vue( {
   created () { AOS.init() },
   el: '#app',
   router,
-  store,
   render: h => h( App ),
 } ).$mount( '#app' )
