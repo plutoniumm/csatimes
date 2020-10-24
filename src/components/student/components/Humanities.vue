@@ -1,11 +1,10 @@
 <template>
-  <va-card :title="('Humanities Reviews')" style="color: black;">
+  <va-card :title="'Humanities Reviews'" style="color: black">
     <div class="row align--center">
       <div class="flex xs12 md6">
         <va-input
-          :value="term"
-          :placeholder="('Search by Course Code, Name or IC')"
-          @input="search"
+          v-model="term"
+          :placeholder="'Search by Course Code, Name or IC'"
           removable
         >
           <va-icon name="fa fa-search" slot="prepend" />
@@ -13,19 +12,29 @@
       </div>
 
       <div class="flex xs12 md3 offset--md3">
-        <va-select v-model="perPage" :label="('Show Per Page')" :options="perPageOptions" noClear />
+        <va-select
+          v-model="perPage"
+          :label="'Show Per Page'"
+          :options="perPageOptions"
+          noClear
+        />
       </div>
     </div>
 
-    <va-data-table :fields="fields" :data="filteredData" :per-page="parseInt(perPage)">
+    <va-data-table
+      :fields="fields"
+      :data="filteredData"
+      :per-page="parseInt(perPage)"
+    >
       <template slot="review" slot-scope="props">
         <va-collapse customHeader>
           <span slot="header">
             <va-button
-              style="width: 100%;"
+              style="width: 100%"
               color="info"
               icon-right="ion-ios-arrow-down arrow-down"
-            >Bulletin Description</va-button>
+              >Bulletin Description</va-button
+            >
           </span>
           <div slot="body">
             <div>{{ props.rowData.bulletin }}</div>
@@ -35,10 +44,11 @@
         <va-collapse customHeader>
           <span slot="header">
             <va-button
-              style="width: 100%;"
+              style="width: 100%"
               color="warning"
               icon-right="ion-ios-arrow-down arrow-down"
-            >Student Review</va-button>
+              >Student Review</va-button
+            >
           </span>
           <div slot="body">
             <div>{{ props.rowData.review }}</div>
@@ -50,7 +60,6 @@
 </template>
 
 <script>
-import { debounce } from 'lodash'
 import users from '../../../data/humanities.json'
 
 export default {
@@ -64,9 +73,9 @@ export default {
     }
   },
   methods: {
-    search: debounce(function (term) {
+    search:  (term)=> {
       this.term = term
-    }, 400),
+    },
   },
   computed: {
     fields () {
@@ -88,9 +97,7 @@ export default {
       }]
     },
     filteredData () {
-      if (!this.term || this.term.length < 1) {
-        return this.users
-      }
+      if (!this.term) return this.users
       return this.users.filter(item => {
         return item.course.toLowerCase().includes(this.term.toLowerCase()) || item.ic.toLowerCase().includes(this.term.toLowerCase()) || item.code.toLowerCase().includes(this.term.toLowerCase())
       })

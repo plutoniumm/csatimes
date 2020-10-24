@@ -46,7 +46,7 @@
         <slide v-for="(person, slide) in set" :index="slide" :key="slide">
           <va-card class="issues" :title="person.organisation">
             <div style="display: flex">
-              <img :src="require('../../assets/pics/' + person.picture)" />
+              <img :src="person.picture" />
               <div style="text-align: left; padding: 2em; flex: 2">
                 <h1>{{ person.name }}:{{ person.post }}</h1>
                 <br />
@@ -153,9 +153,8 @@ export default {
 img {
   border-radius: 50%;
   object-fit: cover;
-  flex: 1;
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
 }
 
 .grieve {

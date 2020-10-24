@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
+import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar-link',
@@ -75,27 +75,6 @@ export default {
         'app-sidebar-link--minimized': this.minimized,
       }
     },
-    computedLinkStyles () {
-      const style = {}
-
-      if (this.isHovered || this.isActive) {
-        style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.dimgrey, {
-          s: -13,
-          l: 15,
-        }).css : this.$themes.primary
-
-        if (this.contextConfig.gradient) {
-          style.borderColor = this.isActive ? this.$themes.primary : 'transparent'
-        } else {
-          style.borderColor = colorShiftHsl(this.$themes.primary, {
-            s: 13,
-            l: -15,
-          }).css
-        }
-      }
-
-      return style
-    },
     computedIconStyles () {
       if (this.isHovered || this.isActive) {
         return {
@@ -109,9 +88,6 @@ export default {
     },
   },
   methods: {
-    updateHoverState (isHovered) {
-      this.isHovered = isHovered
-    },
     updateActiveState () {
       this.isActive = (this.$route.name === this.to.name) || this.activeByDefault
     },
@@ -124,7 +100,7 @@ export default {
 
 <style lang="scss">
 li {
-  color: green;
+  color: #888fff;
 }
 
 .app-sidebar-link {
@@ -142,10 +118,6 @@ li {
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
     width: 15rem;
-
-    @include media-breakpoint-down(sm) {
-      flex: 0 0 100%;
-    }
 
     .app-sidebar-link--minimized & {
       justify-content: center;
@@ -175,14 +147,11 @@ li {
         font-weight: normal;
       }
     }
-
     &-title {
       line-height: 1.5em;
-
       .app-sidebar-link__item-icon + & {
         margin-left: 0.5rem;
       }
-
       .app-sidebar-link--minimized & {
         display: none;
       }

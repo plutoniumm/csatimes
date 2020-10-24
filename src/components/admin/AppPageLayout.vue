@@ -9,14 +9,6 @@
 
 export default {
   name: 'app-page-layout',
-  mounted () {
-    window.addEventListener('resize', () => this.updateSidebarState())
-
-    this.updateSidebarState()
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', () => this.updateSidebarState())
-  },
   methods: {
     checkIsDesktop () {
       return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches

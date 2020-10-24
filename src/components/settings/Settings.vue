@@ -1,45 +1,43 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm-6">
-      <va-card>
-        <form @submit.prevent="onsubmit()">
-          <va-input
-            v-model="bitsid"
-            label="BITSID"
-            :error="!!errors.id.length"
-            :error-messages="errors.id"
-          />
-          <va-select
-            label="Select Hostel Name"
-            v-model="hostelname"
-            textBy="description"
-            :options="Options"
-          />
-          <va-input
-            v-model="hostel"
-            label="HOSTEL ROOM NUMBER"
-            :error="!!errors.room.length"
-            :error-messages="errors.room"
-          />
-          <va-select
-            label="Select R or L or None"
-            v-model="simpleSelectModel"
-            textBy="description"
-            :options="simpleOptions"
-          />
-          <va-input
-            v-model="mobile"
-            type="number"
-            label="MOBILE NUMBER"
-            :error="!!errors.mobile.length"
-            :error-messages="errors.mobile"
-          />
-          <div class="d-flex justify--center mt-3">
-            <va-button type="submit" class="my-0">Confirm Details</va-button>
-          </div>
-        </form>
-      </va-card>
-    </div>
+    <va-card class="flex xs12 sm-6">
+      <form @submit.prevent="onsubmit()">
+        <va-input
+          v-model="bitsid"
+          label="BITSID"
+          :error="!!errors.id.length"
+          :error-messages="errors.id"
+        />
+        <va-select
+          label="Select Hostel Name"
+          v-model="hostelname"
+          textBy="description"
+          :options="Options"
+        />
+        <va-input
+          v-model="hostel"
+          label="HOSTEL ROOM NUMBER"
+          :error="!!errors.room.length"
+          :error-messages="errors.room"
+        />
+        <va-select
+          label="Select R or L or None"
+          v-model="simpleSelectModel"
+          textBy="description"
+          :options="simpleOptions"
+        />
+        <va-input
+          v-model="mobile"
+          type="number"
+          label="MOBILE NUMBER"
+          :error="!!errors.mobile.length"
+          :error-messages="errors.mobile"
+        />
+        <div class="d-flex justify--center mt-3">
+          <va-button type="submit" class="my-0">Confirm Details</va-button>
+        </div>
+      </form>
+    </va-card>
     <div class="row">
       <div class="flex xs12 sm6">
         <va-card data-aos="fade-right" class="infboxes">
@@ -48,8 +46,12 @@
             CSATimes
             <u>Web</u> DOES NOT use any of the following trackers
           </h2>
-          <div class="row">
-            <div class="flex xs12 xm6 lg4" v-for="law in laws" :key="law">
+          <div style="display: flex; flex-wrap: wrap">
+            <div
+              style="width: calc(33% - 0.5em); padding: 0.75em"
+              v-for="law in laws"
+              :key="law"
+            >
               <i :class="law.logo"></i>
               {{ law.tracker }}
             </div>
@@ -60,7 +62,6 @@
           ></i>
         </va-card>
       </div>
-
       <div class="flex xs12 sm6">
         <va-card data-aos="fade-right" class="infboxes">
           <i class="fas fa-user-circle" style="color: blue; font-size: 3em"></i>
@@ -68,8 +69,12 @@
             CSATimes
             <u>Web</u> DOES track and store following data
           </h2>
-          <div class="row">
-            <div class="flex xs12 sm6" v-for="law in tracks" :key="law">
+          <div style="display: flex; flex-wrap: wrap">
+            <div
+              style="width: calc(50% - 0.5em); padding: 0.75em"
+              v-for="law in tracks"
+              :key="law"
+            >
               <i :class="law.logo"></i>
               {{ law.tracker }}
             </div>
@@ -118,7 +123,6 @@ export default {
   },
   methods: {
     onsubmit () {
-      const that = this
       if (this.bitsid.match(/G/i)) {
         if (this.bitsid.substring(0, 4) > 2012 && this.bitsid.substring(0, 4) < 2021) { this.errors.id = '' }
       } else this.errors.id = 'Enter a valid BITSID'
@@ -157,12 +161,9 @@ export default {
       })
         .then((res) => {
           alert('Profile updated')
-          that.$router.push({ name: 'dashboard' })
+          this.$router.push({ name: 'dashboard' })
         })
-        .catch((e) => {
-          alert('Please try again later')
-          console.log(e)
-        })
+        .catch(alert('Please try again later'))
     },
   },
   computed: {
