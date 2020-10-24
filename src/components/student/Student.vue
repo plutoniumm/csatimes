@@ -186,13 +186,17 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   text-decoration: none;
 }
 
 body {
   background-color: black;
+}
+
+p {
+  text-align: center;
 }
 
 .implinks {

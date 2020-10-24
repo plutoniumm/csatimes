@@ -11,11 +11,9 @@
     "aos": "2.3.4",
     "axios": "0.20.0",
     "bulma": "0.9.0",
-    "core-js": "3.6.5",
     "detect-browser": "5.2.0",
     "element-resize-detector": "1.2.1",
     "firebase": "7.24.0",
-    "font-awesome": "4.7.0",
     "google-maps": "4.2.3",
     "sass-loader": "7.3.1",
     "vue-carousel": "0.18.0",
@@ -26,9 +24,7 @@
   },
   "devDependencies": {
     "@vue/cli-service": "4.4.1",
-    "autoprefixer": "9.8.0",
     "node-sass": "4.14.1",
-    "sass-resources-loader": "2.0.3",
     "vue-template-compiler": "2.6.12"
   },
   "engines": {

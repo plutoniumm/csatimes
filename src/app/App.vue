@@ -9,7 +9,6 @@ export default {
   name: 'app',
   data () {
     return {
-      // Temporary config for 2.1.
       contextConfig: {
         gradient: true,
         shadow: 'lg', // 3 states: 'sm', 'lg', undefined (no shadow).
@@ -37,13 +36,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../sass/main.scss';
-
-body {
+@import "./main.scss";
+body,
+#app {
   height: 100%;
-
-  #app {
-    height: 100%;
-  }
 }
 </style>

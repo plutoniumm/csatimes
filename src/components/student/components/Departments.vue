@@ -1,35 +1,31 @@
 <template>
   <div>
-    <div
-      v-for="club in clubs"
-      :key="club"
-      style="text-align: center; margin: 10px 0"
-    >
+    <div v-for="club in clubs" :key="club" style="margin: 10px 0">
       <va-card style="background: #ddd">
         <span style="font-size: 2rem">{{ club.Club }}</span>
         <hr />
         <div>{{ club.Description }}</div>
-        <carousel
-          :per-page="1"
-          :centerMode="1"
-          :autoplay="1"
-          :easing="ease"
-          :loop="1"
-        >
-          <slide v-for="(por, slide) in club.Pors" :index="slide" :key="slide">
+        <div style="display: flex; overflow-x: scroll">
+          <va-card
+            style="min-width: 400px; width: 500px; margin: 0 10px"
+            v-for="por in club.Pors"
+            :key="por"
+          >
             <h1 style="font-size: 1.5rem">{{ por.Name }}</h1>
-            ({{ por.Post }})
-            <p>
-              {{ por.ID }}
-              <br />
-              {{ por.Personal }}
-              <br />
-              Calling No - {{ por.Calling }}
-              <br />
-              Whatsapp No - {{ por.Whatsapp }}
+            {{ por.Post }}
+            <p style="padding: 7px; text-align: left">
+              <div style="padding:2px;">
+              <i class="far fa-address-card"></i> {{ por.ID }}
+              </div>
+              <div style="padding:2px;">
+              <i class="fas fa-phone-alt"></i> {{ por.Calling }}
+              </div>
+              <div style="padding:2px;" v-if="por.Calling != por.Whatsapp">
+                <i class="fab fa-whatsapp"></i> {{ por.Whatsapp }}
+              </div>
             </p>
-          </slide>
-        </carousel>
+          </va-card>
+        </div>
       </va-card>
     </div>
   </div>

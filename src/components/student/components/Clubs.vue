@@ -1,69 +1,38 @@
 <template>
   <div>
-    <template v-for="club in clubs">
-      <div :key="club" style="text-align: center">
-        <va-card>
-          <div>
-            <span style="font-size: 2rem">{{ club.Club }}</span>
-            <span>
-              <hr />
-              Founded: {{ club.Founded }}
-            </span>
-          </div>
-          <div>
-            <div v-if="club.Logo !== null">
-              <!-- <img :src="require('../../assets' + club.Logo)" :alt="club.Name" /> -->
-            </div>
-            <div>{{ club.Description }}</div>
-          </div>
+      <div v-for="club in clubs" :key="club" style="margin:10px 0;">
+        <va-card style="background: #ddd">
+          <span style="font-size: 2rem">{{ club.Club }} ({{ club.Founded || 'Unknown' }}) </span>
+            <hr />
+          <div>{{ club.Description }}</div>
 
-          <va-collapse customHeader>
-            <span slot="header">
-              <va-button color="info" icon-right="ion-ios-arrow-down arrow-down"
-              >PORs</va-button
-              >
-            </span>
-            <div slot="body" style="height: 270px">
-              <carousel
-                :per-page="1"
-                :centerMode="1"
-                :autoplay="1"
-                :easing="ease"
-                :loop="1"
-                :navigationEnabled="1"
-                :controls-visible="true"
-              >
-                <slide
-                  v-for="(por, slide) in club.Pors"
-                  :index="slide"
-                  :key="slide"
-                >
-                  <figure>
-                    <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
-                    <figcaption style="font-size: 1rem">
-                      <span style="font-size: 1.5rem">{{ por.Name }}</span>
-                      ({{ por.Post }})
-                      <br />
-                      {{ por.ID }}
-                      <br />
-                      {{ por.Personal }}
-                      <br />
-                      Calling No - {{ por.Calling }}
-                      <br />
-                      Whatsapp No - {{ por.Whatsapp }}
-                    </figcaption>
-                  </figure>
-                </slide>
-              </carousel>
-            </div>
-          </va-collapse>
+          <div style="display: flex; overflow-x: scroll;padding:5px 0;">
+          <va-card
+            style="min-width: 400px; width: 500px; margin: 0 10px"
+            v-for="por in club.Pors"
+            :key="por"
+          >
+            <h1 style="font-size: 1.5rem">{{ por.Name }}</h1>
+            {{ por.Name }}
+            {{ por.Post }}
+            <p style="padding: 7px; text-align: left">
+              <div style="padding:2px;">
+              <i class="far fa-address-card"></i> {{ por.ID }}
+              </div>
+              <div style="padding:2px;">
+              <i class="fas fa-phone-alt"></i> {{ por.Calling }}
+              </div>
+              <div style="padding:2px;" v-if="por.Calling != por.Whatsapp">
+                <i class="fab fa-whatsapp"></i> {{ por.Whatsapp }}
+              </div>
+            </p>
+          </va-card>
+        </div>
         </va-card>
-        <br />
-        <br />
       </div>
-    </template>
   </div>
 </template>
+
 <script>
 import data from '../../../data/pclubs.json'
 export default {

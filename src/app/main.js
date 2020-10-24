@@ -1,4 +1,3 @@
-import 'core-js/stable'
 import Vue from 'vue'
 import App from './App'
 import { ColorThemePlugin } from '../services/vuestic-ui'
@@ -12,9 +11,7 @@ import VueCarousel from 'vue-carousel'
 Vue.use( VuesticPlugin )
 Vue.use( firestorePlugin )
 Vue.use( VueCarousel )
-Vue.use( ColorThemePlugin, {
-  // override colors here.
-} )
+Vue.use( ColorThemePlugin, {} )
 
 new Vue( {
   created () { AOS.init() },

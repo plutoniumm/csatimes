@@ -4,42 +4,34 @@
       <va-card color="info" style="text-align: center; font-size: 3rem">
         <h2>SPORTS TEAMS</h2>
       </va-card>
-      <br />
-      <br />
-      <br />
     </div>
     <template v-for="sport in sports">
-      <div :key="sport" style="text-align: center">
-        <va-card>
-          <div>
-            <span style="font-size: 2rem">{{ sport.Club }}</span>
-            <span>
-              <hr />
-              <br />
-            </span>
-          </div>
-
-          <div
-            v-for="(por, slide) in sport.PORs"
-            :index="slide"
-            :key="slide"
-            style="font-size: 1rem; display: inline-block; margin: 1.5rem"
+      <div :key="sport" style="margin:10px 0;">
+        <va-card style="background: #ddd">
+          <span style="font-size: 2rem">{{ sport.Club }}</span>
+          <hr />
+          <div style="display: flex; overflow-x: scroll">
+           <va-card
+            style="min-width: 400px; width: 500px; margin: 0 10px"
+            v-for="por in sport.PORs"
+            :key="por"
           >
-            <!-- <img :src="require('../../assets'+por.Photo)" height="270px;"> -->
-            <div>
-              <span style="font-size: 1.5rem">{{ por.Name }}</span>
-              ({{ por.Post }})
-              <br />
-              {{ por.ID }}
-              <br />
-              Calling No. {{ por.Calling }} | Whatsapp No. {{ por.Whatsapp }}
-              <br />
-              {{ por.Personal }}
-            </div>
+            <h1 style="font-size: 1.5rem">{{ por.Name }}</h1>
+            {{ por.Post }}
+            <p style="padding: 7px; text-align: left">
+              <div style="padding:2px;">
+              <i class="far fa-address-card"></i> {{ por.ID }}
+              </div>
+              <div style="padding:2px;">
+              <i class="fas fa-phone-alt"></i> {{ por.Calling }}
+              </div>
+              <div style="padding:2px;" v-if="por.Calling != por.Whatsapp">
+                <i class="fab fa-whatsapp"></i> {{ por.Whatsapp }}
+              </div>
+            </p>
+          </va-card>
           </div>
         </va-card>
-        <br />
-        <br />
       </div>
     </template>
   </div>
