@@ -14,13 +14,11 @@
     "detect-browser": "5.2.0",
     "element-resize-detector": "1.2.1",
     "firebase": "7.24.0",
-    "google-maps": "4.2.3",
     "sass-loader": "7.3.1",
     "vue-carousel": "0.18.0",
     "vue-router": "3.4.7",
     "vuefire": "2.2.4",
-    "vuestic-ui": "0.2.2",
-    "webpack": "4.44.2"
+    "vuestic-ui": "0.2.2"
   },
   "devDependencies": {
     "@vue/cli-service": "4.4.1",

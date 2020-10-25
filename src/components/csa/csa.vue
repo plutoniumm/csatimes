@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6">
+    <div class="flex xs12 sm6" data-aos="fade-right">
       <va-card
         title="Write to us!"
         style="
@@ -35,7 +35,12 @@
       </va-card>
     </div>
 
-    <div v-for="set in people" :key="set" class="flex xs12 sm6">
+    <div
+      v-for="set in people"
+      :key="set"
+      class="flex xs12 sm6"
+      data-aos="fade-right"
+    >
       <carousel
         :per-page="1"
         :centerMode="true"
@@ -67,7 +72,7 @@ import data from '../../data/data.json'
 import data1 from '../../data/data1.json'
 import data2 from '../../data/data2.json'
 import firebase from 'firebase'
-import '../toast/ToastPositionPicker'
+import '../ToastPositionPicker'
 
 const config = JSON.parse(process.env.VUE_APP_AUTH_MUSOC)
 if (!firebase.apps.length) firebase.initializeApp(config)

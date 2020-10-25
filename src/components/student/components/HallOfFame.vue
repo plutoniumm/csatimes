@@ -16,8 +16,6 @@
       <br />And a hundred percent reason to remember the name!
     </va-card>
 
-    <br />
-    <br />
     <div style="display: flex; flex-wrap: wrap">
       <div
         style="width: calc(33% - 2em); margin: 1em"

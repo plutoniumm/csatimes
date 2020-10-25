@@ -2,18 +2,26 @@
   <va-card
     class="flex xs12 sm6"
     data-aos="fade-left"
-    style="background: -webkit-radial-gradient(0% 0%, blue, purple, #ffe5b4); color: white;"
+    style="
+      background: -webkit-radial-gradient(0% 0%, blue, purple, #ffe5b4);
+      color: white;
+    "
   >
     <form @submit.prevent="musoc()">
       <div class="row">
         <div class="flex xs12">
           <h1>Recommend your song for Musoc to Cover!</h1>
           <br />
-          <input v-model="song" placeholder="Ex. Paper Kites by Bharat Rajagopalan" />
+          <input
+            v-model="song"
+            placeholder="Ex. Paper Kites by Bharat Rajagopalan"
+          />
           <div class="d-flex mt-3 mailtop">
-            <p style="padding: 1em 0.1em;">
+            <p style="padding: 1em 0.1em">
               Current Song:
-              <span v-if="this.recc.description">{{this.recc.description}}</span>
+              <span v-if="this.recc.description">{{
+                this.recc.description
+              }}</span>
               <span v-else>None!</span>
             </p>
             <button type="submit" class="musocbtn">Edit</button>
@@ -26,7 +34,7 @@
 
 <script>
 import firebase from 'firebase'
-import '../../toast/ToastPositionPicker'
+import '../../ToastPositionPicker'
 
 const config = JSON.parse(process.env.VUE_APP_AUTH_MUSOC)
 

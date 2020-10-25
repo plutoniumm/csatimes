@@ -22,7 +22,7 @@
 <script>
 import AppPageLayout from './AppPageLayout'
 import AppSidebar from './app-sidebar/AppSidebar'
-import { ColorThemeActionsMixin, ColorThemeMixin } from '../../services/vuestic-ui'
+import { ColorThemeActionsMixin, ColorThemeMixin } from '../../services'
 
 export default {
   name: 'app-layout',

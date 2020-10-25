@@ -25,7 +25,7 @@
 <script>
 import { navigationRoutes } from './NavigationRoutes'
 import AppSidebarLink from './AppSidebarLink'
-import { ColorThemeMixin } from '../../../services/vuestic-ui'
+import { ColorThemeMixin } from '../../../services'
 
 export default {
   name: 'app-sidebar',

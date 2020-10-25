@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { ColorThemeMixin } from '../../../services/vuestic-ui'
+import { ColorThemeMixin } from '../../../services'
 
 export default {
   name: 'app-sidebar-link',
