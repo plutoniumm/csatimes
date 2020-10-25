@@ -22,7 +22,6 @@
 <script>
 import AppPageLayout from './AppPageLayout'
 import AppSidebar from './app-sidebar/AppSidebar'
-import { ColorThemeActionsMixin, ColorThemeMixin } from '../../services'
 
 export default {
   name: 'app-layout',
@@ -36,8 +35,7 @@ export default {
       mobileWidth: 767,
     }
   },
-  inject: ['contextConfig'],
-  mixins: [ColorThemeActionsMixin, ColorThemeMixin],
+  inject: ['contextConfig']
 }
 </script>
 

@@ -12,7 +12,6 @@
         <app-sidebar-link
           :key="key"
           :minimized="minimized"
-          :active-by-default="item.name === $route.name"
           :icon="item.meta"
           :to="{ name: item.name }"
           :title="item.displayName"
@@ -25,13 +24,11 @@
 <script>
 import { navigationRoutes } from './NavigationRoutes'
 import AppSidebarLink from './AppSidebarLink'
-import { ColorThemeMixin } from '../../../services'
 
 export default {
   name: 'app-sidebar',
   inject: ['contextConfig'],
   components: { AppSidebarLink },
-  mixins: [ColorThemeMixin],
   props: {
     minimized: {
       type: Boolean,
@@ -60,11 +57,6 @@ export default {
       return {
         'app-sidebar--minimized': this.minimized,
       }
-    },
-  },
-  methods: {
-    hasActiveByDefault (item) {
-      return item.children.some(child => child.name === this.$route.name)
     },
   },
 }

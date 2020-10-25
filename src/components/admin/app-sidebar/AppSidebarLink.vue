@@ -29,12 +29,15 @@
 </template>
 
 <script>
-import { ColorThemeMixin } from '../../../services'
-
 export default {
+  data () {
+    return {
+      colorThemeDefault: 'primary',
+      colorDefault: '#000000',
+    }
+  },
   name: 'app-sidebar-link',
   inject: ['contextConfig'],
-  mixins: [ColorThemeMixin],
   props: {
     to: {
       type: [Object, String],
@@ -51,22 +54,11 @@ export default {
     title: {
       type: String,
     },
-    activeByDefault: {
-      type: Boolean,
-    },
     minimized: {
       type: Boolean,
     },
-  },
-  data () {
-    return {
-      isHovered: false,
-      isActive: this.activeByDefault,
-    }
-  },
-  watch: {
-    $route () {
-      this.updateActiveState()
+    color: {
+      type: String,
     },
   },
   computed: {
@@ -75,25 +67,18 @@ export default {
         'app-sidebar-link--minimized': this.minimized,
       }
     },
-    computedIconStyles () {
-      if (this.isHovered || this.isActive) {
-        return {
-          color: this.$themes.primary,
-        }
+    colorComputed () {
+      if ( this.$themes && this.$themes[ this.color ] ) {
+        return this.$themes[ this.color ]
       }
-
-      return {
-        color: 'white',
+      if ( this.color ) {
+        return this.color
       }
+      if ( this.$themes && this.$themes[ this.colorThemeDefault ] ) {
+        return this.$themes[ this.colorThemeDefault ]
+      }
+      return this.colorDefault
     },
-  },
-  methods: {
-    updateActiveState () {
-      this.isActive = (this.$route.name === this.to.name) || this.activeByDefault
-    },
-  },
-  mounted () {
-    this.updateActiveState()
   },
 }
 </script>
@@ -117,7 +102,13 @@ li {
     border-left: 0.25rem solid transparent;
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     width: 15rem;
+    &:hover {
+      background: #000;
+      transition: background 0.3s ease;
+    }
 
     .app-sidebar-link--minimized & {
       justify-content: center;
