@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import router from '../router/index'
+import router from './router'
 import { VuesticPlugin, ColorThemePlugin } from '../services'
 import { firestorePlugin } from 'vuefire'
 import AOS from 'aos'

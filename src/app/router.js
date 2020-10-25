@@ -12,6 +12,11 @@ const router = new Router( {
   mode: 'history',
   routes: [
     {
+      path: '/',
+      name: 'home',
+      redirect: '/student'
+    },
+    {
       path: '//auth',
       component: EmptyParentComponent,
       children: [

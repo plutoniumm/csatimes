@@ -1,7 +1,7 @@
 export const navigationRoutes = {
   root: {
-    name: '/',
-    displayName: 'navigationRoutes.home',
+    name: 'home',
+    displayName: 'CSATimes',
   },
   routes: [
     {

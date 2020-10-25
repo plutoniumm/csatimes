@@ -36,9 +36,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./main.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/global/reset.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/vuestic-styles";
 body,
 #app {
   height: 100%;
+  background: #111;
+  background-color: black;
+}
+* {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
 }
 </style>
