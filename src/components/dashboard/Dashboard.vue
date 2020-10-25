@@ -69,23 +69,5 @@ body {
   justify-content: center;
   align-items: center;
   height: 2.5em;
-
-  @include media-breakpoint-down(lg) {
-    margin-bottom: 0.5rem;
-    height: 2.5em;
-    font-size: 5rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    margin-bottom: 0.5rem;
-    height: 2.5em;
-    font-size: 4rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 0.5rem;
-    height: 4.5rem;
-    font-size: 4rem;
-  }
 }
 </style>

@@ -12,7 +12,6 @@ export default {
       contextConfig: {
         gradient: true,
         shadow: 'lg', // 3 states: 'sm', 'lg', undefined (no shadow).
-        invertedColor: false,
       },
     }
   },
@@ -20,17 +19,6 @@ export default {
     return {
       contextConfig: this.contextConfig,
     }
-  },
-  watch: {
-    // Temporary colors fix for 2.1.
-    'contextConfig.invertedColor' (val) {
-      const invertedColorClass = 'va-inverted-color'
-      if (val) {
-        document.body.classList.add(invertedColorClass)
-      } else {
-        document.body.classList.remove(invertedColorClass)
-      }
-    },
   },
 }
 </script>

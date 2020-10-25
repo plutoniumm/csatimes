@@ -117,7 +117,7 @@ li {
     &-icon {
       width: 1.5rem;
       text-align: center;
-      font-size: $sidebar-menu-item-icon-size;
+      font-size: 16px;
     }
 
     &-icon-right {

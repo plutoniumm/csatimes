@@ -71,11 +71,6 @@ export default {
   max-height: 100%;
   flex: 0 0 12rem;
   background: #222;
-
-  @include media-breakpoint-down(sm) {
-    flex: 0 0 100%;
-  }
-
   &--minimized {
     flex: 0 0 3.25rem;
   }

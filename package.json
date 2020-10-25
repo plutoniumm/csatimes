@@ -1,7 +1,6 @@
 {
   "name": "csatimes",
   "version": "1.0.0",
-  "description": "CSATimes",
   "author": "Plutoniumm <https://me.nukes.in>",
   "scripts": {
     "serve": "vue-cli-service serve",

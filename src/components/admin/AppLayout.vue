@@ -49,10 +49,6 @@ export default {
     flex-wrap: nowrap;
     align-items: stretch;
     height: calc(100% - 65px);
-
-    @include media-breakpoint-down(sm) {
-      height: calc(100% - 110px);
-    }
   }
 
   &__main {
