@@ -4,11 +4,12 @@
       <va-card class="studpor">Student Portal</va-card>
     </div>
     <div
-      v-for="link in portlinks"
+      v-for="(link, i) in portlinks"
       :key="link"
       class="flex xs12 sm6 lg4 xl3"
       style="text-align: center"
       data-aos="fade-right"
+      :data-aos-delay="(i + 1) * 50"
     >
       <router-link :to="{ path: link.link }" append exact>
         <va-card class="portalboxes">
@@ -17,7 +18,7 @@
         </va-card>
       </router-link>
     </div>
-    <va-collapse data-aos="fade-right" customHeader>
+    <va-collapse data-aos="fade-right" :data-aos-delay="350" customHeader>
       <span slot="header">
         <div class="flex sm6">
           <va-card class="portalboxes" style="text-align: center">

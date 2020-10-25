@@ -6,8 +6,6 @@
   >
     <router-link
       class="app-sidebar-link__item"
-      @mouseenter.native="updateHoverState(true)"
-      @mouseleave.native="updateHoverState(false)"
       :style="computedLinkStyles"
       :to="to"
       :target="target"

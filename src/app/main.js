@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VuesticPlugin from 'vuestic-ui/src/components/vuestic-plugin'
+import VuesticPlugin from './preprocessor'
 import { firestorePlugin } from 'vuefire'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
