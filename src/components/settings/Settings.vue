@@ -44,9 +44,6 @@
             type="submit"
             style="border: 0; background: #aaa; width: 25%; margin: 10px 25%"
           />
-          <div class="d-flex justify--center mt-3">
-            <va-button type="submit" class="my-0">Confirm Details</va-button>
-          </div>
         </form>
       </va-card>
     </div>
@@ -150,7 +147,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
   background-color: #111;
 }

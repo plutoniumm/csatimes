@@ -96,13 +96,21 @@ export default {
       tr {
         font-weight: 300;
         &:nth-child(even) {
-          background: #eef6;
+          background: #eee2;
+        }
+        td:nth-child(2) {
+          margin: 5px;
+          padding: 5px;
+          line-height: 10px;
+          border-right: 1px solid #8888;
         }
       }
     }
     th {
-      background: #eefa;
-      color: black;
+      background: #222a;
+      color: #fff;
+      padding: 15px;
+      font-size: 12px;
       border: 0;
     }
     .vuetable-empty-result {
