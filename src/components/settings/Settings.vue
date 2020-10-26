@@ -1,90 +1,97 @@
 <template>
   <div class="row">
-    <va-card class="flex xs12 sm-6">
-      <form @submit.prevent="onsubmit()">
-        <va-input
-          v-model="bitsid"
-          label="BITSID"
-          :error="!!errors.id.length"
-          :error-messages="errors.id"
-        />
-        <va-select
-          label="Select Hostel Name"
-          v-model="hostelname"
-          textBy="description"
-          :options="Options"
-        />
-        <va-input
-          v-model="hostel"
-          label="HOSTEL ROOM NUMBER"
-          :error="!!errors.room.length"
-          :error-messages="errors.room"
-        />
-        <va-select
-          label="Select R or L or None"
-          v-model="simpleSelectModel"
-          textBy="description"
-          :options="simpleOptions"
-        />
-        <va-input
-          v-model="mobile"
-          type="number"
-          label="MOBILE NUMBER"
-          :error="!!errors.mobile.length"
-          :error-messages="errors.mobile"
-        />
-        <div class="d-flex justify--center mt-3">
-          <va-button type="submit" class="my-0">Confirm Details</va-button>
+    <div class="flex xs12 sm6">
+      <va-card
+        title="Update Data"
+        style="background: linear-gradient(to right, #ddd, #fff)"
+      >
+        <form @submit.prevent="onsubmit()">
+          <div
+            style="display: flex; justify-content: space-around; margin: 5px 0"
+          >
+            <span class="selectr">
+              Hostel:
+              <select v-model="hostelname" required>
+                <option v-for="r in Options" :key="r" :value="r">
+                  {{ r }}
+                </option>
+              </select>
+            </span>
+            <span class="selectr">
+              R/L:
+              <select
+                required
+                v-model="simpleSelectModel"
+                :disabled="hostelname.includes('DH')"
+              >
+                <option value="R" selected="true">R</option>
+                <option value="L">L</option>
+              </select>
+            </span>
+          </div>
+          <input v-model="bitsid" placeholder="BITSID" required />
+          <input
+            v-model="hostel"
+            placeholder="Room No."
+            pattern="^(\d{3})$"
+            MAX="400"
+            required
+          />
+          <input
+            v-model="mobile"
+            placeholder="Mobile No."
+            pattern="^(\d{10})$"
+            required
+          />
+          <div class="d-flex justify--center mt-3">
+            <va-button type="submit" class="my-0">Confirm Details</va-button>
+          </div>
+        </form>
+      </va-card>
+    </div>
+    <div class="flex xs12 sm6">&nbsp;</div>
+    <div class="flex xs12 sm6">
+      <va-card data-aos="fade-right" class="infboxes">
+        <i class="fas fa-user-circle" style="color: blue; font-size: 3em"></i>
+        <h2 style="padding: 1em">
+          CSATimes
+          <u>Web</u> DOES NOT use any of the following trackers
+        </h2>
+        <div style="display: flex; flex-wrap: wrap">
+          <div
+            style="width: calc(33% - 0.5em); padding: 0.75em"
+            v-for="law in laws"
+            :key="law"
+          >
+            <i :class="law.logo"></i>
+            {{ law.tracker }}
+          </div>
         </div>
-      </form>
-    </va-card>
-    <div class="row">
-      <div class="flex xs12 sm6">
-        <va-card data-aos="fade-right" class="infboxes">
-          <i class="fas fa-user-circle" style="color: blue; font-size: 3em"></i>
-          <h2 style="padding: 1em">
-            CSATimes
-            <u>Web</u> DOES NOT use any of the following trackers
-          </h2>
-          <div style="display: flex; flex-wrap: wrap">
-            <div
-              style="width: calc(33% - 0.5em); padding: 0.75em"
-              v-for="law in laws"
-              :key="law"
-            >
-              <i :class="law.logo"></i>
-              {{ law.tracker }}
-            </div>
+        <i class="far fa-times-circle" style="color: red; font-size: 1.5em"></i>
+      </va-card>
+    </div>
+    <div class="flex xs12 sm6">
+      <va-card data-aos="fade-right" class="infboxes">
+        <i class="fas fa-user-circle" style="color: blue; font-size: 3em"></i>
+        <h2 style="padding: 1em">
+          CSATimes
+          <u>Web</u> DOES track and store following data
+        </h2>
+        <div style="display: flex; flex-wrap: wrap">
+          <div
+            style="width: calc(50% - 0.5em); padding: 0.75em"
+            v-for="law in tracks"
+            :key="law"
+          >
+            <i :class="law.logo"></i>
+            {{ law.tracker }}
           </div>
-          <i
-            class="far fa-times-circle"
-            style="color: red; font-size: 1.5em"
-          ></i>
-        </va-card>
-      </div>
-      <div class="flex xs12 sm6">
-        <va-card data-aos="fade-right" class="infboxes">
-          <i class="fas fa-user-circle" style="color: blue; font-size: 3em"></i>
-          <h2 style="padding: 1em">
-            CSATimes
-            <u>Web</u> DOES track and store following data
-          </h2>
-          <div style="display: flex; flex-wrap: wrap">
-            <div
-              style="width: calc(50% - 0.5em); padding: 0.75em"
-              v-for="law in tracks"
-              :key="law"
-            >
-              <i :class="law.logo"></i>
-              {{ law.tracker }}
-            </div>
-          </div>
-          <i
-            class="far fa-check-circle"
-            style="color: lightgreen; font-size: 1.5em"
-          ></i>
-        </va-card>
-      </div>
+        </div>
+        <i
+          class="far fa-check-circle"
+          style="color: lightgreen; font-size: 1.5em"
+        ></i>
+      </va-card>
     </div>
   </div>
 </template>
@@ -109,48 +116,21 @@ export default {
         { tracker: 'Edit History', logo: 'fas fa-music' },
         { tracker: 'Grievance Data', logo: 'fas fa-heart-broken' },
       ],
-      bitsid: [],
+      bitsid: '',
       hostel: '',
       mobile: '',
-      errors: { room: '', id: '', mobile: '' },
       hostelname: '',
       simpleSelectModel: 'None',
-      simpleOptions: [
-        'R', 'L', 'None',
-      ],
       Options: ['AH1', 'AH2', 'AH3', 'AH4', 'AH5', 'AH6', 'AH7', 'AH8', 'AH9', 'CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'DH1', 'DH2', 'DH3', 'DH4'],
     }
   },
   methods: {
     onsubmit () {
-      if (this.bitsid.match(/G/i)) {
-        if (this.bitsid.substring(0, 4) > 2012 && this.bitsid.substring(0, 4) < 2021) { this.errors.id = '' }
-      } else this.errors.id = 'Enter a valid BITSID'
-
-      if (this.mobile.toString().length !== 10) this.errors.mobile = ''
-      else this.errors.mobile = 'Enter a valid Mobile Number'
-
-      if (this.hostel > 0 && this.hostel < 400) this.errors.room = ''
-      else this.errors.room = 'Enter a valid Hostel Number'
-
-      if (!this.formReady) {
-        return
-      }
-      var payload = null
-      if (this.simpleSelectModel === 'None') {
-        payload = {
+       let payload = {
           bitsId: this.bitsid.toUpperCase(),
           hostel: this.hostelname,
           mobile: this.mobile,
-          roomNo: this.hostel,
-        }
-      } else {
-        payload = {
-          bitsId: this.bitsid.toUpperCase(),
-          hostel: this.hostelname,
-          mobile: this.mobile,
-          roomNo: this.hostel + this.simpleSelectModel,
-        }
+          roomNo: this.hostelname.includes('DH') ? this.hostel:this.hostel + this.simpleSelectModel
       }
       const utok = atob(document.cookie.split(';').filter(e => e.includes('uToken'))[0].split('=')[1])
       axios({
@@ -165,18 +145,28 @@ export default {
         })
         .catch(alert('Please try again later'))
     },
-  },
-  computed: {
-    formReady () {
-      return !(this.errors.id.length || this.errors.room.length || this.errors.mobile.length)
-    },
-  },
+  }
 }
 </script>
 
 <style lang="scss">
 body {
   background-color: black;
+}
+
+input {
+  outline: none;
+  border: 0;
+  padding: 10px;
+  font-size: 20px;
+  margin: 5px 0;
+  background: #ddd;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+    border: 0;
+    background: #fff;
+  }
 }
 
 .tracker {

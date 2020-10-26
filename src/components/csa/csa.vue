@@ -1,32 +1,5 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6" data-aos="fade-right">
-      <va-card
-        title="Write to us!"
-        style="
-          background: -webkit-linear-gradient(
-            rgba(26, 26, 26, 1),
-            rgba(26, 26, 26, 1)
-          );
-          height: 17em;
-        "
-      >
-        <form @submit.prevent="executer()">
-          <div class="row">
-            <div class="flex xs12">
-              <input
-                class="grieve"
-                :label="perPage"
-                v-model="description"
-                placeholder="Tell us your grievance"
-              />
-              <button class="send">Submit</button>
-            </div>
-          </div>
-        </form>
-      </va-card>
-    </div>
-
     <div
       v-for="(set, i) in people"
       :key="set"
@@ -37,7 +10,10 @@
       <carousel
         :per-page="1"
         :centerMode="true"
-        :autoplay="2"
+        :autoplay="true"
+        :speed="1000"
+        paginationPosition="bottom-overlay"
+        paginationActiveColor="#666"
         :loop="true"
         style
       >
@@ -64,58 +40,14 @@
 import data from '../../data/data.json'
 import data1 from '../../data/data1.json'
 import data2 from '../../data/data2.json'
-import firebase from 'firebase'
-import '../ToastPositionPicker'
-
-const config = JSON.parse(process.env.VUE_APP_AUTH_MUSOC)
-if (!firebase.apps.length) firebase.initializeApp(config)
-const staticdb = firebase.firestore()
 
 export default {
   name: 'cards',
   data () {
     return {
       people: [data, data1, data2],
-      faq: '',
-      title: '',
-      description: '',
-      sender: 'Anonymous',
-      toastText: 'This toast is awesome!',
-      toastIcon: 'fa-star-o',
     }
   },
-  methods: {
-    launchToast (result, icon) {
-      this.showToast(result, {
-        icon: icon,
-        duration: 2500,
-        fullWidth: true,
-      })
-    },
-    executer () {
-      const issueid = Date.now()
-        .toString()
-        .slice(3, 11)
-        this.sender = '20180795'
-        staticdb
-          .collection('Store')
-          .doc('Grievances')
-          .collection(this.sender)
-          .add({
-            type: this.perPage,
-            description: this.description,
-            issueid: issueid,
-          })
-          .then(res => {
-            this.launchToast(
-              'Your Response has been submitted!',
-              'fa-check-circle',
-            )
-            this.description = ''
-          })
-          .catch(e =>console.log(e))
-    },
-  }
 }
 </script>
 <style lang='scss' scoped>
@@ -126,48 +58,8 @@ img {
   height: 175px;
 }
 
-.grieve {
-  background-color: rgba($color: #ffffff, $alpha: 0.9);
-  border: 1px solid rgba($color: #000000, $alpha: 0.01);
-  padding: 0.5em;
-  height: 2.75em;
-  width: 100%;
-  border-radius: 0.25em;
-  transition: all 0.3s;
-  &:hover {
-    background-color: rgba($color: #ffffff, $alpha: 0.95);
-    border: 2px solid rgba(0, 122, 255, 0.5);
-    transition: all 0.3s;
-  }
-  &:focus {
-    background-color: rgba($color: #ffffff, $alpha: 1);
-    border: 2px solid rgba(0, 122, 255, 1);
-    transition: all 0.3s;
-  }
-}
-
-.send {
-  float: right;
-  height: 2em;
-  width: 6em;
-  color: white;
-  background-color: rgba(0, 122, 255, 1);
-  margin-top: 1.75em;
-  border: 1px solid rgba($color: #000000, $alpha: 0.01);
-  border-radius: 0.25em;
-  transition: all 0.3s;
-}
-
-.send:hover {
-  cursor: pointer;
-  background-color: rgba(10, 132, 255, 1);
-  border: 1px solid rgba($color: #ffffff, $alpha: 0.75);
-  transition: all 0.3s;
-}
-
 .issues {
   color: white;
-  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
-  margin-bottom: 1em;
+  background: #222;
 }
 </style>

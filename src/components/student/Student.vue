@@ -36,7 +36,7 @@
         <Humanity />
       </div>
     </va-collapse>
-    <div class="flex xs12 sm6" data-aos="fade-right">
+    <div class="flex xs12 sm6">
       <va-card class="implinks">Important Links</va-card>
     </div>
     <div
@@ -58,79 +58,66 @@
       </a>
     </div>
     <div class="flex xs12 sm6">
-      <va-collapse customHeader>
-        <span slot="header">
-          <va-card class="portalboxes" style="text-align: center">
-            <i
-              class="icongrad fas fa-signature"
-              style="
-                background: -webkit-linear-gradient(45deg, green, white, green);
-              "
-            ></i>
-            <p>PR Drives</p>
+      <va-card class="upcoming">PR Drives</va-card>
+    </div>
+    <div class="flex xs12 sm6">
+      <va-card class="flex xs12" style="overflow-x: auto; display: inline">
+        <template v-for="prevent in pr">
+          <va-card
+            class="flex xs12"
+            :key="'item' + prevent.name"
+            data-aos="fade-left"
+          >
+            <form @submit.prevent="onsubmit()">
+              <template v-for="(imag, i) in prevent.images">
+                <img
+                  :src="prevent.images[i].image"
+                  width="300px"
+                  :key="imag.image"
+                />
+              </template>
+              <br />
+              <va-input
+                v-model="withDescription"
+                placeholder="Enter the scanned QR code here"
+              />
+              <div v-if="prevent.is_nick == true">
+                <h2>
+                  Price: {{ prevent.price }} ( +{{
+                    prevent.price_nick - prevent.price
+                  }}
+                  for Nick )
+                </h2>
+                <input type="checkbox" name="nick" v-model="checkbox" />
+                <label for="nick"> Add Nick?</label><br />
+                <va-input
+                  v-if="checkbox == true"
+                  v-model="nick"
+                  placeholder="Enter nick here"
+                />
+                <va-input
+                  label="Number of Tees"
+                  v-model="value"
+                  type="number"
+                  width="50%"
+                />
+              </div>
+              <div v-else>
+                <h2>Price</h2>
+                {{ prevent.price }}
+              </div>
+              <va-select
+                label="Choose Size"
+                v-model="simpleSelectModel"
+                textBy="description"
+                :options="prevent.available_sizes"
+                width="50%"
+              />
+              <va-button color="danger" type="submit">Go</va-button>
+            </form>
           </va-card>
-        </span>
-
-        <div slot="body">
-          <va-card class="flex xs12" style="overflow-x: auto; display: inline">
-            <template v-for="prevent in pr">
-              <va-card
-                class="flex xs12"
-                :key="'item' + prevent.name"
-                data-aos="fade-left"
-              >
-                <form @submit.prevent="onsubmit()">
-                  <template v-for="(imag, i) in prevent.images">
-                    <img
-                      :src="prevent.images[i].image"
-                      width="300px"
-                      :key="imag.image"
-                    />
-                  </template>
-                  <br />
-                  <va-input
-                    v-model="withDescription"
-                    placeholder="Enter the scanned QR code here"
-                  />
-                  <div v-if="prevent.is_nick == true">
-                    <h2>
-                      Price: {{ prevent.price }} ( +{{
-                        prevent.price_nick - prevent.price
-                      }}
-                      for Nick )
-                    </h2>
-                    <input type="checkbox" name="nick" v-model="checkbox" />
-                    <label for="nick"> Add Nick?</label><br />
-                    <va-input
-                      v-if="checkbox == true"
-                      v-model="nick"
-                      placeholder="Enter nick here"
-                    />
-                    <va-input
-                      label="Number of Tees"
-                      v-model="value"
-                      type="number"
-                      width="50%"
-                    />
-                  </div>
-                  <div v-else>
-                    <h2>Price</h2>
-                    {{ prevent.price }}
-                  </div>
-                  <va-select
-                    label="Choose Size"
-                    v-model="simpleSelectModel"
-                    textBy="description"
-                    :options="prevent.available_sizes"
-                    width="50%"
-                  />
-                  <va-button color="danger" type="submit">Go</va-button>
-                </form>
-              </va-card>
-            </template>
-          </va-card>
-        </div>
-      </va-collapse>
+        </template>
+      </va-card>
     </div>
   </div>
 </template>
@@ -214,10 +201,11 @@ p {
 
 .upcoming {
   background-image: radial-gradient(
-    circle at 0% 0%,
-    rgba(144, 238, 144, 1) 0%,
-    rgba(255, 229, 180, 1) 40%,
-    rgba(252, 70, 107, 1) 100%
+    circle at 90% 10%,
+    pink,
+    lightblue,
+    red,
+    orange
   );
   color: white;
   font-size: 300%;
