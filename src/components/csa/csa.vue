@@ -11,14 +11,6 @@
           height: 17em;
         "
       >
-        <div class="row align--center">
-          <div class="flex xs12 md6" style="color: #c0c0c0">
-            <va-toggle v-model="toggle" label="(Send Anonymously!)" />
-          </div>
-          <div class="flex xs12 md3 offset--md3">
-            <va-select v-model="perPage" :options="perPageOptions" noClear />
-          </div>
-        </div>
         <form @submit.prevent="executer()">
           <div class="row">
             <div class="flex xs12">
@@ -36,10 +28,11 @@
     </div>
 
     <div
-      v-for="set in people"
+      v-for="(set, i) in people"
       :key="set"
       class="flex xs12 sm6"
       data-aos="fade-right"
+      :data-aos-delay="(i + 1) * 50"
     >
       <carousel
         :per-page="1"
@@ -83,9 +76,6 @@ export default {
   data () {
     return {
       people: [data, data1, data2],
-      perPage: 'Complaint',
-      perPageOptions: ['Complaint', 'FAQ', 'RTI'],
-      toggle: false,
       faq: '',
       title: '',
       description: '',
@@ -106,7 +96,6 @@ export default {
       const issueid = Date.now()
         .toString()
         .slice(3, 11)
-      if (this.toggle === false) {
         this.sender = '20180795'
         staticdb
           .collection('Store')
@@ -115,7 +104,6 @@ export default {
           .add({
             type: this.perPage,
             description: this.description,
-            status: false,
             issueid: issueid,
           })
           .then(res => {
@@ -125,31 +113,7 @@ export default {
             )
             this.description = ''
           })
-          .catch(error => {
-            console.error(error)
-          })
-      } else {
-        this.sender = 'Anonymous'
-      }
-      staticdb
-        .collection('Save')
-        .doc(this.perPage)
-        .collection(this.sender)
-        .add({
-          description: this.description,
-          type: this.perPage,
-          student: this.sender,
-          status: false,
-          issueid: issueid,
-        })
-        .then(res => {
-          this.launchToast('Thank You for letting us Know!', 'fa-check-circle')
-          this.description = ''
-        })
-        .catch(error => {
-          console.error(error)
-          this.launchToast('Error! Please Try Again Later', 'fa-bug')
-        })
+          .catch(e =>console.log(e))
     },
   }
 }

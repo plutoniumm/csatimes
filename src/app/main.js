@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VuesticPlugin from './preprocessor'
+import Elements from './localprocessor'
 import { firestorePlugin } from 'vuefire'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -20,6 +21,7 @@ export const ColorThemePlugin = {
 }
 
 
+Vue.use( Elements )
 Vue.use( VuesticPlugin )
 Vue.use( firestorePlugin )
 Vue.use( VueCarousel )

@@ -2,22 +2,20 @@
   <li
     class="app-sidebar-link"
     style="overflow: hidden"
-    :class="computedLinkClass"
+    :class="`${minimized ? 'app-sidebar-link--minimized' : ''}`"
   >
     <router-link
       class="app-sidebar-link__item"
-      :style="computedLinkStyles"
+      style="color: #fff"
       :to="to"
-      :target="target"
+      target="_self"
     >
       <div>
-        <va-icon v-if="icon" :name="icon" style="margin: 0.5rem">{{
-          icon
-        }}</va-icon>
+        <span v-if="icon" :name="icon" style="margin: 0.5rem">{{ icon }}</span>
       </div>
       <div
         class="app-sidebar-link__item-title"
-        style="color: white"
+        style="color: #fff"
         v-if="title"
       >
         <slot>{{ title }}</slot>
@@ -28,22 +26,12 @@
 
 <script>
 export default {
-  data () {
-    return {
-      colorThemeDefault: 'primary',
-      colorDefault: '#000000',
-    }
-  },
   name: 'app-sidebar-link',
   inject: ['contextConfig'],
   props: {
     to: {
       type: [Object, String],
       default: '',
-    },
-    target: {
-      type: String,
-      default: '_self',
     },
     icon: {
       type: [Object, String],
@@ -55,37 +43,11 @@ export default {
     minimized: {
       type: Boolean,
     },
-    color: {
-      type: String,
-    },
-  },
-  computed: {
-    computedLinkClass () {
-      return {
-        'app-sidebar-link--minimized': this.minimized,
-      }
-    },
-    colorComputed () {
-      if ( this.$themes && this.$themes[ this.color ] ) {
-        return this.$themes[ this.color ]
-      }
-      if ( this.color ) {
-        return this.color
-      }
-      if ( this.$themes && this.$themes[ this.colorThemeDefault ] ) {
-        return this.$themes[ this.colorThemeDefault ]
-      }
-      return this.colorDefault
-    },
   },
 }
 </script>
 
 <style lang="scss">
-li {
-  color: #888fff;
-}
-
 .app-sidebar-link {
   display: flex;
 
@@ -133,7 +95,6 @@ li {
         height: 0;
         display: block;
         text-align: center;
-        font-weight: normal;
       }
     }
     &-title {

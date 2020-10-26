@@ -1,19 +1,22 @@
 <template>
-  <div class="xs12">
-    <va-card color="info" style="text-align: center; font-size: 3rem">
+  <div>
+    <va-card
+      color="info"
+      style="text-align: center; font-size: 3rem; margin: 0 0 15px 0"
+    >
       <h2>
         <i class="fas fa-medal"></i> HALL OF FAME <i class="fas fa-medal"></i>
       </h2>
     </va-card>
-    <br />
     <va-card
       color="danger"
       class="offset--md4 flex md4"
       style="text-align: center"
     >
-      This is ten percent luck, twenty percent skill <br />Fifteen percent
-      concentrated power of will <br />Five percent pleasure, fifty percent pain
-      <br />And a hundred percent reason to remember the name!
+      This is ten percent luck, twenty percent skill <br />
+      Fifteen percent concentrated power of will <br />
+      Five percent pleasure, fifty percent pain <br />
+      And a hundred percent reason to remember the name!
     </va-card>
 
     <div style="display: flex; flex-wrap: wrap">

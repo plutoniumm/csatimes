@@ -7,7 +7,7 @@
           :placeholder="'Search by Course Code, Name or IC'"
           removable
         >
-          <va-icon name="fa fa-search" slot="prepend" />
+          <span slot="prepend"><i class="fas fa-search"></i></span>
         </va-input>
       </div>
 

@@ -1,5 +1,8 @@
 <template>
-  <aside class="app-sidebar" :class="computedClass" :style="computedStyle">
+  <aside
+    class="app-sidebar"
+    :class="`${minimized ? 'app-sidebar--minimized' : ''}`"
+  >
     <ul class="app-sidebar__menu">
       <app-sidebar-link
         class="app-navbar__menu"
@@ -52,12 +55,7 @@ export default {
       set (minimized) {
         this.$emit('update:minimized', minimized)
       },
-    },
-    computedClass () {
-      return {
-        'app-sidebar--minimized': this.minimized,
-      }
-    },
+    }
   },
 }
 

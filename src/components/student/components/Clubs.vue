@@ -1,10 +1,10 @@
 <template>
   <div>
-      <div v-for="club in clubs" :key="club" style="margin:10px 0;">
-        <va-card style="background: #ddd">
+        <va-card style="background: linear-gradient(to right, #eee, #ccc);margin: 10px 0" 
+        v-for="club in clubs" :key="club">
           <span style="font-size: 2rem">{{ club.Club }} ({{ club.Founded || 'Unknown' }}) </span>
-            <hr />
-          <div>{{ club.Description }}</div>
+            <hr style="border: 1px solid #aaa" />
+          <div style="line-height:1.5em;padding:10px 0;">{{ club.Description }}</div>
 
           <div style="display: flex; overflow-x: scroll;padding:5px 0;">
           <va-card
@@ -29,7 +29,6 @@
           </va-card>
         </div>
         </va-card>
-      </div>
   </div>
 </template>
 
@@ -45,6 +44,10 @@ export default {
 </script>
 
 <style lang="scss">
+*::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: black;
 }

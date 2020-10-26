@@ -99,7 +99,8 @@
                       }}
                       for Nick )
                     </h2>
-                    <va-checkbox label="Add nick?" v-model="checkbox" />
+                    <input type="checkbox" name="nick" v-model="checkbox" />
+                    <label for="nick"> Add Nick?</label><br />
                     <va-input
                       v-if="checkbox == true"
                       v-model="nick"
