@@ -30,7 +30,7 @@
         <va-collapse customHeader>
           <span slot="header">
             <va-button
-              style="width: 100%"
+              style="width: 50%"
               color="info"
               icon-right="ion-ios-arrow-down arrow-down"
               >Bulletin Description</va-button

@@ -69,5 +69,17 @@ body {
   justify-content: center;
   align-items: center;
   height: 2.5em;
+
+  @media only screen and (max-width: 1024px){
+    margin-bottom: 0.5rem;	
+    height: 2.5em;	
+    font-size: 4rem;		
+}
+  
+  @media only screen and (max-width: 820px){
+    margin-bottom: 0.5rem;	
+    height: 4.5rem;	
+    font-size: 4rem;	
+}
 }
 </style>

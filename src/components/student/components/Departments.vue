@@ -15,7 +15,7 @@
             :data-aos="i<3?'fade-right':''"
             :data-aos-delay="j*50"
           >
-          <div class="blur" style="background:#0006;padding:15px;color:#fff;border-radius:8px;">
+          <div class="blur" style="background-image: -webkit-linear-gradient(#1a1a1a, #1a1a1a); padding:15px;color:#fff;border-radius:8px;">
             <h1 style="font-size: 1.5rem">{{ por.Name }}</h1>
             {{ por.Post }}
             <p style="padding: 7px; text-align: left">
