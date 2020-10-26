@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: black;
+  background-color: #111;
 }
 
 p {

@@ -1,12 +1,19 @@
 <template>
   <div class="xs12">
-    <va-card color="info" style="text-align: center; font-size: 3rem; background-image: linear-gradient(to right, blue 0%, red 100%);">
+    <va-card
+      color="info"
+      style="
+        text-align: center;
+        font-size: 3rem;
+        background-image: linear-gradient(to right, blue 0%, red 100%);
+      "
+    >
       <h2>BITS GOA STARTUPS</h2>
     </va-card>
     <div class="row">
       <div class="flex xs12 sm6 lg4" v-for="startup in startups" :key="startup">
         <va-card no-padding>
-          <va-card color="warning" style="background-image: -webkit-linear-gradient(#1a1a1a, #1a1a1a);">
+          <va-card color="warning" style="#222">
             <div style="text-align: center">
               <h3>{{ startup.Name }}</h3>
             </div>
@@ -36,6 +43,6 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: black;
+  background-color: #111;
 }
 </style>

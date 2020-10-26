@@ -1,10 +1,7 @@
 <template>
   <div class="row">
     <div class="flex xs12 sm6">
-      <va-card
-        title="Update Data"
-        style="background: linear-gradient(to right, #ddd, #fff)"
-      >
+      <va-card title="Update Data" class="infboxes">
         <form @submit.prevent="onsubmit()">
           <div
             style="display: flex; justify-content: space-around; margin: 5px 0"
@@ -42,6 +39,10 @@
             placeholder="Mobile No."
             pattern="^(\d{10})$"
             required
+          />
+          <input
+            type="submit"
+            style="border: 0; background: #aaa; width: 25%; margin: 10px 25%"
           />
           <div class="d-flex justify--center mt-3">
             <va-button type="submit" class="my-0">Confirm Details</va-button>
@@ -151,21 +152,24 @@ export default {
 
 <style lang="scss">
 body {
-  background-color: black;
+  background-color: #111;
 }
 
 input {
   outline: none;
   border: 0;
-  padding: 10px;
-  font-size: 20px;
+  width: 66%;
+  border-bottom: 1px solid #222;
+  padding: 5px;
+  font-size: 18px;
   margin: 5px 0;
-  background: #ddd;
-  border-radius: 5px;
+  background: transparent;
   &:focus {
     outline: none;
-    border: 0;
-    background: #fff;
+    background: #aaa;
+  }
+  &::placeholder {
+    color: #666;
   }
 }
 
@@ -174,12 +178,12 @@ input {
 }
 
 .infboxes {
-  background: -webkit-linear-gradient(#d0d0d0, #a0a0a0);
+  background: linear-gradient(to right, #aaa, #ccc);
   text-align: center;
 }
 
 .boxes {
-  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
+  background: #222;
   color: white;
 }
 </style>

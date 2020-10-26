@@ -57,7 +57,7 @@ export default {
 
 <style>
 .upds {
-  background: -webkit-linear-gradient(rgba(26, 26, 26, 1), rgba(26, 26, 26, 1));
+  background: #222;
   color: white;
   margin: 10px;
   width: calc(50% - 20px);

@@ -5,7 +5,6 @@ import VaButtonToggle
     from 'vuestic-ui/src/components/vuestic-components/va-button-toggle/VaButtonToggle.vue'
 import VaCard from 'vuestic-ui/src/components/vuestic-components/va-card/VaCard'
 import VaCollapse from 'vuestic-ui/src/components/vuestic-components/va-collapse/VaCollapse'
-import VaDataTable from 'vuestic-ui/src/components/vuestic-components/va-data-table/VaDataTable.vue'
 import VaDropdown from 'vuestic-ui/src/components/vuestic-components/va-dropdown/VaDropdown'
 import VaInput from 'vuestic-ui/src/components/vuestic-components/va-input/VaInput'
 import VaPagination from 'vuestic-ui/src/components/vuestic-components/va-pagination/VaPagination.vue'
@@ -30,7 +29,6 @@ const VuesticPlugin = {
             VaButton, VaButtonGroup, VaButtonToggle,
             VaCard,
             VaCollapse,
-            VaDataTable,
             VaDropdown, VaInput, VaSelect,
             VaPagination,
             VaPopover,

@@ -30,7 +30,6 @@ body,
 #app {
   height: 100%;
   background: #111;
-  background-color: black;
 }
 * {
   font-family: Helvetica, Arial, sans-serif;

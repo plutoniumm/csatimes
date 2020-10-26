@@ -49,7 +49,7 @@ export default {
 }
 
 body {
-  background-color: black;
+  background-color: #111;
 }
 
 p {
