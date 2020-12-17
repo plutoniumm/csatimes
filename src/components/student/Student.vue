@@ -61,7 +61,7 @@
       <va-card class="upcoming">PR Drives</va-card>
     </div>
     <div class="flex xs12 sm6">
-      <va-card class="flex xs12" style="overflow-x: auto; display: inline">
+      <!-- <va-card class="flex xs12" style="overflow-x: auto; display: inline"> -->
         <template v-for="prevent in pr">
           <va-card
             class="flex xs12"
@@ -117,7 +117,7 @@
             </form>
           </va-card>
         </template>
-      </va-card>
+      <!-- </va-card> -->
     </div>
   </div>
 </template>

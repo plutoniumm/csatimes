@@ -13,9 +13,11 @@
       <div style="margin: 0.5em 0">{{ nt.name }}</div>
       <span style="color: #dddddd" :id="'less' + i">
         {{ nt.summary.slice(0, 140) }}...
-        <button v-on:click="flip(i)">Read More</button>
+        <button v-on:click="flip(i)">   Read More</button>
       </span>
-      <span style="display: none" :id="'more' + i">{{ nt.summary }}</span>
+      <span style="display: none" :id="'more' + i">{{ nt.summary }}
+        <button v-on:click="flipback(i)">   Read Less</button>
+      </span>
     </va-card>
   </div>
 </template>
@@ -40,6 +42,10 @@ export default {
     flip (i) {
       document.getElementById('less' + i).style.display = 'none'
       document.getElementById('more' + i).style.display = 'block'
+    },
+    flipback (i) {
+      document.getElementById('less' + i).style.display = 'block'
+      document.getElementById('more' + i).style.display = 'none'
     },
   },
   mounted () {
@@ -68,5 +74,6 @@ button {
   background-color: transparent;
   color: rgba(0, 122, 255, 1);
   padding: 0.25em;
+  margin: 0.25em; 
 }
 </style>
