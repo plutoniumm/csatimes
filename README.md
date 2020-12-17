@@ -11,10 +11,10 @@
 - [Contribution Guidelines ✒](#contribution-guidelines)
 
 ## Quick Start
-This is the github repository for Disphenoid, a tracker free youtube.
+This is the github repository for CSA Times Web Portal, an all encompassing comprehensive Web portal for students of BITS Pilani, Goa Campus.
 1. Clone the repo
-2. Change api_sample.js to api.js
-3. Add Your own youtube api key
+2. Install modules - yarn install
+3. Deploy - yarn serve
 
 ## Features
 
