@@ -37,17 +37,37 @@
 </template>
 
 <script>
-import data from '../../data/data.json'
-import data1 from '../../data/data1.json'
-import data2 from '../../data/data2.json'
+// import data from '../../data/data.json'
+// import data1 from '../../data/data1.json'
+// import data2 from '../../data/data2.json'
+import axios from 'axios'
 
 export default {
   name: 'cards',
   data () {
     return {
+      data:null,
+      data1:null,
+      data2:null,
       people: [data, data1, data2],
     }
   },
+  mounted() {
+    axios
+      .get(process.env.VUE_APP_DATA)
+      .then(response => {
+        this.data = response.data
+      })
+      .get(process.env.VUE_APP_DATA1)
+      .then(response => {
+        this.data1 = response.data
+      })
+      .get(process.env.VUE_APP_DATA2)
+      .then(response => {
+        this.data2 = response.data
+      })
+
+  }
 }
 </script>
 <style lang='scss' scoped>

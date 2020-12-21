@@ -46,16 +46,25 @@
 </template>
 
 <script>
-import data from '../../../data/halloffame.json'
+// import data from '../../../data/halloffame.json'
+import axios from 'axios'
 export default {
   name: 'cards',
   data () {
     return {
-      halls: data,
+      halls: null,
     }
   },
   methods: {
   },
+  mounted() {
+    axios
+      .get(process.env.VUE_APP_HOF)
+      .then(response => {
+        this.halls = response.data
+      })
+
+  }
 }
 </script>
 
