@@ -12,7 +12,7 @@
     "bulma": "0.9.0",
     "detect-browser": "5.2.0",
     "element-resize-detector": "1.2.1",
-    "firebase": "7.24.0",
+    "firebase": "8.6.7",
     "sass-loader": "7.3.1",
     "vue-carousel": "0.18.0",
     "vue-router": "3.4.7",
