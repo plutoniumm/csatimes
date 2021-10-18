@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "aos": "2.3.4",
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "bulma": "0.9.0",
     "detect-browser": "5.2.0",
     "element-resize-detector": "1.2.1",
