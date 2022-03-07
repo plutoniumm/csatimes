@@ -15,7 +15,7 @@
     "firebase": "7.24.0",
     "sass-loader": "7.3.1",
     "vue-carousel": "0.18.0",
-    "vue-router": "3.4.7",
+    "vue-router": "3.5.3",
     "vuefire": "2.2.4",
     "vuestic-ui": "0.2.2"
   },
